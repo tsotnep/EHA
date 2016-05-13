@@ -29,7 +29,7 @@ begin
             when "011" => TX_out <= TX_S;
             when "100" => TX_out <= TX_L;
             when "101" => TX_out <= TX_R;
-            when others => TX_out <= (others => 'X');
+            when others => TX_out <= (others => '0');
         end case;
     end process mux;
 

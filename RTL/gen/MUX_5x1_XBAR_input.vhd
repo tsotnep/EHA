@@ -25,7 +25,7 @@ begin
             when "010" => Xbar_sel_out <= Xbar_sel_W;
             when "011" => Xbar_sel_out <= Xbar_sel_S;
             when "100" => Xbar_sel_out <= Xbar_sel_L;
-            when others => Xbar_sel_out <= (others => 'Z');
+            when others => Xbar_sel_out <= (others => '0');
         end case;
     end process mux;
 end architecture RTL;
