@@ -125,6 +125,18 @@ architecture behavior of router is
              TX_R                   : in  std_logic_vector(DATA_WIDTH-1 downto 0));
     end component MUX_6x1_XBAR_output;
 
+    component MUX_5x1_Arbiter_input
+        generic(DATA_WIDTH : integer := 32);
+        port(MUX_Arbiter_input_sel_in                                        : in  std_logic_vector(2 downto 0);
+             Req_N_out, Req_E_out, Req_W_out, Req_S_out, Req_L_out, DCTS_out : out std_logic;
+             DCTS_N, DCTS_E, DCTS_W, DCTS_S, DCTS_L                          : in  std_logic;
+             Req_NN, Req_NE, Req_NW, Req_NS, Req_NL                          : in  std_logic;
+             Req_EN, Req_EE, Req_EW, Req_ES, Req_EL                          : in  std_logic;
+             Req_WN, Req_WE, Req_WW, Req_WS, Req_WL                          : in  std_logic;
+             Req_SN, Req_SE, Req_SW, Req_SS, Req_SL                          : in  std_logic;
+             Req_LN, Req_LE, Req_LW, Req_LS, Req_LL                          : in  std_logic);
+    end component MUX_5x1_Arbiter_input;
+
     component MUX_6x1_Arbiter_output
         generic(DATA_WIDTH : integer := 32);
         port(MUX_Arbiter_output_sel_in                                              : in  std_logic_vector(2 downto 0);
@@ -162,12 +174,12 @@ architecture behavior of router is
     --DCTS_N, DCTS_E, DCTS_w, DCTS_S, DCTS_L --toplevel inputs
 
     --input signals to MODULE, coming out from MUX_5x1_MODULE_input
-    signal Req_NN_valid, Req_EN_valid, Req_WN_valid, Req_SN_valid, Req_LN_valid: std_logic;
-    signal Req_NE_valid, Req_EE_valid, Req_WE_valid, Req_SE_valid, Req_LE_valid: std_logic;
-    signal Req_NW_valid, Req_EW_valid, Req_WW_valid, Req_SW_valid, Req_LW_valid: std_logic;
-    signal Req_NS_valid, Req_ES_valid, Req_WS_valid, Req_SS_valid, Req_LS_valid: std_logic;
-    signal Req_NL_valid, Req_EL_valid, Req_WL_valid, Req_SL_valid, Req_LL_valid: std_logic;
-    signal DCTS_N_valid, DCTS_E_valid, DCTS_W_valid, DCTS_S_valid, DCTS_L_valid: std_logic;
+    signal DCTS_N_valid, Req_NN_valid, Req_EN_valid, Req_WN_valid, Req_SN_valid, Req_LN_valid : std_logic;
+    signal DCTS_E_valid, Req_NE_valid, Req_EE_valid, Req_WE_valid, Req_SE_valid, Req_LE_valid : std_logic;
+    signal DCTS_W_valid, Req_NW_valid, Req_EW_valid, Req_WW_valid, Req_SW_valid, Req_LW_valid : std_logic;
+    signal DCTS_S_valid, Req_NS_valid, Req_ES_valid, Req_WS_valid, Req_SS_valid, Req_LS_valid : std_logic;
+    signal DCTS_L_valid, Req_NL_valid, Req_EL_valid, Req_WL_valid, Req_SL_valid, Req_LL_valid : std_logic;
+    signal DCTS_R_valid, Req_NR_valid, Req_ER_valid, Req_WR_valid, Req_SR_valid, Req_LR_valid : std_logic;
 
     --output signals from MODULE, going into MUX_6x1_MODULE_output
     -- Grant_XY : Grant signal generated from Arbiter for output X connected to FIFO of input Y
@@ -176,8 +188,9 @@ architecture behavior of router is
     signal Grant_WN_temp, Grant_WE_temp, Grant_WW_temp, Grant_WS_temp, Grant_WL_temp: std_logic;
     signal Grant_SN_temp, Grant_SE_temp, Grant_SW_temp, Grant_SS_temp, Grant_SL_temp: std_logic;
     signal Grant_LN_temp, Grant_LE_temp, Grant_LW_temp, Grant_LS_temp, Grant_LL_temp: std_logic;
+    signal Grant_RN_temp, Grant_RE_temp, Grant_RW_temp, Grant_RS_temp, Grant_RL_temp: std_logic;
+    signal RTS_N_temp, RTS_E_temp, RTS_W_temp, RTS_S_temp, RTS_L_temp, RTS_R_temp: std_logic;
     signal Xbar_sel_N_temp, Xbar_sel_E_temp, Xbar_sel_W_temp, Xbar_sel_S_temp, Xbar_sel_L_temp, Xbar_sel_R_temp: std_logic_vector(4 downto 0);
-    signal RTS_N_temp, RTS_E_temp, RTS_W_temp, RTS_S_temp, RTS_L_temp: std_logic;
 
     --outputs of MUX_6x1_MODULE_output goint into somewhere.
     signal Grant_NN, Grant_NE, Grant_NW, Grant_NS, Grant_NL: std_logic;
@@ -312,44 +325,51 @@ LBDR_L: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, C
 -- all the Arbiters
 Arbiter_N: Arbiter
    PORT MAP (reset => reset, clk => clk,
-          Req_N => '0' , Req_E => Req_EN, Req_W => Req_WN, Req_S => Req_SN, Req_L => Req_LN,
-          DCTS => DCTS_N, Grant_N => Grant_NN, Grant_E => Grant_NE, Grant_W => Grant_NW, Grant_S => Grant_NS, Grant_L => Grant_NL,
-          Xbar_sel => Xbar_sel_N,
-          RTS =>  RTS_N
+          Req_N => Req_NN_valid , Req_E => Req_EN_valid, Req_W => Req_WN_valid, Req_S => Req_SN_valid, Req_L => Req_LN_valid,
+          DCTS => DCTS_N_valid, Grant_N => Grant_NN_temp, Grant_E => Grant_NE_temp, Grant_W => Grant_NW_temp, Grant_S => Grant_NS_temp, Grant_L => Grant_NL_temp,
+          Xbar_sel => Xbar_sel_N_temp,
+          RTS =>  RTS_N_temp
         );
 
 Arbiter_E: Arbiter
    PORT MAP (reset => reset, clk => clk,
-          Req_N => Req_NE , Req_E => '0', Req_W => Req_WE, Req_S => Req_SE, Req_L => Req_LE,
-          DCTS => DCTS_E, Grant_N => Grant_EN, Grant_E => Grant_EE, Grant_W => Grant_EW, Grant_S => Grant_ES, Grant_L => Grant_EL,
-          Xbar_sel => Xbar_sel_E,
-          RTS =>  RTS_E
+          Req_N => Req_NE_valid , Req_E => Req_EE_valid, Req_W => Req_WE_valid, Req_S => Req_SE_valid, Req_L => Req_LE_valid,
+          DCTS => DCTS_E_valid, Grant_N => Grant_EN_temp, Grant_E => Grant_EE_temp, Grant_W => Grant_EW_temp, Grant_S => Grant_ES_temp, Grant_L => Grant_EL_temp,
+          Xbar_sel => Xbar_sel_E_temp,
+          RTS =>  RTS_E_temp
         );
 
 Arbiter_W: Arbiter
    PORT MAP (reset => reset, clk => clk,
-          Req_N => Req_NW , Req_E => Req_EW, Req_W => '0', Req_S => Req_SW, Req_L => Req_LW,
-          DCTS => DCTS_W, Grant_N => Grant_WN, Grant_E => Grant_WE, Grant_W => Grant_WW, Grant_S => Grant_WS, Grant_L => Grant_WL,
-          Xbar_sel => Xbar_sel_W,
-          RTS =>  RTS_W
+          Req_N => Req_NW_valid , Req_E => Req_EW_valid, Req_W => Req_WW_valid, Req_S => Req_SW_valid, Req_L => Req_LW_valid,
+          DCTS => DCTS_W_valid, Grant_N => Grant_WN_temp, Grant_E => Grant_WE_temp, Grant_W => Grant_WW_temp, Grant_S => Grant_WS_temp, Grant_L => Grant_WL_temp,
+          Xbar_sel => Xbar_sel_W_temp,
+          RTS =>  RTS_W_temp
         );
 
 Arbiter_S: Arbiter
    PORT MAP (reset => reset, clk => clk,
-          Req_N => Req_NS , Req_E => Req_ES, Req_W => Req_WS, Req_S => '0', Req_L => Req_LS,
-          DCTS => DCTS_S, Grant_N => Grant_SN, Grant_E => Grant_SE, Grant_W => Grant_SW, Grant_S => Grant_SS, Grant_L => Grant_SL,
-          Xbar_sel => Xbar_sel_S,
-          RTS =>  RTS_S
+          Req_N => Req_NS_valid , Req_E => Req_ES_valid, Req_W => Req_WS_valid, Req_S => Req_SS_valid, Req_L => Req_LS_valid,
+          DCTS => DCTS_S_valid, Grant_N => Grant_SN_temp, Grant_E => Grant_SE_temp, Grant_W => Grant_SW_temp, Grant_S => Grant_SS_temp, Grant_L => Grant_SL_temp,
+          Xbar_sel => Xbar_sel_S_temp,
+          RTS =>  RTS_S_temp
         );
 
 Arbiter_L: Arbiter
    PORT MAP (reset => reset, clk => clk,
-          Req_N => Req_NL , Req_E => Req_EL, Req_W => Req_WL, Req_S => Req_SL, Req_L => '0',
-          DCTS => DCTS_L, Grant_N => Grant_LN, Grant_E => Grant_LE, Grant_W => Grant_LW, Grant_S => Grant_LS, Grant_L => Grant_LL,
-          Xbar_sel => Xbar_sel_L,
-          RTS =>  RTS_L
+          Req_N => Req_NL_valid , Req_E => Req_EL_valid, Req_W => Req_WL_valid, Req_S => Req_SL_valid, Req_L => Req_LL_valid,
+          DCTS => DCTS_L_valid, Grant_N => Grant_LN_temp, Grant_E => Grant_LE_temp, Grant_W => Grant_LW_temp, Grant_S => Grant_LS_temp, Grant_L => Grant_LL_temp,
+          Xbar_sel => Xbar_sel_L_temp,
+          RTS =>  RTS_L_temp
         );
 
+Arbiter_R: Arbiter
+   PORT MAP (reset => reset, clk => clk,
+          Req_N => Req_NR_valid , Req_E => Req_ER_valid, Req_W => Req_WR_valid, Req_S => Req_SR_valid, Req_L => Req_LR_valid,
+          DCTS => DCTS_R_valid, Grant_N => Grant_RN_temp, Grant_E => Grant_RE_temp, Grant_W => Grant_RW_temp, Grant_S => Grant_RS_temp, Grant_L => Grant_RL_temp,
+          Xbar_sel => Xbar_sel_R_temp,
+          RTS =>  RTS_R_temp
+        );
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
@@ -388,7 +408,15 @@ XBAR_R: XBAR generic map (DATA_WIDTH  => DATA_WIDTH)
 --     wait;
 -- end process xbar_fault;
 
-
+arbiter_fault: process begin
+    wait for 50 ns;
+    Fault_Info_Arbiter_in <= "001000";
+    wait for 50 ns;
+    Fault_Info_Arbiter_in <= "000100";
+    wait for 50 ns;
+    Fault_Info_Arbiter_in <= "000001";
+    wait;
+end process arbiter_fault;
 
 -- all the control units for redundancy
 ------------------------------------------------------------------------------------------------------------------------------
@@ -396,7 +424,7 @@ XBAR_R: XBAR generic map (DATA_WIDTH  => DATA_WIDTH)
 ------------------------------------------------------------------------------------------------------------------------------
 Fault_Control_inst_Xbar : component Fault_Control
     port map(
-        Fault_Info_in                      => Fault_Info_Xbar_in,
+        Fault_Info_in     => Fault_Info_Xbar_in,
         MUX_5x1_module_input_select_N_out  => MUX_5x1_Xbar_input_select_N_out,
         MUX_5x1_module_input_select_E_out  => MUX_5x1_Xbar_input_select_E_out,
         MUX_5x1_module_input_select_W_out  => MUX_5x1_Xbar_input_select_W_out,
@@ -410,7 +438,21 @@ Fault_Control_inst_Xbar : component Fault_Control
         MUX_6x1_module_output_select_L_out => MUX_6x1_Xbar_output_select_L_out
     );
 
-
+Fault_Control_inst_Arbiter : component Fault_Control
+    port map(
+        Fault_Info_in     => Fault_Info_Arbiter_in,
+        MUX_5x1_module_input_select_N_out  => MUX_5x1_Arbiter_input_select_N_out,
+        MUX_5x1_module_input_select_E_out  => MUX_5x1_Arbiter_input_select_E_out,
+        MUX_5x1_module_input_select_W_out  => MUX_5x1_Arbiter_input_select_W_out,
+        MUX_5x1_module_input_select_S_out  => MUX_5x1_Arbiter_input_select_S_out,
+        MUX_5x1_module_input_select_L_out  => MUX_5x1_Arbiter_input_select_L_out,
+        MUX_5x1_module_input_select_R_out  => MUX_5x1_Arbiter_input_select_R_out,
+        MUX_6x1_module_output_select_N_out => MUX_6x1_Arbiter_output_select_N_out,
+        MUX_6x1_module_output_select_E_out => MUX_6x1_Arbiter_output_select_E_out,
+        MUX_6x1_module_output_select_W_out => MUX_6x1_Arbiter_output_select_W_out,
+        MUX_6x1_module_output_select_S_out => MUX_6x1_Arbiter_output_select_S_out,
+        MUX_6x1_module_output_select_L_out => MUX_6x1_Arbiter_output_select_L_out
+    );
 
 -- all the muxes for redundancy
 ------------------------------------------------------------------------------------------------------------------------------
@@ -472,12 +514,12 @@ MUX_XBAR_input_N : component MUX_5x1_XBAR_input
     )
     port map(
         MUX_XBAR_input_sel_in => "000",
-        Xbar_sel_out          => Xbar_sel_N_valid,
-        Xbar_sel_N            => Xbar_sel_N,
-        Xbar_sel_E            => Xbar_sel_E,
-        Xbar_sel_W            => Xbar_sel_W,
-        Xbar_sel_S            => Xbar_sel_S,
-        Xbar_sel_L            => Xbar_sel_L
+        Xbar_sel_out        => Xbar_sel_N_valid,
+        Xbar_sel_N          => Xbar_sel_N,
+        Xbar_sel_E          => Xbar_sel_E,
+        Xbar_sel_W          => Xbar_sel_W,
+        Xbar_sel_S          => Xbar_sel_S,
+        Xbar_sel_L          => Xbar_sel_L
     );
 MUX_XBAR_input_E : component MUX_5x1_XBAR_input
     generic map(
@@ -485,12 +527,12 @@ MUX_XBAR_input_E : component MUX_5x1_XBAR_input
     )
     port map(
         MUX_XBAR_input_sel_in => "001",
-        Xbar_sel_out          => Xbar_sel_E_valid,
-        Xbar_sel_N            => Xbar_sel_N,
-        Xbar_sel_E            => Xbar_sel_E,
-        Xbar_sel_W            => Xbar_sel_W,
-        Xbar_sel_S            => Xbar_sel_S,
-        Xbar_sel_L            => Xbar_sel_L
+        Xbar_sel_out        => Xbar_sel_E_valid,
+        Xbar_sel_N          => Xbar_sel_N,
+        Xbar_sel_E          => Xbar_sel_E,
+        Xbar_sel_W          => Xbar_sel_W,
+        Xbar_sel_S          => Xbar_sel_S,
+        Xbar_sel_L          => Xbar_sel_L
     );
 MUX_XBAR_input_W : component MUX_5x1_XBAR_input
     generic map(
@@ -498,12 +540,12 @@ MUX_XBAR_input_W : component MUX_5x1_XBAR_input
     )
     port map(
         MUX_XBAR_input_sel_in => "010",
-        Xbar_sel_out          => Xbar_sel_W_valid,
-        Xbar_sel_N            => Xbar_sel_N,
-        Xbar_sel_E            => Xbar_sel_E,
-        Xbar_sel_W            => Xbar_sel_W,
-        Xbar_sel_S            => Xbar_sel_S,
-        Xbar_sel_L            => Xbar_sel_L
+        Xbar_sel_out        => Xbar_sel_W_valid,
+        Xbar_sel_N          => Xbar_sel_N,
+        Xbar_sel_E          => Xbar_sel_E,
+        Xbar_sel_W          => Xbar_sel_W,
+        Xbar_sel_S          => Xbar_sel_S,
+        Xbar_sel_L          => Xbar_sel_L
     );
 MUX_XBAR_input_S : component MUX_5x1_XBAR_input
     generic map(
@@ -511,12 +553,12 @@ MUX_XBAR_input_S : component MUX_5x1_XBAR_input
     )
     port map(
         MUX_XBAR_input_sel_in => "011",
-        Xbar_sel_out          => Xbar_sel_S_valid,
-        Xbar_sel_N            => Xbar_sel_N,
-        Xbar_sel_E            => Xbar_sel_E,
-        Xbar_sel_W            => Xbar_sel_W,
-        Xbar_sel_S            => Xbar_sel_S,
-        Xbar_sel_L            => Xbar_sel_L
+        Xbar_sel_out        => Xbar_sel_S_valid,
+        Xbar_sel_N          => Xbar_sel_N,
+        Xbar_sel_E          => Xbar_sel_E,
+        Xbar_sel_W          => Xbar_sel_W,
+        Xbar_sel_S          => Xbar_sel_S,
+        Xbar_sel_L          => Xbar_sel_L
     );
 MUX_XBAR_input_L : component MUX_5x1_XBAR_input
     generic map(
@@ -524,12 +566,12 @@ MUX_XBAR_input_L : component MUX_5x1_XBAR_input
     )
     port map(
         MUX_XBAR_input_sel_in => "100",
-        Xbar_sel_out          => Xbar_sel_L_valid,
-        Xbar_sel_N            => Xbar_sel_N,
-        Xbar_sel_E            => Xbar_sel_E,
-        Xbar_sel_W            => Xbar_sel_W,
-        Xbar_sel_S            => Xbar_sel_S,
-        Xbar_sel_L            => Xbar_sel_L
+        Xbar_sel_out        => Xbar_sel_L_valid,
+        Xbar_sel_N          => Xbar_sel_N,
+        Xbar_sel_E          => Xbar_sel_E,
+        Xbar_sel_W          => Xbar_sel_W,
+        Xbar_sel_S          => Xbar_sel_S,
+        Xbar_sel_L          => Xbar_sel_L
     );
 MUX_XBAR_input_R : component MUX_5x1_XBAR_input
     generic map(
@@ -537,12 +579,12 @@ MUX_XBAR_input_R : component MUX_5x1_XBAR_input
     )
     port map(
         MUX_XBAR_input_sel_in => MUX_5x1_Xbar_input_select_R_out,
-        Xbar_sel_out          => Xbar_sel_R_valid,
-        Xbar_sel_N            => Xbar_sel_N,
-        Xbar_sel_E            => Xbar_sel_E,
-        Xbar_sel_W            => Xbar_sel_W,
-        Xbar_sel_S            => Xbar_sel_S,
-        Xbar_sel_L            => Xbar_sel_L
+        Xbar_sel_out        => Xbar_sel_R_valid,
+        Xbar_sel_N          => Xbar_sel_N,
+        Xbar_sel_E          => Xbar_sel_E,
+        Xbar_sel_W          => Xbar_sel_W,
+        Xbar_sel_S          => Xbar_sel_S,
+        Xbar_sel_L          => Xbar_sel_L
     );
 
 
@@ -553,13 +595,13 @@ MUX_XBAR_output_N : component MUX_6x1_XBAR_output
         )
         port map(
             MUX_XBAR_output_sel_in => MUX_6x1_Xbar_output_select_N_out,
-            TX_out                 => TX_N,
-            TX_N                   => TX_N_temp,
-            TX_E                   => TX_E_temp,
-            TX_W                   => TX_W_temp,
-            TX_S                   => TX_S_temp,
-            TX_L                   => TX_L_temp,
-            TX_R                   => TX_R_temp
+            TX_out  => TX_N,
+            TX_N  => TX_N_temp,
+            TX_E  => TX_E_temp,
+            TX_W  => TX_W_temp,
+            TX_S  => TX_S_temp,
+            TX_L  => TX_L_temp,
+            TX_R  => TX_R_temp
         );
 MUX_XBAR_output_E : component MUX_6x1_XBAR_output
         generic map(
@@ -567,13 +609,13 @@ MUX_XBAR_output_E : component MUX_6x1_XBAR_output
         )
         port map(
             MUX_XBAR_output_sel_in => MUX_6x1_Xbar_output_select_E_out,
-            TX_out                 => TX_E,
-            TX_N                   => TX_N_temp,
-            TX_E                   => TX_E_temp,
-            TX_W                   => TX_W_temp,
-            TX_S                   => TX_S_temp,
-            TX_L                   => TX_L_temp,
-            TX_R                   => TX_R_temp
+            TX_out  => TX_E,
+            TX_N  => TX_N_temp,
+            TX_E  => TX_E_temp,
+            TX_W  => TX_W_temp,
+            TX_S  => TX_S_temp,
+            TX_L  => TX_L_temp,
+            TX_R  => TX_R_temp
         );
 MUX_XBAR_output_W : component MUX_6x1_XBAR_output
         generic map(
@@ -581,13 +623,13 @@ MUX_XBAR_output_W : component MUX_6x1_XBAR_output
         )
         port map(
             MUX_XBAR_output_sel_in => MUX_6x1_Xbar_output_select_W_out,
-            TX_out                 => TX_W,
-            TX_N                   => TX_N_temp,
-            TX_E                   => TX_E_temp,
-            TX_W                   => TX_W_temp,
-            TX_S                   => TX_S_temp,
-            TX_L                   => TX_L_temp,
-            TX_R                   => TX_R_temp
+            TX_out  => TX_W,
+            TX_N  => TX_N_temp,
+            TX_E  => TX_E_temp,
+            TX_W  => TX_W_temp,
+            TX_S  => TX_S_temp,
+            TX_L  => TX_L_temp,
+            TX_R  => TX_R_temp
         );
 MUX_XBAR_output_S : component MUX_6x1_XBAR_output
         generic map(
@@ -595,13 +637,13 @@ MUX_XBAR_output_S : component MUX_6x1_XBAR_output
         )
         port map(
             MUX_XBAR_output_sel_in => MUX_6x1_Xbar_output_select_S_out,
-            TX_out                 => TX_S,
-            TX_N                   => TX_N_temp,
-            TX_E                   => TX_E_temp,
-            TX_W                   => TX_W_temp,
-            TX_S                   => TX_S_temp,
-            TX_L                   => TX_L_temp,
-            TX_R                   => TX_R_temp
+            TX_out  => TX_S,
+            TX_N  => TX_N_temp,
+            TX_E  => TX_E_temp,
+            TX_W  => TX_W_temp,
+            TX_S  => TX_S_temp,
+            TX_L  => TX_L_temp,
+            TX_R  => TX_R_temp
         );
 MUX_XBAR_output_L : component MUX_6x1_XBAR_output
         generic map(
@@ -609,100 +651,241 @@ MUX_XBAR_output_L : component MUX_6x1_XBAR_output
         )
         port map(
             MUX_XBAR_output_sel_in => MUX_6x1_Xbar_output_select_L_out,
-            TX_out                 => TX_L,
-            TX_N                   => TX_N_temp,
-            TX_E                   => TX_E_temp,
-            TX_W                   => TX_W_temp,
-            TX_S                   => TX_S_temp,
-            TX_L                   => TX_L_temp,
-            TX_R                   => TX_R_temp
+            TX_out  => TX_L,
+            TX_N  => TX_N_temp,
+            TX_E  => TX_E_temp,
+            TX_W  => TX_W_temp,
+            TX_S  => TX_S_temp,
+            TX_L  => TX_L_temp,
+            TX_R  => TX_R_temp
     );
 
 
-    MUX_6x1_Arbiter_output_N : component MUX_6x1_Arbiter_output
+MUX_5x1_Arbiter_input_N : component MUX_5x1_Arbiter_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_Arbiter_input_sel_in => "000",
+
+        Req_N_out => Req_NN_valid,
+        Req_E_out => Req_EN_valid,
+        Req_W_out => Req_WN_valid,
+        Req_S_out => Req_SN_valid,
+        Req_L_out => Req_LN_valid,
+        DCTS_out  => DCTS_N_valid,
+        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
+        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
+        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
+        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
+        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
+        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
+MUX_5x1_Arbiter_input_E : component MUX_5x1_Arbiter_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_Arbiter_input_sel_in => "001",
+
+        Req_N_out => Req_NE_valid,
+        Req_E_out => Req_EE_valid,
+        Req_W_out => Req_WE_valid,
+        Req_S_out => Req_SE_valid,
+        Req_L_out => Req_LE_valid,
+        DCTS_out  => DCTS_E_valid,
+        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
+        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
+        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
+        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
+        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
+        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
+MUX_5x1_Arbiter_input_W : component MUX_5x1_Arbiter_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_Arbiter_input_sel_in => "010",
+
+        Req_N_out => Req_NW_valid,
+        Req_E_out => Req_EW_valid,
+        Req_W_out => Req_WW_valid,
+        Req_S_out => Req_SW_valid,
+        Req_L_out => Req_LW_valid,
+        DCTS_out  => DCTS_W_valid,
+        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
+        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
+        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
+        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
+        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
+        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
+MUX_5x1_Arbiter_input_S : component MUX_5x1_Arbiter_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_Arbiter_input_sel_in => "011",
+
+        Req_N_out => Req_NS_valid,
+        Req_E_out => Req_ES_valid,
+        Req_W_out => Req_WS_valid,
+        Req_S_out => Req_SS_valid,
+        Req_L_out => Req_LS_valid,
+        DCTS_out  => DCTS_S_valid,
+        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
+        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
+        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
+        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
+        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
+        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
+MUX_5x1_Arbiter_input_L : component MUX_5x1_Arbiter_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_Arbiter_input_sel_in => "100",
+
+        Req_N_out => Req_NL_valid,
+        Req_E_out => Req_EL_valid,
+        Req_W_out => Req_WL_valid,
+        Req_S_out => Req_SL_valid,
+        Req_L_out => Req_LL_valid,
+        DCTS_out  => DCTS_L_valid,
+        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
+        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
+        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
+        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
+        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
+        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
+MUX_5x1_Arbiter_input_R : component MUX_5x1_Arbiter_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_Arbiter_input_sel_in => MUX_5x1_Arbiter_input_select_R_out,
+
+        Req_N_out => Req_NR_valid,
+        Req_E_out => Req_ER_valid,
+        Req_W_out => Req_WR_valid,
+        Req_S_out => Req_SR_valid,
+        Req_L_out => Req_LR_valid,
+        DCTS_out  => DCTS_R_valid,
+        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
+        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
+        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
+        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
+        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
+        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
+
+
+MUX_6x1_Arbiter_output_N : component MUX_6x1_Arbiter_output
             generic map(
                 DATA_WIDTH => DATA_WIDTH
             )
             port map(
-                MUX_Arbiter_output_sel_in => "000",
-                Xbar_sel_out              => Xbar_sel_N,
-                RTS_out                   => RTS_N,
-                Xbar_sel_N                => Xbar_sel_N_temp, Xbar_sel_E => Xbar_sel_E_temp, Xbar_sel_W => Xbar_sel_W_temp, Xbar_sel_S => Xbar_sel_S_temp, Xbar_sel_L => Xbar_sel_L_temp, Xbar_sel_R => Xbar_sel_R_temp,
-                RTS_N                     => RTS_N_temp, RTS_E => RTS_E_temp, RTS_W => RTS_W_temp, RTS_S => RTS_S_temp, RTS_L => RTS_L_temp, RTS_R => RTS_R_temp,
-                Grant_NN                  => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
-                Grant_EN                  => Grant_EN_temp, Grant_EE => Grant_EE_temp, Grant_EW => Grant_EW_temp, Grant_ES => Grant_ES_temp, Grant_EL => Grant_EL_temp,
-                Grant_WN                  => Grant_WN_temp, Grant_WE => Grant_WE_temp, Grant_WW => Grant_WW_temp, Grant_WS => Grant_WS_temp, Grant_WL => Grant_WL_temp,
-                Grant_SN                  => Grant_SN_temp, Grant_SE => Grant_SE_temp, Grant_SW => Grant_SW_temp, Grant_SS => Grant_SS_temp, Grant_SL => Grant_SL_temp,
-                Grant_LN                  => Grant_LN_temp, Grant_LE => Grant_LE_temp, Grant_LW => Grant_LW_temp, Grant_LS => Grant_LS_temp, Grant_LL => Grant_LL_temp,
-                Grant_RN                  => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp
-            );
-    MUX_6x1_Arbiter_output_E : component MUX_6x1_Arbiter_output
+                MUX_Arbiter_output_sel_in => MUX_6x1_Arbiter_output_select_N_out,
+                Xbar_sel_out => Xbar_sel_N,
+                RTS_out => RTS_N,
+                Grant_N_out => Grant_NN,
+                Grant_E_out => Grant_NE,
+                Grant_W_out => Grant_NW,
+                Grant_S_out => Grant_NS,
+                Grant_L_out => Grant_NL,
+
+                Xbar_sel_N => Xbar_sel_N_temp, Xbar_sel_E => Xbar_sel_E_temp, Xbar_sel_W => Xbar_sel_W_temp, Xbar_sel_S => Xbar_sel_S_temp, Xbar_sel_L => Xbar_sel_L_temp, Xbar_sel_R => Xbar_sel_R_temp,
+                RTS_N => RTS_N_temp, RTS_E => RTS_E_temp, RTS_W => RTS_W_temp, RTS_S => RTS_S_temp, RTS_L => RTS_L_temp, RTS_R => RTS_R_temp,
+                Grant_NN => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
+                Grant_EN => Grant_EN_temp, Grant_EE => Grant_EE_temp, Grant_EW => Grant_EW_temp, Grant_ES => Grant_ES_temp, Grant_EL => Grant_EL_temp,
+                Grant_WN => Grant_WN_temp, Grant_WE => Grant_WE_temp, Grant_WW => Grant_WW_temp, Grant_WS => Grant_WS_temp, Grant_WL => Grant_WL_temp,
+                Grant_SN => Grant_SN_temp, Grant_SE => Grant_SE_temp, Grant_SW => Grant_SW_temp, Grant_SS => Grant_SS_temp, Grant_SL => Grant_SL_temp,
+                Grant_LN => Grant_LN_temp, Grant_LE => Grant_LE_temp, Grant_LW => Grant_LW_temp, Grant_LS => Grant_LS_temp, Grant_LL => Grant_LL_temp,
+                Grant_RN => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp);
+MUX_6x1_Arbiter_output_E : component MUX_6x1_Arbiter_output
             generic map(
                 DATA_WIDTH => DATA_WIDTH
             )
             port map(
-                MUX_Arbiter_output_sel_in => "001",
-                Xbar_sel_out              => Xbar_sel_E,
-                RTS_out                   => RTS_E,
-                Xbar_sel_N                => Xbar_sel_N_temp, Xbar_sel_E => Xbar_sel_E_temp, Xbar_sel_W => Xbar_sel_W_temp, Xbar_sel_S => Xbar_sel_S_temp, Xbar_sel_L => Xbar_sel_L_temp, Xbar_sel_R => Xbar_sel_R_temp,
-                RTS_N                     => RTS_N_temp, RTS_E => RTS_E_temp, RTS_W => RTS_W_temp, RTS_S => RTS_S_temp, RTS_L => RTS_L_temp, RTS_R => RTS_R_temp,
-                Grant_NN                  => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
-                Grant_EN                  => Grant_EN_temp, Grant_EE => Grant_EE_temp, Grant_EW => Grant_EW_temp, Grant_ES => Grant_ES_temp, Grant_EL => Grant_EL_temp,
-                Grant_WN                  => Grant_WN_temp, Grant_WE => Grant_WE_temp, Grant_WW => Grant_WW_temp, Grant_WS => Grant_WS_temp, Grant_WL => Grant_WL_temp,
-                Grant_SN                  => Grant_SN_temp, Grant_SE => Grant_SE_temp, Grant_SW => Grant_SW_temp, Grant_SS => Grant_SS_temp, Grant_SL => Grant_SL_temp,
-                Grant_LN                  => Grant_LN_temp, Grant_LE => Grant_LE_temp, Grant_LW => Grant_LW_temp, Grant_LS => Grant_LS_temp, Grant_LL => Grant_LL_temp,
-                Grant_RN                  => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp
-            );
-    MUX_6x1_Arbiter_output_W : component MUX_6x1_Arbiter_output
+                MUX_Arbiter_output_sel_in => MUX_6x1_Arbiter_output_select_E_out,
+                Xbar_sel_out => Xbar_sel_E,
+                RTS_out => RTS_E,
+                Grant_N_out => Grant_EN,
+                Grant_E_out => Grant_EE,
+                Grant_W_out => Grant_EW,
+                Grant_S_out => Grant_ES,
+                Grant_L_out => Grant_EL,
+
+                Xbar_sel_N => Xbar_sel_N_temp, Xbar_sel_E => Xbar_sel_E_temp, Xbar_sel_W => Xbar_sel_W_temp, Xbar_sel_S => Xbar_sel_S_temp, Xbar_sel_L => Xbar_sel_L_temp, Xbar_sel_R => Xbar_sel_R_temp,
+                RTS_N => RTS_N_temp, RTS_E => RTS_E_temp, RTS_W => RTS_W_temp, RTS_S => RTS_S_temp, RTS_L => RTS_L_temp, RTS_R => RTS_R_temp,
+                Grant_NN => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
+                Grant_EN => Grant_EN_temp, Grant_EE => Grant_EE_temp, Grant_EW => Grant_EW_temp, Grant_ES => Grant_ES_temp, Grant_EL => Grant_EL_temp,
+                Grant_WN => Grant_WN_temp, Grant_WE => Grant_WE_temp, Grant_WW => Grant_WW_temp, Grant_WS => Grant_WS_temp, Grant_WL => Grant_WL_temp,
+                Grant_SN => Grant_SN_temp, Grant_SE => Grant_SE_temp, Grant_SW => Grant_SW_temp, Grant_SS => Grant_SS_temp, Grant_SL => Grant_SL_temp,
+                Grant_LN => Grant_LN_temp, Grant_LE => Grant_LE_temp, Grant_LW => Grant_LW_temp, Grant_LS => Grant_LS_temp, Grant_LL => Grant_LL_temp,
+                Grant_RN => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp);
+MUX_6x1_Arbiter_output_W : component MUX_6x1_Arbiter_output
             generic map(
                 DATA_WIDTH => DATA_WIDTH
             )
             port map(
-                MUX_Arbiter_output_sel_in => "010",
-                Xbar_sel_out              => Xbar_sel_W,
-                RTS_out                   => RTS_W,
-                Xbar_sel_N                => Xbar_sel_N_temp, Xbar_sel_E => Xbar_sel_E_temp, Xbar_sel_W => Xbar_sel_W_temp, Xbar_sel_S => Xbar_sel_S_temp, Xbar_sel_L => Xbar_sel_L_temp, Xbar_sel_R => Xbar_sel_R_temp,
-                RTS_N                     => RTS_N_temp, RTS_E => RTS_E_temp, RTS_W => RTS_W_temp, RTS_S => RTS_S_temp, RTS_L => RTS_L_temp, RTS_R => RTS_R_temp,
-                Grant_NN                  => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
-                Grant_EN                  => Grant_EN_temp, Grant_EE => Grant_EE_temp, Grant_EW => Grant_EW_temp, Grant_ES => Grant_ES_temp, Grant_EL => Grant_EL_temp,
-                Grant_WN                  => Grant_WN_temp, Grant_WE => Grant_WE_temp, Grant_WW => Grant_WW_temp, Grant_WS => Grant_WS_temp, Grant_WL => Grant_WL_temp,
-                Grant_SN                  => Grant_SN_temp, Grant_SE => Grant_SE_temp, Grant_SW => Grant_SW_temp, Grant_SS => Grant_SS_temp, Grant_SL => Grant_SL_temp,
-                Grant_LN                  => Grant_LN_temp, Grant_LE => Grant_LE_temp, Grant_LW => Grant_LW_temp, Grant_LS => Grant_LS_temp, Grant_LL => Grant_LL_temp,
-                Grant_RN                  => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp
-            );
-    MUX_6x1_Arbiter_output_S : component MUX_6x1_Arbiter_output
+                MUX_Arbiter_output_sel_in => MUX_6x1_Arbiter_output_select_W_out,
+                Xbar_sel_out => Xbar_sel_W,
+                RTS_out => RTS_W,
+                Grant_N_out => Grant_WN,
+                Grant_E_out => Grant_WE,
+                Grant_W_out => Grant_WW,
+                Grant_S_out => Grant_WS,
+                Grant_L_out => Grant_WL,
+
+                Xbar_sel_N => Xbar_sel_N_temp, Xbar_sel_E => Xbar_sel_E_temp, Xbar_sel_W => Xbar_sel_W_temp, Xbar_sel_S => Xbar_sel_S_temp, Xbar_sel_L => Xbar_sel_L_temp, Xbar_sel_R => Xbar_sel_R_temp,
+                RTS_N => RTS_N_temp, RTS_E => RTS_E_temp, RTS_W => RTS_W_temp, RTS_S => RTS_S_temp, RTS_L => RTS_L_temp, RTS_R => RTS_R_temp,
+                Grant_NN => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
+                Grant_EN => Grant_EN_temp, Grant_EE => Grant_EE_temp, Grant_EW => Grant_EW_temp, Grant_ES => Grant_ES_temp, Grant_EL => Grant_EL_temp,
+                Grant_WN => Grant_WN_temp, Grant_WE => Grant_WE_temp, Grant_WW => Grant_WW_temp, Grant_WS => Grant_WS_temp, Grant_WL => Grant_WL_temp,
+                Grant_SN => Grant_SN_temp, Grant_SE => Grant_SE_temp, Grant_SW => Grant_SW_temp, Grant_SS => Grant_SS_temp, Grant_SL => Grant_SL_temp,
+                Grant_LN => Grant_LN_temp, Grant_LE => Grant_LE_temp, Grant_LW => Grant_LW_temp, Grant_LS => Grant_LS_temp, Grant_LL => Grant_LL_temp,
+                Grant_RN => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp);
+MUX_6x1_Arbiter_output_S : component MUX_6x1_Arbiter_output
             generic map(
                 DATA_WIDTH => DATA_WIDTH
             )
             port map(
-                MUX_Arbiter_output_sel_in => "011",
-                Xbar_sel_out              => Xbar_sel_S,
-                RTS_out                   => RTS_S,
-                Xbar_sel_N                => Xbar_sel_N_temp, Xbar_sel_E => Xbar_sel_E_temp, Xbar_sel_W => Xbar_sel_W_temp, Xbar_sel_S => Xbar_sel_S_temp, Xbar_sel_L => Xbar_sel_L_temp, Xbar_sel_R => Xbar_sel_R_temp,
-                RTS_N                     => RTS_N_temp, RTS_E => RTS_E_temp, RTS_W => RTS_W_temp, RTS_S => RTS_S_temp, RTS_L => RTS_L_temp, RTS_R => RTS_R_temp,
-                Grant_NN                  => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
-                Grant_EN                  => Grant_EN_temp, Grant_EE => Grant_EE_temp, Grant_EW => Grant_EW_temp, Grant_ES => Grant_ES_temp, Grant_EL => Grant_EL_temp,
-                Grant_WN                  => Grant_WN_temp, Grant_WE => Grant_WE_temp, Grant_WW => Grant_WW_temp, Grant_WS => Grant_WS_temp, Grant_WL => Grant_WL_temp,
-                Grant_SN                  => Grant_SN_temp, Grant_SE => Grant_SE_temp, Grant_SW => Grant_SW_temp, Grant_SS => Grant_SS_temp, Grant_SL => Grant_SL_temp,
-                Grant_LN                  => Grant_LN_temp, Grant_LE => Grant_LE_temp, Grant_LW => Grant_LW_temp, Grant_LS => Grant_LS_temp, Grant_LL => Grant_LL_temp,
-                Grant_RN                  => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp
-            );
-    MUX_6x1_Arbiter_output_L : component MUX_6x1_Arbiter_output
+                MUX_Arbiter_output_sel_in => MUX_6x1_Arbiter_output_select_S_out,
+                Xbar_sel_out => Xbar_sel_S,
+                RTS_out => RTS_S,
+                Grant_N_out => Grant_SN,
+                Grant_E_out => Grant_SE,
+                Grant_W_out => Grant_SW,
+                Grant_S_out => Grant_SS,
+                Grant_L_out => Grant_SL,
+
+                Xbar_sel_N => Xbar_sel_N_temp, Xbar_sel_E => Xbar_sel_E_temp, Xbar_sel_W => Xbar_sel_W_temp, Xbar_sel_S => Xbar_sel_S_temp, Xbar_sel_L => Xbar_sel_L_temp, Xbar_sel_R => Xbar_sel_R_temp,
+                RTS_N => RTS_N_temp, RTS_E => RTS_E_temp, RTS_W => RTS_W_temp, RTS_S => RTS_S_temp, RTS_L => RTS_L_temp, RTS_R => RTS_R_temp,
+                Grant_NN => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
+                Grant_EN => Grant_EN_temp, Grant_EE => Grant_EE_temp, Grant_EW => Grant_EW_temp, Grant_ES => Grant_ES_temp, Grant_EL => Grant_EL_temp,
+                Grant_WN => Grant_WN_temp, Grant_WE => Grant_WE_temp, Grant_WW => Grant_WW_temp, Grant_WS => Grant_WS_temp, Grant_WL => Grant_WL_temp,
+                Grant_SN => Grant_SN_temp, Grant_SE => Grant_SE_temp, Grant_SW => Grant_SW_temp, Grant_SS => Grant_SS_temp, Grant_SL => Grant_SL_temp,
+                Grant_LN => Grant_LN_temp, Grant_LE => Grant_LE_temp, Grant_LW => Grant_LW_temp, Grant_LS => Grant_LS_temp, Grant_LL => Grant_LL_temp,
+                Grant_RN => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp);
+MUX_6x1_Arbiter_output_L : component MUX_6x1_Arbiter_output
             generic map(
                 DATA_WIDTH => DATA_WIDTH
             )
             port map(
-                MUX_Arbiter_output_sel_in => "100",
-                Xbar_sel_out              => Xbar_sel_L,
-                RTS_out                   => RTS_L,
-                Xbar_sel_N                => Xbar_sel_N_temp, Xbar_sel_E => Xbar_sel_E_temp, Xbar_sel_W => Xbar_sel_W_temp, Xbar_sel_S => Xbar_sel_S_temp, Xbar_sel_L => Xbar_sel_L_temp, Xbar_sel_R => Xbar_sel_R_temp,
-                RTS_N                     => RTS_N_temp, RTS_E => RTS_E_temp, RTS_W => RTS_W_temp, RTS_S => RTS_S_temp, RTS_L => RTS_L_temp, RTS_R => RTS_R_temp,
-                Grant_NN                  => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
-                Grant_EN                  => Grant_EN_temp, Grant_EE => Grant_EE_temp, Grant_EW => Grant_EW_temp, Grant_ES => Grant_ES_temp, Grant_EL => Grant_EL_temp,
-                Grant_WN                  => Grant_WN_temp, Grant_WE => Grant_WE_temp, Grant_WW => Grant_WW_temp, Grant_WS => Grant_WS_temp, Grant_WL => Grant_WL_temp,
-                Grant_SN                  => Grant_SN_temp, Grant_SE => Grant_SE_temp, Grant_SW => Grant_SW_temp, Grant_SS => Grant_SS_temp, Grant_SL => Grant_SL_temp,
-                Grant_LN                  => Grant_LN_temp, Grant_LE => Grant_LE_temp, Grant_LW => Grant_LW_temp, Grant_LS => Grant_LS_temp, Grant_LL => Grant_LL_temp,
-                Grant_RN                  => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp
-            );
+                MUX_Arbiter_output_sel_in => MUX_6x1_Arbiter_output_select_L_out,
+                Xbar_sel_out => Xbar_sel_L,
+                RTS_out => RTS_L,
+                Grant_N_out => Grant_LN,
+                Grant_E_out => Grant_LE,
+                Grant_W_out => Grant_LW,
+                Grant_S_out => Grant_LS,
+                Grant_L_out => Grant_LL,
+
+                Xbar_sel_N => Xbar_sel_N_temp, Xbar_sel_E => Xbar_sel_E_temp, Xbar_sel_W => Xbar_sel_W_temp, Xbar_sel_S => Xbar_sel_S_temp, Xbar_sel_L => Xbar_sel_L_temp, Xbar_sel_R => Xbar_sel_R_temp,
+                RTS_N => RTS_N_temp, RTS_E => RTS_E_temp, RTS_W => RTS_W_temp, RTS_S => RTS_S_temp, RTS_L => RTS_L_temp, RTS_R => RTS_R_temp,
+                Grant_NN => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
+                Grant_EN => Grant_EN_temp, Grant_EE => Grant_EE_temp, Grant_EW => Grant_EW_temp, Grant_ES => Grant_ES_temp, Grant_EL => Grant_EL_temp,
+                Grant_WN => Grant_WN_temp, Grant_WE => Grant_WE_temp, Grant_WW => Grant_WW_temp, Grant_WS => Grant_WS_temp, Grant_WL => Grant_WL_temp,
+                Grant_SN => Grant_SN_temp, Grant_SE => Grant_SE_temp, Grant_SW => Grant_SW_temp, Grant_SS => Grant_SS_temp, Grant_SL => Grant_SL_temp,
+                Grant_LN => Grant_LN_temp, Grant_LE => Grant_LE_temp, Grant_LW => Grant_LW_temp, Grant_LS => Grant_LS_temp, Grant_LL => Grant_LL_temp,
+                Grant_RN => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp);
 
 end;
