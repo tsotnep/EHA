@@ -366,22 +366,22 @@ begin
 
 -- all the LBDRs
 LBDR_N: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
-	   PORT MAP (reset => reset, clk => clk, empty => empty_N, flit_type => FIFO_D_out_N(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_N(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
+    PORT MAP (reset => reset, clk => clk, empty => empty_N_valid, flit_type => FIFO_D_out_N_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_N_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
    		 	 Req_N=> Req_NN_temp, Req_E=>Req_NE_temp, Req_W=>Req_NW_temp, Req_S=>Req_NS_temp, Req_L=>Req_NL_temp);
 LBDR_E: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
-   PORT MAP (reset =>  reset, clk => clk, empty => empty_E, flit_type => FIFO_D_out_E(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_E(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
+   PORT MAP (reset =>  reset, clk => clk, empty => empty_E_valid, flit_type => FIFO_D_out_E_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_E_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
    		 	 Req_N=> Req_EN_temp, Req_E=>Req_EE_temp, Req_W=>Req_EW_temp, Req_S=>Req_ES_temp, Req_L=>Req_EL_temp);
 LBDR_W: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
-   PORT MAP (reset =>  reset, clk => clk, empty => empty_W,  flit_type => FIFO_D_out_W(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_W(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
+   PORT MAP (reset =>  reset, clk => clk, empty => empty_W_valid,  flit_type => FIFO_D_out_W_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_W_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
    		 	 Req_N=> Req_WN_temp, Req_E=>Req_WE_temp, Req_W=>Req_WW_temp, Req_S=>Req_WS_temp, Req_L=>Req_WL_temp);
 LBDR_S: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
-   PORT MAP (reset =>  reset, clk => clk, empty => empty_S, flit_type => FIFO_D_out_S(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_S(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
+   PORT MAP (reset =>  reset, clk => clk, empty => empty_S_valid, flit_type => FIFO_D_out_S_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_S_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
    		 	 Req_N=> Req_SN_temp, Req_E=>Req_SE_temp, Req_W=>Req_SW_temp, Req_S=>Req_SS_temp, Req_L=>Req_SL_temp);
 LBDR_L: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
-   PORT MAP (reset =>  reset, clk => clk, empty => empty_L, flit_type => FIFO_D_out_L(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_L(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
+   PORT MAP (reset =>  reset, clk => clk, empty => empty_L_valid, flit_type => FIFO_D_out_L_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_L_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
    		 	 Req_N=> Req_LN_temp, Req_E=>Req_LE_temp, Req_W=>Req_LW_temp, Req_S=>Req_LS_temp, Req_L=>Req_LL_temp);
 LBDR_R: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
-   PORT MAP (reset =>  reset, clk => clk, empty => empty_L, flit_type => FIFO_D_out_R_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_R_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
+   PORT MAP (reset =>  reset, clk => clk, empty => empty_R_valid, flit_type => FIFO_D_out_R_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_R_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
    		 	 Req_N=> Req_RN_temp, Req_E=>Req_RE_temp, Req_W=>Req_RW_temp, Req_S=>Req_RS_temp, Req_L=>Req_RL_temp);
 
 ------------------------------------------------------------------------------------------------------------------------------
@@ -481,16 +481,15 @@ XBAR_R: XBAR generic map (DATA_WIDTH  => DATA_WIDTH)
 -- end process arbiter_fault;
 
 lbdr_fault: process begin
-    wait for 50 ns;
+    wait for 20 ns;
     -- wait for 55 ns; --works
-    Fault_Info_LBDR_in <= "010000"; --at this time, this LBDR is used, checked in simulation, but still works.
+    -- Fault_Info_LBDR_in <= "010000"; --at this time, this LBDR is used, checked in simulation, but still works.
     -- Fault_Info_LBDR_in <= "001000"; --fails
-    wait for 60 ns;
-    wait for 500 ps;
-    -- Fault_Info_LBDR_in <= "000000"; --works
+    -- wait for 50 ns;
+    -- Fault_Info_LBDR_in <= "000000"; --worksfff
     -- Fault_Info_LBDR_in <= "010000"; --works
-    -- Fault_Info_LBDR_in <= "001000"; --fails
-    Fault_Info_LBDR_in <= "000100"; --fails
+    Fault_Info_LBDR_in <= "001000"; --fails
+    -- Fault_Info_LBDR_in <= "000100"; --fails
     -- Fault_Info_LBDR_in <= "000010"; --fails
     -- Fault_Info_LBDR_in <= "000001"; --fails
 
