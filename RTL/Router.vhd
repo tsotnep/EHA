@@ -175,7 +175,31 @@ architecture behavior of router is
              Req_RN, Req_RE, Req_RW, Req_RS, Req_RL                : in  std_logic);
     end component MUX_6x1_LBDR_output;
 
+    component MUX_5x1_FIFO_input
+        generic(DATA_WIDTH : integer);
+        port(MUX_FIFO_input_sel_in                                           : in  std_logic_vector(2 downto 0);
+             RX_out                                                          : out std_logic_vector(DATA_WIDTH - 1 downto 0);
+             DRTS_out                                                        : out std_logic;
+             Grant_N_out, Grant_E_out, Grant_W_out, Grant_S_out, Grant_L_out : out std_logic;
+             RX_N, RX_E, RX_W, RX_S, RX_L                                    : in  std_logic_vector(DATA_WIDTH - 1 downto 0);
+             DRTS_N, DRTS_E, DRTS_W, DRTS_S, DRTS_L                          : in  std_logic;
+             Grant_NN, Grant_EN, Grant_WN, Grant_SN, Grant_LN                : in  std_logic;
+             Grant_NE, Grant_EE, Grant_WE, Grant_SE, Grant_LE                : in  std_logic;
+             Grant_NW, Grant_EW, Grant_WW, Grant_SW, Grant_LW                : in  std_logic;
+             Grant_NS, Grant_ES, Grant_WS, Grant_SS, Grant_LS                : in  std_logic;
+             Grant_NL, Grant_EL, Grant_WL, Grant_SL, Grant_LL                : in  std_logic);
+    end component MUX_5x1_FIFO_input;
 
+    component MUX_6x1_FIFO_output
+        generic(DATA_WIDTH : integer := 32);
+        port(MUX_FIFO_output_sel_in                                                             : in  std_logic_vector(2 downto 0);
+             CTS_out                                                                            : out std_logic;
+             empty_out                                                                          : out std_logic;
+             FIFO_D_out_out                                                                     : out std_logic_vector(DATA_WIDTH - 1 downto 0);
+             CTS_N, CTS_E, CTS_w, CTS_S, CTS_L, CTS_R                                           : in  std_logic;
+             empty_N, empty_E, empty_W, empty_S, empty_L, empty_R                               : in  std_logic;
+             FIFO_D_out_N, FIFO_D_out_E, FIFO_D_out_W, FIFO_D_out_S, FIFO_D_out_L, FIFO_D_out_R : in  std_logic_vector(DATA_WIDTH - 1 downto 0));
+    end component MUX_6x1_FIFO_output;
     -----------------------------------------F I F O------------------------------------------------------------------------------
     ------------------------------------------------------------------------------------------------------------------------------
     ------------------------------------------------------------------------------------------------------------------------------
@@ -184,18 +208,44 @@ architecture behavior of router is
 
 
     --input signals to MODULE, coming out from MUX_5x1_MODULE_input
+    signal Grant_NN_valid, Grant_NE_valid, Grant_NW_valid, Grant_NS_valid, Grant_NL_valid, Grant_NR_valid : std_logic;
+    signal Grant_EN_valid, Grant_EE_valid, Grant_EW_valid, Grant_ES_valid, Grant_EL_valid, Grant_ER_valid : std_logic;
+    signal Grant_WN_valid, Grant_WE_valid, Grant_WW_valid, Grant_WS_valid, Grant_WL_valid, Grant_WR_valid : std_logic;
+    signal Grant_SN_valid, Grant_SE_valid, Grant_SW_valid, Grant_SS_valid, Grant_SL_valid, Grant_SR_valid : std_logic;
+    signal Grant_LN_valid, Grant_LE_valid, Grant_LW_valid, Grant_LS_valid, Grant_LL_valid, Grant_LR_valid : std_logic;
+    signal DRTS_N_valid, DRTS_E_valid, DRTS_W_valid, DRTS_S_valid, DRTS_L_valid, DRTS_R_valid : std_logic;
+    signal RX_N_valid, RX_E_valid, RX_W_valid, RX_S_valid, RX_L_valid, RX_R_valid : std_logic_vector (DATA_WIDTH-1 downto 0);
 
     --output signals from MODULE, going into MUX_6x1_MODULE_output
+  	signal FIFO_D_out_N_temp, FIFO_D_out_E_temp, FIFO_D_out_W_temp, FIFO_D_out_S_temp, FIFO_D_out_L_temp, FIFO_D_out_R_temp: std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal empty_N_temp, empty_E_temp, empty_W_temp, empty_S_temp, empty_L_temp, empty_R_temp: std_logic;
+    signal CTS_N_temp, CTS_E_temp, CTS_w_temp, CTS_S_temp, CTS_L_temp, CTS_R_temp: std_logic;
 
     --outputs of MUX_6x1_MODULE_output going into somewhere.
+  	signal FIFO_D_out_N, FIFO_D_out_E, FIFO_D_out_W, FIFO_D_out_S, FIFO_D_out_L: std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal empty_N, empty_E, empty_W, empty_S, empty_L: std_logic;
+    --CTS_N, CTS_E, CTS_w, CTS_S, CTS_L --toplevel outputs
+
+    -- MODULE Fault control
+    signal Fault_Info_FIFO_in               : std_logic_vector(5 downto 0) := "000000";
+    signal MUX_5x1_FIFO_input_select_N_out  : std_logic_vector(2 downto 0); --not used
+    signal MUX_5x1_FIFO_input_select_E_out  : std_logic_vector(2 downto 0); --not used
+    signal MUX_5x1_FIFO_input_select_W_out  : std_logic_vector(2 downto 0); --not used
+    signal MUX_5x1_FIFO_input_select_S_out  : std_logic_vector(2 downto 0); --not used
+    signal MUX_5x1_FIFO_input_select_L_out  : std_logic_vector(2 downto 0); --not used
+    signal MUX_5x1_FIFO_input_select_R_out  : std_logic_vector(2 downto 0);
+    signal MUX_6x1_FIFO_output_select_N_out : std_logic_vector(2 downto 0);
+    signal MUX_6x1_FIFO_output_select_E_out : std_logic_vector(2 downto 0);
+    signal MUX_6x1_FIFO_output_select_W_out : std_logic_vector(2 downto 0);
+    signal MUX_6x1_FIFO_output_select_S_out : std_logic_vector(2 downto 0);
+    signal MUX_6x1_FIFO_output_select_L_out : std_logic_vector(2 downto 0);
 
     -----------------------------------------L B D R------------------------------------------------------------------------------
     ------------------------------------------------------------------------------------------------------------------------------
     ------------------------------------------------------------------------------------------------------------------------------
 
     --those signal go into MUX_5x1_MODULE_input, before it was going straightly in MODULE
-  	signal FIFO_D_out_N, FIFO_D_out_E, FIFO_D_out_W, FIFO_D_out_S, FIFO_D_out_L: std_logic_vector(DATA_WIDTH-1 downto 0);
-    signal empty_N, empty_E, empty_W, empty_S, empty_L: std_logic;
+
 
     --input signals to MODULE, coming out from MUX_5x1_MODULE_input
   	signal FIFO_D_out_N_valid, FIFO_D_out_E_valid, FIFO_D_out_W_valid, FIFO_D_out_S_valid, FIFO_D_out_L_valid, FIFO_D_out_R_valid: std_logic_vector(DATA_WIDTH-1 downto 0);
@@ -209,7 +259,11 @@ architecture behavior of router is
     signal Req_NL_temp, Req_EL_temp, Req_WL_temp, Req_SL_temp, Req_LL_temp, Req_RL_temp : std_logic;
 
     --outputs of MUX_6x1_MODULE_output going into somewhere.
-    --those are already declared in arbiters declaration
+    signal Req_NN, Req_EN, Req_WN, Req_SN, Req_LN: std_logic;
+    signal Req_NE, Req_EE, Req_WE, Req_SE, Req_LE: std_logic;
+    signal Req_NW, Req_EW, Req_WW, Req_SW, Req_LW: std_logic;
+    signal Req_NS, Req_ES, Req_WS, Req_SS, Req_LS: std_logic;
+    signal Req_NL, Req_EL, Req_WL, Req_SL, Req_LL: std_logic;
 
     -- MODULE Fault control
     signal Fault_Info_LBDR_in               : std_logic_vector(5 downto 0) := "000000";
@@ -224,17 +278,14 @@ architecture behavior of router is
     signal MUX_6x1_LBDR_output_select_W_out : std_logic_vector(2 downto 0);
     signal MUX_6x1_LBDR_output_select_S_out : std_logic_vector(2 downto 0);
     signal MUX_6x1_LBDR_output_select_L_out : std_logic_vector(2 downto 0);
+
     -----------------------------------------A R B I T E R------------------------------------------------------------------------
     ------------------------------------------------------------------------------------------------------------------------------
     ------------------------------------------------------------------------------------------------------------------------------
 
     --those signal go into MUX_5x1_MODULE_input, before it was going straightly in MODULE
-    signal Req_NN, Req_EN, Req_WN, Req_SN, Req_LN: std_logic;
-    signal Req_NE, Req_EE, Req_WE, Req_SE, Req_LE: std_logic;
-    signal Req_NW, Req_EW, Req_WW, Req_SW, Req_LW: std_logic;
-    signal Req_NS, Req_ES, Req_WS, Req_SS, Req_LS: std_logic;
-    signal Req_NL, Req_EL, Req_WL, Req_SL, Req_LL: std_logic;
     --DCTS_N, DCTS_E, DCTS_w, DCTS_S, DCTS_L --toplevel inputs
+
 
     --input signals to MODULE, coming out from MUX_5x1_MODULE_input
     signal DCTS_N_valid, Req_NN_valid, Req_EN_valid, Req_WN_valid, Req_SN_valid, Req_LN_valid : std_logic;
@@ -261,6 +312,8 @@ architecture behavior of router is
     signal Grant_WN, Grant_WE, Grant_WW, Grant_WS, Grant_WL: std_logic;
     signal Grant_SN, Grant_SE, Grant_SW, Grant_SS, Grant_SL: std_logic;
     signal Grant_LN, Grant_LE, Grant_LW, Grant_LS, Grant_LL: std_logic;
+    signal Xbar_sel_N, Xbar_sel_E, Xbar_sel_W, Xbar_sel_S, Xbar_sel_L: std_logic_vector(4 downto 0);
+    --RTS_N, RTS_E, RTS_W, RTS_S, RTS_L --toplevel outputs
 
     -- MODULE Fault control
     signal Fault_Info_Arbiter_in               : std_logic_vector(5 downto 0) := "000000";
@@ -282,7 +335,7 @@ architecture behavior of router is
     ------------------------------------------------------------------------------------------------------------------------------
 
     --those signal go into MUX_5x1_MODULE_input, before it was going straightly in MODULE
-    signal Xbar_sel_N, Xbar_sel_E, Xbar_sel_W, Xbar_sel_S, Xbar_sel_L, Xbar_sel_R: std_logic_vector(4 downto 0);
+
 
     --input signals to MODULE, coming out from MUX_5x1_MODULE_input
     signal Xbar_sel_N_valid, Xbar_sel_E_valid, Xbar_sel_W_valid, Xbar_sel_S_valid, Xbar_sel_L_valid, Xbar_sel_R_valid   : std_logic_vector(4 downto 0);
@@ -290,11 +343,8 @@ architecture behavior of router is
     --output signals from MODULE, going into MUX_6x1_MODULE_output
     signal TX_N_temp, TX_E_temp, TX_W_temp, TX_S_temp, TX_L_temp, TX_R_temp : std_logic_vector(DATA_WIDTH-1 downto 0);
 
-     --outputs of MUX_6x1_MODULE_output going into somewhere.
-    --TX_N, TX_E, TX_W, TX_S, TX_L --toplevel outputs
-
     --outputs of MUX_6x1_MODULE_output going into somewhere.
-    --those are already declared as top module output ports
+    --TX_N, TX_E, TX_W, TX_S, TX_L --toplevel outputs
 
     -- MODULE Fault control
     signal Fault_Info_Xbar_in               : std_logic_vector(5 downto 0) := "000000";
@@ -336,30 +386,30 @@ begin
 ------------------------------------------------------------------------------------------------------------------------------
 
 -- all the FIFOs
- FIFO_N: FIFO generic map (DATA_WIDTH  => DATA_WIDTH)
-   PORT MAP (reset => reset, clk => clk, RX => RX_N, DRTS => DRTS_N,
-   			read_en_N => '0', read_en_E =>Grant_EN, read_en_W =>Grant_WN, read_en_S =>Grant_SN, read_en_L =>Grant_LN,
-   			CTS => CTS_N, empty_out => empty_N, Data_out => FIFO_D_out_N);
-
- FIFO_E: FIFO generic map (DATA_WIDTH  => DATA_WIDTH)
-   PORT MAP (reset => reset, clk => clk, RX => RX_E, DRTS => DRTS_E,
-   			read_en_N => Grant_NE, read_en_E =>'0', read_en_W =>Grant_WE, read_en_S =>Grant_SE, read_en_L =>Grant_LE,
-   			CTS => CTS_E, empty_out => empty_E, Data_out => FIFO_D_out_E);
-
- FIFO_W: FIFO generic map (DATA_WIDTH  => DATA_WIDTH)
-   PORT MAP (reset => reset, clk => clk, RX => RX_W, DRTS => DRTS_W,
-   			read_en_N => Grant_NW, read_en_E =>Grant_EW, read_en_W =>'0', read_en_S =>Grant_SW, read_en_L =>Grant_LW,
-   			CTS => CTS_W, empty_out => empty_W, Data_out => FIFO_D_out_W);
-
- FIFO_S: FIFO generic map (DATA_WIDTH  => DATA_WIDTH)
-   PORT MAP (reset => reset, clk => clk, RX => RX_S, DRTS => DRTS_S,
-   			read_en_N => Grant_NS, read_en_E =>Grant_ES, read_en_W =>Grant_WS, read_en_S =>'0', read_en_L =>Grant_LS,
-   			CTS => CTS_S, empty_out => empty_S, Data_out => FIFO_D_out_S);
-
- FIFO_L: FIFO generic map (DATA_WIDTH  => DATA_WIDTH)
-   PORT MAP (reset => reset, clk => clk, RX => RX_L, DRTS => DRTS_L,
-   			read_en_N => Grant_NL, read_en_E =>Grant_EL, read_en_W =>Grant_WL, read_en_S => Grant_SL, read_en_L =>'0',
-   			CTS => CTS_L, empty_out => empty_L, Data_out => FIFO_D_out_L);
+FIFO_N : FIFO generic map(DATA_WIDTH => DATA_WIDTH)
+    PORT MAP(reset     => reset, clk => clk, RX => RX_N_valid, DRTS => DRTS_N_valid,
+             read_en_N => Grant_NN_valid, read_en_E => Grant_EN_valid, read_en_W => Grant_WN_valid, read_en_S => Grant_SN_valid, read_en_L => Grant_LN_valid,
+             CTS       => CTS_N_temp, empty_out => empty_N_temp, Data_out => FIFO_D_out_N_temp);
+FIFO_E : FIFO generic map(DATA_WIDTH => DATA_WIDTH)
+    PORT MAP(reset     => reset, clk => clk, RX => RX_E_valid, DRTS => DRTS_E_valid,
+             read_en_N => Grant_NE_valid, read_en_E => Grant_EE_valid, read_en_W => Grant_WE_valid, read_en_S => Grant_SE_valid, read_en_L => Grant_LE_valid,
+             CTS       => CTS_E_temp, empty_out => empty_E_temp, Data_out => FIFO_D_out_E_temp);
+FIFO_W : FIFO generic map(DATA_WIDTH => DATA_WIDTH)
+    PORT MAP(reset     => reset, clk => clk, RX => RX_W_valid, DRTS => DRTS_W_valid,
+             read_en_N => Grant_NW_valid, read_en_E => Grant_EW_valid, read_en_W => Grant_WW_valid, read_en_S => Grant_SW_valid, read_en_L => Grant_LW_valid,
+             CTS       => CTS_W_temp, empty_out => empty_W_temp, Data_out => FIFO_D_out_W_temp);
+FIFO_S : FIFO generic map(DATA_WIDTH => DATA_WIDTH)
+    PORT MAP(reset     => reset, clk => clk, RX => RX_S_valid, DRTS => DRTS_S_valid,
+             read_en_N => Grant_NS_valid, read_en_E => Grant_ES_valid, read_en_W => Grant_WS_valid, read_en_S => Grant_SS_valid, read_en_L => Grant_LS_valid,
+             CTS       => CTS_S_temp, empty_out => empty_S_temp, Data_out => FIFO_D_out_S_temp);
+FIFO_L : FIFO generic map(DATA_WIDTH => DATA_WIDTH)
+    PORT MAP(reset     => reset, clk => clk, RX => RX_L_valid, DRTS => DRTS_L_valid,
+             read_en_N => Grant_NL_valid, read_en_E => Grant_EL_valid, read_en_W => Grant_WL_valid, read_en_S => Grant_SL_valid, read_en_L => Grant_LL_valid,
+             CTS       => CTS_L_temp, empty_out => empty_L_temp, Data_out => FIFO_D_out_L_temp);
+FIFO_R : FIFO generic map(DATA_WIDTH => DATA_WIDTH)
+    PORT MAP(reset     => reset, clk => clk, RX => RX_R_valid, DRTS => DRTS_R_valid,
+             read_en_N => Grant_NR_valid, read_en_E => Grant_ER_valid, read_en_W => Grant_WR_valid, read_en_S => Grant_SR_valid, read_en_L => Grant_LR_valid,
+             CTS       => CTS_R_temp, empty_out => empty_R_temp, Data_out => FIFO_D_out_R_temp);
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
@@ -480,22 +530,39 @@ XBAR_R: XBAR generic map (DATA_WIDTH  => DATA_WIDTH)
 --     wait;
 -- end process arbiter_fault;
 
-lbdr_fault: process begin
-    wait for 20 ns;
-    -- wait for 55 ns; --works
-    -- Fault_Info_LBDR_in <= "010000"; --at this time, this LBDR is used, checked in simulation, but still works.
-    -- Fault_Info_LBDR_in <= "001000"; --fails
-    -- wait for 50 ns;
-    -- Fault_Info_LBDR_in <= "000000"; --worksfff
-    -- Fault_Info_LBDR_in <= "010000"; --works
-    Fault_Info_LBDR_in <= "001000"; --fails
-    -- Fault_Info_LBDR_in <= "000100"; --fails
-    -- Fault_Info_LBDR_in <= "000010"; --fails
-    -- Fault_Info_LBDR_in <= "000001"; --fails
+-- lbdr_fault: process begin
+--     wait for 20 ns;
+--     -- wait for 55 ns; --works
+--     -- Fault_Info_LBDR_in <= "010000"; --at this time, this LBDR is used, checked in simulation, but still works.
+--     -- Fault_Info_LBDR_in <= "001000";
+--     -- wait for 50 ns;
+--     -- Fault_Info_LBDR_in <= "000000"; --worksfff
+--     -- Fault_Info_LBDR_in <= "010000"; --works
+--     Fault_Info_LBDR_in <= "001000";
+--     -- Fault_Info_LBDR_in <= "000100";
+--     -- Fault_Info_LBDR_in <= "000010";
+--     -- Fault_Info_LBDR_in <= "000001";
+--
+--     --probably we get this faulures because during this change, packets are being sent.
+--     wait;
+-- end process lbdr_fault;
 
-    --probably we get this faulures because during this change, packets are being sent.
+
+FIFO_fault: process begin
+    wait for 5 ns; --fails on: 18, 20, 23, 50
+    -- wait for 55 ns; --works
+    -- Fault_Info_FIFO_in <= "010000";
+    Fault_Info_FIFO_in <= "010000";
+    wait for 50 ns;
+    -- Fault_Info_FIFO_in <= "000000"; --worksfff
+    -- Fault_Info_FIFO_in <= "010000"; --works
+    -- Fault_Info_FIFO_in <= "001000"; --fails
+    -- Fault_Info_FIFO_in <= "000100"; --fails
+    -- Fault_Info_FIFO_in <= "000010"; --fails
+    -- Fault_Info_FIFO_in <= "000001"; --fails
+
     wait;
-end process lbdr_fault;
+end process FIFO_fault;
 
 -- all the control units for redundancy
 ------------------------------------------------------------------------------------------------------------------------------
@@ -550,6 +617,22 @@ Fault_Control_inst_LBDR : component Fault_Control
         MUX_6x1_module_output_select_L_out => MUX_6x1_LBDR_output_select_L_out
     );
 
+Fault_Control_inst_FIFO : component Fault_Control
+    port map(
+        Fault_Info_in                   => Fault_Info_FIFO_in,
+        MUX_5x1_module_input_select_N_out  => MUX_5x1_FIFO_input_select_N_out,
+        MUX_5x1_module_input_select_E_out  => MUX_5x1_FIFO_input_select_E_out,
+        MUX_5x1_module_input_select_W_out  => MUX_5x1_FIFO_input_select_W_out,
+        MUX_5x1_module_input_select_S_out  => MUX_5x1_FIFO_input_select_S_out,
+        MUX_5x1_module_input_select_L_out  => MUX_5x1_FIFO_input_select_L_out,
+        MUX_5x1_module_input_select_R_out  => MUX_5x1_FIFO_input_select_R_out,
+        MUX_6x1_module_output_select_N_out => MUX_6x1_FIFO_output_select_N_out,
+        MUX_6x1_module_output_select_E_out => MUX_6x1_FIFO_output_select_E_out,
+        MUX_6x1_module_output_select_W_out => MUX_6x1_FIFO_output_select_W_out,
+        MUX_6x1_module_output_select_S_out => MUX_6x1_FIFO_output_select_S_out,
+        MUX_6x1_module_output_select_L_out => MUX_6x1_FIFO_output_select_L_out
+    );
+
 -- all the muxes for redundancy
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
@@ -602,7 +685,7 @@ Fault_Control_inst_LBDR : component Fault_Control
 --                       |
 --           MUX_5x1_MODULE_input_select
 
-MUX_XBAR_input_N : component MUX_5x1_XBAR_input
+MUX_5x1_XBAR_input_N : component MUX_5x1_XBAR_input
     generic map(
         DATA_WIDTH => DATA_WIDTH
     )
@@ -615,7 +698,7 @@ MUX_XBAR_input_N : component MUX_5x1_XBAR_input
         Xbar_sel_S          => Xbar_sel_S,
         Xbar_sel_L          => Xbar_sel_L
     );
-MUX_XBAR_input_E : component MUX_5x1_XBAR_input
+MUX_5x1_XBAR_input_E : component MUX_5x1_XBAR_input
     generic map(
         DATA_WIDTH => DATA_WIDTH
     )
@@ -628,7 +711,7 @@ MUX_XBAR_input_E : component MUX_5x1_XBAR_input
         Xbar_sel_S          => Xbar_sel_S,
         Xbar_sel_L          => Xbar_sel_L
     );
-MUX_XBAR_input_W : component MUX_5x1_XBAR_input
+MUX_5x1_XBAR_input_W : component MUX_5x1_XBAR_input
     generic map(
         DATA_WIDTH => DATA_WIDTH
     )
@@ -641,7 +724,7 @@ MUX_XBAR_input_W : component MUX_5x1_XBAR_input
         Xbar_sel_S          => Xbar_sel_S,
         Xbar_sel_L          => Xbar_sel_L
     );
-MUX_XBAR_input_S : component MUX_5x1_XBAR_input
+MUX_5x1_XBAR_input_S : component MUX_5x1_XBAR_input
     generic map(
         DATA_WIDTH => DATA_WIDTH
     )
@@ -654,7 +737,7 @@ MUX_XBAR_input_S : component MUX_5x1_XBAR_input
         Xbar_sel_S          => Xbar_sel_S,
         Xbar_sel_L          => Xbar_sel_L
     );
-MUX_XBAR_input_L : component MUX_5x1_XBAR_input
+MUX_5x1_XBAR_input_L : component MUX_5x1_XBAR_input
     generic map(
         DATA_WIDTH => DATA_WIDTH
     )
@@ -667,7 +750,7 @@ MUX_XBAR_input_L : component MUX_5x1_XBAR_input
         Xbar_sel_S          => Xbar_sel_S,
         Xbar_sel_L          => Xbar_sel_L
     );
-MUX_XBAR_input_R : component MUX_5x1_XBAR_input
+MUX_5x1_XBAR_input_R : component MUX_5x1_XBAR_input
     generic map(
         DATA_WIDTH => DATA_WIDTH
     )
@@ -681,7 +764,7 @@ MUX_XBAR_input_R : component MUX_5x1_XBAR_input
         Xbar_sel_L          => Xbar_sel_L
     );
 
-MUX_XBAR_output_N : component MUX_6x1_XBAR_output
+MUX_6x1_XBAR_output_N : component MUX_6x1_XBAR_output
         generic map(
             DATA_WIDTH => DATA_WIDTH
         )
@@ -695,7 +778,7 @@ MUX_XBAR_output_N : component MUX_6x1_XBAR_output
             TX_L  => TX_L_temp,
             TX_R  => TX_R_temp
         );
-MUX_XBAR_output_E : component MUX_6x1_XBAR_output
+MUX_6x1_XBAR_output_E : component MUX_6x1_XBAR_output
         generic map(
             DATA_WIDTH => DATA_WIDTH
         )
@@ -709,7 +792,7 @@ MUX_XBAR_output_E : component MUX_6x1_XBAR_output
             TX_L  => TX_L_temp,
             TX_R  => TX_R_temp
         );
-MUX_XBAR_output_W : component MUX_6x1_XBAR_output
+MUX_6x1_XBAR_output_W : component MUX_6x1_XBAR_output
         generic map(
             DATA_WIDTH => DATA_WIDTH
         )
@@ -723,7 +806,7 @@ MUX_XBAR_output_W : component MUX_6x1_XBAR_output
             TX_L  => TX_L_temp,
             TX_R  => TX_R_temp
         );
-MUX_XBAR_output_S : component MUX_6x1_XBAR_output
+MUX_6x1_XBAR_output_S : component MUX_6x1_XBAR_output
         generic map(
             DATA_WIDTH => DATA_WIDTH
         )
@@ -737,7 +820,7 @@ MUX_XBAR_output_S : component MUX_6x1_XBAR_output
             TX_L  => TX_L_temp,
             TX_R  => TX_R_temp
         );
-MUX_XBAR_output_L : component MUX_6x1_XBAR_output
+MUX_6x1_XBAR_output_L : component MUX_6x1_XBAR_output
         generic map(
             DATA_WIDTH => DATA_WIDTH
         )
@@ -1215,4 +1298,504 @@ MUX_6x1_LBDR_output_L : component MUX_6x1_LBDR_output
         Req_SN => Req_SN_temp,Req_SE => Req_SE_temp,Req_SW => Req_SW_temp,Req_SS => Req_SS_temp,Req_SL => Req_SL_temp,
         Req_LN => Req_LN_temp,Req_LE => Req_LE_temp,Req_LW => Req_LW_temp,Req_LS => Req_LS_temp,Req_LL => Req_LL_temp,
         Req_RN => Req_RN_temp,Req_RE => Req_RE_temp,Req_RW => Req_RW_temp,Req_RS => Req_RS_temp,Req_RL => Req_RL_temp);
+
+
+MUX_5x1_FIFO_input_N : component MUX_5x1_FIFO_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_input_sel_in => "000",
+
+        RX_out                =>     RX_N_valid,
+        DRTS_out              =>   DRTS_N_valid,
+        Grant_N_out           => Grant_NN_valid,
+        Grant_E_out           => Grant_EN_valid,
+        Grant_W_out           => Grant_WN_valid,
+        Grant_S_out           => Grant_SN_valid,
+        Grant_L_out           => Grant_LN_valid,
+
+            RX_N => RX_N,
+            RX_E => RX_E,
+            RX_W => RX_W,
+            RX_S => RX_S,
+            RX_L => RX_L,
+
+            DRTS_N => DRTS_N,
+            DRTS_E => DRTS_E,
+            DRTS_W => DRTS_W,
+            DRTS_S => DRTS_S,
+            DRTS_L => DRTS_L,
+
+            Grant_NN => Grant_NN,
+            Grant_EN => Grant_EN,
+            Grant_WN => Grant_WN,
+            Grant_SN => Grant_SN,
+            Grant_LN => Grant_LN,
+
+            Grant_NE => Grant_NE,
+            Grant_EE => Grant_EE,
+            Grant_WE => Grant_WE,
+            Grant_SE => Grant_SE,
+            Grant_LE => Grant_LE,
+
+            Grant_NW => Grant_NW,
+            Grant_EW => Grant_EW,
+            Grant_WW => Grant_WW,
+            Grant_SW => Grant_SW,
+            Grant_LW => Grant_LW,
+
+            Grant_NS => Grant_NS,
+            Grant_ES => Grant_ES,
+            Grant_WS => Grant_WS,
+            Grant_SS => Grant_SS,
+            Grant_LS => Grant_LS,
+
+            Grant_NL => Grant_NL,
+            Grant_EL => Grant_EL,
+            Grant_WL => Grant_WL,
+            Grant_SL => Grant_SL,
+            Grant_LL => Grant_LL);
+MUX_5x1_FIFO_input_E : component MUX_5x1_FIFO_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_input_sel_in => "001",
+
+        RX_out                =>     RX_E_valid,
+        DRTS_out              =>   DRTS_E_valid,
+        Grant_N_out           => Grant_NE_valid,
+        Grant_E_out           => Grant_EE_valid,
+        Grant_W_out           => Grant_WE_valid,
+        Grant_S_out           => Grant_SE_valid,
+        Grant_L_out           => Grant_LE_valid,
+
+            RX_N => RX_N,
+            RX_E => RX_E,
+            RX_W => RX_W,
+            RX_S => RX_S,
+            RX_L => RX_L,
+
+            DRTS_N => DRTS_N,
+            DRTS_E => DRTS_E,
+            DRTS_W => DRTS_W,
+            DRTS_S => DRTS_S,
+            DRTS_L => DRTS_L,
+
+            Grant_NN => Grant_NN,
+            Grant_EN => Grant_EN,
+            Grant_WN => Grant_WN,
+            Grant_SN => Grant_SN,
+            Grant_LN => Grant_LN,
+
+            Grant_NE => Grant_NE,
+            Grant_EE => Grant_EE,
+            Grant_WE => Grant_WE,
+            Grant_SE => Grant_SE,
+            Grant_LE => Grant_LE,
+
+            Grant_NW => Grant_NW,
+            Grant_EW => Grant_EW,
+            Grant_WW => Grant_WW,
+            Grant_SW => Grant_SW,
+            Grant_LW => Grant_LW,
+
+            Grant_NS => Grant_NS,
+            Grant_ES => Grant_ES,
+            Grant_WS => Grant_WS,
+            Grant_SS => Grant_SS,
+            Grant_LS => Grant_LS,
+
+            Grant_NL => Grant_NL,
+            Grant_EL => Grant_EL,
+            Grant_WL => Grant_WL,
+            Grant_SL => Grant_SL,
+            Grant_LL => Grant_LL);
+MUX_5x1_FIFO_input_W : component MUX_5x1_FIFO_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_input_sel_in => "010",
+
+        RX_out                =>     RX_W_valid,
+        DRTS_out              =>   DRTS_W_valid,
+        Grant_N_out           => Grant_NW_valid,
+        Grant_E_out           => Grant_EW_valid,
+        Grant_W_out           => Grant_WW_valid,
+        Grant_S_out           => Grant_SW_valid,
+        Grant_L_out           => Grant_LW_valid,
+
+            RX_N => RX_N,
+            RX_E => RX_E,
+            RX_W => RX_W,
+            RX_S => RX_S,
+            RX_L => RX_L,
+
+            DRTS_N => DRTS_N,
+            DRTS_E => DRTS_E,
+            DRTS_W => DRTS_W,
+            DRTS_S => DRTS_S,
+            DRTS_L => DRTS_L,
+
+            Grant_NN => Grant_NN,
+            Grant_EN => Grant_EN,
+            Grant_WN => Grant_WN,
+            Grant_SN => Grant_SN,
+            Grant_LN => Grant_LN,
+
+            Grant_NE => Grant_NE,
+            Grant_EE => Grant_EE,
+            Grant_WE => Grant_WE,
+            Grant_SE => Grant_SE,
+            Grant_LE => Grant_LE,
+
+            Grant_NW => Grant_NW,
+            Grant_EW => Grant_EW,
+            Grant_WW => Grant_WW,
+            Grant_SW => Grant_SW,
+            Grant_LW => Grant_LW,
+
+            Grant_NS => Grant_NS,
+            Grant_ES => Grant_ES,
+            Grant_WS => Grant_WS,
+            Grant_SS => Grant_SS,
+            Grant_LS => Grant_LS,
+
+            Grant_NL => Grant_NL,
+            Grant_EL => Grant_EL,
+            Grant_WL => Grant_WL,
+            Grant_SL => Grant_SL,
+            Grant_LL => Grant_LL);
+MUX_5x1_FIFO_input_S : component MUX_5x1_FIFO_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_input_sel_in => "011",
+
+        RX_out                =>     RX_S_valid,
+        DRTS_out              =>   DRTS_S_valid,
+        Grant_N_out           => Grant_NS_valid,
+        Grant_E_out           => Grant_ES_valid,
+        Grant_W_out           => Grant_WS_valid,
+        Grant_S_out           => Grant_SS_valid,
+        Grant_L_out           => Grant_LS_valid,
+
+            RX_N => RX_N,
+            RX_E => RX_E,
+            RX_W => RX_W,
+            RX_S => RX_S,
+            RX_L => RX_L,
+
+            DRTS_N => DRTS_N,
+            DRTS_E => DRTS_E,
+            DRTS_W => DRTS_W,
+            DRTS_S => DRTS_S,
+            DRTS_L => DRTS_L,
+
+            Grant_NN => Grant_NN,
+            Grant_EN => Grant_EN,
+            Grant_WN => Grant_WN,
+            Grant_SN => Grant_SN,
+            Grant_LN => Grant_LN,
+
+            Grant_NE => Grant_NE,
+            Grant_EE => Grant_EE,
+            Grant_WE => Grant_WE,
+            Grant_SE => Grant_SE,
+            Grant_LE => Grant_LE,
+
+            Grant_NW => Grant_NW,
+            Grant_EW => Grant_EW,
+            Grant_WW => Grant_WW,
+            Grant_SW => Grant_SW,
+            Grant_LW => Grant_LW,
+
+            Grant_NS => Grant_NS,
+            Grant_ES => Grant_ES,
+            Grant_WS => Grant_WS,
+            Grant_SS => Grant_SS,
+            Grant_LS => Grant_LS,
+
+            Grant_NL => Grant_NL,
+            Grant_EL => Grant_EL,
+            Grant_WL => Grant_WL,
+            Grant_SL => Grant_SL,
+            Grant_LL => Grant_LL);
+MUX_5x1_FIFO_input_L : component MUX_5x1_FIFO_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_input_sel_in => "100",
+
+        RX_out                =>     RX_L_valid,
+        DRTS_out              =>   DRTS_L_valid,
+        Grant_N_out           => Grant_NL_valid,
+        Grant_E_out           => Grant_EL_valid,
+        Grant_W_out           => Grant_WL_valid,
+        Grant_S_out           => Grant_SL_valid,
+        Grant_L_out           => Grant_LL_valid,
+
+            RX_N => RX_N,
+            RX_E => RX_E,
+            RX_W => RX_W,
+            RX_S => RX_S,
+            RX_L => RX_L,
+
+            DRTS_N => DRTS_N,
+            DRTS_E => DRTS_E,
+            DRTS_W => DRTS_W,
+            DRTS_S => DRTS_S,
+            DRTS_L => DRTS_L,
+
+            Grant_NN => Grant_NN,
+            Grant_EN => Grant_EN,
+            Grant_WN => Grant_WN,
+            Grant_SN => Grant_SN,
+            Grant_LN => Grant_LN,
+
+            Grant_NE => Grant_NE,
+            Grant_EE => Grant_EE,
+            Grant_WE => Grant_WE,
+            Grant_SE => Grant_SE,
+            Grant_LE => Grant_LE,
+
+            Grant_NW => Grant_NW,
+            Grant_EW => Grant_EW,
+            Grant_WW => Grant_WW,
+            Grant_SW => Grant_SW,
+            Grant_LW => Grant_LW,
+
+            Grant_NS => Grant_NS,
+            Grant_ES => Grant_ES,
+            Grant_WS => Grant_WS,
+            Grant_SS => Grant_SS,
+            Grant_LS => Grant_LS,
+
+            Grant_NL => Grant_NL,
+            Grant_EL => Grant_EL,
+            Grant_WL => Grant_WL,
+            Grant_SL => Grant_SL,
+            Grant_LL => Grant_LL);
+MUX_5x1_FIFO_input_R : component MUX_5x1_FIFO_input
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_input_sel_in => MUX_5x1_FIFO_input_select_R_out,
+
+        RX_out                =>     RX_R_valid,
+        DRTS_out              =>   DRTS_R_valid,
+        Grant_N_out           => Grant_NR_valid,
+        Grant_E_out           => Grant_ER_valid,
+        Grant_W_out           => Grant_WR_valid,
+        Grant_S_out           => Grant_SR_valid,
+        Grant_L_out           => Grant_LR_valid,
+
+            RX_N => RX_N,
+            RX_E => RX_E,
+            RX_W => RX_W,
+            RX_S => RX_S,
+            RX_L => RX_L,
+
+            DRTS_N => DRTS_N,
+            DRTS_E => DRTS_E,
+            DRTS_W => DRTS_W,
+            DRTS_S => DRTS_S,
+            DRTS_L => DRTS_L,
+
+            Grant_NN => Grant_NN,
+            Grant_EN => Grant_EN,
+            Grant_WN => Grant_WN,
+            Grant_SN => Grant_SN,
+            Grant_LN => Grant_LN,
+
+            Grant_NE => Grant_NE,
+            Grant_EE => Grant_EE,
+            Grant_WE => Grant_WE,
+            Grant_SE => Grant_SE,
+            Grant_LE => Grant_LE,
+
+            Grant_NW => Grant_NW,
+            Grant_EW => Grant_EW,
+            Grant_WW => Grant_WW,
+            Grant_SW => Grant_SW,
+            Grant_LW => Grant_LW,
+
+            Grant_NS => Grant_NS,
+            Grant_ES => Grant_ES,
+            Grant_WS => Grant_WS,
+            Grant_SS => Grant_SS,
+            Grant_LS => Grant_LS,
+
+            Grant_NL => Grant_NL,
+            Grant_EL => Grant_EL,
+            Grant_WL => Grant_WL,
+            Grant_SL => Grant_SL,
+            Grant_LL => Grant_LL);
+
+MUX_6x1_FIFO_output_N : component MUX_6x1_FIFO_output
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_output_sel_in => MUX_6x1_FIFO_output_select_N_out,
+
+        CTS_out                =>        CTS_N,
+        empty_out              =>      empty_N,
+        FIFO_D_out_out         => FIFO_D_out_N,
+
+            CTS_N => CTS_N_temp,
+            CTS_E => CTS_E_temp,
+            CTS_w => CTS_w_temp,
+            CTS_S => CTS_S_temp,
+            CTS_L => CTS_L_temp,
+            CTS_R => CTS_R_temp,
+
+            empty_N => empty_N_temp,
+            empty_E => empty_E_temp,
+            empty_W => empty_W_temp,
+            empty_S => empty_S_temp,
+            empty_L => empty_L_temp,
+            empty_R => empty_R_temp,
+
+            FIFO_D_out_N => FIFO_D_out_N_temp,
+            FIFO_D_out_E => FIFO_D_out_E_temp,
+            FIFO_D_out_W => FIFO_D_out_W_temp,
+            FIFO_D_out_S => FIFO_D_out_S_temp,
+            FIFO_D_out_L => FIFO_D_out_L_temp,
+            FIFO_D_out_R => FIFO_D_out_R_temp);
+MUX_6x1_FIFO_output_E : component MUX_6x1_FIFO_output
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_output_sel_in => MUX_6x1_FIFO_output_select_E_out,
+
+        CTS_out                =>        CTS_E,
+        empty_out              =>      empty_E,
+        FIFO_D_out_out         => FIFO_D_out_E,
+
+            CTS_N => CTS_N_temp,
+            CTS_E => CTS_E_temp,
+            CTS_w => CTS_w_temp,
+            CTS_S => CTS_S_temp,
+            CTS_L => CTS_L_temp,
+            CTS_R => CTS_R_temp,
+
+            empty_N => empty_N_temp,
+            empty_E => empty_E_temp,
+            empty_W => empty_W_temp,
+            empty_S => empty_S_temp,
+            empty_L => empty_L_temp,
+            empty_R => empty_R_temp,
+
+            FIFO_D_out_N => FIFO_D_out_N_temp,
+            FIFO_D_out_E => FIFO_D_out_E_temp,
+            FIFO_D_out_W => FIFO_D_out_W_temp,
+            FIFO_D_out_S => FIFO_D_out_S_temp,
+            FIFO_D_out_L => FIFO_D_out_L_temp,
+            FIFO_D_out_R => FIFO_D_out_R_temp);
+MUX_6x1_FIFO_output_W : component MUX_6x1_FIFO_output
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_output_sel_in => MUX_6x1_FIFO_output_select_W_out,
+
+        CTS_out                =>        CTS_W,
+        empty_out              =>      empty_W,
+        FIFO_D_out_out         => FIFO_D_out_W,
+
+            CTS_N => CTS_N_temp,
+            CTS_E => CTS_E_temp,
+            CTS_w => CTS_w_temp,
+            CTS_S => CTS_S_temp,
+            CTS_L => CTS_L_temp,
+            CTS_R => CTS_R_temp,
+
+            empty_N => empty_N_temp,
+            empty_E => empty_E_temp,
+            empty_W => empty_W_temp,
+            empty_S => empty_S_temp,
+            empty_L => empty_L_temp,
+            empty_R => empty_R_temp,
+
+            FIFO_D_out_N => FIFO_D_out_N_temp,
+            FIFO_D_out_E => FIFO_D_out_E_temp,
+            FIFO_D_out_W => FIFO_D_out_W_temp,
+            FIFO_D_out_S => FIFO_D_out_S_temp,
+            FIFO_D_out_L => FIFO_D_out_L_temp,
+            FIFO_D_out_R => FIFO_D_out_R_temp);
+MUX_6x1_FIFO_output_S : component MUX_6x1_FIFO_output
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_output_sel_in => MUX_6x1_FIFO_output_select_S_out,
+
+        CTS_out                =>        CTS_S,
+        empty_out              =>      empty_S,
+        FIFO_D_out_out         => FIFO_D_out_S,
+
+            CTS_N => CTS_N_temp,
+            CTS_E => CTS_E_temp,
+            CTS_w => CTS_w_temp,
+            CTS_S => CTS_S_temp,
+            CTS_L => CTS_L_temp,
+            CTS_R => CTS_R_temp,
+
+            empty_N => empty_N_temp,
+            empty_E => empty_E_temp,
+            empty_W => empty_W_temp,
+            empty_S => empty_S_temp,
+            empty_L => empty_L_temp,
+            empty_R => empty_R_temp,
+
+            FIFO_D_out_N => FIFO_D_out_N_temp,
+            FIFO_D_out_E => FIFO_D_out_E_temp,
+            FIFO_D_out_W => FIFO_D_out_W_temp,
+            FIFO_D_out_S => FIFO_D_out_S_temp,
+            FIFO_D_out_L => FIFO_D_out_L_temp,
+            FIFO_D_out_R => FIFO_D_out_R_temp);
+MUX_6x1_FIFO_output_L : component MUX_6x1_FIFO_output
+    generic map(
+        DATA_WIDTH => DATA_WIDTH
+    )
+    port map(
+        MUX_FIFO_output_sel_in => MUX_6x1_FIFO_output_select_L_out,
+
+        CTS_out                =>        CTS_L,
+        empty_out              =>      empty_L,
+        FIFO_D_out_out         => FIFO_D_out_L,
+
+            CTS_N => CTS_N_temp,
+            CTS_E => CTS_E_temp,
+            CTS_w => CTS_w_temp,
+            CTS_S => CTS_S_temp,
+            CTS_L => CTS_L_temp,
+            CTS_R => CTS_R_temp,
+
+            empty_N => empty_N_temp,
+            empty_E => empty_E_temp,
+            empty_W => empty_W_temp,
+            empty_S => empty_S_temp,
+            empty_L => empty_L_temp,
+            empty_R => empty_R_temp,
+
+            FIFO_D_out_N => FIFO_D_out_N_temp,
+            FIFO_D_out_E => FIFO_D_out_E_temp,
+            FIFO_D_out_W => FIFO_D_out_W_temp,
+            FIFO_D_out_S => FIFO_D_out_S_temp,
+            FIFO_D_out_L => FIFO_D_out_L_temp,
+            FIFO_D_out_R => FIFO_D_out_R_temp);
+
+
+
+
+
+
 end;
