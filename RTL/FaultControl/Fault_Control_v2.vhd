@@ -106,6 +106,8 @@ begin
     assigning_UNIT_to_paths : process(clk) is --, Unit_Is_Binded, Fault_Info_FIFO_in, Fault_Info_LBDR_in, Fault_Info_ARBITER_in, Fault_Info_XBAR_in
         variable dir : integer;
     begin
+        --TODO: maybe i should reset all Unit_Is_Binded, in this part of code.
+        Unit_Is_Binded <= (others => (others => '0')); --by default all of them are '0'. and on each clock cyle they are updated.
         if rising_edge(clk) then
             --learn what faults do we have and where.
             --0 => available
@@ -167,6 +169,13 @@ begin
                         end loop;
                     end if;
                 end loop;
+            --else
+                --dir := EAST;
+                --if PATH_STATUS(dir, 0) & PATH_STATUS(dir, 1) & PATH_STATUS(dir, 2) & PATH_STATUS(dir, 3) /= Fully_Functional then
+                    --same code as above.
+                    --TODO: try to do that with Functions.
+                --else
+                    --.....
             end if;
 
         --TODO: check for other pathes as well, EAST. . . .
