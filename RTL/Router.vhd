@@ -87,20 +87,58 @@ architecture behavior of router is
         );
 	end COMPONENT;
 
-    component Fault_Control
-        port(Fault_Info_in                      : in  std_logic_vector(5 downto 0);
-             MUX_5x1_module_input_select_N_out  : out std_logic_vector(2 downto 0);
-             MUX_5x1_module_input_select_E_out  : out std_logic_vector(2 downto 0);
-             MUX_5x1_module_input_select_W_out  : out std_logic_vector(2 downto 0);
-             MUX_5x1_module_input_select_S_out  : out std_logic_vector(2 downto 0);
-             MUX_5x1_module_input_select_L_out  : out std_logic_vector(2 downto 0);
-             MUX_5x1_module_input_select_R_out  : out std_logic_vector(2 downto 0);
-             MUX_6x1_module_output_select_N_out : out std_logic_vector(2 downto 0);
-             MUX_6x1_module_output_select_E_out : out std_logic_vector(2 downto 0);
-             MUX_6x1_module_output_select_W_out : out std_logic_vector(2 downto 0);
-             MUX_6x1_module_output_select_S_out : out std_logic_vector(2 downto 0);
-             MUX_6x1_module_output_select_L_out : out std_logic_vector(2 downto 0));
-    end component Fault_Control;
+
+    component Fault_Control_v2
+        port(clk                                 : in  std_logic;
+             Fault_Info_FIFO_in                  : in  std_logic_vector(5 downto 0);
+             Fault_Info_LBDR_in                  : in  std_logic_vector(5 downto 0);
+             Fault_Info_Arbiter_in               : in  std_logic_vector(5 downto 0);
+             Fault_Info_XBAR_in                  : in  std_logic_vector(5 downto 0);
+             MUX_5x1_FIFO_input_select_N_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_FIFO_input_select_E_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_FIFO_input_select_W_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_FIFO_input_select_S_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_FIFO_input_select_L_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_FIFO_input_select_R_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_LBDR_input_select_N_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_LBDR_input_select_E_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_LBDR_input_select_W_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_LBDR_input_select_S_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_LBDR_input_select_L_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_LBDR_input_select_R_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_ARBITER_input_select_N_out  : out std_logic_vector(2 downto 0);
+             MUX_5x1_ARBITER_input_select_E_out  : out std_logic_vector(2 downto 0);
+             MUX_5x1_ARBITER_input_select_W_out  : out std_logic_vector(2 downto 0);
+             MUX_5x1_ARBITER_input_select_S_out  : out std_logic_vector(2 downto 0);
+             MUX_5x1_ARBITER_input_select_L_out  : out std_logic_vector(2 downto 0);
+             MUX_5x1_ARBITER_input_select_R_out  : out std_logic_vector(2 downto 0);
+             MUX_5x1_XBAR_input_select_N_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_XBAR_input_select_E_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_XBAR_input_select_W_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_XBAR_input_select_S_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_XBAR_input_select_L_out     : out std_logic_vector(2 downto 0);
+             MUX_5x1_XBAR_input_select_R_out     : out std_logic_vector(2 downto 0);
+             MUX_6x1_FIFO_output_select_N_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_FIFO_output_select_E_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_FIFO_output_select_W_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_FIFO_output_select_S_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_FIFO_output_select_L_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_LBDR_output_select_N_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_LBDR_output_select_E_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_LBDR_output_select_W_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_LBDR_output_select_S_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_LBDR_output_select_L_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_ARBITER_output_select_N_out : out std_logic_vector(2 downto 0);
+             MUX_6x1_ARBITER_output_select_E_out : out std_logic_vector(2 downto 0);
+             MUX_6x1_ARBITER_output_select_W_out : out std_logic_vector(2 downto 0);
+             MUX_6x1_ARBITER_output_select_S_out : out std_logic_vector(2 downto 0);
+             MUX_6x1_ARBITER_output_select_L_out : out std_logic_vector(2 downto 0);
+             MUX_6x1_XBAR_output_select_N_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_XBAR_output_select_E_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_XBAR_output_select_W_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_XBAR_output_select_S_out    : out std_logic_vector(2 downto 0);
+             MUX_6x1_XBAR_output_select_L_out    : out std_logic_vector(2 downto 0));
+    end component Fault_Control_v2;
 
     component MUX_5x1_XBAR_input
         generic(DATA_WIDTH : integer := 32);
@@ -510,127 +548,92 @@ XBAR_R: XBAR generic map (DATA_WIDTH  => DATA_WIDTH)
 
 --all the processes for fault simulation, those will be deleted later
 
--- xbar_fault: process begin
---     wait for 50 ns;
---     Fault_Info_Xbar_in <= "000010";
---     wait for 50 ns;
---     Fault_Info_Xbar_in <= "000100";
---     wait for 50 ns;
---     Fault_Info_Xbar_in <= "000001";
---     wait;
--- end process xbar_fault;
+ ALL_TYPE_FAULT_SIM: process begin
+        Fault_Info_FIFO_in    <= "000000";
+        Fault_Info_LBDR_in    <= "000000";
+        Fault_Info_Arbiter_in <= "000000";
+        Fault_Info_XBAR_in    <= "000000";
+        wait for 50 ns;
+        Fault_Info_LBDR_in    <= "111011";
+        Fault_Info_Arbiter_in <= "111101";
+        Fault_Info_XBAR_in    <= "111110";
+        wait for 50 ns;
+        Fault_Info_LBDR_in    <= "111101";
+        Fault_Info_Arbiter_in <= "100111";
+        Fault_Info_XBAR_in    <= "111111";
+        wait for 50 ns;
+        Fault_Info_LBDR_in    <= "000000";
+        Fault_Info_Arbiter_in <= "000000";
+        Fault_Info_XBAR_in    <= "000000";
+        wait for 50 ns;
+        Fault_Info_LBDR_in    <= "111011";
+        Fault_Info_Arbiter_in <= "110111";
+        Fault_Info_XBAR_in    <= "101111";
+        wait for 50 ns;
+        Fault_Info_LBDR_in    <= "000100";
+        Fault_Info_Arbiter_in <= "001000";
+        Fault_Info_XBAR_in    <= "010000";
 
--- arbiter_fault: process begin
---     wait for 50 ns;
---     Fault_Info_Arbiter_in <= "001000";
---     wait for 50 ns;
---     Fault_Info_Arbiter_in <= "000100";
---     wait for 50 ns;
---     Fault_Info_Arbiter_in <= "000001";
---     wait;
--- end process arbiter_fault;
-
--- lbdr_fault: process begin
---     wait for 20 ns;
---     -- wait for 55 ns; --works
---     -- Fault_Info_LBDR_in <= "010000"; --at this time, this LBDR is used, checked in simulation, but still works.
---     -- Fault_Info_LBDR_in <= "001000";
---     -- wait for 50 ns;
---     -- Fault_Info_LBDR_in <= "000000"; --worksfff
---     -- Fault_Info_LBDR_in <= "010000"; --works
---     Fault_Info_LBDR_in <= "001000";
---     -- Fault_Info_LBDR_in <= "000100";
---     -- Fault_Info_LBDR_in <= "000010";
---     -- Fault_Info_LBDR_in <= "000001";
---
---     --probably we get this faulures because during this change, packets are being sent.
---     wait;
--- end process lbdr_fault;
-
--- FIFO_fault: process begin
---     wait for 5 ns; --fails on: 18, 20, 23, 50
---     -- wait for 55 ns; --works
---     -- Fault_Info_FIFO_in <= "010000";
---     Fault_Info_FIFO_in <= "010000";
---     wait for 50 ns;
---     -- Fault_Info_FIFO_in <= "000000"; --worksfff
---     -- Fault_Info_FIFO_in <= "010000"; --works
---     -- Fault_Info_FIFO_in <= "001000"; --fails
---     -- Fault_Info_FIFO_in <= "000100"; --fails
---     -- Fault_Info_FIFO_in <= "000010"; --fails
---     -- Fault_Info_FIFO_in <= "000001"; --fails
---
---     wait;
--- end process FIFO_fault;
+     wait;
+ end process ALL_TYPE_FAULT_SIM;
 
 -- all the control units for redundancy
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
-Fault_Control_inst_Xbar : component Fault_Control
-    port map(
-        Fault_Info_in                   => Fault_Info_Xbar_in,
-        MUX_5x1_module_input_select_N_out  => MUX_5x1_Xbar_input_select_N_out,
-        MUX_5x1_module_input_select_E_out  => MUX_5x1_Xbar_input_select_E_out,
-        MUX_5x1_module_input_select_W_out  => MUX_5x1_Xbar_input_select_W_out,
-        MUX_5x1_module_input_select_S_out  => MUX_5x1_Xbar_input_select_S_out,
-        MUX_5x1_module_input_select_L_out  => MUX_5x1_Xbar_input_select_L_out,
-        MUX_5x1_module_input_select_R_out  => MUX_5x1_Xbar_input_select_R_out,
-        MUX_6x1_module_output_select_N_out => MUX_6x1_Xbar_output_select_N_out,
-        MUX_6x1_module_output_select_E_out => MUX_6x1_Xbar_output_select_E_out,
-        MUX_6x1_module_output_select_W_out => MUX_6x1_Xbar_output_select_W_out,
-        MUX_6x1_module_output_select_S_out => MUX_6x1_Xbar_output_select_S_out,
-        MUX_6x1_module_output_select_L_out => MUX_6x1_Xbar_output_select_L_out
-    );
 
-Fault_Control_inst_Arbiter : component Fault_Control
-    port map(
-
-        Fault_Info_in                   => Fault_Info_Arbiter_in,
-        MUX_5x1_module_input_select_N_out  => MUX_5x1_Arbiter_input_select_N_out,
-        MUX_5x1_module_input_select_E_out  => MUX_5x1_Arbiter_input_select_E_out,
-        MUX_5x1_module_input_select_W_out  => MUX_5x1_Arbiter_input_select_W_out,
-        MUX_5x1_module_input_select_S_out  => MUX_5x1_Arbiter_input_select_S_out,
-        MUX_5x1_module_input_select_L_out  => MUX_5x1_Arbiter_input_select_L_out,
-        MUX_5x1_module_input_select_R_out  => MUX_5x1_Arbiter_input_select_R_out,
-        MUX_6x1_module_output_select_N_out => MUX_6x1_Arbiter_output_select_N_out,
-        MUX_6x1_module_output_select_E_out => MUX_6x1_Arbiter_output_select_E_out,
-        MUX_6x1_module_output_select_W_out => MUX_6x1_Arbiter_output_select_W_out,
-        MUX_6x1_module_output_select_S_out => MUX_6x1_Arbiter_output_select_S_out,
-        MUX_6x1_module_output_select_L_out => MUX_6x1_Arbiter_output_select_L_out
-    );
-
-Fault_Control_inst_LBDR : component Fault_Control
-    port map(
-        Fault_Info_in                   => Fault_Info_LBDR_in,
-        MUX_5x1_module_input_select_N_out  => MUX_5x1_LBDR_input_select_N_out,
-        MUX_5x1_module_input_select_E_out  => MUX_5x1_LBDR_input_select_E_out,
-        MUX_5x1_module_input_select_W_out  => MUX_5x1_LBDR_input_select_W_out,
-        MUX_5x1_module_input_select_S_out  => MUX_5x1_LBDR_input_select_S_out,
-        MUX_5x1_module_input_select_L_out  => MUX_5x1_LBDR_input_select_L_out,
-        MUX_5x1_module_input_select_R_out  => MUX_5x1_LBDR_input_select_R_out,
-        MUX_6x1_module_output_select_N_out => MUX_6x1_LBDR_output_select_N_out,
-        MUX_6x1_module_output_select_E_out => MUX_6x1_LBDR_output_select_E_out,
-        MUX_6x1_module_output_select_W_out => MUX_6x1_LBDR_output_select_W_out,
-        MUX_6x1_module_output_select_S_out => MUX_6x1_LBDR_output_select_S_out,
-        MUX_6x1_module_output_select_L_out => MUX_6x1_LBDR_output_select_L_out
-    );
-
-Fault_Control_inst_FIFO : component Fault_Control
-    port map(
-        Fault_Info_in                   => Fault_Info_FIFO_in,
-        MUX_5x1_module_input_select_N_out  => MUX_5x1_FIFO_input_select_N_out,
-        MUX_5x1_module_input_select_E_out  => MUX_5x1_FIFO_input_select_E_out,
-        MUX_5x1_module_input_select_W_out  => MUX_5x1_FIFO_input_select_W_out,
-        MUX_5x1_module_input_select_S_out  => MUX_5x1_FIFO_input_select_S_out,
-        MUX_5x1_module_input_select_L_out  => MUX_5x1_FIFO_input_select_L_out,
-        MUX_5x1_module_input_select_R_out  => MUX_5x1_FIFO_input_select_R_out,
-        MUX_6x1_module_output_select_N_out => MUX_6x1_FIFO_output_select_N_out,
-        MUX_6x1_module_output_select_E_out => MUX_6x1_FIFO_output_select_E_out,
-        MUX_6x1_module_output_select_W_out => MUX_6x1_FIFO_output_select_W_out,
-        MUX_6x1_module_output_select_S_out => MUX_6x1_FIFO_output_select_S_out,
-        MUX_6x1_module_output_select_L_out => MUX_6x1_FIFO_output_select_L_out
-    );
+    Fault_Control_v2_inst : component Fault_Control_v2
+        port map(
+            clk                                 => clk,
+            Fault_Info_FIFO_in                  => Fault_Info_FIFO_in,
+            Fault_Info_LBDR_in                  => Fault_Info_LBDR_in,
+            Fault_Info_Arbiter_in               => Fault_Info_Arbiter_in,
+            Fault_Info_XBAR_in                  => Fault_Info_XBAR_in,
+            MUX_5x1_FIFO_input_select_N_out     => MUX_5x1_FIFO_input_select_N_out,
+            MUX_5x1_FIFO_input_select_E_out     => MUX_5x1_FIFO_input_select_E_out,
+            MUX_5x1_FIFO_input_select_W_out     => MUX_5x1_FIFO_input_select_W_out,
+            MUX_5x1_FIFO_input_select_S_out     => MUX_5x1_FIFO_input_select_S_out,
+            MUX_5x1_FIFO_input_select_L_out     => MUX_5x1_FIFO_input_select_L_out,
+            MUX_5x1_FIFO_input_select_R_out     => MUX_5x1_FIFO_input_select_R_out,
+            MUX_5x1_LBDR_input_select_N_out     => MUX_5x1_LBDR_input_select_N_out,
+            MUX_5x1_LBDR_input_select_E_out     => MUX_5x1_LBDR_input_select_E_out,
+            MUX_5x1_LBDR_input_select_W_out     => MUX_5x1_LBDR_input_select_W_out,
+            MUX_5x1_LBDR_input_select_S_out     => MUX_5x1_LBDR_input_select_S_out,
+            MUX_5x1_LBDR_input_select_L_out     => MUX_5x1_LBDR_input_select_L_out,
+            MUX_5x1_LBDR_input_select_R_out     => MUX_5x1_LBDR_input_select_R_out,
+            MUX_5x1_ARBITER_input_select_N_out  => MUX_5x1_ARBITER_input_select_N_out,
+            MUX_5x1_ARBITER_input_select_E_out  => MUX_5x1_ARBITER_input_select_E_out,
+            MUX_5x1_ARBITER_input_select_W_out  => MUX_5x1_ARBITER_input_select_W_out,
+            MUX_5x1_ARBITER_input_select_S_out  => MUX_5x1_ARBITER_input_select_S_out,
+            MUX_5x1_ARBITER_input_select_L_out  => MUX_5x1_ARBITER_input_select_L_out,
+            MUX_5x1_ARBITER_input_select_R_out  => MUX_5x1_ARBITER_input_select_R_out,
+            MUX_5x1_XBAR_input_select_N_out     => MUX_5x1_XBAR_input_select_N_out,
+            MUX_5x1_XBAR_input_select_E_out     => MUX_5x1_XBAR_input_select_E_out,
+            MUX_5x1_XBAR_input_select_W_out     => MUX_5x1_XBAR_input_select_W_out,
+            MUX_5x1_XBAR_input_select_S_out     => MUX_5x1_XBAR_input_select_S_out,
+            MUX_5x1_XBAR_input_select_L_out     => MUX_5x1_XBAR_input_select_L_out,
+            MUX_5x1_XBAR_input_select_R_out     => MUX_5x1_XBAR_input_select_R_out,
+            MUX_6x1_FIFO_output_select_N_out    => MUX_6x1_FIFO_output_select_N_out,
+            MUX_6x1_FIFO_output_select_E_out    => MUX_6x1_FIFO_output_select_E_out,
+            MUX_6x1_FIFO_output_select_W_out    => MUX_6x1_FIFO_output_select_W_out,
+            MUX_6x1_FIFO_output_select_S_out    => MUX_6x1_FIFO_output_select_S_out,
+            MUX_6x1_FIFO_output_select_L_out    => MUX_6x1_FIFO_output_select_L_out,
+            MUX_6x1_LBDR_output_select_N_out    => MUX_6x1_LBDR_output_select_N_out,
+            MUX_6x1_LBDR_output_select_E_out    => MUX_6x1_LBDR_output_select_E_out,
+            MUX_6x1_LBDR_output_select_W_out    => MUX_6x1_LBDR_output_select_W_out,
+            MUX_6x1_LBDR_output_select_S_out    => MUX_6x1_LBDR_output_select_S_out,
+            MUX_6x1_LBDR_output_select_L_out    => MUX_6x1_LBDR_output_select_L_out,
+            MUX_6x1_ARBITER_output_select_N_out => MUX_6x1_ARBITER_output_select_N_out,
+            MUX_6x1_ARBITER_output_select_E_out => MUX_6x1_ARBITER_output_select_E_out,
+            MUX_6x1_ARBITER_output_select_W_out => MUX_6x1_ARBITER_output_select_W_out,
+            MUX_6x1_ARBITER_output_select_S_out => MUX_6x1_ARBITER_output_select_S_out,
+            MUX_6x1_ARBITER_output_select_L_out => MUX_6x1_ARBITER_output_select_L_out,
+            MUX_6x1_XBAR_output_select_N_out    => MUX_6x1_XBAR_output_select_N_out,
+            MUX_6x1_XBAR_output_select_E_out    => MUX_6x1_XBAR_output_select_E_out,
+            MUX_6x1_XBAR_output_select_W_out    => MUX_6x1_XBAR_output_select_W_out,
+            MUX_6x1_XBAR_output_select_S_out    => MUX_6x1_XBAR_output_select_S_out,
+            MUX_6x1_XBAR_output_select_L_out    => MUX_6x1_XBAR_output_select_L_out
+        );
 
 -- all the muxes for redundancy
 ------------------------------------------------------------------------------------------------------------------------------
