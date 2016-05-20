@@ -144,6 +144,16 @@ begin
         Fault_Info_LBDR_in    <= "000000";
         Fault_Info_Arbiter_in <= "000000";
         Fault_Info_XBAR_in    <= "000000";
+        wait for 50 ns;
+        Fault_Info_FIFO_in    <= "111101";
+        Fault_Info_LBDR_in    <= "111011";
+        Fault_Info_Arbiter_in <= "110111";
+        Fault_Info_XBAR_in    <= "101111";
+        wait for 50 ns;
+        Fault_Info_FIFO_in    <= "000010";
+        Fault_Info_LBDR_in    <= "000100";
+        Fault_Info_Arbiter_in <= "001000";
+        Fault_Info_XBAR_in    <= "010000";
 
         wait;
 
