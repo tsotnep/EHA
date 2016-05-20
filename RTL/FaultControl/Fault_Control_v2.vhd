@@ -99,6 +99,8 @@ architecture RTL of Fault_Control_v2 is
     shared variable Output_MUX_UNIT : TYPExDIRxMUX;
     signal Output_MUX_UNIT_r        : TYPExDIRxMUX;
 
+    signal FLAG_HEALTHY_PATH : std_logic_vector(4 downto 0);
+
 --    procedure find_and_fix(
 --        variable dir             : in    integer;
 --        variable Unit_Is_Binded  : inout TYPESxUNIT;
@@ -129,6 +131,38 @@ architecture RTL of Fault_Control_v2 is
 
 
 begin
+    assigning_UNIT_to_paths : process(clk) is
+    begin
+        if rising_edge(clk) then
+            PATH_STATUS_r     <= PATH_STATUS;
+            Input_MUX_UNIT_r  <= (others => (others => "000"));
+            Output_MUX_UNIT_r <= (others => (others => "000"));
+            PATH_STATUS       := (others => (others => '0'));
+            Unit_Is_Binded    := (others => (others => '0')); --by default all of them are '0'. and on each clock cyle they are updated.
+
+            for PATH_INDEX in 0 to 4 loop --check for all pathes
+                for TYPE_INDEX in 0 to 3 loop --find out which part is not functional
+                    for UNIT_INDEX in 0 to 5 loop --take pool of this parts/units and find which one is not used of this.
+                        if Fault_Information_Array_r(TYPE_INDEX)(UNIT_INDEX) /= '1' --if this uint is not fauly 
+                        AND Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX) /= '1' --and not used in other path before
+                        AND PATH_STATUS(PATH_INDEX)(TYPE_INDEX) /= '1' --and we have not yet binded any unit to this part, yet
+                        then
+                            Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX)    := '1'; --mark this unit as used, during THIS clk cycle
+                            PATH_STATUS(PATH_INDEX)(TYPE_INDEX)       := '1'; --this is only to notify later, which path is alive
+                            Input_MUX_UNIT_r(TYPE_INDEX)(UNIT_INDEX)  <= STD_LOGIC_VECTOR(TO_UNSIGNED(PATH_INDEX, 3));
+                            Output_MUX_UNIT_r(TYPE_INDEX)(PATH_INDEX) <= STD_LOGIC_VECTOR(TO_UNSIGNED(UNIT_INDEX, 3));
+                            if UNIT_INDEX = 5 and PATH_STATUS(PATH_INDEX)(TYPE_INDEX) = '0' then
+                                Input_MUX_UNIT_r(TYPE_INDEX)(UNIT_INDEX)  <= "XXX";
+                                Output_MUX_UNIT_r(TYPE_INDEX)(PATH_INDEX) <= "XXX";
+                            end if;
+                        end if;
+                    end loop;
+                end loop;
+                Unit_Is_Binded_r <= Unit_Is_Binded;
+            end loop;
+        end if;
+    end process assigning_UNIT_to_paths;
+
     --    outputting_MUX_Signals : process is
     --    begin
     MUX_5x1_FIFO_input_select_N_out  <= Input_MUX_UNIT_r(0)(0);
@@ -206,45 +240,6 @@ begin
     Fault_Information_Array_r(3)(3) <= Fault_Info_XBAR_in(3);
     Fault_Information_Array_r(3)(4) <= Fault_Info_XBAR_in(4);
     Fault_Information_Array_r(3)(5) <= Fault_Info_XBAR_in(5);
-
-    assigning_UNIT_to_paths : process(clk) is --, Unit_Is_Binded, Fault_Info_FIFO_in, Fault_Info_LBDR_in, Fault_Info_ARBITER_in, Fault_Info_XBAR_in
-        variable dir : integer;
-    begin
-        if rising_edge(clk) then
-            --            Input_MUX_UNIT_r  <= Input_MUX_UNIT;
-            --            Output_MUX_UNIT_r <= Output_MUX_UNIT;
-            PATH_STATUS_r     <= PATH_STATUS;
-            Input_MUX_UNIT_r  <= (others => (others => "000"));
-            Output_MUX_UNIT_r <= (others => (others => "000"));
-            PATH_STATUS       := (others => (others => '0'));
-            Unit_Is_Binded    := (others => (others => '0')); --by default all of them are '0'. and on each clock cyle they are updated.
-
-            dir := EAST;
-            
-            if PATH_STATUS(dir)(0) & PATH_STATUS(dir)(1) & PATH_STATUS(dir)(2) & PATH_STATUS(dir)(3) /= Fully_Functional then
-                for TYPE_INDEX in 0 to 3 loop
-                    for UNIT_INDEX in 0 to 5 loop
-                        if Fault_Information_Array_r(TYPE_INDEX)(UNIT_INDEX) /= '1' --
-                        AND Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX) /= '1' --
-                        AND PATH_STATUS(dir)(TYPE_INDEX) /= '1' then --
-                            Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX)   := '1';
-                            PATH_STATUS(dir)(TYPE_INDEX)             := '1';
-                            Input_MUX_UNIT_r(TYPE_INDEX)(UNIT_INDEX) <= STD_LOGIC_VECTOR(TO_UNSIGNED(dir, 3));
-                            Output_MUX_UNIT_r(TYPE_INDEX)(dir)       <= STD_LOGIC_VECTOR(TO_UNSIGNED(UNIT_INDEX, 3));
-
-                            --                            Unit_Is_Binded_r(TYPE_INDEX)(UNIT_INDEX) <= Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX);
-                            if UNIT_INDEX = 5 and PATH_STATUS(dir)(TYPE_INDEX) = '0' then
-                                Input_MUX_UNIT_r(TYPE_INDEX)(UNIT_INDEX) <= "XXX";
-                                Output_MUX_UNIT_r(TYPE_INDEX)(dir)       <= "XXX";
-                            end if;
-
-                        end if;
-                    end loop;
-                end loop;
-                Unit_Is_Binded_r <= Unit_Is_Binded;
-            end if;
-        end if;
-    end process assigning_UNIT_to_paths;
 
 end architecture RTL;
 
