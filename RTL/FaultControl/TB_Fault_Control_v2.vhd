@@ -125,12 +125,25 @@ begin
 
     stimul : process is
     begin
-        --        wait for 100 ns;
+        Fault_Info_FIFO_in    <= "000000";
+        Fault_Info_LBDR_in    <= "000000";
+        Fault_Info_Arbiter_in <= "000000";
+        Fault_Info_XBAR_in    <= "000000";
+        wait for 50 ns;
         Fault_Info_FIFO_in    <= "100111";
         Fault_Info_LBDR_in    <= "111011";
         Fault_Info_Arbiter_in <= "111101";
         Fault_Info_XBAR_in    <= "111110";
-        wait for 20 ns;
+        wait for 50 ns;
+        Fault_Info_FIFO_in    <= "111011";
+        Fault_Info_LBDR_in    <= "111101";
+        Fault_Info_Arbiter_in <= "100111";
+        Fault_Info_XBAR_in    <= "111111";
+        wait for 50 ns;
+        Fault_Info_FIFO_in    <= "000000";
+        Fault_Info_LBDR_in    <= "000000";
+        Fault_Info_Arbiter_in <= "000000";
+        Fault_Info_XBAR_in    <= "000000";
 
         wait;
 
