@@ -78,9 +78,9 @@ architecture RTL of Fault_Control_v2 is
     subtype UNIT is std_logic_vector(5 downto 0);
     type TYPESxUNIT is array (3 downto 0) of UNIT;
     --    shared variable Fault_Information_Array : TYPESxUNIT;
-    shared variable Unit_Is_Binded : TYPESxUNIT;
-    signal Fault_Information_Array : TYPESxUNIT;
-    signal Unit_Is_Binded_r        : TYPESxUNIT;
+    shared variable Unit_Is_Binded   : TYPESxUNIT;
+    signal Fault_Information_Array_r : TYPESxUNIT;
+    signal Unit_Is_Binded_r          : TYPESxUNIT;
 
     subtype TYPES is std_logic_vector(3 downto 0);
     type DIRxTYPES is array (4 downto 0) of TYPES;
@@ -100,14 +100,33 @@ architecture RTL of Fault_Control_v2 is
     signal Output_MUX_UNIT_r        : TYPExDIRxMUX;
 
 --    procedure find_and_fix(
---        variable dir            : in    integer;
---        variable Unit_Is_Binded : out   TYPExUNIT;
---        variable PATH_STATUS    : inout DIRxTYPE;
---        signal Input_MUX_UNIT_r   : out   TYPExUNITxMUX;
---        signal Output_MUX_UNIT_r  : out   TYPExDIRxMUX) is
+--        variable dir             : in    integer;
+--        variable Unit_Is_Binded  : inout TYPESxUNIT;
+--        variable PATH_STATUS     : inout DIRxTYPES;
+--        signal Unit_Is_Binded_r  : out   TYPESxUNIT;
+--        signal Input_MUX_UNIT_r  : out   TYPExUNITxMUX;
+--        signal Output_MUX_UNIT_r : out   TYPExDIRxMUX) is
 --    begin
-
+--        for TYPE_INDEX in 0 to 3 loop
+--            for UNIT_INDEX in 0 to 5 loop
+--                if Fault_Information_Array(TYPE_INDEX)(UNIT_INDEX) /= '1' --
+--                AND Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX) /= '1' --
+--                AND PATH_STATUS(dir)(TYPE_INDEX) /= '1' then --
+--                    Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX)   := '1';
+--                    PATH_STATUS(dir)(TYPE_INDEX)             := '1';
+--                    Input_MUX_UNIT_r(TYPE_INDEX)(UNIT_INDEX) <= STD_LOGIC_VECTOR(TO_UNSIGNED(dir, 3));
+--                    Output_MUX_UNIT_r(TYPE_INDEX)(dir)       <= STD_LOGIC_VECTOR(TO_UNSIGNED(UNIT_INDEX, 3));
+--
+--                    Unit_Is_Binded_r(TYPE_INDEX)(UNIT_INDEX) <= Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX);
+--                    if UNIT_INDEX = 5 and PATH_STATUS(dir)(TYPE_INDEX) = '0' then
+--                        Input_MUX_UNIT_r(TYPE_INDEX)(UNIT_INDEX) <= "XXX";
+--                        Output_MUX_UNIT_r(TYPE_INDEX)(dir)       <= "XXX";
+--                    end if;
+--                end if;
+--            end loop;
+--        end loop;
 --    end find_and_fix;
+
 
 begin
     --    outputting_MUX_Signals : process is
@@ -163,30 +182,30 @@ begin
 
 
     --learn what faults do we have and where.
-    Fault_Information_Array(0)(0) <= Fault_Info_FIFO_in(0);
-    Fault_Information_Array(0)(1) <= Fault_Info_FIFO_in(1);
-    Fault_Information_Array(0)(2) <= Fault_Info_FIFO_in(2);
-    Fault_Information_Array(0)(3) <= Fault_Info_FIFO_in(3);
-    Fault_Information_Array(0)(4) <= Fault_Info_FIFO_in(4);
-    Fault_Information_Array(0)(5) <= Fault_Info_FIFO_in(5);
-    Fault_Information_Array(1)(0) <= Fault_Info_LBDR_in(0);
-    Fault_Information_Array(1)(1) <= Fault_Info_LBDR_in(1);
-    Fault_Information_Array(1)(2) <= Fault_Info_LBDR_in(2);
-    Fault_Information_Array(1)(3) <= Fault_Info_LBDR_in(3);
-    Fault_Information_Array(1)(4) <= Fault_Info_LBDR_in(4);
-    Fault_Information_Array(1)(5) <= Fault_Info_LBDR_in(5);
-    Fault_Information_Array(2)(0) <= Fault_Info_ARBITER_in(0);
-    Fault_Information_Array(2)(1) <= Fault_Info_ARBITER_in(1);
-    Fault_Information_Array(2)(2) <= Fault_Info_ARBITER_in(2);
-    Fault_Information_Array(2)(3) <= Fault_Info_ARBITER_in(3);
-    Fault_Information_Array(2)(4) <= Fault_Info_ARBITER_in(4);
-    Fault_Information_Array(2)(5) <= Fault_Info_ARBITER_in(5);
-    Fault_Information_Array(3)(0) <= Fault_Info_XBAR_in(0);
-    Fault_Information_Array(3)(1) <= Fault_Info_XBAR_in(1);
-    Fault_Information_Array(3)(2) <= Fault_Info_XBAR_in(2);
-    Fault_Information_Array(3)(3) <= Fault_Info_XBAR_in(3);
-    Fault_Information_Array(3)(4) <= Fault_Info_XBAR_in(4);
-    Fault_Information_Array(3)(5) <= Fault_Info_XBAR_in(5);
+    Fault_Information_Array_r(0)(0) <= Fault_Info_FIFO_in(0);
+    Fault_Information_Array_r(0)(1) <= Fault_Info_FIFO_in(1);
+    Fault_Information_Array_r(0)(2) <= Fault_Info_FIFO_in(2);
+    Fault_Information_Array_r(0)(3) <= Fault_Info_FIFO_in(3);
+    Fault_Information_Array_r(0)(4) <= Fault_Info_FIFO_in(4);
+    Fault_Information_Array_r(0)(5) <= Fault_Info_FIFO_in(5);
+    Fault_Information_Array_r(1)(0) <= Fault_Info_LBDR_in(0);
+    Fault_Information_Array_r(1)(1) <= Fault_Info_LBDR_in(1);
+    Fault_Information_Array_r(1)(2) <= Fault_Info_LBDR_in(2);
+    Fault_Information_Array_r(1)(3) <= Fault_Info_LBDR_in(3);
+    Fault_Information_Array_r(1)(4) <= Fault_Info_LBDR_in(4);
+    Fault_Information_Array_r(1)(5) <= Fault_Info_LBDR_in(5);
+    Fault_Information_Array_r(2)(0) <= Fault_Info_ARBITER_in(0);
+    Fault_Information_Array_r(2)(1) <= Fault_Info_ARBITER_in(1);
+    Fault_Information_Array_r(2)(2) <= Fault_Info_ARBITER_in(2);
+    Fault_Information_Array_r(2)(3) <= Fault_Info_ARBITER_in(3);
+    Fault_Information_Array_r(2)(4) <= Fault_Info_ARBITER_in(4);
+    Fault_Information_Array_r(2)(5) <= Fault_Info_ARBITER_in(5);
+    Fault_Information_Array_r(3)(0) <= Fault_Info_XBAR_in(0);
+    Fault_Information_Array_r(3)(1) <= Fault_Info_XBAR_in(1);
+    Fault_Information_Array_r(3)(2) <= Fault_Info_XBAR_in(2);
+    Fault_Information_Array_r(3)(3) <= Fault_Info_XBAR_in(3);
+    Fault_Information_Array_r(3)(4) <= Fault_Info_XBAR_in(4);
+    Fault_Information_Array_r(3)(5) <= Fault_Info_XBAR_in(5);
 
     assigning_UNIT_to_paths : process(clk) is --, Unit_Is_Binded, Fault_Info_FIFO_in, Fault_Info_LBDR_in, Fault_Info_ARBITER_in, Fault_Info_XBAR_in
         variable dir : integer;
@@ -194,34 +213,99 @@ begin
         if rising_edge(clk) then
             --            Input_MUX_UNIT_r  <= Input_MUX_UNIT;
             --            Output_MUX_UNIT_r <= Output_MUX_UNIT;
-            PATH_STATUS_r <= PATH_STATUS;
-
-            Unit_Is_Binded := (others => (others => '0')); --by default all of them are '0'. and on each clock cyle they are updated.
+            PATH_STATUS_r     <= PATH_STATUS;
+            Input_MUX_UNIT_r  <= (others => (others => "000"));
+            Output_MUX_UNIT_r <= (others => (others => "000"));
+            PATH_STATUS       := (others => (others => '0'));
+            Unit_Is_Binded    := (others => (others => '0')); --by default all of them are '0'. and on each clock cyle they are updated.
 
             dir := EAST;
+            
             if PATH_STATUS(dir)(0) & PATH_STATUS(dir)(1) & PATH_STATUS(dir)(2) & PATH_STATUS(dir)(3) /= Fully_Functional then
                 for TYPE_INDEX in 0 to 3 loop
                     for UNIT_INDEX in 0 to 5 loop
-                        if Fault_Information_Array(TYPE_INDEX)(UNIT_INDEX) /= '1' --
+                        if Fault_Information_Array_r(TYPE_INDEX)(UNIT_INDEX) /= '1' --
                         AND Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX) /= '1' --
-                        AND PATH_STATUS(dir)(TYPE_INDEX) /='1'
-                        then    --
+                        AND PATH_STATUS(dir)(TYPE_INDEX) /= '1' then --
                             Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX)   := '1';
                             PATH_STATUS(dir)(TYPE_INDEX)             := '1';
                             Input_MUX_UNIT_r(TYPE_INDEX)(UNIT_INDEX) <= STD_LOGIC_VECTOR(TO_UNSIGNED(dir, 3));
                             Output_MUX_UNIT_r(TYPE_INDEX)(dir)       <= STD_LOGIC_VECTOR(TO_UNSIGNED(UNIT_INDEX, 3));
 
-                            Unit_Is_Binded_r(TYPE_INDEX)(UNIT_INDEX) <= Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX);
+                            --                            Unit_Is_Binded_r(TYPE_INDEX)(UNIT_INDEX) <= Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX);
                             if UNIT_INDEX = 5 and PATH_STATUS(dir)(TYPE_INDEX) = '0' then
                                 Input_MUX_UNIT_r(TYPE_INDEX)(UNIT_INDEX) <= "XXX";
                                 Output_MUX_UNIT_r(TYPE_INDEX)(dir)       <= "XXX";
                             end if;
+
                         end if;
                     end loop;
                 end loop;
-
+                Unit_Is_Binded_r <= Unit_Is_Binded;
             end if;
         end if;
     end process assigning_UNIT_to_paths;
 
 end architecture RTL;
+
+--    procedure find_and_fix(
+--        variable dir             : in    integer;
+--        variable Unit_Is_Binded  : inout TYPESxUNIT;
+--        variable PATH_STATUS     : inout DIRxTYPES;
+--        signal Unit_Is_Binded_r  : out   TYPESxUNIT;
+--        signal Input_MUX_UNIT_r  : out   TYPExUNITxMUX;
+--        signal Output_MUX_UNIT_r : out   TYPExDIRxMUX) is
+--    begin
+--        for TYPE_INDEX in 0 to 3 loop
+--            for UNIT_INDEX in 0 to 5 loop
+--                if Fault_Information_Array(TYPE_INDEX)(UNIT_INDEX) /= '1' --
+--                AND Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX) /= '1' --
+--                AND PATH_STATUS(dir)(TYPE_INDEX) /= '1' then --
+--                    Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX)   := '1';
+--                    PATH_STATUS(dir)(TYPE_INDEX)             := '1';
+--                    Input_MUX_UNIT_r(TYPE_INDEX)(UNIT_INDEX) <= STD_LOGIC_VECTOR(TO_UNSIGNED(dir, 3));
+--                    Output_MUX_UNIT_r(TYPE_INDEX)(dir)       <= STD_LOGIC_VECTOR(TO_UNSIGNED(UNIT_INDEX, 3));
+--
+--                    Unit_Is_Binded_r(TYPE_INDEX)(UNIT_INDEX) <= Unit_Is_Binded(TYPE_INDEX)(UNIT_INDEX);
+--                    if UNIT_INDEX = 5 and PATH_STATUS(dir)(TYPE_INDEX) = '0' then
+--                        Input_MUX_UNIT_r(TYPE_INDEX)(UNIT_INDEX) <= "XXX";
+--                        Output_MUX_UNIT_r(TYPE_INDEX)(dir)       <= "XXX";
+--                    end if;
+--                end if;
+--            end loop;
+--        end loop;
+--    end find_and_fix;
+
+
+--        if rising_edge(clk) then
+--            --            Input_MUX_UNIT_r  <= Input_MUX_UNIT;
+--            --            Output_MUX_UNIT_r <= Output_MUX_UNIT;
+--            PATH_STATUS_r <= PATH_STATUS;
+--
+--            Unit_Is_Binded := (others => (others => '0')); --by default all of them are '0'. and on each clock cyle they are updated.
+--
+--            dir := NORTH;
+--            if PATH_STATUS(dir)(0) & PATH_STATUS(dir)(1) & PATH_STATUS(dir)(2) & PATH_STATUS(dir)(3) /= Fully_Functional then
+--                find_and_fix(dir, Unit_Is_Binded, PATH_STATUS, Unit_Is_Binded_r, Input_MUX_UNIT_r, Output_MUX_UNIT_r);
+--            else
+--                dir := EAST;
+--                if PATH_STATUS(dir)(0) & PATH_STATUS(dir)(1) & PATH_STATUS(dir)(2) & PATH_STATUS(dir)(3) /= Fully_Functional then
+--                    find_and_fix(dir, Unit_Is_Binded, PATH_STATUS, Unit_Is_Binded_r, Input_MUX_UNIT_r, Output_MUX_UNIT_r);
+--                else
+--                    dir := WEST;
+--                    if PATH_STATUS(dir)(0) & PATH_STATUS(dir)(1) & PATH_STATUS(dir)(2) & PATH_STATUS(dir)(3) /= Fully_Functional then
+--                        find_and_fix(dir, Unit_Is_Binded, PATH_STATUS, Unit_Is_Binded_r, Input_MUX_UNIT_r, Output_MUX_UNIT_r);
+--                    else
+--                        dir := SOUTH;
+--                        if PATH_STATUS(dir)(0) & PATH_STATUS(dir)(1) & PATH_STATUS(dir)(2) & PATH_STATUS(dir)(3) /= Fully_Functional then
+--                            find_and_fix(dir, Unit_Is_Binded, PATH_STATUS, Unit_Is_Binded_r, Input_MUX_UNIT_r, Output_MUX_UNIT_r);
+--                        else
+--                            dir := LOCAL;
+--                            if PATH_STATUS(dir)(0) & PATH_STATUS(dir)(1) & PATH_STATUS(dir)(2) & PATH_STATUS(dir)(3) /= Fully_Functional then
+--                                find_and_fix(dir, Unit_Is_Binded, PATH_STATUS, Unit_Is_Binded_r, Input_MUX_UNIT_r, Output_MUX_UNIT_r);
+--                            end if;
+--                        end if;
+--                    end if;
+--                end if;
+--            end if;
+--        end if;
