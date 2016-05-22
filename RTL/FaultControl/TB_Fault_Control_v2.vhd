@@ -70,7 +70,7 @@ begin
         wait for period / 2;
     end process clock_driver;
 
-    Fault_Control_inst : entity work.Fault_Control_v2
+    Fault_Control_v2_inst : entity work.Fault_Control_v2
         port map(
             clk                                 => clk,
             Fault_Info_FIFO_in                  => Fault_Info_FIFO_in,
@@ -160,5 +160,3 @@ begin
     end process stimul;
 
 end architecture RTL;
-
-
