@@ -125,62 +125,59 @@ begin
         end if;
     end process assigning_UNIT_to_paths;
 
-    outputting_MUX_Signals : process(Input_MUX_UNIT_r(0)(0), Input_MUX_UNIT_r(0)(1), Input_MUX_UNIT_r(0)(2), Input_MUX_UNIT_r(0)(3), Input_MUX_UNIT_r(0)(4), Input_MUX_UNIT_r(0)(5), Output_MUX_UNIT_r(0)(0), Output_MUX_UNIT_r(0)(1), Output_MUX_UNIT_r(0)(2
-        ), Output_MUX_UNIT_r(0)(3), Output_MUX_UNIT_r(0)(4)) is
+    outputting_MUX_Signals : process(Input_MUX_UNIT_r, Output_MUX_UNIT_r) is
     begin
-        MUX_5x1_FIFO_input_select_N_out  <= Input_MUX_UNIT_r(0)(0);
-        MUX_5x1_FIFO_input_select_E_out  <= Input_MUX_UNIT_r(0)(1);
-        MUX_5x1_FIFO_input_select_W_out  <= Input_MUX_UNIT_r(0)(2);
-        MUX_5x1_FIFO_input_select_S_out  <= Input_MUX_UNIT_r(0)(3);
-        MUX_5x1_FIFO_input_select_L_out  <= Input_MUX_UNIT_r(0)(4);
-        MUX_5x1_FIFO_input_select_R_out  <= Input_MUX_UNIT_r(0)(5);
+        MUX_5x1_FIFO_input_select_N_out  <=  Input_MUX_UNIT_r(0)(0);
+        MUX_5x1_FIFO_input_select_E_out  <=  Input_MUX_UNIT_r(0)(1);
+        MUX_5x1_FIFO_input_select_W_out  <=  Input_MUX_UNIT_r(0)(2);
+        MUX_5x1_FIFO_input_select_S_out  <=  Input_MUX_UNIT_r(0)(3);
+        MUX_5x1_FIFO_input_select_L_out  <=  Input_MUX_UNIT_r(0)(4);
+        MUX_5x1_FIFO_input_select_R_out  <=  Input_MUX_UNIT_r(0)(5);
         MUX_6x1_FIFO_output_select_N_out <= Output_MUX_UNIT_r(0)(0);
         MUX_6x1_FIFO_output_select_E_out <= Output_MUX_UNIT_r(0)(1);
         MUX_6x1_FIFO_output_select_W_out <= Output_MUX_UNIT_r(0)(2);
         MUX_6x1_FIFO_output_select_S_out <= Output_MUX_UNIT_r(0)(3);
         MUX_6x1_FIFO_output_select_L_out <= Output_MUX_UNIT_r(0)(4);
 
-        MUX_5x1_LBDR_input_select_N_out  <= Input_MUX_UNIT_r(0)(0);
-        MUX_5x1_LBDR_input_select_E_out  <= Input_MUX_UNIT_r(0)(1);
-        MUX_5x1_LBDR_input_select_W_out  <= Input_MUX_UNIT_r(0)(2);
-        MUX_5x1_LBDR_input_select_S_out  <= Input_MUX_UNIT_r(0)(3);
-        MUX_5x1_LBDR_input_select_L_out  <= Input_MUX_UNIT_r(0)(4);
-        MUX_5x1_LBDR_input_select_R_out  <= Input_MUX_UNIT_r(0)(5);
-        MUX_6x1_LBDR_output_select_N_out <= Output_MUX_UNIT_r(0)(0);
-        MUX_6x1_LBDR_output_select_E_out <= Output_MUX_UNIT_r(0)(1);
-        MUX_6x1_LBDR_output_select_W_out <= Output_MUX_UNIT_r(0)(2);
-        MUX_6x1_LBDR_output_select_S_out <= Output_MUX_UNIT_r(0)(3);
-        MUX_6x1_LBDR_output_select_L_out <= Output_MUX_UNIT_r(0)(4);
+        MUX_5x1_LBDR_input_select_N_out  <=  Input_MUX_UNIT_r(1)(0);
+        MUX_5x1_LBDR_input_select_E_out  <=  Input_MUX_UNIT_r(1)(1);
+        MUX_5x1_LBDR_input_select_W_out  <=  Input_MUX_UNIT_r(1)(2);
+        MUX_5x1_LBDR_input_select_S_out  <=  Input_MUX_UNIT_r(1)(3);
+        MUX_5x1_LBDR_input_select_L_out  <=  Input_MUX_UNIT_r(1)(4);
+        MUX_5x1_LBDR_input_select_R_out  <=  Input_MUX_UNIT_r(1)(5);
+        MUX_6x1_LBDR_output_select_N_out <= Output_MUX_UNIT_r(1)(0);
+        MUX_6x1_LBDR_output_select_E_out <= Output_MUX_UNIT_r(1)(1);
+        MUX_6x1_LBDR_output_select_W_out <= Output_MUX_UNIT_r(1)(2);
+        MUX_6x1_LBDR_output_select_S_out <= Output_MUX_UNIT_r(1)(3);
+        MUX_6x1_LBDR_output_select_L_out <= Output_MUX_UNIT_r(1)(4);
 
-        MUX_5x1_Arbiter_input_select_N_out  <= Input_MUX_UNIT_r(0)(0);
-        MUX_5x1_Arbiter_input_select_E_out  <= Input_MUX_UNIT_r(0)(1);
-        MUX_5x1_Arbiter_input_select_W_out  <= Input_MUX_UNIT_r(0)(2);
-        MUX_5x1_Arbiter_input_select_S_out  <= Input_MUX_UNIT_r(0)(3);
-        MUX_5x1_Arbiter_input_select_L_out  <= Input_MUX_UNIT_r(0)(4);
-        MUX_5x1_Arbiter_input_select_R_out  <= Input_MUX_UNIT_r(0)(5);
-        MUX_6x1_Arbiter_output_select_N_out <= Output_MUX_UNIT_r(0)(0);
-        MUX_6x1_Arbiter_output_select_E_out <= Output_MUX_UNIT_r(0)(1);
-        MUX_6x1_Arbiter_output_select_W_out <= Output_MUX_UNIT_r(0)(2);
-        MUX_6x1_Arbiter_output_select_S_out <= Output_MUX_UNIT_r(0)(3);
-        MUX_6x1_Arbiter_output_select_L_out <= Output_MUX_UNIT_r(0)(4);
+        MUX_5x1_Arbiter_input_select_N_out  <=  Input_MUX_UNIT_r(2)(0);
+        MUX_5x1_Arbiter_input_select_E_out  <=  Input_MUX_UNIT_r(2)(1);
+        MUX_5x1_Arbiter_input_select_W_out  <=  Input_MUX_UNIT_r(2)(2);
+        MUX_5x1_Arbiter_input_select_S_out  <=  Input_MUX_UNIT_r(2)(3);
+        MUX_5x1_Arbiter_input_select_L_out  <=  Input_MUX_UNIT_r(2)(4);
+        MUX_5x1_Arbiter_input_select_R_out  <=  Input_MUX_UNIT_r(2)(5);
+        MUX_6x1_Arbiter_output_select_N_out <= Output_MUX_UNIT_r(2)(0);
+        MUX_6x1_Arbiter_output_select_E_out <= Output_MUX_UNIT_r(2)(1);
+        MUX_6x1_Arbiter_output_select_W_out <= Output_MUX_UNIT_r(2)(2);
+        MUX_6x1_Arbiter_output_select_S_out <= Output_MUX_UNIT_r(2)(3);
+        MUX_6x1_Arbiter_output_select_L_out <= Output_MUX_UNIT_r(2)(4);
 
-        MUX_5x1_XBAR_input_select_N_out  <= Input_MUX_UNIT_r(0)(0);
-        MUX_5x1_XBAR_input_select_E_out  <= Input_MUX_UNIT_r(0)(1);
-        MUX_5x1_XBAR_input_select_W_out  <= Input_MUX_UNIT_r(0)(2);
-        MUX_5x1_XBAR_input_select_S_out  <= Input_MUX_UNIT_r(0)(3);
-        MUX_5x1_XBAR_input_select_L_out  <= Input_MUX_UNIT_r(0)(4);
-        MUX_5x1_XBAR_input_select_R_out  <= Input_MUX_UNIT_r(0)(5);
-        MUX_6x1_XBAR_output_select_N_out <= Output_MUX_UNIT_r(0)(0);
-        MUX_6x1_XBAR_output_select_E_out <= Output_MUX_UNIT_r(0)(1);
-        MUX_6x1_XBAR_output_select_W_out <= Output_MUX_UNIT_r(0)(2);
-        MUX_6x1_XBAR_output_select_S_out <= Output_MUX_UNIT_r(0)(3);
-        MUX_6x1_XBAR_output_select_L_out <= Output_MUX_UNIT_r(0)(4);
+        MUX_5x1_XBAR_input_select_N_out  <=  Input_MUX_UNIT_r(3)(0);
+        MUX_5x1_XBAR_input_select_E_out  <=  Input_MUX_UNIT_r(3)(1);
+        MUX_5x1_XBAR_input_select_W_out  <=  Input_MUX_UNIT_r(3)(2);
+        MUX_5x1_XBAR_input_select_S_out  <=  Input_MUX_UNIT_r(3)(3);
+        MUX_5x1_XBAR_input_select_L_out  <=  Input_MUX_UNIT_r(3)(4);
+        MUX_5x1_XBAR_input_select_R_out  <=  Input_MUX_UNIT_r(3)(5);
+        MUX_6x1_XBAR_output_select_N_out <= Output_MUX_UNIT_r(3)(0);
+        MUX_6x1_XBAR_output_select_E_out <= Output_MUX_UNIT_r(3)(1);
+        MUX_6x1_XBAR_output_select_W_out <= Output_MUX_UNIT_r(3)(2);
+        MUX_6x1_XBAR_output_select_S_out <= Output_MUX_UNIT_r(3)(3);
+        MUX_6x1_XBAR_output_select_L_out <= Output_MUX_UNIT_r(3)(4);
     end process outputting_MUX_Signals;
 
     --    learn what faults do we have and where. this process can be removed, by simply using Fault_Information_Array_r as an entity inputs
-    writing_Fault_info_into_Array : process(Fault_Info_Arbiter_in(0), Fault_Info_Arbiter_in(1), Fault_Info_Arbiter_in(2), Fault_Info_Arbiter_in(3), Fault_Info_Arbiter_in(4), Fault_Info_Arbiter_in(5), Fault_Info_FIFO_in(0), Fault_Info_FIFO_in(1), Fault_Info_FIFO_in(2
-        ), Fault_Info_FIFO_in(3), Fault_Info_FIFO_in(4), Fault_Info_FIFO_in(5), Fault_Info_LBDR_in(0), Fault_Info_LBDR_in(1), Fault_Info_LBDR_in(2), Fault_Info_LBDR_in(3), Fault_Info_LBDR_in(4), Fault_Info_LBDR_in(5), Fault_Info_XBAR_in(0), Fault_Info_XBAR_in(1
-        ), Fault_Info_XBAR_in(2), Fault_Info_XBAR_in(3), Fault_Info_XBAR_in(4), Fault_Info_XBAR_in(5)) is
+    writing_Fault_info_into_Array : process(Fault_Info_FIFO_in, Fault_Info_LBDR_in, Fault_Info_ARBITER_in, Fault_Info_XBAR_in) is
     begin
         Fault_Information_Array_r(0)(0) <= Fault_Info_FIFO_in(0);
         Fault_Information_Array_r(0)(1) <= Fault_Info_FIFO_in(1);
