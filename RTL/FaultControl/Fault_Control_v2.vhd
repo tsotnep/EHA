@@ -64,6 +64,7 @@ entity Fault_Control_v2 is
     );
 end entity Fault_Control_v2;
 architecture RTL of Fault_Control_v2 is
+    --PATH = packets coming from North, East, West, South, Local ports
     --TYPE = what kind of unit are we talking about? : FIFO | LBDR | ARBITER | XBAR
     --UNIT = pool of available number of UNIT for each TYPE, if ther is 1 redundant unit for each type, this number= 5+1;
     --DIR  = NORTH, EAST, WEST, SOUTH, LOCAL
