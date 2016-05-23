@@ -1,0 +1,739 @@
+#-----------------------------------------------------------
+# Vivado v2016.1 (64-bit)
+# SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
+# IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
+# Start of session at: Tue May 24 00:28:28 2016
+# Process ID: 13506
+# Current directory: /home/INTRA/tsotne.putkaradze/P/workspace/project/vivado/router/router.runs/synth_1
+# Command line: vivado -log router.vds -mode batch -messageDb vivado.pb -notrace -source router.tcl
+# Log file: /home/INTRA/tsotne.putkaradze/P/workspace/project/vivado/router/router.runs/synth_1/router.vds
+# Journal file: /home/INTRA/tsotne.putkaradze/P/workspace/project/vivado/router/router.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source router.tcl -notrace
+Command: synth_design -top router -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 13511 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1031.176 ; gain = 155.078 ; free physical = 12279 ; free virtual = 15773
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'router' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:31]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+	Parameter current_address bound to: 0 - type: integer 
+	Parameter Rxy_rst bound to: 60 - type: integer 
+	Parameter Cx_rst bound to: 10 - type: integer 
+	Parameter NoC_size bound to: 4 - type: integer 
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_N' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:431]
+INFO: [Synth 8-638] synthesizing module 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:27]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'FIFO' (1#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:27]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_E' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:435]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_W' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:439]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_S' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:443]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_L' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:447]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_R' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:451]
+	Parameter cur_addr_rst bound to: 0 - type: integer 
+	Parameter Rxy_rst bound to: 60 - type: integer 
+	Parameter Cx_rst bound to: 10 - type: integer 
+	Parameter NoC_size bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_N' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:460]
+INFO: [Synth 8-638] synthesizing module 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:26]
+	Parameter cur_addr_rst bound to: 0 - type: integer 
+	Parameter Rxy_rst bound to: 60 - type: integer 
+	Parameter Cx_rst bound to: 10 - type: integer 
+	Parameter NoC_size bound to: 4 - type: integer 
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:36]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:37]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:38]
+INFO: [Synth 8-256] done synthesizing module 'LBDR' (2#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:26]
+	Parameter cur_addr_rst bound to: 0 - type: integer 
+	Parameter Rxy_rst bound to: 60 - type: integer 
+	Parameter Cx_rst bound to: 10 - type: integer 
+	Parameter NoC_size bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_E' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:463]
+	Parameter cur_addr_rst bound to: 0 - type: integer 
+	Parameter Rxy_rst bound to: 60 - type: integer 
+	Parameter Cx_rst bound to: 10 - type: integer 
+	Parameter NoC_size bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_W' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:466]
+	Parameter cur_addr_rst bound to: 0 - type: integer 
+	Parameter Rxy_rst bound to: 60 - type: integer 
+	Parameter Cx_rst bound to: 10 - type: integer 
+	Parameter NoC_size bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_S' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:469]
+	Parameter cur_addr_rst bound to: 0 - type: integer 
+	Parameter Rxy_rst bound to: 60 - type: integer 
+	Parameter Cx_rst bound to: 10 - type: integer 
+	Parameter NoC_size bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_L' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:472]
+	Parameter cur_addr_rst bound to: 0 - type: integer 
+	Parameter Rxy_rst bound to: 60 - type: integer 
+	Parameter Cx_rst bound to: 10 - type: integer 
+	Parameter NoC_size bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_R' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:475]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_N' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:484]
+INFO: [Synth 8-638] synthesizing module 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'Arbiter' (3#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:19]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_E' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:491]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_W' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:498]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_S' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:505]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_L' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:512]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_R' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:519]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_N' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:531]
+INFO: [Synth 8-638] synthesizing module 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:21]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'XBAR' (4#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:21]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_E' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:534]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_W' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:537]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_S' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:540]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_L' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:543]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_R' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:546]
+INFO: [Synth 8-3491] module 'Fault_Control_v2' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:5' bound to instance 'Fault_Control_v2_inst' of component 'Fault_Control_v2' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:551]
+INFO: [Synth 8-638] synthesizing module 'Fault_Control_v2' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:66]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:115]
+WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:114]
+INFO: [Common 17-14] Message 'Synth 8-5827' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-256] done synthesizing module 'Fault_Control_v2' (5#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd:66]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_XBAR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:5' bound to instance 'MUX_5x1_XBAR_input_N' of component 'MUX_5x1_XBAR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:656]
+INFO: [Synth 8-638] synthesizing module 'MUX_5x1_XBAR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:18]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_XBAR_input' (6#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:18]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_XBAR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:5' bound to instance 'MUX_5x1_XBAR_input_E' of component 'MUX_5x1_XBAR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:669]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_XBAR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:5' bound to instance 'MUX_5x1_XBAR_input_W' of component 'MUX_5x1_XBAR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:682]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_XBAR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:5' bound to instance 'MUX_5x1_XBAR_input_S' of component 'MUX_5x1_XBAR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:695]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_XBAR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:5' bound to instance 'MUX_5x1_XBAR_input_L' of component 'MUX_5x1_XBAR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:708]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_XBAR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:5' bound to instance 'MUX_5x1_XBAR_input_R' of component 'MUX_5x1_XBAR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:721]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_XBAR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_N' of component 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:735]
+INFO: [Synth 8-638] synthesizing module 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:21]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MUX_6x1_XBAR_output' (7#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:21]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_XBAR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_E' of component 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:749]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_XBAR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_W' of component 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:763]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_XBAR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_S' of component 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:777]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_XBAR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_L' of component 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:791]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_Arbiter_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:5' bound to instance 'MUX_5x1_Arbiter_input_N' of component 'MUX_5x1_Arbiter_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:807]
+INFO: [Synth 8-638] synthesizing module 'MUX_5x1_Arbiter_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:19]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_Arbiter_input' (8#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:19]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_Arbiter_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:5' bound to instance 'MUX_5x1_Arbiter_input_E' of component 'MUX_5x1_Arbiter_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:826]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_Arbiter_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:5' bound to instance 'MUX_5x1_Arbiter_input_W' of component 'MUX_5x1_Arbiter_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:845]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_Arbiter_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:5' bound to instance 'MUX_5x1_Arbiter_input_S' of component 'MUX_5x1_Arbiter_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:864]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_Arbiter_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:5' bound to instance 'MUX_5x1_Arbiter_input_L' of component 'MUX_5x1_Arbiter_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:883]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_Arbiter_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:5' bound to instance 'MUX_5x1_Arbiter_input_R' of component 'MUX_5x1_Arbiter_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:902]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_Arbiter_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_N' of component 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:922]
+INFO: [Synth 8-638] synthesizing module 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:25]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MUX_6x1_Arbiter_output' (9#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:25]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_Arbiter_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_E' of component 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:944]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_Arbiter_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_W' of component 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:966]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_Arbiter_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_S' of component 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:988]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_Arbiter_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_L' of component 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1010]
+INFO: [Synth 8-3491] module 'MUX_5x1_LBDR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:5' bound to instance 'MUX_5x1_LBDR_input_N' of component 'MUX_5x1_LBDR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1034]
+INFO: [Synth 8-638] synthesizing module 'MUX_5x1_LBDR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:22]
+	Parameter cur_addr_rst bound to: 8 - type: integer 
+	Parameter Rxy_rst bound to: 8 - type: integer 
+	Parameter Cx_rst bound to: 8 - type: integer 
+	Parameter NoC_size bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_LBDR_input' (10#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:22]
+INFO: [Synth 8-3491] module 'MUX_5x1_LBDR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:5' bound to instance 'MUX_5x1_LBDR_input_E' of component 'MUX_5x1_LBDR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1058]
+INFO: [Synth 8-3491] module 'MUX_5x1_LBDR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:5' bound to instance 'MUX_5x1_LBDR_input_W' of component 'MUX_5x1_LBDR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1082]
+INFO: [Synth 8-3491] module 'MUX_5x1_LBDR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:5' bound to instance 'MUX_5x1_LBDR_input_S' of component 'MUX_5x1_LBDR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1106]
+INFO: [Synth 8-3491] module 'MUX_5x1_LBDR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:5' bound to instance 'MUX_5x1_LBDR_input_L' of component 'MUX_5x1_LBDR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1130]
+INFO: [Synth 8-3491] module 'MUX_5x1_LBDR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:5' bound to instance 'MUX_5x1_LBDR_input_R' of component 'MUX_5x1_LBDR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1154]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_LBDR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_N' of component 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1179]
+INFO: [Synth 8-638] synthesizing module 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:21]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MUX_6x1_LBDR_output' (11#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:21]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_LBDR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_E' of component 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1197]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_LBDR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_W' of component 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1215]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_LBDR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_S' of component 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1233]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_LBDR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_L' of component 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1251]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_FIFO_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:5' bound to instance 'MUX_5x1_FIFO_input_N' of component 'MUX_5x1_FIFO_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1271]
+INFO: [Synth 8-638] synthesizing module 'MUX_5x1_FIFO_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:24]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_FIFO_input' (12#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:24]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_FIFO_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:5' bound to instance 'MUX_5x1_FIFO_input_E' of component 'MUX_5x1_FIFO_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1327]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_FIFO_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:5' bound to instance 'MUX_5x1_FIFO_input_W' of component 'MUX_5x1_FIFO_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1383]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_FIFO_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:5' bound to instance 'MUX_5x1_FIFO_input_S' of component 'MUX_5x1_FIFO_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1439]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_FIFO_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:5' bound to instance 'MUX_5x1_FIFO_input_L' of component 'MUX_5x1_FIFO_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1495]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_5x1_FIFO_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:5' bound to instance 'MUX_5x1_FIFO_input_R' of component 'MUX_5x1_FIFO_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1551]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_FIFO_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_N' of component 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1608]
+INFO: [Synth 8-638] synthesizing module 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:22]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MUX_6x1_FIFO_output' (13#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:22]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_FIFO_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_E' of component 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1639]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_FIFO_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_W' of component 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1670]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_FIFO_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_S' of component 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1701]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'MUX_6x1_FIFO_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_L' of component 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1732]
+INFO: [Synth 8-256] done synthesizing module 'router' (14#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:31]
+WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_NN
+WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_EE
+WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_WW
+WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_SS
+WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_LL
+WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_NN
+WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_EE
+WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_WW
+WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_SS
+WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_LL
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1081.645 ; gain = 205.547 ; free physical = 12227 ; free virtual = 15722
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1081.645 ; gain = 205.547 ; free physical = 12227 ; free virtual = 15722
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1090.617 ; gain = 214.520 ; free physical = 12227 ; free virtual = 15722
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-5544] ROM "FIFO_Mem_reg[0]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FIFO_Mem_reg[1]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FIFO_Mem_reg[2]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FIFO_Mem_reg[3]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'Req_W_FF_reg' into 'Req_N_FF_reg' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:51]
+INFO: [Synth 8-5544] ROM "Xbar_sel" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1125.680 ; gain = 249.582 ; free physical = 12194 ; free virtual = 15688
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 18    
++---Registers : 
+	               32 Bit    Registers := 24    
+	                3 Bit    Registers := 50    
+	                2 Bit    Registers := 12    
+	                1 Bit    Registers := 36    
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 6     
+	   2 Input     32 Bit        Muxes := 6     
+	   6 Input      5 Bit        Muxes := 6     
+	   2 Input      4 Bit        Muxes := 7     
+	   6 Input      3 Bit        Muxes := 6     
+	   2 Input      3 Bit        Muxes := 84    
+	   5 Input      3 Bit        Muxes := 26    
+	   3 Input      2 Bit        Muxes := 6     
+	   2 Input      2 Bit        Muxes := 60    
+	   2 Input      1 Bit        Muxes := 276   
+	   6 Input      1 Bit        Muxes := 30    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module FIFO 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 3     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+Module LBDR 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module Arbiter 
+Detailed RTL Component Info : 
++---Registers : 
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   6 Input      5 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 10    
+	   5 Input      3 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 5     
+Module XBAR 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module Fault_Control_v2 
+Detailed RTL Component Info : 
++---Registers : 
+	                3 Bit    Registers := 44    
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 7     
+	   2 Input      3 Bit        Muxes := 24    
+	   5 Input      3 Bit        Muxes := 20    
+	   2 Input      2 Bit        Muxes := 48    
+	   2 Input      1 Bit        Muxes := 240   
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1184.664 ; gain = 308.566 ; free physical = 12136 ; free virtual = 15630
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_NN
+WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_EE
+WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_WW
+WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_SS
+WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_LL
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1191.672 ; gain = 315.574 ; free physical = 12130 ; free virtual = 15624
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1191.672 ; gain = 315.574 ; free physical = 12130 ; free virtual = 15624
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[1][0][0]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][2]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[1][0][1]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][2]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[1][0][2]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_R/Req_N_FF_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_L/Req_N_FF_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_S/Req_N_FF_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_W/Req_N_FF_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_E/Req_N_FF_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_N/Req_N_FF_reg )
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[2][0][0]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][2]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[2][0][1]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][2]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[2][0][2]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][2]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][0]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][2]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][1]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][2]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][0][2]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][0][2]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][0][0]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][0][2]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][0][2]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][0][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (Fault_Control_v2_inst/\Input_MUX_UNIT_r_reg[0][0][1] )
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[3][0][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[1][0][0]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[1][0][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[1][0][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[2][0][0]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[2][0][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[2][0][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[3][0][0]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[3][0][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[0][0][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[0][0][0]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[0][0][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (LBDR_N/Req_N_FF_reg) is unused and will be removed from module router.
+WARNING: [Synth 8-3332] Sequential element (LBDR_E/Req_N_FF_reg) is unused and will be removed from module router.
+WARNING: [Synth 8-3332] Sequential element (LBDR_W/Req_N_FF_reg) is unused and will be removed from module router.
+WARNING: [Synth 8-3332] Sequential element (LBDR_S/Req_N_FF_reg) is unused and will be removed from module router.
+WARNING: [Synth 8-3332] Sequential element (LBDR_L/Req_N_FF_reg) is unused and will be removed from module router.
+WARNING: [Synth 8-3332] Sequential element (LBDR_R/Req_N_FF_reg) is unused and will be removed from module router.
+INFO: [Synth 8-3886] merging instance 'Arbiter_N/state_reg[2]' (FDCE) to 'Arbiter_N/state_reg[1]'
+INFO: [Synth 8-3886] merging instance 'Arbiter_N/state_reg[0]' (FDCE) to 'Arbiter_N/state_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (Arbiter_N/\state_reg[1] )
+WARNING: [Synth 8-3332] Sequential element (RTS_FF_reg) is unused and will be removed from module Arbiter__1.
+WARNING: [Synth 8-3332] Sequential element (state_reg[2]) is unused and will be removed from module Arbiter__1.
+WARNING: [Synth 8-3332] Sequential element (state_reg[1]) is unused and will be removed from module Arbiter__1.
+WARNING: [Synth 8-3332] Sequential element (state_reg[0]) is unused and will be removed from module Arbiter__1.
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[1][3][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[1][2][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[1][1][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[1][1][1]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[1][4][1]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][3][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][2][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][1][1]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][1][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[2][1][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[2][1][1]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[2][3][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[2][2][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[3][4][1]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][3][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][2][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][1][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][1][1]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[0][4][1]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (Fault_Control_v2_inst/\Output_MUX_UNIT_r_reg[2][4][1] )
+WARNING: [Synth 8-3332] Sequential element (Output_MUX_UNIT_r_reg[2][4][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[1][3][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[1][2][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[1][1][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[1][1][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Output_MUX_UNIT_r_reg[1][4][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[0][3][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[0][2][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[0][1][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[0][1][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[2][1][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[2][1][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[2][3][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[2][2][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Output_MUX_UNIT_r_reg[3][4][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[3][3][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[3][2][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[3][1][2]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Input_MUX_UNIT_r_reg[3][1][1]) is unused and will be removed from module Fault_Control_v2.
+WARNING: [Synth 8-3332] Sequential element (Output_MUX_UNIT_r_reg[0][4][1]) is unused and will be removed from module Fault_Control_v2.
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1287.227 ; gain = 411.129 ; free physical = 12066 ; free virtual = 15560
+---------------------------------------------------------------------------------
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1287.227 ; gain = 411.129 ; free physical = 12066 ; free virtual = 15560
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1287.227 ; gain = 411.129 ; free physical = 12066 ; free virtual = 15560
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[1][5][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[1][4][0]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][5][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[0][4][0]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[2][5][2]' (FD) to 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[2][4][0]'
+INFO: [Synth 8-3886] merging instance 'Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[3][4][0]' (FD) to 'Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[3][5][2]'
+WARNING: [Synth 8-3332] Sequential element (Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[1][5][2]) is unused and will be removed from module router.
+WARNING: [Synth 8-3332] Sequential element (Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][5][2]) is unused and will be removed from module router.
+WARNING: [Synth 8-3332] Sequential element (Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[2][5][2]) is unused and will be removed from module router.
+WARNING: [Synth 8-3332] Sequential element (Fault_Control_v2_inst/Output_MUX_UNIT_r_reg[3][4][0]) is unused and will be removed from module router.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1295.234 ; gain = 419.137 ; free physical = 12028 ; free virtual = 15523
+---------------------------------------------------------------------------------
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1295.234 ; gain = 419.137 ; free physical = 12028 ; free virtual = 15523
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1295.234 ; gain = 419.137 ; free physical = 12028 ; free virtual = 15523
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1295.234 ; gain = 419.137 ; free physical = 12027 ; free virtual = 15521
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1295.234 ; gain = 419.137 ; free physical = 12027 ; free virtual = 15521
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1295.234 ; gain = 419.137 ; free physical = 12027 ; free virtual = 15521
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1295.234 ; gain = 419.137 ; free physical = 12027 ; free virtual = 15521
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1295.234 ; gain = 419.137 ; free physical = 12027 ; free virtual = 15521
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1295.234 ; gain = 419.137 ; free physical = 12027 ; free virtual = 15521
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |BUFG  |     1|
+|2     |LUT1  |     1|
+|3     |LUT2  |    25|
+|4     |LUT3  |    97|
+|5     |LUT4  |    69|
+|6     |LUT5  |   220|
+|7     |LUT6  |  1603|
+|8     |MUXF7 |    21|
+|9     |FDCE  |   836|
+|10    |FDRE  |    96|
+|11    |IBUF  |   196|
+|12    |OBUF  |   170|
++------+------+------+
+
+Report Instance Areas: 
++------+------------------------+----------------------+------+
+|      |Instance                |Module                |Cells |
++------+------------------------+----------------------+------+
+|1     |top                     |                      |  3335|
+|2     |  FIFO_R                |FIFO_6                |   173|
+|3     |  Arbiter_E             |Arbiter               |    15|
+|4     |  Arbiter_W             |Arbiter_3             |    15|
+|5     |  Arbiter_S             |Arbiter_2             |    15|
+|6     |  Arbiter_L             |Arbiter_0             |    15|
+|7     |  Arbiter_R             |Arbiter_1             |    15|
+|8     |  FIFO_E                |FIFO                  |   174|
+|9     |  FIFO_L                |FIFO_4                |   174|
+|10    |  FIFO_N                |FIFO_5                |   174|
+|11    |  FIFO_S                |FIFO_7                |   174|
+|12    |  FIFO_W                |FIFO_8                |   174|
+|13    |  Fault_Control_v2_inst |Fault_Control_v2      |  1771|
+|14    |  LBDR_E                |LBDR                  |     3|
+|15    |  LBDR_L                |LBDR_9                |     3|
+|16    |  LBDR_N                |LBDR_10               |     3|
+|17    |  LBDR_R                |LBDR_11               |     3|
+|18    |  LBDR_S                |LBDR_12               |     3|
+|19    |  LBDR_W                |LBDR_13               |     3|
+|20    |  MUX_5x1_XBAR_input_E  |MUX_5x1_XBAR_input    |     5|
+|21    |  MUX_5x1_XBAR_input_L  |MUX_5x1_XBAR_input_14 |    14|
+|22    |  MUX_5x1_XBAR_input_R  |MUX_5x1_XBAR_input_15 |    14|
+|23    |  MUX_5x1_XBAR_input_S  |MUX_5x1_XBAR_input_16 |    11|
+|24    |  MUX_5x1_XBAR_input_W  |MUX_5x1_XBAR_input_17 |    11|
+|25    |  XBAR_E                |XBAR                  |     1|
+|26    |  XBAR_L                |XBAR_18               |     1|
+|27    |  XBAR_N                |XBAR_19               |     1|
+|28    |  XBAR_R                |XBAR_20               |     1|
+|29    |  XBAR_S                |XBAR_21               |     1|
+|30    |  XBAR_W                |XBAR_22               |     1|
++------+------------------------+----------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1295.234 ; gain = 419.137 ; free physical = 12027 ; free virtual = 15521
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 304 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1295.234 ; gain = 332.059 ; free physical = 12027 ; free virtual = 15521
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1295.242 ; gain = 419.145 ; free physical = 12028 ; free virtual = 15522
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 196 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+160 Infos, 161 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1380.570 ; gain = 428.977 ; free physical = 11994 ; free virtual = 15489
+report_utilization: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.07 . Memory (MB): peak = 1412.602 ; gain = 0.000 ; free physical = 11991 ; free virtual = 15486
+INFO: [Common 17-206] Exiting Vivado at Tue May 24 00:29:01 2016...
