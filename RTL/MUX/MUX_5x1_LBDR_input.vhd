@@ -12,11 +12,11 @@ entity MUX_5x1_LBDR_input is
     port(MUX_LBDR_input_sel_in                                           : in  std_logic_vector(2 downto 0);
          empty_out                                                       : out std_logic;
          flit_type_out                                                   : out std_logic_vector(2 downto 0);
-         dst_addr_out                                                    : out std_logic_vector(NoC_size-3 downto 0);
+         dst_addr_out                                                    : out std_logic_vector(NoC_size-1 downto 0);
 
          empty_N, empty_E, empty_W, empty_S, empty_L                     : in  std_logic;
          flit_type_N, flit_type_E, flit_type_W, flit_type_S, flit_type_L : in  std_logic_vector(2 downto 0);
-         dst_addr_N, dst_addr_E, dst_addr_W, dst_addr_S, dst_addr_L      : in  std_logic_vector(NoC_size-3 downto 0));
+         dst_addr_N, dst_addr_E, dst_addr_W, dst_addr_S, dst_addr_L      : in  std_logic_vector(NoC_size-1 downto 0));
 end entity MUX_5x1_LBDR_input;
 
 architecture RTL of MUX_5x1_LBDR_input is
