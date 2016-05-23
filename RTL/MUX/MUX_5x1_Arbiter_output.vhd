@@ -23,7 +23,7 @@ end entity MUX_5x1_Arbiter_output;
 
 architecture RTL of MUX_5x1_Arbiter_output is
 begin
-    mux : process (Grant_EE, Grant_EL, Grant_EN, Grant_ES, Grant_EW, Grant_LE, Grant_LL, Grant_LN, Grant_LS, Grant_LW, Grant_NE, Grant_NL, Grant_NN, Grant_NS, Grant_NW,  Grant_SE, Grant_SL, Grant_SN, Grant_SS, Grant_SW, Grant_WE, Grant_WL, Grant_WN, Grant_WS, Grant_WW, MUX_Arbiter_output_sel_in, RTS_E, RTS_L, RTS_N, RTS_R, RTS_S, RTS_W, Xbar_sel_E, Xbar_sel_L, Xbar_sel_N, Xbar_sel_R, Xbar_sel_S, Xbar_sel_W)
+    mux : process (Grant_EE, Grant_EL, Grant_EN, Grant_ES, Grant_EW, Grant_LE, Grant_LL, Grant_LN, Grant_LS, Grant_LW, Grant_NE, Grant_NL, Grant_NN, Grant_NS, Grant_NW,  Grant_SE, Grant_SL, Grant_SN, Grant_SS, Grant_SW, Grant_WE, Grant_WL, Grant_WN, Grant_WS, Grant_WW, MUX_Arbiter_output_sel_in, RTS_E, RTS_L, RTS_N, RTS_S, RTS_W, Xbar_sel_E, Xbar_sel_L, Xbar_sel_N, Xbar_sel_S, Xbar_sel_W)
     begin
         case MUX_Arbiter_output_sel_in is
             when "000" =>
