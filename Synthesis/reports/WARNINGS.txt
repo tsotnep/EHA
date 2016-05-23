@@ -1,0 +1,126 @@
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Mon May 23 18:43:17 2016
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     10
+    Constant outputs (LINT-52)                                     10
+
+Cells                                                              18
+    Connected to power or ground (LINT-32)                         18
+--------------------------------------------------------------------------------
+
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'FIFO_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'read_en_N' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'FIFO_E' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'read_en_E' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'FIFO_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'read_en_W' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'FIFO_S' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'read_en_S' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'FIFO_L' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'read_en_L' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_N' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_E' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_W' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_S' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_L' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_E' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_E' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_N' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_E' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_W' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_S' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_L' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_S' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_S' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_L' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_L' is connected to logic 0. 
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Mon May 23 18:44:37 2016
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     10
+    Constant outputs (LINT-52)                                     10
+
+Cells                                                              18
+    Connected to power or ground (LINT-32)                         18
+--------------------------------------------------------------------------------
+
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'FIFO_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'read_en_N' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'FIFO_E' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'read_en_E' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'FIFO_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'read_en_W' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'FIFO_S' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'read_en_S' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'FIFO_L' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'read_en_L' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_N' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_E' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_W' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_S' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_N' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_L' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_E' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_E' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_N' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_E' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_W' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_S' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_W' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_L' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_S' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_S' is connected to logic 0. 
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'Arbiter_L' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Req_L' is connected to logic 0. 
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+1
