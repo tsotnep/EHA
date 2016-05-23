@@ -14,6 +14,10 @@ entity router is
         NoC_size: integer := 4
     );
     port (
+    Fault_Info_FIFO_in                  : in  std_logic_vector(5 downto 0);
+    Fault_Info_LBDR_in                  : in  std_logic_vector(5 downto 0);
+    Fault_Info_Arbiter_in               : in  std_logic_vector(5 downto 0);
+    Fault_Info_XBAR_in                  : in  std_logic_vector(5 downto 0);
     reset, clk: in std_logic;
     DCTS_N, DCTS_E, DCTS_w, DCTS_S, DCTS_L: in std_logic;
     DRTS_N, DRTS_E, DRTS_W, DRTS_S, DRTS_L: in std_logic;
@@ -67,7 +71,7 @@ architecture behavior of router is
                 clk: in  std_logic;
                 empty: in  std_logic;
                 flit_type: in std_logic_vector(2 downto 0);
-                dst_addr: in std_logic_vector(NoC_size-1 downto 0);
+                dst_addr: in std_logic_vector(3 downto 0);
                 Req_N, Req_E, Req_W, Req_S, Req_L:out std_logic
                 );
 	end COMPONENT;
@@ -265,7 +269,7 @@ architecture behavior of router is
     --CTS_N, CTS_E, CTS_w, CTS_S, CTS_L --toplevel outputs
 
     -- MODULE Fault control
-    signal Fault_Info_FIFO_in               : std_logic_vector(5 downto 0) := "000000";
+    -- signal Fault_Info_FIFO_in               : std_logic_vector(5 downto 0) := "000000";
     signal MUX_5x1_FIFO_input_select_N_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_FIFO_input_select_E_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_FIFO_input_select_W_out  : std_logic_vector(2 downto 0); --not used
@@ -304,7 +308,7 @@ architecture behavior of router is
     signal Req_NL, Req_EL, Req_WL, Req_SL, Req_LL: std_logic;
 
     -- MODULE Fault control
-    signal Fault_Info_LBDR_in               : std_logic_vector(5 downto 0) := "000000";
+    -- signal Fault_Info_LBDR_in               : std_logic_vector(5 downto 0) := "000000";
     signal MUX_5x1_LBDR_input_select_N_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_LBDR_input_select_E_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_LBDR_input_select_W_out  : std_logic_vector(2 downto 0); --not used
@@ -354,7 +358,7 @@ architecture behavior of router is
     --RTS_N, RTS_E, RTS_W, RTS_S, RTS_L --toplevel outputs
 
     -- MODULE Fault control
-    signal Fault_Info_Arbiter_in               : std_logic_vector(5 downto 0) := "000000";
+    -- signal Fault_Info_Arbiter_in               : std_logic_vector(5 downto 0) := "000000";
     signal MUX_5x1_Arbiter_input_select_N_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_Arbiter_input_select_E_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_Arbiter_input_select_W_out  : std_logic_vector(2 downto 0); --not used
@@ -385,7 +389,7 @@ architecture behavior of router is
     --TX_N, TX_E, TX_W, TX_S, TX_L --toplevel outputs
 
     -- MODULE Fault control
-    signal Fault_Info_Xbar_in               : std_logic_vector(5 downto 0) := "000000";
+    -- signal Fault_Info_Xbar_in               : std_logic_vector(5 downto 0) := "000000";
     signal MUX_5x1_Xbar_input_select_N_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_Xbar_input_select_E_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_Xbar_input_select_W_out  : std_logic_vector(2 downto 0); --not used
@@ -403,7 +407,7 @@ begin
 
 ------------------------------------------------------------------------------------------------------------------------------
 --                                      block diagram of one channel
---NoC_size
+--
 --                                     .____________grant_________
 --                                     |                          ▲
 --                                     |     _______            __|_______
@@ -543,25 +547,6 @@ XBAR_R: XBAR generic map (DATA_WIDTH  => DATA_WIDTH)
    PORT MAP (North_in => FIFO_D_out_N, East_in => FIFO_D_out_E, West_in => FIFO_D_out_W, South_in => FIFO_D_out_S, Local_in => FIFO_D_out_L,
         sel => Xbar_sel_R_valid,  Data_out=> TX_R_temp);
 
-
-
-
---all the processes for fault simulation, those will be deleted later
-
--- ALL_TYPE_FAULT_SIM: process begin
---         --we start with this initial fault information, and FC will reconfigure the system
---         wait for 2 ns;
---         Fault_Info_FIFO_in    <= "000001";
---         Fault_Info_LBDR_in    <= "000010";
---         Fault_Info_Arbiter_in <= "000100";
---         Fault_Info_XBAR_in    <= "001000";
---      wait;
---  end process ALL_TYPE_FAULT_SIM;
-
--- all the control units for redundancy
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
 
 Fault_Control_v2_inst : component Fault_Control_v2
         port map(
