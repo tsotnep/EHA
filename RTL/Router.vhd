@@ -14,6 +14,10 @@ entity router is
         NoC_size: integer := 4
     );
     port (
+    Fault_Info_FIFO_in                  : in  std_logic_vector(5 downto 0);
+    Fault_Info_LBDR_in                  : in  std_logic_vector(5 downto 0);
+    Fault_Info_Arbiter_in               : in  std_logic_vector(5 downto 0);
+    Fault_Info_XBAR_in                  : in  std_logic_vector(5 downto 0);
     reset, clk: in std_logic;
     DCTS_N, DCTS_E, DCTS_w, DCTS_S, DCTS_L: in std_logic;
     DRTS_N, DRTS_E, DRTS_W, DRTS_S, DRTS_L: in std_logic;
@@ -268,7 +272,6 @@ architecture behavior of router is
     --CTS_N, CTS_E, CTS_w, CTS_S, CTS_L --toplevel outputs
 
     -- MODULE Fault control
-    signal Fault_Info_FIFO_in               : std_logic_vector(5 downto 0) := "000000";
     signal MUX_5x1_FIFO_input_select_N_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_FIFO_input_select_E_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_FIFO_input_select_W_out  : std_logic_vector(2 downto 0); --not used
@@ -306,7 +309,6 @@ architecture behavior of router is
     signal Req_NL, Req_EL, Req_WL, Req_SL, Req_LL: std_logic;
 
     -- MODULE Fault control
-    signal Fault_Info_LBDR_in               : std_logic_vector(5 downto 0) := "000000";
     signal MUX_5x1_LBDR_input_select_N_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_LBDR_input_select_E_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_LBDR_input_select_W_out  : std_logic_vector(2 downto 0); --not used
@@ -354,7 +356,6 @@ architecture behavior of router is
     --RTS_N, RTS_E, RTS_W, RTS_S, RTS_L --toplevel outputs
 
     -- MODULE Fault control
-    signal Fault_Info_Arbiter_in               : std_logic_vector(5 downto 0) := "000000";
     signal MUX_5x1_Arbiter_input_select_N_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_Arbiter_input_select_E_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_Arbiter_input_select_W_out  : std_logic_vector(2 downto 0); --not used
@@ -384,7 +385,6 @@ architecture behavior of router is
     --TX_N, TX_E, TX_W, TX_S, TX_L --toplevel outputs
 
     -- MODULE Fault control
-    signal Fault_Info_Xbar_in               : std_logic_vector(5 downto 0) := "000000";
     signal MUX_5x1_Xbar_input_select_N_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_Xbar_input_select_E_out  : std_logic_vector(2 downto 0); --not used
     signal MUX_5x1_Xbar_input_select_W_out  : std_logic_vector(2 downto 0); --not used
