@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity MUX_6x1_FIFO_output is
+entity MUX_5x1_FIFO_output is
     generic(
         DATA_WIDTH : integer := 32
     );
@@ -13,15 +13,15 @@ entity MUX_6x1_FIFO_output is
         empty_out                                                                          : out std_logic;
         FIFO_D_out_out                                                                     : out std_logic_vector(DATA_WIDTH - 1 downto 0);
 
-        CTS_N, CTS_E, CTS_w, CTS_S, CTS_L, CTS_R                                           : in  std_logic;
-        empty_N, empty_E, empty_W, empty_S, empty_L, empty_R                               : in  std_logic;
-        FIFO_D_out_N, FIFO_D_out_E, FIFO_D_out_W, FIFO_D_out_S, FIFO_D_out_L, FIFO_D_out_R : in  std_logic_vector(DATA_WIDTH - 1 downto 0)
+        CTS_N, CTS_E, CTS_w, CTS_S, CTS_L                                           : in  std_logic;
+        empty_N, empty_E, empty_W, empty_S, empty_L                               : in  std_logic;
+        FIFO_D_out_N, FIFO_D_out_E, FIFO_D_out_W, FIFO_D_out_S, FIFO_D_out_L : in  std_logic_vector(DATA_WIDTH - 1 downto 0)
     );
-end entity MUX_6x1_FIFO_output;
+end entity MUX_5x1_FIFO_output;
 
-architecture RTL of MUX_6x1_FIFO_output is
+architecture RTL of MUX_5x1_FIFO_output is
 begin
-    mux : process(CTS_E, CTS_L, CTS_N, CTS_R, CTS_S, CTS_w, FIFO_D_out_E, FIFO_D_out_L, FIFO_D_out_N, FIFO_D_out_R, FIFO_D_out_S, FIFO_D_out_W, MUX_FIFO_output_sel_in, empty_E, empty_L, empty_N, empty_R, empty_S, empty_W)
+    mux : process(CTS_E, CTS_L, CTS_N, CTS_S, CTS_w, FIFO_D_out_E, FIFO_D_out_L, FIFO_D_out_N, FIFO_D_out_S, FIFO_D_out_W, MUX_FIFO_output_sel_in, empty_E, empty_L, empty_N, empty_S, empty_W)
     begin
         case MUX_FIFO_output_sel_in is
             when "000" =>
@@ -44,10 +44,6 @@ begin
                 CTS_out        <= CTS_L;
                 empty_out      <= empty_L;
                 FIFO_D_out_out <= FIFO_D_out_L;
-            when "101" =>
-                CTS_out        <= CTS_R;
-                empty_out      <= empty_R;
-                FIFO_D_out_out <= FIFO_D_out_R;
             when others =>
                 CTS_out        <= '0';
                 empty_out      <= '0';

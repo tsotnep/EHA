@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity MUX_6x1_LBDR_output is
+entity MUX_5x1_LBDR_output is
     generic(
         DATA_WIDTH : integer := 32
     );
@@ -13,14 +13,13 @@ entity MUX_6x1_LBDR_output is
         Req_EN, Req_EE, Req_EW, Req_ES, Req_EL                : in  std_logic;
         Req_WN, Req_WE, Req_WW, Req_WS, Req_WL                : in  std_logic;
         Req_SN, Req_SE, Req_SW, Req_SS, Req_SL                : in  std_logic;
-        Req_LN, Req_LE, Req_LW, Req_LS, Req_LL                : in  std_logic;
-        Req_RN, Req_RE, Req_RW, Req_RS, Req_RL                : in  std_logic
+        Req_LN, Req_LE, Req_LW, Req_LS, Req_LL                : in  std_logic
     );
-end entity MUX_6x1_LBDR_output;
+end entity MUX_5x1_LBDR_output;
 
-architecture RTL of MUX_6x1_LBDR_output is
+architecture RTL of MUX_5x1_LBDR_output is
 begin
-    mux : process (MUX_LBDR_output_sel_in, Req_EE, Req_EL, Req_EN, Req_ES, Req_EW, Req_LE, Req_LL, Req_LN, Req_LS, Req_LW, Req_NE, Req_NL, Req_NN, Req_NS, Req_NW, Req_RE, Req_RL, Req_RN, Req_RS, Req_RW, Req_SE, Req_SL, Req_SN, Req_SS, Req_SW, Req_WE, Req_WL, Req_WN, Req_WS, Req_WW) is
+    mux : process (MUX_LBDR_output_sel_in, Req_EE, Req_EL, Req_EN, Req_ES, Req_EW, Req_LE, Req_LL, Req_LN, Req_LS, Req_LW, Req_NE, Req_NL, Req_NN, Req_NS, Req_NW, Req_SE, Req_SL, Req_SN, Req_SS, Req_SW, Req_WE, Req_WL, Req_WN, Req_WS, Req_WW) is
     begin
         case MUX_LBDR_output_sel_in is
             when "000" =>
@@ -53,12 +52,6 @@ begin
                 Req_W_out <= Req_LW;
                 Req_S_out <= Req_LS;
                 Req_L_out <= Req_LL;
-            when "101" =>
-                Req_N_out <= Req_RN;
-                Req_E_out <= Req_RE;
-                Req_W_out <= Req_RW;
-                Req_S_out <= Req_RS;
-                Req_L_out <= Req_RL;
             when others =>
                 Req_N_out <= '0';
                 Req_E_out <= '0';

@@ -165,8 +165,7 @@ architecture behavior of router is
              TX_E                   : in  std_logic_vector(DATA_WIDTH-1 downto 0);
              TX_W                   : in  std_logic_vector(DATA_WIDTH-1 downto 0);
              TX_S                   : in  std_logic_vector(DATA_WIDTH-1 downto 0);
-             TX_L                   : in  std_logic_vector(DATA_WIDTH-1 downto 0);
-             TX_R                   : in  std_logic_vector(DATA_WIDTH-1 downto 0));
+             TX_L                   : in  std_logic_vector(DATA_WIDTH-1 downto 0));
     end component MUX_5x1_XBAR_output;
 
     component MUX_5x1_Arbiter_input
@@ -187,14 +186,13 @@ architecture behavior of router is
              Xbar_sel_out                                                           : out std_logic_vector(4 downto 0);
              RTS_out                                                                : out std_logic;
              Grant_N_out, Grant_E_out, Grant_W_out, Grant_S_out, Grant_L_out        : out std_logic;
-             Xbar_sel_N, Xbar_sel_E, Xbar_sel_W, Xbar_sel_S, Xbar_sel_L, Xbar_sel_R : in  std_logic_vector(4 downto 0);
-             RTS_N, RTS_E, RTS_W, RTS_S, RTS_L, RTS_R                               : in  std_logic;
+             Xbar_sel_N, Xbar_sel_E, Xbar_sel_W, Xbar_sel_S, Xbar_sel_L  : in  std_logic_vector(4 downto 0);
+             RTS_N, RTS_E, RTS_W, RTS_S, RTS_L                                : in  std_logic;
              Grant_NN, Grant_NE, Grant_NW, Grant_NS, Grant_NL                       : in  std_logic;
              Grant_EN, Grant_EE, Grant_EW, Grant_ES, Grant_EL                       : in  std_logic;
              Grant_WN, Grant_WE, Grant_WW, Grant_WS, Grant_WL                       : in  std_logic;
              Grant_SN, Grant_SE, Grant_SW, Grant_SS, Grant_SL                       : in  std_logic;
-             Grant_LN, Grant_LE, Grant_LW, Grant_LS, Grant_LL                       : in  std_logic;
-             Grant_RN, Grant_RE, Grant_RW, Grant_RS, Grant_RL                       : in  std_logic);
+             Grant_LN, Grant_LE, Grant_LW, Grant_LS, Grant_LL                       : in  std_logic);
     end component MUX_5x1_Arbiter_output;
 
     component MUX_5x1_LBDR_input
@@ -215,8 +213,7 @@ architecture behavior of router is
              Req_EN, Req_EE, Req_EW, Req_ES, Req_EL                : in  std_logic;
              Req_WN, Req_WE, Req_WW, Req_WS, Req_WL                : in  std_logic;
              Req_SN, Req_SE, Req_SW, Req_SS, Req_SL                : in  std_logic;
-             Req_LN, Req_LE, Req_LW, Req_LS, Req_LL                : in  std_logic;
-             Req_RN, Req_RE, Req_RW, Req_RS, Req_RL                : in  std_logic);
+             Req_LN, Req_LE, Req_LW, Req_LS, Req_LL                : in  std_logic);
     end component MUX_5x1_LBDR_output;
 
     component MUX_5x1_FIFO_input
@@ -240,9 +237,9 @@ architecture behavior of router is
              CTS_out                                                                            : out std_logic;
              empty_out                                                                          : out std_logic;
              FIFO_D_out_out                                                                     : out std_logic_vector(DATA_WIDTH - 1 downto 0);
-             CTS_N, CTS_E, CTS_w, CTS_S, CTS_L, CTS_R                                           : in  std_logic;
-             empty_N, empty_E, empty_W, empty_S, empty_L, empty_R                               : in  std_logic;
-             FIFO_D_out_N, FIFO_D_out_E, FIFO_D_out_W, FIFO_D_out_S, FIFO_D_out_L, FIFO_D_out_R : in  std_logic_vector(DATA_WIDTH - 1 downto 0));
+             CTS_N, CTS_E, CTS_w, CTS_S, CTS_L                                           : in  std_logic;
+             empty_N, empty_E, empty_W, empty_S, empty_L                               : in  std_logic;
+             FIFO_D_out_N, FIFO_D_out_E, FIFO_D_out_W, FIFO_D_out_S, FIFO_D_out_L : in  std_logic_vector(DATA_WIDTH - 1 downto 0));
     end component MUX_5x1_FIFO_output;
     -----------------------------------------F I F O------------------------------------------------------------------------------
     ------------------------------------------------------------------------------------------------------------------------------

@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity MUX_6x1_XBAR_output is
+entity MUX_5x1_XBAR_output is
     generic(
         DATA_WIDTH : integer := 32
     );
@@ -13,14 +13,13 @@ entity MUX_6x1_XBAR_output is
         TX_E                   : in  std_logic_vector(DATA_WIDTH-1 downto 0);
         TX_W                   : in  std_logic_vector(DATA_WIDTH-1 downto 0);
         TX_S                   : in  std_logic_vector(DATA_WIDTH-1 downto 0);
-        TX_L                   : in  std_logic_vector(DATA_WIDTH-1 downto 0);
-        TX_R                   : in  std_logic_vector(DATA_WIDTH-1 downto 0)
+        TX_L                   : in  std_logic_vector(DATA_WIDTH-1 downto 0)
     );
-end entity MUX_6x1_XBAR_output;
+end entity MUX_5x1_XBAR_output;
 
-architecture RTL of MUX_6x1_XBAR_output is
+architecture RTL of MUX_5x1_XBAR_output is
 begin
-    mux : process(MUX_XBAR_output_sel_in, TX_N, TX_E, TX_W, TX_S, TX_L, TX_R) is
+    mux : process(MUX_XBAR_output_sel_in, TX_N, TX_E, TX_W, TX_S, TX_L) is
     begin
         case MUX_XBAR_output_sel_in is
             when "000" => TX_out <= TX_N;
@@ -28,7 +27,6 @@ begin
             when "010" => TX_out <= TX_W;
             when "011" => TX_out <= TX_S;
             when "100" => TX_out <= TX_L;
-            when "101" => TX_out <= TX_R;
             when others => TX_out <= (others => '0');
         end case;
     end process mux;
