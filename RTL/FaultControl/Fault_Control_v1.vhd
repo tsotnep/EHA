@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity Fault_Control is
+entity Fault_Control_v1 is
     port(
         Fault_Info_in                      : in  std_logic_vector(5 downto 0);
         MUX_5x1_module_input_select_N_out  : out std_logic_vector(2 downto 0); --not used
@@ -17,8 +17,8 @@ entity Fault_Control is
         MUX_6x1_module_output_select_S_out : out std_logic_vector(2 downto 0);
         MUX_6x1_module_output_select_L_out : out std_logic_vector(2 downto 0)
     );
-end entity Fault_Control;
-architecture RTL of Fault_Control is
+end entity Fault_Control_v1;
+architecture RTL of Fault_Control_v1 is
 begin
 
 
