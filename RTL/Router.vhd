@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity router is
-	generic (
+    generic (
         DATA_WIDTH: integer := 32;
         current_address : integer := 0;
         Rxy_rst : integer := 60;
@@ -31,7 +31,7 @@ end router;
 architecture behavior of router is
 
     COMPONENT FIFO
-     	generic (
+        generic (
             DATA_WIDTH: integer := 32
         );
         port (  reset: in  std_logic;
@@ -47,7 +47,7 @@ architecture behavior of router is
                 empty_out: out std_logic;
                 Data_out: out std_logic_vector(DATA_WIDTH-1 downto 0)
         );
-	end COMPONENT;
+    end COMPONENT;
 
     COMPONENT Arbiter
         port (  reset: in  std_logic;
@@ -58,9 +58,9 @@ architecture behavior of router is
                 Xbar_sel : out std_logic_vector(4 downto 0);
                 RTS: out std_logic
                 );
-	end COMPONENT;
+    end COMPONENT;
 
-	COMPONENT LBDR is
+    COMPONENT LBDR is
         generic (
             cur_addr_rst: integer := 0;
             Rxy_rst: integer := 60;
@@ -74,9 +74,9 @@ architecture behavior of router is
                 dst_addr: in std_logic_vector(NoC_size-1 downto 0);
                 Req_N, Req_E, Req_W, Req_S, Req_L:out std_logic
                 );
-	end COMPONENT;
+    end COMPONENT;
 
- 	COMPONENT XBAR is
+    COMPONENT XBAR is
         generic (
             DATA_WIDTH: integer := 32
         );
@@ -89,7 +89,7 @@ architecture behavior of router is
             sel: in std_logic_vector (4 downto 0);
             Data_out: out std_logic_vector(DATA_WIDTH-1 downto 0)
         );
-	end COMPONENT;
+    end COMPONENT;
 
     component Fault_Control_v1
         port(Fault_Info_in                      : in  std_logic_vector(5 downto 0);
@@ -221,12 +221,12 @@ architecture behavior of router is
     signal RX_N_valid, RX_E_valid, RX_W_valid, RX_S_valid, RX_L_valid, RX_R_valid : std_logic_vector (DATA_WIDTH-1 downto 0);
 
     --output signals from MODULE, going into MUX_6x1_MODULE_output
-  	signal FIFO_D_out_N_temp, FIFO_D_out_E_temp, FIFO_D_out_W_temp, FIFO_D_out_S_temp, FIFO_D_out_L_temp, FIFO_D_out_R_temp: std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal FIFO_D_out_N_temp, FIFO_D_out_E_temp, FIFO_D_out_W_temp, FIFO_D_out_S_temp, FIFO_D_out_L_temp, FIFO_D_out_R_temp: std_logic_vector(DATA_WIDTH-1 downto 0);
     signal empty_N_temp, empty_E_temp, empty_W_temp, empty_S_temp, empty_L_temp, empty_R_temp: std_logic;
     signal CTS_N_temp, CTS_E_temp, CTS_w_temp, CTS_S_temp, CTS_L_temp, CTS_R_temp: std_logic;
 
     --outputs of MUX_6x1_MODULE_output going into somewhere.
-  	signal FIFO_D_out_N, FIFO_D_out_E, FIFO_D_out_W, FIFO_D_out_S, FIFO_D_out_L: std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal FIFO_D_out_N, FIFO_D_out_E, FIFO_D_out_W, FIFO_D_out_S, FIFO_D_out_L: std_logic_vector(DATA_WIDTH-1 downto 0);
     signal empty_N, empty_E, empty_W, empty_S, empty_L: std_logic;
     --CTS_N, CTS_E, CTS_w, CTS_S, CTS_L --toplevel outputs
 
@@ -252,7 +252,7 @@ architecture behavior of router is
 
 
     --input signals to MODULE, coming out from MUX_5x1_MODULE_input
-  	signal FIFO_D_out_N_valid, FIFO_D_out_E_valid, FIFO_D_out_W_valid, FIFO_D_out_S_valid, FIFO_D_out_L_valid, FIFO_D_out_R_valid: std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal FIFO_D_out_N_valid, FIFO_D_out_E_valid, FIFO_D_out_W_valid, FIFO_D_out_S_valid, FIFO_D_out_L_valid, FIFO_D_out_R_valid: std_logic_vector(DATA_WIDTH-1 downto 0);
     signal empty_N_valid, empty_E_valid, empty_W_valid, empty_S_valid, empty_L_valid, empty_R_valid: std_logic;
 
     --output signals from MODULE, going into MUX_6x1_MODULE_output
@@ -421,22 +421,22 @@ FIFO_R : FIFO generic map(DATA_WIDTH => DATA_WIDTH)
 -- all the LBDRs
 LBDR_N: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
     PORT MAP (reset => reset, clk => clk, empty => empty_N_valid, flit_type => FIFO_D_out_N_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_N_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
-   		 	 Req_N=> Req_NN_temp, Req_E=>Req_NE_temp, Req_W=>Req_NW_temp, Req_S=>Req_NS_temp, Req_L=>Req_NL_temp);
+             Req_N=> Req_NN_temp, Req_E=>Req_NE_temp, Req_W=>Req_NW_temp, Req_S=>Req_NS_temp, Req_L=>Req_NL_temp);
 LBDR_E: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
    PORT MAP (reset =>  reset, clk => clk, empty => empty_E_valid, flit_type => FIFO_D_out_E_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_E_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
-   		 	 Req_N=> Req_EN_temp, Req_E=>Req_EE_temp, Req_W=>Req_EW_temp, Req_S=>Req_ES_temp, Req_L=>Req_EL_temp);
+             Req_N=> Req_EN_temp, Req_E=>Req_EE_temp, Req_W=>Req_EW_temp, Req_S=>Req_ES_temp, Req_L=>Req_EL_temp);
 LBDR_W: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
    PORT MAP (reset =>  reset, clk => clk, empty => empty_W_valid,  flit_type => FIFO_D_out_W_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_W_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
-   		 	 Req_N=> Req_WN_temp, Req_E=>Req_WE_temp, Req_W=>Req_WW_temp, Req_S=>Req_WS_temp, Req_L=>Req_WL_temp);
+             Req_N=> Req_WN_temp, Req_E=>Req_WE_temp, Req_W=>Req_WW_temp, Req_S=>Req_WS_temp, Req_L=>Req_WL_temp);
 LBDR_S: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
    PORT MAP (reset =>  reset, clk => clk, empty => empty_S_valid, flit_type => FIFO_D_out_S_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_S_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
-   		 	 Req_N=> Req_SN_temp, Req_E=>Req_SE_temp, Req_W=>Req_SW_temp, Req_S=>Req_SS_temp, Req_L=>Req_SL_temp);
+             Req_N=> Req_SN_temp, Req_E=>Req_SE_temp, Req_W=>Req_SW_temp, Req_S=>Req_SS_temp, Req_L=>Req_SL_temp);
 LBDR_L: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
    PORT MAP (reset =>  reset, clk => clk, empty => empty_L_valid, flit_type => FIFO_D_out_L_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_L_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
-   		 	 Req_N=> Req_LN_temp, Req_E=>Req_LE_temp, Req_W=>Req_LW_temp, Req_S=>Req_LS_temp, Req_L=>Req_LL_temp);
+             Req_N=> Req_LN_temp, Req_E=>Req_LE_temp, Req_W=>Req_LW_temp, Req_S=>Req_LS_temp, Req_L=>Req_LL_temp);
 LBDR_R: LBDR generic map (cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
    PORT MAP (reset =>  reset, clk => clk, empty => empty_R_valid, flit_type => FIFO_D_out_R_valid(DATA_WIDTH-1 downto DATA_WIDTH-3), dst_addr=> FIFO_D_out_R_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) ,
-   		 	 Req_N=> Req_RN_temp, Req_E=>Req_RE_temp, Req_W=>Req_RW_temp, Req_S=>Req_RS_temp, Req_L=>Req_RL_temp);
+             Req_N=> Req_RN_temp, Req_E=>Req_RE_temp, Req_W=>Req_RW_temp, Req_S=>Req_RS_temp, Req_L=>Req_RL_temp);
 
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
@@ -632,71 +632,15 @@ Fault_Control_inst_FIFO : component Fault_Control_v1
 --                       |
 --           MUX_5x1_MODULE_input_select
 
-MUX_5x1_XBAR_input_N : component MUX_5x1_XBAR_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_XBAR_input_sel_in => "000",
-        Xbar_sel_out        => Xbar_sel_N_valid,
-        Xbar_sel_N          => Xbar_sel_N,
-        Xbar_sel_E          => Xbar_sel_E,
-        Xbar_sel_W          => Xbar_sel_W,
-        Xbar_sel_S          => Xbar_sel_S,
-        Xbar_sel_L          => Xbar_sel_L
-    );
-MUX_5x1_XBAR_input_E : component MUX_5x1_XBAR_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_XBAR_input_sel_in => "001",
-        Xbar_sel_out        => Xbar_sel_E_valid,
-        Xbar_sel_N          => Xbar_sel_N,
-        Xbar_sel_E          => Xbar_sel_E,
-        Xbar_sel_W          => Xbar_sel_W,
-        Xbar_sel_S          => Xbar_sel_S,
-        Xbar_sel_L          => Xbar_sel_L
-    );
-MUX_5x1_XBAR_input_W : component MUX_5x1_XBAR_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_XBAR_input_sel_in => "010",
-        Xbar_sel_out        => Xbar_sel_W_valid,
-        Xbar_sel_N          => Xbar_sel_N,
-        Xbar_sel_E          => Xbar_sel_E,
-        Xbar_sel_W          => Xbar_sel_W,
-        Xbar_sel_S          => Xbar_sel_S,
-        Xbar_sel_L          => Xbar_sel_L
-    );
-MUX_5x1_XBAR_input_S : component MUX_5x1_XBAR_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_XBAR_input_sel_in => "011",
-        Xbar_sel_out        => Xbar_sel_S_valid,
-        Xbar_sel_N          => Xbar_sel_N,
-        Xbar_sel_E          => Xbar_sel_E,
-        Xbar_sel_W          => Xbar_sel_W,
-        Xbar_sel_S          => Xbar_sel_S,
-        Xbar_sel_L          => Xbar_sel_L
-    );
-MUX_5x1_XBAR_input_L : component MUX_5x1_XBAR_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_XBAR_input_sel_in => "100",
-        Xbar_sel_out        => Xbar_sel_L_valid,
-        Xbar_sel_N          => Xbar_sel_N,
-        Xbar_sel_E          => Xbar_sel_E,
-        Xbar_sel_W          => Xbar_sel_W,
-        Xbar_sel_S          => Xbar_sel_S,
-        Xbar_sel_L          => Xbar_sel_L
-    );
+
+
+    Xbar_sel_N_valid <= Xbar_sel_N;
+    Xbar_sel_E_valid <= Xbar_sel_E;
+    Xbar_sel_W_valid <= Xbar_sel_W;
+    Xbar_sel_S_valid <= Xbar_sel_S;
+    Xbar_sel_L_valid <= Xbar_sel_L;
+
+
 MUX_5x1_XBAR_input_R : component MUX_5x1_XBAR_input
     generic map(
         DATA_WIDTH => DATA_WIDTH
@@ -783,101 +727,42 @@ MUX_6x1_XBAR_output_L : component MUX_6x1_XBAR_output
     );
 
 
-MUX_5x1_Arbiter_input_N : component MUX_5x1_Arbiter_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_Arbiter_input_sel_in => "000",
 
-        Req_N_out => Req_NN_valid,
-        Req_E_out => Req_EN_valid,
-        Req_W_out => Req_WN_valid,
-        Req_S_out => Req_SN_valid,
-        Req_L_out => Req_LN_valid,
-        DCTS_out  => DCTS_N_valid,
-        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
-        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
-        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
-        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
-        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
-        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
-MUX_5x1_Arbiter_input_E : component MUX_5x1_Arbiter_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_Arbiter_input_sel_in => "001",
+       Req_NN_valid  <= '0';
+       Req_EN_valid  <= Req_EN;
+       Req_WN_valid  <= Req_WN;
+       Req_SN_valid  <= Req_SN;
+       Req_LN_valid  <= Req_LN;
+       DCTS_N_valid  <= DCTS_N;
 
-        Req_N_out => Req_NE_valid,
-        Req_E_out => Req_EE_valid,
-        Req_W_out => Req_WE_valid,
-        Req_S_out => Req_SE_valid,
-        Req_L_out => Req_LE_valid,
-        DCTS_out  => DCTS_E_valid,
-        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
-        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
-        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
-        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
-        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
-        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
-MUX_5x1_Arbiter_input_W : component MUX_5x1_Arbiter_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_Arbiter_input_sel_in => "010",
+       Req_NE_valid  <= Req_NE;
+       Req_EE_valid  <= '0';
+       Req_WE_valid  <= Req_WE;
+       Req_SE_valid  <= Req_SE;
+       Req_LE_valid  <= Req_LE;
+       DCTS_E_valid  <= DCTS_E;
 
-        Req_N_out => Req_NW_valid,
-        Req_E_out => Req_EW_valid,
-        Req_W_out => Req_WW_valid,
-        Req_S_out => Req_SW_valid,
-        Req_L_out => Req_LW_valid,
-        DCTS_out  => DCTS_W_valid,
-        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
-        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
-        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
-        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
-        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
-        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
-MUX_5x1_Arbiter_input_S : component MUX_5x1_Arbiter_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_Arbiter_input_sel_in => "011",
+       Req_NW_valid  <= Req_NW;
+       Req_EW_valid  <= Req_EW;
+       Req_WW_valid  <= '0';
+       Req_SW_valid  <= Req_SW;
+       Req_LW_valid  <= Req_LW;
+       DCTS_W_valid  <= DCTS_W;
 
-        Req_N_out => Req_NS_valid,
-        Req_E_out => Req_ES_valid,
-        Req_W_out => Req_WS_valid,
-        Req_S_out => Req_SS_valid,
-        Req_L_out => Req_LS_valid,
-        DCTS_out  => DCTS_S_valid,
-        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
-        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
-        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
-        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
-        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
-        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
-MUX_5x1_Arbiter_input_L : component MUX_5x1_Arbiter_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_Arbiter_input_sel_in => "100",
+       Req_NS_valid  <= Req_NS;
+       Req_ES_valid  <= Req_ES;
+       Req_WS_valid  <= Req_WS;
+       Req_SS_valid  <= '0';
+       Req_LS_valid  <= Req_LS;
+       DCTS_S_valid  <= DCTS_S;
 
-        Req_N_out => Req_NL_valid,
-        Req_E_out => Req_EL_valid,
-        Req_W_out => Req_WL_valid,
-        Req_S_out => Req_SL_valid,
-        Req_L_out => Req_LL_valid,
-        DCTS_out  => DCTS_L_valid,
-        DCTS_N => DCTS_N, DCTS_E => DCTS_E, DCTS_W => DCTS_W, DCTS_S => DCTS_S, DCTS_L => DCTS_L,
-        Req_NN => Req_NN, Req_NE => Req_NE, Req_NW => Req_NW, Req_NS => Req_NS, Req_NL => Req_NL,
-        Req_EN => Req_EN, Req_EE => Req_EE, Req_EW => Req_EW, Req_ES => Req_ES, Req_EL => Req_EL,
-        Req_WN => Req_WN, Req_WE => Req_WE, Req_WW => Req_WW, Req_WS => Req_WS, Req_WL => Req_WL,
-        Req_SN => Req_SN, Req_SE => Req_SE, Req_SW => Req_SW, Req_SS => Req_SS, Req_SL => Req_SL,
-        Req_LN => Req_LN, Req_LE => Req_LE, Req_LW => Req_LW, Req_LS => Req_LS, Req_LL => Req_LL);
+       Req_NL_valid  <= Req_NL;
+       Req_EL_valid  <= Req_EL;
+       Req_WL_valid  <= Req_WL;
+       Req_SL_valid  <= Req_SL;
+       Req_LL_valid  <= '0';
+       DCTS_L_valid  <= DCTS_L;
+
 MUX_5x1_Arbiter_input_R : component MUX_5x1_Arbiter_input
     generic map(
         DATA_WIDTH => DATA_WIDTH
@@ -1010,126 +895,41 @@ MUX_6x1_Arbiter_output_L : component MUX_6x1_Arbiter_output
                 Grant_RN => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp);
 
 
-MUX_5x1_LBDR_input_N : component MUX_5x1_LBDR_input
-    port map(
-        MUX_LBDR_input_sel_in => "000",
-        empty_out             =>      empty_N_valid,
-        flit_type_out         => FIFO_D_out_N_valid(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        dst_addr_out          => FIFO_D_out_N_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
+             empty_N_valid                                                <=
+             empty_N;
+        FIFO_D_out_N_valid(DATA_WIDTH-1 downto DATA_WIDTH-3)              <=
+        FIFO_D_out_N(DATA_WIDTH-1 downto DATA_WIDTH-3);
+        FIFO_D_out_N_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) <=
+        FIFO_D_out_N(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19);
 
-        empty_N               => empty_N,
-        empty_E               => empty_E,
-        empty_W               => empty_W,
-        empty_S               => empty_S,
-        empty_L               => empty_L,
+             empty_E_valid                                                <=
+             empty_E;
+        FIFO_D_out_E_valid(DATA_WIDTH-1 downto DATA_WIDTH-3)              <=
+        FIFO_D_out_E(DATA_WIDTH-1 downto DATA_WIDTH-3);
+        FIFO_D_out_E_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) <=
+        FIFO_D_out_E(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19);
 
-        flit_type_N           => FIFO_D_out_N(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_E           => FIFO_D_out_E(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_W           => FIFO_D_out_W(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_S           => FIFO_D_out_S(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_L           => FIFO_D_out_L(DATA_WIDTH-1 downto DATA_WIDTH-3),
+             empty_W_valid                                                <=
+             empty_W;
+        FIFO_D_out_W_valid(DATA_WIDTH-1 downto DATA_WIDTH-3)              <=
+        FIFO_D_out_W(DATA_WIDTH-1 downto DATA_WIDTH-3);
+        FIFO_D_out_W_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) <=
+        FIFO_D_out_W(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19);
 
-        dst_addr_N            => FIFO_D_out_N(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_E            => FIFO_D_out_E(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_W            => FIFO_D_out_W(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_S            => FIFO_D_out_S(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_L            => FIFO_D_out_L(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19));
-MUX_5x1_LBDR_input_E : component MUX_5x1_LBDR_input
-    port map(
-        MUX_LBDR_input_sel_in => "001",
-        empty_out             =>      empty_E_valid,
-        flit_type_out         => FIFO_D_out_E_valid(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        dst_addr_out          => FIFO_D_out_E_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
+             empty_S_valid                                                <=
+             empty_S;
+        FIFO_D_out_S_valid(DATA_WIDTH-1 downto DATA_WIDTH-3)              <=
+        FIFO_D_out_S(DATA_WIDTH-1 downto DATA_WIDTH-3);
+        FIFO_D_out_S_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) <=
+        FIFO_D_out_S(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19);
 
-        empty_N               => empty_N,
-        empty_E               => empty_E,
-        empty_W               => empty_W,
-        empty_S               => empty_S,
-        empty_L               => empty_L,
+             empty_L_valid                                                <=
+             empty_L;
+        FIFO_D_out_L_valid(DATA_WIDTH-1 downto DATA_WIDTH-3)              <=
+        FIFO_D_out_L(DATA_WIDTH-1 downto DATA_WIDTH-3);
+        FIFO_D_out_L_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19) <=
+        FIFO_D_out_L(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19);
 
-        flit_type_N           => FIFO_D_out_N(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_E           => FIFO_D_out_E(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_W           => FIFO_D_out_W(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_S           => FIFO_D_out_S(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_L           => FIFO_D_out_L(DATA_WIDTH-1 downto DATA_WIDTH-3),
-
-        dst_addr_N            => FIFO_D_out_N(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_E            => FIFO_D_out_E(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_W            => FIFO_D_out_W(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_S            => FIFO_D_out_S(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_L            => FIFO_D_out_L(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19));
-MUX_5x1_LBDR_input_W : component MUX_5x1_LBDR_input
-    port map(
-        MUX_LBDR_input_sel_in => "010",
-        empty_out             =>      empty_W_valid,
-        flit_type_out         => FIFO_D_out_W_valid(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        dst_addr_out          => FIFO_D_out_W_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-
-        empty_N               => empty_N,
-        empty_E               => empty_E,
-        empty_W               => empty_W,
-        empty_S               => empty_S,
-        empty_L               => empty_L,
-
-        flit_type_N           => FIFO_D_out_N(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_E           => FIFO_D_out_E(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_W           => FIFO_D_out_W(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_S           => FIFO_D_out_S(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_L           => FIFO_D_out_L(DATA_WIDTH-1 downto DATA_WIDTH-3),
-
-        dst_addr_N            => FIFO_D_out_N(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_E            => FIFO_D_out_E(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_W            => FIFO_D_out_W(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_S            => FIFO_D_out_S(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_L            => FIFO_D_out_L(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19));
-MUX_5x1_LBDR_input_S : component MUX_5x1_LBDR_input
-    port map(
-        MUX_LBDR_input_sel_in => "011",
-        empty_out             =>      empty_S_valid,
-        flit_type_out         => FIFO_D_out_S_valid(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        dst_addr_out          => FIFO_D_out_S_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-
-        empty_N               => empty_N,
-        empty_E               => empty_E,
-        empty_W               => empty_W,
-        empty_S               => empty_S,
-        empty_L               => empty_L,
-
-        flit_type_N           => FIFO_D_out_N(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_E           => FIFO_D_out_E(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_W           => FIFO_D_out_W(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_S           => FIFO_D_out_S(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_L           => FIFO_D_out_L(DATA_WIDTH-1 downto DATA_WIDTH-3),
-
-        dst_addr_N            => FIFO_D_out_N(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_E            => FIFO_D_out_E(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_W            => FIFO_D_out_W(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_S            => FIFO_D_out_S(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_L            => FIFO_D_out_L(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19));
-MUX_5x1_LBDR_input_L : component MUX_5x1_LBDR_input
-    port map(
-        MUX_LBDR_input_sel_in => "100",
-        empty_out             =>      empty_L_valid,
-        flit_type_out         => FIFO_D_out_L_valid(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        dst_addr_out          => FIFO_D_out_L_valid(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-
-        empty_N               => empty_N,
-        empty_E               => empty_E,
-        empty_W               => empty_W,
-        empty_S               => empty_S,
-        empty_L               => empty_L,
-
-        flit_type_N           => FIFO_D_out_N(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_E           => FIFO_D_out_E(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_W           => FIFO_D_out_W(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_S           => FIFO_D_out_S(DATA_WIDTH-1 downto DATA_WIDTH-3),
-        flit_type_L           => FIFO_D_out_L(DATA_WIDTH-1 downto DATA_WIDTH-3),
-
-        dst_addr_N            => FIFO_D_out_N(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_E            => FIFO_D_out_E(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_W            => FIFO_D_out_W(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_S            => FIFO_D_out_S(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19),
-        dst_addr_L            => FIFO_D_out_L(DATA_WIDTH-19+NoC_size-1 downto DATA_WIDTH-19));
 MUX_5x1_LBDR_input_R : component MUX_5x1_LBDR_input
     port map(
         MUX_LBDR_input_sel_in => MUX_5x1_LBDR_input_select_R_out,
@@ -1247,286 +1047,84 @@ MUX_6x1_LBDR_output_L : component MUX_6x1_LBDR_output
         Req_RN => Req_RN_temp,Req_RE => Req_RE_temp,Req_RW => Req_RW_temp,Req_RS => Req_RS_temp,Req_RL => Req_RL_temp);
 
 
-MUX_5x1_FIFO_input_N : component MUX_5x1_FIFO_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_FIFO_input_sel_in => "000",
 
-        RX_out                =>     RX_N_valid,
-        DRTS_out              =>   DRTS_N_valid,
-        Grant_N_out           => Grant_NN_valid,
-        Grant_E_out           => Grant_EN_valid,
-        Grant_W_out           => Grant_WN_valid,
-        Grant_S_out           => Grant_SN_valid,
-        Grant_L_out           => Grant_LN_valid,
+            ----------------------------
 
-            RX_N => RX_N,
-            RX_E => RX_E,
-            RX_W => RX_W,
-            RX_S => RX_S,
-            RX_L => RX_L,
+                RX_N_valid <=
+                RX_N;
+              DRTS_N_valid <=
+              DRTS_N;
+            Grant_NN_valid <=
+            '0';
+            Grant_EN_valid <=
+            Grant_EN;
+            Grant_WN_valid <=
+            Grant_WN;
+            Grant_SN_valid <=
+            Grant_SN;
+            Grant_LN_valid <=
+            Grant_LN;
 
-            DRTS_N => DRTS_N,
-            DRTS_E => DRTS_E,
-            DRTS_W => DRTS_W,
-            DRTS_S => DRTS_S,
-            DRTS_L => DRTS_L,
+                RX_E_valid <=
+                RX_E;
+              DRTS_E_valid <=
+              DRTS_E;
+            Grant_NE_valid <=
+            Grant_NE;
+            Grant_EE_valid <=
+            '0';
+            Grant_WE_valid <=
+            Grant_WE;
+            Grant_SE_valid <=
+            Grant_SE;
+            Grant_LE_valid <=
+            Grant_LE;
 
-            Grant_NN => Grant_NN,
-            Grant_EN => Grant_EN,
-            Grant_WN => Grant_WN,
-            Grant_SN => Grant_SN,
-            Grant_LN => Grant_LN,
+                RX_W_valid <=
+                RX_W;
+              DRTS_W_valid <=
+              DRTS_W;
+            Grant_NW_valid <=
+            Grant_NW;
+            Grant_EW_valid <=
+            Grant_EW;
+            Grant_WW_valid <=
+            '0';
+            Grant_SW_valid <=
+            Grant_SW;
+            Grant_LW_valid <=
+            Grant_LW;
 
-            Grant_NE => Grant_NE,
-            Grant_EE => Grant_EE,
-            Grant_WE => Grant_WE,
-            Grant_SE => Grant_SE,
-            Grant_LE => Grant_LE,
+                RX_S_valid <=
+                RX_S;
+              DRTS_S_valid <=
+              DRTS_S;
+            Grant_NS_valid <=
+            Grant_NS;
+            Grant_ES_valid <=
+            Grant_ES;
+            Grant_WS_valid <=
+            Grant_WS;
+            Grant_SS_valid <=
+            '0';
+            Grant_LS_valid <=
+            Grant_LS;
 
-            Grant_NW => Grant_NW,
-            Grant_EW => Grant_EW,
-            Grant_WW => Grant_WW,
-            Grant_SW => Grant_SW,
-            Grant_LW => Grant_LW,
+                RX_L_valid <=
+                RX_L;
+              DRTS_L_valid <=
+              DRTS_L;
+            Grant_NL_valid <=
+            Grant_NL;
+            Grant_EL_valid <=
+            Grant_EL;
+            Grant_WL_valid <=
+            Grant_WL;
+            Grant_SL_valid <=
+            Grant_SL;
+            Grant_LL_valid <=
+            '0';
 
-            Grant_NS => Grant_NS,
-            Grant_ES => Grant_ES,
-            Grant_WS => Grant_WS,
-            Grant_SS => Grant_SS,
-            Grant_LS => Grant_LS,
-
-            Grant_NL => Grant_NL,
-            Grant_EL => Grant_EL,
-            Grant_WL => Grant_WL,
-            Grant_SL => Grant_SL,
-            Grant_LL => Grant_LL);
-MUX_5x1_FIFO_input_E : component MUX_5x1_FIFO_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_FIFO_input_sel_in => "001",
-
-        RX_out                =>     RX_E_valid,
-        DRTS_out              =>   DRTS_E_valid,
-        Grant_N_out           => Grant_NE_valid,
-        Grant_E_out           => Grant_EE_valid,
-        Grant_W_out           => Grant_WE_valid,
-        Grant_S_out           => Grant_SE_valid,
-        Grant_L_out           => Grant_LE_valid,
-
-            RX_N => RX_N,
-            RX_E => RX_E,
-            RX_W => RX_W,
-            RX_S => RX_S,
-            RX_L => RX_L,
-
-            DRTS_N => DRTS_N,
-            DRTS_E => DRTS_E,
-            DRTS_W => DRTS_W,
-            DRTS_S => DRTS_S,
-            DRTS_L => DRTS_L,
-
-            Grant_NN => Grant_NN,
-            Grant_EN => Grant_EN,
-            Grant_WN => Grant_WN,
-            Grant_SN => Grant_SN,
-            Grant_LN => Grant_LN,
-
-            Grant_NE => Grant_NE,
-            Grant_EE => Grant_EE,
-            Grant_WE => Grant_WE,
-            Grant_SE => Grant_SE,
-            Grant_LE => Grant_LE,
-
-            Grant_NW => Grant_NW,
-            Grant_EW => Grant_EW,
-            Grant_WW => Grant_WW,
-            Grant_SW => Grant_SW,
-            Grant_LW => Grant_LW,
-
-            Grant_NS => Grant_NS,
-            Grant_ES => Grant_ES,
-            Grant_WS => Grant_WS,
-            Grant_SS => Grant_SS,
-            Grant_LS => Grant_LS,
-
-            Grant_NL => Grant_NL,
-            Grant_EL => Grant_EL,
-            Grant_WL => Grant_WL,
-            Grant_SL => Grant_SL,
-            Grant_LL => Grant_LL);
-MUX_5x1_FIFO_input_W : component MUX_5x1_FIFO_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_FIFO_input_sel_in => "010",
-
-        RX_out                =>     RX_W_valid,
-        DRTS_out              =>   DRTS_W_valid,
-        Grant_N_out           => Grant_NW_valid,
-        Grant_E_out           => Grant_EW_valid,
-        Grant_W_out           => Grant_WW_valid,
-        Grant_S_out           => Grant_SW_valid,
-        Grant_L_out           => Grant_LW_valid,
-
-            RX_N => RX_N,
-            RX_E => RX_E,
-            RX_W => RX_W,
-            RX_S => RX_S,
-            RX_L => RX_L,
-
-            DRTS_N => DRTS_N,
-            DRTS_E => DRTS_E,
-            DRTS_W => DRTS_W,
-            DRTS_S => DRTS_S,
-            DRTS_L => DRTS_L,
-
-            Grant_NN => Grant_NN,
-            Grant_EN => Grant_EN,
-            Grant_WN => Grant_WN,
-            Grant_SN => Grant_SN,
-            Grant_LN => Grant_LN,
-
-            Grant_NE => Grant_NE,
-            Grant_EE => Grant_EE,
-            Grant_WE => Grant_WE,
-            Grant_SE => Grant_SE,
-            Grant_LE => Grant_LE,
-
-            Grant_NW => Grant_NW,
-            Grant_EW => Grant_EW,
-            Grant_WW => Grant_WW,
-            Grant_SW => Grant_SW,
-            Grant_LW => Grant_LW,
-
-            Grant_NS => Grant_NS,
-            Grant_ES => Grant_ES,
-            Grant_WS => Grant_WS,
-            Grant_SS => Grant_SS,
-            Grant_LS => Grant_LS,
-
-            Grant_NL => Grant_NL,
-            Grant_EL => Grant_EL,
-            Grant_WL => Grant_WL,
-            Grant_SL => Grant_SL,
-            Grant_LL => Grant_LL);
-MUX_5x1_FIFO_input_S : component MUX_5x1_FIFO_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_FIFO_input_sel_in => "011",
-
-        RX_out                =>     RX_S_valid,
-        DRTS_out              =>   DRTS_S_valid,
-        Grant_N_out           => Grant_NS_valid,
-        Grant_E_out           => Grant_ES_valid,
-        Grant_W_out           => Grant_WS_valid,
-        Grant_S_out           => Grant_SS_valid,
-        Grant_L_out           => Grant_LS_valid,
-
-            RX_N => RX_N,
-            RX_E => RX_E,
-            RX_W => RX_W,
-            RX_S => RX_S,
-            RX_L => RX_L,
-
-            DRTS_N => DRTS_N,
-            DRTS_E => DRTS_E,
-            DRTS_W => DRTS_W,
-            DRTS_S => DRTS_S,
-            DRTS_L => DRTS_L,
-
-            Grant_NN => Grant_NN,
-            Grant_EN => Grant_EN,
-            Grant_WN => Grant_WN,
-            Grant_SN => Grant_SN,
-            Grant_LN => Grant_LN,
-
-            Grant_NE => Grant_NE,
-            Grant_EE => Grant_EE,
-            Grant_WE => Grant_WE,
-            Grant_SE => Grant_SE,
-            Grant_LE => Grant_LE,
-
-            Grant_NW => Grant_NW,
-            Grant_EW => Grant_EW,
-            Grant_WW => Grant_WW,
-            Grant_SW => Grant_SW,
-            Grant_LW => Grant_LW,
-
-            Grant_NS => Grant_NS,
-            Grant_ES => Grant_ES,
-            Grant_WS => Grant_WS,
-            Grant_SS => Grant_SS,
-            Grant_LS => Grant_LS,
-
-            Grant_NL => Grant_NL,
-            Grant_EL => Grant_EL,
-            Grant_WL => Grant_WL,
-            Grant_SL => Grant_SL,
-            Grant_LL => Grant_LL);
-MUX_5x1_FIFO_input_L : component MUX_5x1_FIFO_input
-    generic map(
-        DATA_WIDTH => DATA_WIDTH
-    )
-    port map(
-        MUX_FIFO_input_sel_in => "100",
-
-        RX_out                =>     RX_L_valid,
-        DRTS_out              =>   DRTS_L_valid,
-        Grant_N_out           => Grant_NL_valid,
-        Grant_E_out           => Grant_EL_valid,
-        Grant_W_out           => Grant_WL_valid,
-        Grant_S_out           => Grant_SL_valid,
-        Grant_L_out           => Grant_LL_valid,
-
-            RX_N => RX_N,
-            RX_E => RX_E,
-            RX_W => RX_W,
-            RX_S => RX_S,
-            RX_L => RX_L,
-
-            DRTS_N => DRTS_N,
-            DRTS_E => DRTS_E,
-            DRTS_W => DRTS_W,
-            DRTS_S => DRTS_S,
-            DRTS_L => DRTS_L,
-
-            Grant_NN => Grant_NN,
-            Grant_EN => Grant_EN,
-            Grant_WN => Grant_WN,
-            Grant_SN => Grant_SN,
-            Grant_LN => Grant_LN,
-
-            Grant_NE => Grant_NE,
-            Grant_EE => Grant_EE,
-            Grant_WE => Grant_WE,
-            Grant_SE => Grant_SE,
-            Grant_LE => Grant_LE,
-
-            Grant_NW => Grant_NW,
-            Grant_EW => Grant_EW,
-            Grant_WW => Grant_WW,
-            Grant_SW => Grant_SW,
-            Grant_LW => Grant_LW,
-
-            Grant_NS => Grant_NS,
-            Grant_ES => Grant_ES,
-            Grant_WS => Grant_WS,
-            Grant_SS => Grant_SS,
-            Grant_LS => Grant_LS,
-
-            Grant_NL => Grant_NL,
-            Grant_EL => Grant_EL,
-            Grant_WL => Grant_WL,
-            Grant_SL => Grant_SL,
-            Grant_LL => Grant_LL);
 MUX_5x1_FIFO_input_R : component MUX_5x1_FIFO_input
     generic map(
         DATA_WIDTH => DATA_WIDTH
