@@ -3,7 +3,7 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Tue May 24 01:01:08 2016
+Date   : Tue May 24 02:15:00 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -12,21 +12,21 @@ Library(s) Used:
     lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
 
 Number of ports:                          366
-Number of nets:                          1584
-Number of cells:                          142
-Number of combinational cells:             70
+Number of nets:                          1228
+Number of cells:                           52
+Number of combinational cells:              0
 Number of sequential cells:                 0
 Number of macros/black boxes:               0
-Number of buf/inv:                         70
-Number of references:                      73
+Number of buf/inv:                          0
+Number of references:                      52
 
-Combinational area:              12514.000000
-Buf/Inv area:                      690.000000
+Combinational area:              10309.000000
+Buf/Inv area:                      580.000000
 Noncombinational area:            7560.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                 20074.000000
+Total cell area:                 17869.000000
 Total area:                 undefined
 1
  
@@ -38,7 +38,7 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Tue May 24 01:01:08 2016
+Date   : Tue May 24 02:15:01 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
@@ -46,7 +46,7 @@ Wire Load Model Mode: top
 
   Startpoint: FIFO_R/read_pointer_reg[0]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: LBDR_E/Req_L_FF_reg
+  Endpoint: LBDR_R/Req_L_FF_reg
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -58,39 +58,38 @@ Wire Load Model Mode: top
   FIFO_R/read_pointer_reg[0]/CP (FD2)                     0.00       0.00 r
   FIFO_R/read_pointer_reg[0]/QN (FD2)                     1.80       1.80 f
   FIFO_R/U220/Z (IVA)                                     4.12       5.92 r
-  FIFO_R/U13/Z (MUX41)                                    1.67       7.59 f
+  FIFO_R/U14/Z (MUX41)                                    1.67       7.59 f
   FIFO_R/Data_out[31] (FIFO_DATA_WIDTH32_1)               0.00       7.59 f
   MUX_6x1_FIFO_output_E/FIFO_D_out_R[31] (MUX_6x1_FIFO_output_DATA_WIDTH32_4)
                                                           0.00       7.59 f
-  MUX_6x1_FIFO_output_E/U17/Z (AO2)                       1.08       8.67 r
-  MUX_6x1_FIFO_output_E/U13/Z (ND4)                       0.73       9.40 f
+  MUX_6x1_FIFO_output_E/U22/Z (AO2)                       1.08       8.67 r
+  MUX_6x1_FIFO_output_E/U13/Z (ND4)                       1.86      10.53 f
   MUX_6x1_FIFO_output_E/FIFO_D_out_out[31] (MUX_6x1_FIFO_output_DATA_WIDTH32_4)
-                                                          0.00       9.40 f
-  U6/Z (IVDA)                                             0.98      10.38 f
-  MUX_5x1_LBDR_input_E/flit_type_E[2] (MUX_5x1_LBDR_input_5)
-                                                          0.00      10.38 f
-  MUX_5x1_LBDR_input_E/U7/Z (AO2)                         1.08      11.46 r
-  MUX_5x1_LBDR_input_E/U4/Z (ND3)                         0.71      12.18 f
-  MUX_5x1_LBDR_input_E/flit_type_out[2] (MUX_5x1_LBDR_input_5)
-                                                          0.00      12.18 f
-  LBDR_E/flit_type[2] (LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_5)
-                                                          0.00      12.18 f
-  LBDR_E/U9/Z (NR4)                                       3.13      15.31 r
-  LBDR_E/U5/Z (ND2)                                       0.30      15.61 f
-  LBDR_E/U14/Z (EON1)                                     1.08      16.69 r
-  LBDR_E/Req_L_FF_reg/D (FD2)                             0.00      16.69 r
-  data arrival time                                                 16.69
+                                                          0.00      10.53 f
+  MUX_5x1_LBDR_input_R/flit_type_E[2] (MUX_5x1_LBDR_input)
+                                                          0.00      10.53 f
+  MUX_5x1_LBDR_input_R/U9/Z (AO2)                         1.08      11.61 r
+  MUX_5x1_LBDR_input_R/U6/Z (ND3)                         0.71      12.32 f
+  MUX_5x1_LBDR_input_R/flit_type_out[2] (MUX_5x1_LBDR_input)
+                                                          0.00      12.32 f
+  LBDR_R/flit_type[2] (LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1)
+                                                          0.00      12.32 f
+  LBDR_R/U5/Z (NR4)                                       3.13      15.45 r
+  LBDR_R/U7/Z (ND2)                                       0.30      15.75 f
+  LBDR_R/U16/Z (EON1)                                     1.08      16.83 r
+  LBDR_R/Req_L_FF_reg/D (FD2)                             0.00      16.83 r
+  data arrival time                                                 16.83
 
   clock clk (rise edge)                                  20.00      20.00
   clock network delay (ideal)                             0.00      20.00
-  LBDR_E/Req_L_FF_reg/CP (FD2)                            0.00      20.00 r
+  LBDR_R/Req_L_FF_reg/CP (FD2)                            0.00      20.00 r
   library setup time                                     -0.85      19.15
   data required time                                                19.15
   --------------------------------------------------------------------------
   data required time                                                19.15
-  data arrival time                                                -16.69
+  data arrival time                                                -16.83
   --------------------------------------------------------------------------
-  slack (MET)                                                        2.46
+  slack (MET)                                                        2.32
 
 
 1
