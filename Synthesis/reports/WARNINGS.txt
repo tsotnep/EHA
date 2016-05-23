@@ -94,3 +94,45 @@ Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_
 Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', the same net is connected to more than one pin on submodule 'Fault_Control_v3_inst'. (LINT-33)
    Net '*Logic0*' is connected to pins 'Fault_Info_FIFO_in[5]', 'Fault_Info_FIFO_in[4]'', 'Fault_Info_FIFO_in[3]', 'Fault_Info_FIFO_in[2]', 'Fault_Info_FIFO_in[1]', 'Fault_Info_FIFO_in[0]', 'Fault_Info_LBDR_in[5]', 'Fault_Info_LBDR_in[4]', 'Fault_Info_LBDR_in[3]', 'Fault_Info_LBDR_in[2]', 'Fault_Info_LBDR_in[1]', 'Fault_Info_LBDR_in[0]', 'Fault_Info_Arbiter_in[5]', 'Fault_Info_Arbiter_in[4]', 'Fault_Info_Arbiter_in[3]', 'Fault_Info_Arbiter_in[2]', 'Fault_Info_Arbiter_in[1]', 'Fault_Info_Arbiter_in[0]', 'Fault_Info_XBAR_in[5]', 'Fault_Info_XBAR_in[4]', 'Fault_Info_XBAR_in[3]', 'Fault_Info_XBAR_in[2]', 'Fault_Info_XBAR_in[1]', 'Fault_Info_XBAR_in[0]'.
 1
+Warning: Design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Mon May 23 20:33:22 2016
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     14
+    Unconnected ports (LINT-28)                                    14
+
+Nets                                                               10
+    Unloaded nets (LINT-2)                                         10
+--------------------------------------------------------------------------------
+
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'FIFO_E/net1530' driven by pin 'FIFO_E/C938/Z' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'FIFO_E/net1529' driven by pin 'FIFO_E/C939/Z' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'FIFO_W/net1580' driven by pin 'FIFO_W/C938/Z' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'FIFO_W/net1579' driven by pin 'FIFO_W/C939/Z' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'FIFO_S/net1630' driven by pin 'FIFO_S/C938/Z' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'FIFO_S/net1629' driven by pin 'FIFO_S/C939/Z' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'FIFO_L/net1680' driven by pin 'FIFO_L/C938/Z' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'FIFO_L/net1679' driven by pin 'FIFO_L/C939/Z' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'FIFO_N/net1480' driven by pin 'FIFO_N/C938/Z' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'FIFO_N/net1479' driven by pin 'FIFO_N/C939/Z' has no loads. (LINT-2)
+Warning: In design 'Fault_Control_v3', port 'Fault_Info_FIFO_in[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'Fault_Control_v3', port 'Fault_Info_LBDR_in[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'Fault_Control_v3', port 'Fault_Info_Arbiter_in[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'Fault_Control_v3', port 'Fault_Info_XBAR_in[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32', port 'Req_NN' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32', port 'Req_EE' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32', port 'Req_WW' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32', port 'Req_SS' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32', port 'Req_LL' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32', port 'Grant_NN' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32', port 'Grant_EE' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32', port 'Grant_WW' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32', port 'Grant_SS' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32', port 'Grant_LL' is not connected to any nets. (LINT-28)
+1
