@@ -548,52 +548,15 @@ XBAR_R: XBAR generic map (DATA_WIDTH  => DATA_WIDTH)
 
 --all the processes for fault simulation, those will be deleted later
 
-ALL_TYPE_FAULT_SIM: process begin
-        Fault_Info_FIFO_in    <= "000000";
-        Fault_Info_LBDR_in    <= "000000";
-        Fault_Info_Arbiter_in <= "000000";
-        Fault_Info_XBAR_in    <= "000000";
-        wait for 50 ns;
-        -- Fault_Info_LBDR_in    <= "111011";
-        -- Fault_Info_Arbiter_in <= "111101";
-        -- Fault_Info_XBAR_in    <= "111110";
-        -- wait for 30 ns;
-        -- Fault_Info_LBDR_in    <= "111101s";
-        -- Fault_Info_Arbiter_in <= "100111";
-        -- Fault_Info_XBAR_in    <= "111111";
-        -- wait for 30 ns;
-        -- Fault_Info_LBDR_in    <= "000000";
-        -- Fault_Info_Arbiter_in <= "000000";
-        -- Fault_Info_XBAR_in    <= "000000";
-        -- wait for 30 ns;
-        -- Fault_Info_LBDR_in    <= "111011";
-        -- Fault_Info_Arbiter_in <= "110111";
-        -- Fault_Info_XBAR_in    <= "101111";
-        -- wait for 30 ns;
-        -- Fault_Info_LBDR_in    <= "000100";
-        -- Fault_Info_Arbiter_in <= "001000";
-        -- Fault_Info_XBAR_in    <= "010000";
-        -- wait for 30 ns;
-        -- Fault_Info_LBDR_in    <= "000001";
-        -- Fault_Info_Arbiter_in <= "000000";
-        -- Fault_Info_XBAR_in    <= "000000";
-        wait for 30 ns;
-        Fault_Info_FIFO_in    <= "100000";
-        Fault_Info_LBDR_in    <= "100000";
-        Fault_Info_Arbiter_in <= "100000";
-        Fault_Info_XBAR_in    <= "100000";
-        wait for 30 ns;
-        -- Fault_Info_FIFO_in    <= "000001";
-        -- Fault_Info_LBDR_in    <= "000001";
-        Fault_Info_Arbiter_in <= "000001";
-        Fault_Info_XBAR_in    <= "000001";
-        -- wait for 30 ns;
-        -- Fault_Info_LBDR_in    <= "100001";
-        -- Fault_Info_Arbiter_in <= "100001";
-        -- Fault_Info_XBAR_in    <= "100001";
-
-     wait;
- end process ALL_TYPE_FAULT_SIM;
+-- ALL_TYPE_FAULT_SIM: process begin
+--         --we start with this initial fault information, and FC will reconfigure the system
+--         wait for 2 ns;
+--         Fault_Info_FIFO_in    <= "000001";
+--         Fault_Info_LBDR_in    <= "000010";
+--         Fault_Info_Arbiter_in <= "000100";
+--         Fault_Info_XBAR_in    <= "001000";
+--      wait;
+--  end process ALL_TYPE_FAULT_SIM;
 
 -- all the control units for redundancy
 ------------------------------------------------------------------------------------------------------------------------------
