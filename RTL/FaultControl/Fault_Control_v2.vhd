@@ -71,14 +71,11 @@ architecture RTL of Fault_Control_v2 is
 
     subtype UNIT is std_logic_vector(5 downto 0);
     type TYPESxUNIT is array (3 downto 0) of UNIT;
-    --    shared variable Fault_Information_Array : TYPESxUNIT;
-    shared variable Unit_Is_Binded   : TYPESxUNIT;
     signal Fault_Information_Array_r : TYPESxUNIT;
     signal Unit_Is_Binded_r          : TYPESxUNIT;
 
     subtype TYPES is std_logic_vector(3 downto 0);
     type DIRxTYPES is array (4 downto 0) of TYPES;
-    shared variable PATH_STATUS : DIRxTYPES;
     signal PATH_STATUS_r        : DIRxTYPES;
 
     subtype MUX is std_logic_vector(2 downto 0);
@@ -86,15 +83,17 @@ architecture RTL of Fault_Control_v2 is
     type DIRxMUX is array (4 downto 0) of MUX;
 
     type TYPExUNITxMUX is array (3 downto 0) of UNITxMUX;
-    shared variable Input_MUX_UNIT : TYPExUNITxMUX;
     signal Input_MUX_UNIT_r        : TYPExUNITxMUX;
 
     type TYPExDIRxMUX is array (3 downto 0) of DIRxMUX;
-    shared variable Output_MUX_UNIT : TYPExDIRxMUX;
     signal Output_MUX_UNIT_r        : TYPExDIRxMUX;
 
 begin
     assigning_UNIT_to_paths : process(clk) is
+        variable Unit_Is_Binded   : TYPESxUNIT;
+        variable PATH_STATUS : DIRxTYPES;
+        variable Input_MUX_UNIT : TYPExUNITxMUX;
+        variable Output_MUX_UNIT : TYPExDIRxMUX;
     begin
         if rising_edge(clk) then
             PATH_STATUS_r     <= PATH_STATUS;
