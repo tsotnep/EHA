@@ -1,0 +1,90 @@
+****************************************
+Report : area
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Mon May 30 12:25:25 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                          366
+Number of nets:                          1642
+Number of cells:                          139
+Number of combinational cells:             70
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         70
+Number of references:                      70
+
+Combinational area:              12680.000000
+Buf/Inv area:                      725.000000
+Noncombinational area:            8260.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 20940.000000
+Total area:                 undefined
+1
+
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Mon May 30 12:25:26 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][1][0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: FIFO_E/FIFO_Mem_reg[1][0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][1][0]/CP (FDS2)
+                                                          0.00       0.00 r
+  Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][1][0]/Q (FDS2)
+                                                          1.82       1.82 r
+  Fault_Control_v2_inst/MUX_5x1_FIFO_input_select_E_out[0] (Fault_Control_v2)
+                                                          0.00       1.82 r
+  MUX_5x1_FIFO_input_E/MUX_FIFO_input_sel_in[0] (MUX_5x1_FIFO_input_DATA_WIDTH32_5)
+                                                          0.00       1.82 r
+  MUX_5x1_FIFO_input_E/U23/Z (IVP)                        0.29       2.11 f
+  MUX_5x1_FIFO_input_E/U4/Z (NR3P)                        7.98      10.09 r
+  MUX_5x1_FIFO_input_E/U22/Z (AO2)                        0.55      10.64 f
+  MUX_5x1_FIFO_input_E/U24/Z (ND3)                        0.79      11.43 r
+  MUX_5x1_FIFO_input_E/DRTS_out (MUX_5x1_FIFO_input_DATA_WIDTH32_5)
+                                                          0.00      11.43 r
+  FIFO_E/DRTS (FIFO_DATA_WIDTH32_5)                       0.00      11.43 r
+  FIFO_E/U29/Z (ND2)                                      0.73      12.16 f
+  FIFO_E/U6/Z (OR3)                                       5.91      18.07 f
+  FIFO_E/U96/Z (EON1)                                     1.08      19.15 r
+  FIFO_E/FIFO_Mem_reg[1][0]/D (FD2)                       0.00      19.15 r
+  data arrival time                                                 19.15
+
+  clock clk (rise edge)                                  20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  FIFO_E/FIFO_Mem_reg[1][0]/CP (FD2)                      0.00      20.00 r
+  library setup time                                     -0.85      19.15
+  data required time                                                19.15
+  --------------------------------------------------------------------------
+  data required time                                                19.15
+  data arrival time                                                -19.15
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1
