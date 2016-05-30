@@ -3,7 +3,7 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Tue May 24 02:15:00 2016
+Date   : Mon May 30 12:14:57 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -12,7 +12,7 @@ Library(s) Used:
     lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
 
 Number of ports:                          366
-Number of nets:                          1228
+Number of nets:                           900
 Number of cells:                           52
 Number of combinational cells:              0
 Number of sequential cells:                 0
@@ -20,13 +20,13 @@ Number of macros/black boxes:               0
 Number of buf/inv:                          0
 Number of references:                      52
 
-Combinational area:              10309.000000
-Buf/Inv area:                      580.000000
+Combinational area:               8006.000000
+Buf/Inv area:                      876.000000
 Noncombinational area:            7560.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                 17869.000000
+Total cell area:                 15566.000000
 Total area:                 undefined
 1
  
@@ -38,15 +38,15 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Tue May 24 02:15:01 2016
+Date   : Mon May 30 12:14:58 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
 Wire Load Model Mode: top
 
-  Startpoint: FIFO_R/read_pointer_reg[0]
+  Startpoint: FIFO_E/write_pointer_reg[1]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: LBDR_R/Req_L_FF_reg
+  Endpoint: FIFO_E/FIFO_Mem_reg[1][0]
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -55,41 +55,27 @@ Wire Load Model Mode: top
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  FIFO_R/read_pointer_reg[0]/CP (FD2)                     0.00       0.00 r
-  FIFO_R/read_pointer_reg[0]/QN (FD2)                     1.80       1.80 f
-  FIFO_R/U220/Z (IVA)                                     4.12       5.92 r
-  FIFO_R/U14/Z (MUX41)                                    1.67       7.59 f
-  FIFO_R/Data_out[31] (FIFO_DATA_WIDTH32_1)               0.00       7.59 f
-  MUX_6x1_FIFO_output_E/FIFO_D_out_R[31] (MUX_6x1_FIFO_output_DATA_WIDTH32_4)
-                                                          0.00       7.59 f
-  MUX_6x1_FIFO_output_E/U22/Z (AO2)                       1.08       8.67 r
-  MUX_6x1_FIFO_output_E/U13/Z (ND4)                       1.86      10.53 f
-  MUX_6x1_FIFO_output_E/FIFO_D_out_out[31] (MUX_6x1_FIFO_output_DATA_WIDTH32_4)
-                                                          0.00      10.53 f
-  MUX_5x1_LBDR_input_R/flit_type_E[2] (MUX_5x1_LBDR_input)
-                                                          0.00      10.53 f
-  MUX_5x1_LBDR_input_R/U9/Z (AO2)                         1.08      11.61 r
-  MUX_5x1_LBDR_input_R/U6/Z (ND3)                         0.71      12.32 f
-  MUX_5x1_LBDR_input_R/flit_type_out[2] (MUX_5x1_LBDR_input)
-                                                          0.00      12.32 f
-  LBDR_R/flit_type[2] (LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1)
-                                                          0.00      12.32 f
-  LBDR_R/U5/Z (NR4)                                       3.13      15.45 r
-  LBDR_R/U7/Z (ND2)                                       0.30      15.75 f
-  LBDR_R/U16/Z (EON1)                                     1.08      16.83 r
-  LBDR_R/Req_L_FF_reg/D (FD2)                             0.00      16.83 r
-  data arrival time                                                 16.83
+  FIFO_E/write_pointer_reg[1]/CP (FD2)                    0.00       0.00 r
+  FIFO_E/write_pointer_reg[1]/Q (FD2)                     1.92       1.92 r
+  FIFO_E/U51/Z (EO)                                       1.26       3.17 f
+  FIFO_E/U50/Z (EO)                                       0.94       4.11 r
+  FIFO_E/U49/Z (AO6)                                      0.35       4.46 f
+  FIFO_E/U48/Z (ND2)                                      1.46       5.93 r
+  FIFO_E/U3/Z (OR3)                                       9.86      15.79 r
+  FIFO_E/U85/Z (EON1)                                     1.08      16.87 r
+  FIFO_E/FIFO_Mem_reg[1][0]/D (FD2)                       0.00      16.87 r
+  data arrival time                                                 16.87
 
   clock clk (rise edge)                                  20.00      20.00
   clock network delay (ideal)                             0.00      20.00
-  LBDR_R/Req_L_FF_reg/CP (FD2)                            0.00      20.00 r
+  FIFO_E/FIFO_Mem_reg[1][0]/CP (FD2)                      0.00      20.00 r
   library setup time                                     -0.85      19.15
   data required time                                                19.15
   --------------------------------------------------------------------------
   data required time                                                19.15
-  data arrival time                                                -16.83
+  data arrival time                                                -16.87
   --------------------------------------------------------------------------
-  slack (MET)                                                        2.32
+  slack (MET)                                                        2.28
 
 
 1
