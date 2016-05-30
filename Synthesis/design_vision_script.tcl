@@ -24,5 +24,4 @@ uplevel #0 { report_area } > ../reports/REPORTS.txt
 
 uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports/REPORTS.txt
 
-check_design >> ../reports/WARNINGS.txt
-
+check_design > ../reports/WARNINGS.txt
