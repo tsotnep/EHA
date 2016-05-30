@@ -32,10 +32,10 @@ begin
         MUX_5x1_module_input_select_R_out  <= "111";
 
         MUX_6x1_module_output_select_N_out <= "000";
-        MUX_6x1_module_output_select_E_out <= "001";
-        MUX_6x1_module_output_select_W_out <= "010";
-        MUX_6x1_module_output_select_S_out <= "011";
-        MUX_6x1_module_output_select_L_out <= "100";
+        MUX_6x1_module_output_select_E_out <= "000";
+        MUX_6x1_module_output_select_W_out <= "000";
+        MUX_6x1_module_output_select_S_out <= "000";
+        MUX_6x1_module_output_select_L_out <= "000";
         case Fault_Info_in is
             when "000001" =>
                 MUX_5x1_module_input_select_R_out  <= "000";
