@@ -1,0 +1,68 @@
+ 
+****************************************
+Report : area
+Design : MUX_6x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Mon May 30 14:53:24 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                           80
+Number of nets:                           132
+Number of cells:                           63
+Number of combinational cells:             63
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          2
+Number of references:                       6
+
+Combinational area:                102.000000
+Buf/Inv area:                        2.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                   102.000000
+Total area:                 undefined
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_6x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Mon May 30 14:53:24 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_Arbiter_output_sel_in[1]
+              (input port)
+  Endpoint: Xbar_sel_out[4]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  MUX_Arbiter_output_sel_in[1] (in)        0.00       0.00 r
+  U124/Z (IV)                              0.39       0.39 f
+  U121/Z (NR3)                             5.06       5.45 r
+  U68/Z (AO2)                              0.55       6.00 f
+  U66/Z (ND4)                              0.65       6.65 r
+  Xbar_sel_out[4] (out)                    0.00       6.65 r
+  data arrival time                                   6.65
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
