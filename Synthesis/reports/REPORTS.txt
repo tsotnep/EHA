@@ -3,9 +3,10 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Tue May 24 00:56:39 2016
+Date   : Mon May 30 12:35:17 2016
 ****************************************
 
+Information: Updating design information... (UID-85)
 Library(s) Used:
 
     lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
@@ -37,7 +38,7 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Tue May 24 00:56:39 2016
+Date   : Mon May 30 12:35:17 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
