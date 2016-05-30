@@ -1,11 +1,11 @@
-Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
-| Date         : Tue May 24 02:14:39 2016
-| Host         : fx4.pld.ttu.ee running 64-bit openSUSE Leap 42.1 (x86_64)
+| Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
+| Date         : Mon May 30 11:50:59 2016
+| Host         : Tsotne-PC running 64-bit Linux Mint 17.3 Rosa
 | Command      : report_utilization -file router_utilization_synth.rpt -pb router_utilization_synth.pb
 | Design       : router
-| Device       : 7z020clg484-1
+| Device       : xc7z020
 | Design State : Synthesized
 -------------------------------------------------------------------------------------------------------
 
@@ -30,13 +30,13 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             | 1366 |     0 |     53200 |  2.57 |
-|   LUT as Logic          | 1366 |     0 |     53200 |  2.57 |
+| Slice LUTs*             |  607 |     0 |     53200 |  1.14 |
+|   LUT as Logic          |  607 |     0 |     53200 |  1.14 |
 |   LUT as Memory         |    0 |     0 |     17400 |  0.00 |
-| Slice Registers         |  830 |     0 |    106400 |  0.78 |
-|   Register as Flip Flop |  830 |     0 |    106400 |  0.78 |
+| Slice Registers         |  276 |     0 |    106400 |  0.26 |
+|   Register as Flip Flop |  276 |     0 |    106400 |  0.26 |
 |   Register as Latch     |    0 |     0 |    106400 |  0.00 |
-| F7 Muxes                |    6 |     0 |     26600 |  0.02 |
+| F7 Muxes                |    0 |     0 |     26600 |  0.00 |
 | F8 Muxes                |    0 |     0 |     13300 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -55,7 +55,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 830   |          Yes |           - |        Reset |
+| 276   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -98,7 +98,7 @@ Table of Contents
 | OUT_FIFO                    |    0 |     0 |        16 |   0.00 |
 | IN_FIFO                     |    0 |     0 |        16 |   0.00 |
 | IDELAYCTRL                  |    0 |     0 |         4 |   0.00 |
-| IBUFDS                      |    0 |     0 |       192 |   0.00 |
+| IBUFGDS                     |    0 |     0 |       192 |   0.00 |
 | PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |        16 |   0.00 |
 | PHASER_IN/PHASER_IN_PHY     |    0 |     0 |        16 |   0.00 |
 | IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |       200 |   0.00 |
@@ -146,16 +146,15 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDCE     |  830 |        Flop & Latch |
-| LUT6     |  582 |                 LUT |
-| LUT5     |  492 |                 LUT |
-| LUT3     |  204 |                 LUT |
+| LUT6     |  460 |                 LUT |
+| FDCE     |  276 |        Flop & Latch |
 | IBUF     |  196 |                  IO |
 | OBUF     |  170 |                  IO |
-| LUT4     |  136 |                 LUT |
-| LUT2     |  129 |                 LUT |
-| LUT1     |    8 |                 LUT |
-| MUXF7    |    6 |               MuxFx |
+| LUT5     |   96 |                 LUT |
+| LUT3     |   74 |                 LUT |
+| LUT4     |   24 |                 LUT |
+| LUT2     |    9 |                 LUT |
+| LUT1     |    1 |                 LUT |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 

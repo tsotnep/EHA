@@ -1,228 +1,212 @@
 #-----------------------------------------------------------
-# Vivado v2016.1 (64-bit)
-# SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
-# IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
-# Start of session at: Tue May 24 02:14:08 2016
-# Process ID: 16460
-# Current directory: /home/INTRA/tsotne.putkaradze/P/workspace/project/vivado/router/router.runs/synth_1
-# Command line: vivado -log router.vds -mode batch -messageDb vivado.pb -notrace -source router.tcl
-# Log file: /home/INTRA/tsotne.putkaradze/P/workspace/project/vivado/router/router.runs/synth_1/router.vds
-# Journal file: /home/INTRA/tsotne.putkaradze/P/workspace/project/vivado/router/router.runs/synth_1/vivado.jou
+# Vivado v2015.2 (64-bit)
+# SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+# IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
+# Start of session at: Mon May 30 11:50:35 2016
+# Process ID: 12020
+# Log file: /home/tsotne/workspaceVivado/router/router.runs/synth_1/router.vds
+# Journal file: /home/tsotne/workspaceVivado/router/router.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
 source router.tcl -notrace
 Command: synth_design -top router -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
-INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16466 
+INFO: [Common 17-1223] The version limit for your license is '2015.12' and will expire in -151 days. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1031.180 ; gain = 155.078 ; free physical = 12416 ; free virtual = 15834
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 964.211 ; gain = 155.520 ; free physical = 482 ; free virtual = 10114
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'router' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:31]
+INFO: [Synth 8-638] synthesizing module 'router' [/home/tsotne/git/EHA/RTL/Router.vhd:31]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
 	Parameter current_address bound to: 0 - type: integer 
 	Parameter Rxy_rst bound to: 60 - type: integer 
 	Parameter Cx_rst bound to: 10 - type: integer 
 	Parameter NoC_size bound to: 4 - type: integer 
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_N' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:393]
-INFO: [Synth 8-638] synthesizing module 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:27]
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/tsotne/git/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_N' of component 'FIFO' [/home/tsotne/git/EHA/RTL/Router.vhd:378]
+INFO: [Synth 8-638] synthesizing module 'FIFO' [/home/tsotne/git/EHA/RTL/FIFO.vhd:27]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'FIFO' (1#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'FIFO' (1#1) [/home/tsotne/git/EHA/RTL/FIFO.vhd:27]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_E' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:397]
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/tsotne/git/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_E' of component 'FIFO' [/home/tsotne/git/EHA/RTL/Router.vhd:382]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_W' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:401]
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/tsotne/git/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_W' of component 'FIFO' [/home/tsotne/git/EHA/RTL/Router.vhd:386]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_S' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:405]
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/tsotne/git/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_S' of component 'FIFO' [/home/tsotne/git/EHA/RTL/Router.vhd:390]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_L' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:409]
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/tsotne/git/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_L' of component 'FIFO' [/home/tsotne/git/EHA/RTL/Router.vhd:394]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'FIFO' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_R' of component 'FIFO' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:413]
+INFO: [Synth 8-3491] module 'FIFO' declared at '/home/tsotne/git/EHA/RTL/FIFO.vhd:8' bound to instance 'FIFO_R' of component 'FIFO' [/home/tsotne/git/EHA/RTL/Router.vhd:398]
 	Parameter cur_addr_rst bound to: 0 - type: integer 
 	Parameter Rxy_rst bound to: 60 - type: integer 
 	Parameter Cx_rst bound to: 10 - type: integer 
 	Parameter NoC_size bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_N' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:422]
-INFO: [Synth 8-638] synthesizing module 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:26]
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/tsotne/git/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_N' of component 'LBDR' [/home/tsotne/git/EHA/RTL/Router.vhd:407]
+INFO: [Synth 8-638] synthesizing module 'LBDR' [/home/tsotne/git/EHA/RTL/LBDR.vhd:26]
 	Parameter cur_addr_rst bound to: 0 - type: integer 
 	Parameter Rxy_rst bound to: 60 - type: integer 
 	Parameter Cx_rst bound to: 10 - type: integer 
 	Parameter NoC_size bound to: 4 - type: integer 
-WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:36]
-WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:37]
-WARNING: [Synth 8-5827] expecting unsigned expression [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:38]
-INFO: [Synth 8-256] done synthesizing module 'LBDR' (2#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'LBDR' (2#1) [/home/tsotne/git/EHA/RTL/LBDR.vhd:26]
 	Parameter cur_addr_rst bound to: 0 - type: integer 
 	Parameter Rxy_rst bound to: 60 - type: integer 
 	Parameter Cx_rst bound to: 10 - type: integer 
 	Parameter NoC_size bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_E' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:425]
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/tsotne/git/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_E' of component 'LBDR' [/home/tsotne/git/EHA/RTL/Router.vhd:410]
 	Parameter cur_addr_rst bound to: 0 - type: integer 
 	Parameter Rxy_rst bound to: 60 - type: integer 
 	Parameter Cx_rst bound to: 10 - type: integer 
 	Parameter NoC_size bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_W' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:428]
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/tsotne/git/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_W' of component 'LBDR' [/home/tsotne/git/EHA/RTL/Router.vhd:413]
 	Parameter cur_addr_rst bound to: 0 - type: integer 
 	Parameter Rxy_rst bound to: 60 - type: integer 
 	Parameter Cx_rst bound to: 10 - type: integer 
 	Parameter NoC_size bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_S' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:431]
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/tsotne/git/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_S' of component 'LBDR' [/home/tsotne/git/EHA/RTL/Router.vhd:416]
 	Parameter cur_addr_rst bound to: 0 - type: integer 
 	Parameter Rxy_rst bound to: 60 - type: integer 
 	Parameter Cx_rst bound to: 10 - type: integer 
 	Parameter NoC_size bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_L' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:434]
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/tsotne/git/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_L' of component 'LBDR' [/home/tsotne/git/EHA/RTL/Router.vhd:419]
 	Parameter cur_addr_rst bound to: 0 - type: integer 
 	Parameter Rxy_rst bound to: 60 - type: integer 
 	Parameter Cx_rst bound to: 10 - type: integer 
 	Parameter NoC_size bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'LBDR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_R' of component 'LBDR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:437]
-INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_N' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:446]
-INFO: [Synth 8-638] synthesizing module 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:19]
-INFO: [Synth 8-256] done synthesizing module 'Arbiter' (3#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:19]
-INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_E' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:453]
-INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_W' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:460]
-INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_S' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:467]
-INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_L' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:474]
-INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_R' of component 'Arbiter' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:481]
+INFO: [Synth 8-3491] module 'LBDR' declared at '/home/tsotne/git/EHA/RTL/LBDR.vhd:10' bound to instance 'LBDR_R' of component 'LBDR' [/home/tsotne/git/EHA/RTL/Router.vhd:422]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/tsotne/git/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_N' of component 'Arbiter' [/home/tsotne/git/EHA/RTL/Router.vhd:431]
+INFO: [Synth 8-638] synthesizing module 'Arbiter' [/home/tsotne/git/EHA/RTL/Arbiter.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'Arbiter' (3#1) [/home/tsotne/git/EHA/RTL/Arbiter.vhd:19]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/tsotne/git/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_E' of component 'Arbiter' [/home/tsotne/git/EHA/RTL/Router.vhd:438]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/tsotne/git/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_W' of component 'Arbiter' [/home/tsotne/git/EHA/RTL/Router.vhd:445]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/tsotne/git/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_S' of component 'Arbiter' [/home/tsotne/git/EHA/RTL/Router.vhd:452]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/tsotne/git/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_L' of component 'Arbiter' [/home/tsotne/git/EHA/RTL/Router.vhd:459]
+INFO: [Synth 8-3491] module 'Arbiter' declared at '/home/tsotne/git/EHA/RTL/Arbiter.vhd:8' bound to instance 'Arbiter_R' of component 'Arbiter' [/home/tsotne/git/EHA/RTL/Router.vhd:466]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_N' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:493]
-INFO: [Synth 8-638] synthesizing module 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:21]
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/tsotne/git/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_N' of component 'XBAR' [/home/tsotne/git/EHA/RTL/Router.vhd:478]
+INFO: [Synth 8-638] synthesizing module 'XBAR' [/home/tsotne/git/EHA/RTL/xbar.vhd:21]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'XBAR' (4#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'XBAR' (4#1) [/home/tsotne/git/EHA/RTL/xbar.vhd:21]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_E' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:496]
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/tsotne/git/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_E' of component 'XBAR' [/home/tsotne/git/EHA/RTL/Router.vhd:481]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_W' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:499]
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/tsotne/git/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_W' of component 'XBAR' [/home/tsotne/git/EHA/RTL/Router.vhd:484]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_S' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:502]
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/tsotne/git/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_S' of component 'XBAR' [/home/tsotne/git/EHA/RTL/Router.vhd:487]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_L' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:505]
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/tsotne/git/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_L' of component 'XBAR' [/home/tsotne/git/EHA/RTL/Router.vhd:490]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'XBAR' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_R' of component 'XBAR' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:508]
-INFO: [Synth 8-3491] module 'Fault_Control_v1' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v1.vhd:5' bound to instance 'Fault_Control_inst_Xbar' of component 'Fault_Control_v1' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:518]
-INFO: [Synth 8-638] synthesizing module 'Fault_Control_v1' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v1.vhd:21]
-INFO: [Synth 8-256] done synthesizing module 'Fault_Control_v1' (5#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v1.vhd:21]
-INFO: [Synth 8-3491] module 'Fault_Control_v1' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v1.vhd:5' bound to instance 'Fault_Control_inst_Arbiter' of component 'Fault_Control_v1' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:534]
-INFO: [Synth 8-3491] module 'Fault_Control_v1' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v1.vhd:5' bound to instance 'Fault_Control_inst_LBDR' of component 'Fault_Control_v1' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:551]
-INFO: [Synth 8-3491] module 'Fault_Control_v1' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v1.vhd:5' bound to instance 'Fault_Control_inst_FIFO' of component 'Fault_Control_v1' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:567]
+INFO: [Synth 8-3491] module 'XBAR' declared at '/home/tsotne/git/EHA/RTL/xbar.vhd:6' bound to instance 'XBAR_R' of component 'XBAR' [/home/tsotne/git/EHA/RTL/Router.vhd:493]
+INFO: [Synth 8-3491] module 'Fault_Control_v1' declared at '/home/tsotne/git/EHA/RTL/FaultControl/Fault_Control_v1.vhd:5' bound to instance 'Fault_Control_inst_Xbar' of component 'Fault_Control_v1' [/home/tsotne/git/EHA/RTL/Router.vhd:501]
+INFO: [Synth 8-638] synthesizing module 'Fault_Control_v1' [/home/tsotne/git/EHA/RTL/FaultControl/Fault_Control_v1.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'Fault_Control_v1' (5#1) [/home/tsotne/git/EHA/RTL/FaultControl/Fault_Control_v1.vhd:21]
+INFO: [Synth 8-3491] module 'Fault_Control_v1' declared at '/home/tsotne/git/EHA/RTL/FaultControl/Fault_Control_v1.vhd:5' bound to instance 'Fault_Control_inst_Arbiter' of component 'Fault_Control_v1' [/home/tsotne/git/EHA/RTL/Router.vhd:517]
+INFO: [Synth 8-3491] module 'Fault_Control_v1' declared at '/home/tsotne/git/EHA/RTL/FaultControl/Fault_Control_v1.vhd:5' bound to instance 'Fault_Control_inst_LBDR' of component 'Fault_Control_v1' [/home/tsotne/git/EHA/RTL/Router.vhd:533]
+INFO: [Synth 8-3491] module 'Fault_Control_v1' declared at '/home/tsotne/git/EHA/RTL/FaultControl/Fault_Control_v1.vhd:5' bound to instance 'Fault_Control_inst_FIFO' of component 'Fault_Control_v1' [/home/tsotne/git/EHA/RTL/Router.vhd:549]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_5x1_XBAR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:5' bound to instance 'MUX_5x1_XBAR_input_R' of component 'MUX_5x1_XBAR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:644]
-INFO: [Synth 8-638] synthesizing module 'MUX_5x1_XBAR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:18]
+INFO: [Synth 8-3491] module 'MUX_5x1_XBAR_input' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:5' bound to instance 'MUX_5x1_XBAR_input_R' of component 'MUX_5x1_XBAR_input' [/home/tsotne/git/EHA/RTL/Router.vhd:624]
+INFO: [Synth 8-638] synthesizing module 'MUX_5x1_XBAR_input' [/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:18]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_XBAR_input' (6#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_XBAR_input' (6#1) [/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd:18]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_XBAR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_N' of component 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:658]
-INFO: [Synth 8-638] synthesizing module 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:21]
+INFO: [Synth 8-3491] module 'MUX_2x1_XBAR_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_N' of component 'MUX_2x1_XBAR_output' [/home/tsotne/git/EHA/RTL/Router.vhd:638]
+INFO: [Synth 8-638] synthesizing module 'MUX_2x1_XBAR_output' [/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_XBAR_output.vhd:17]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'MUX_6x1_XBAR_output' (7#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'MUX_2x1_XBAR_output' (7#1) [/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_XBAR_output.vhd:17]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_XBAR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_E' of component 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:672]
+INFO: [Synth 8-3491] module 'MUX_2x1_XBAR_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_E' of component 'MUX_2x1_XBAR_output' [/home/tsotne/git/EHA/RTL/Router.vhd:648]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_XBAR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_W' of component 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:686]
+INFO: [Synth 8-3491] module 'MUX_2x1_XBAR_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_W' of component 'MUX_2x1_XBAR_output' [/home/tsotne/git/EHA/RTL/Router.vhd:658]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_XBAR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_S' of component 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:700]
+INFO: [Synth 8-3491] module 'MUX_2x1_XBAR_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_S' of component 'MUX_2x1_XBAR_output' [/home/tsotne/git/EHA/RTL/Router.vhd:668]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_XBAR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_L' of component 'MUX_6x1_XBAR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:714]
+INFO: [Synth 8-3491] module 'MUX_2x1_XBAR_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_XBAR_output.vhd:5' bound to instance 'MUX_6x1_XBAR_output_L' of component 'MUX_2x1_XBAR_output' [/home/tsotne/git/EHA/RTL/Router.vhd:678]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_5x1_Arbiter_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:5' bound to instance 'MUX_5x1_Arbiter_input_R' of component 'MUX_5x1_Arbiter_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:766]
-INFO: [Synth 8-638] synthesizing module 'MUX_5x1_Arbiter_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:19]
+INFO: [Synth 8-3491] module 'MUX_5x1_Arbiter_input' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:5' bound to instance 'MUX_5x1_Arbiter_input_R' of component 'MUX_5x1_Arbiter_input' [/home/tsotne/git/EHA/RTL/Router.vhd:724]
+INFO: [Synth 8-638] synthesizing module 'MUX_5x1_Arbiter_input' [/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:19]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_Arbiter_input' (8#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_Arbiter_input' (8#1) [/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd:19]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_Arbiter_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_N' of component 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:786]
-INFO: [Synth 8-638] synthesizing module 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:25]
+INFO: [Synth 8-3491] module 'MUX_2x1_Arbiter_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_N' of component 'MUX_2x1_Arbiter_output' [/home/tsotne/git/EHA/RTL/Router.vhd:743]
+INFO: [Synth 8-638] synthesizing module 'MUX_2x1_Arbiter_output' [/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_Arbiter_output.vhd:21]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'MUX_6x1_Arbiter_output' (9#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:25]
+INFO: [Synth 8-256] done synthesizing module 'MUX_2x1_Arbiter_output' (9#1) [/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_Arbiter_output.vhd:21]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_Arbiter_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_E' of component 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:808]
+INFO: [Synth 8-3491] module 'MUX_2x1_Arbiter_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_E' of component 'MUX_2x1_Arbiter_output' [/home/tsotne/git/EHA/RTL/Router.vhd:760]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_Arbiter_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_W' of component 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:830]
+INFO: [Synth 8-3491] module 'MUX_2x1_Arbiter_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_W' of component 'MUX_2x1_Arbiter_output' [/home/tsotne/git/EHA/RTL/Router.vhd:777]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_Arbiter_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_S' of component 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:852]
+INFO: [Synth 8-3491] module 'MUX_2x1_Arbiter_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_S' of component 'MUX_2x1_Arbiter_output' [/home/tsotne/git/EHA/RTL/Router.vhd:794]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_Arbiter_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_L' of component 'MUX_6x1_Arbiter_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:874]
-INFO: [Synth 8-3491] module 'MUX_5x1_LBDR_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:5' bound to instance 'MUX_5x1_LBDR_input_R' of component 'MUX_5x1_LBDR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:933]
-INFO: [Synth 8-638] synthesizing module 'MUX_5x1_LBDR_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:22]
+INFO: [Synth 8-3491] module 'MUX_2x1_Arbiter_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_Arbiter_output.vhd:5' bound to instance 'MUX_6x1_Arbiter_output_L' of component 'MUX_2x1_Arbiter_output' [/home/tsotne/git/EHA/RTL/Router.vhd:811]
+INFO: [Synth 8-3491] module 'MUX_5x1_LBDR_input' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:5' bound to instance 'MUX_5x1_LBDR_input_R' of component 'MUX_5x1_LBDR_input' [/home/tsotne/git/EHA/RTL/Router.vhd:849]
+INFO: [Synth 8-638] synthesizing module 'MUX_5x1_LBDR_input' [/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:22]
 	Parameter cur_addr_rst bound to: 8 - type: integer 
 	Parameter Rxy_rst bound to: 8 - type: integer 
 	Parameter Cx_rst bound to: 8 - type: integer 
 	Parameter NoC_size bound to: 4 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_LBDR_input' (10#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_LBDR_input' (10#1) [/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd:22]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_LBDR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_N' of component 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:958]
-INFO: [Synth 8-638] synthesizing module 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:21]
+INFO: [Synth 8-3491] module 'MUX_2x1_LBDR_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_N' of component 'MUX_2x1_LBDR_output' [/home/tsotne/git/EHA/RTL/Router.vhd:871]
+INFO: [Synth 8-638] synthesizing module 'MUX_2x1_LBDR_output' [/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_LBDR_output.vhd:17]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'MUX_6x1_LBDR_output' (11#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'MUX_2x1_LBDR_output' (11#1) [/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_LBDR_output.vhd:17]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_LBDR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_E' of component 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:976]
+INFO: [Synth 8-3491] module 'MUX_2x1_LBDR_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_E' of component 'MUX_2x1_LBDR_output' [/home/tsotne/git/EHA/RTL/Router.vhd:884]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_LBDR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_W' of component 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:994]
+INFO: [Synth 8-3491] module 'MUX_2x1_LBDR_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_W' of component 'MUX_2x1_LBDR_output' [/home/tsotne/git/EHA/RTL/Router.vhd:897]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_LBDR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_S' of component 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1012]
+INFO: [Synth 8-3491] module 'MUX_2x1_LBDR_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_S' of component 'MUX_2x1_LBDR_output' [/home/tsotne/git/EHA/RTL/Router.vhd:910]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_LBDR_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_L' of component 'MUX_6x1_LBDR_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1030]
+INFO: [Synth 8-3491] module 'MUX_2x1_LBDR_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_LBDR_output.vhd:5' bound to instance 'MUX_6x1_LBDR_output_L' of component 'MUX_2x1_LBDR_output' [/home/tsotne/git/EHA/RTL/Router.vhd:923]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_5x1_FIFO_input' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:5' bound to instance 'MUX_5x1_FIFO_input_R' of component 'MUX_5x1_FIFO_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1128]
-INFO: [Synth 8-638] synthesizing module 'MUX_5x1_FIFO_input' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:24]
+INFO: [Synth 8-3491] module 'MUX_5x1_FIFO_input' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:5' bound to instance 'MUX_5x1_FIFO_input_R' of component 'MUX_5x1_FIFO_input' [/home/tsotne/git/EHA/RTL/Router.vhd:979]
+INFO: [Synth 8-638] synthesizing module 'MUX_5x1_FIFO_input' [/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:24]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_FIFO_input' (12#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:24]
+INFO: [Synth 8-256] done synthesizing module 'MUX_5x1_FIFO_input' (12#1) [/home/tsotne/git/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd:24]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_FIFO_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_N' of component 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1185]
-INFO: [Synth 8-638] synthesizing module 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:22]
+INFO: [Synth 8-3491] module 'MUX_2x1_FIFO_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_N' of component 'MUX_2x1_FIFO_output' [/home/tsotne/git/EHA/RTL/Router.vhd:1028]
+INFO: [Synth 8-638] synthesizing module 'MUX_2x1_FIFO_output' [/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_FIFO_output.vhd:22]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'MUX_6x1_FIFO_output' (13#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'MUX_2x1_FIFO_output' (13#1) [/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_FIFO_output.vhd:22]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_FIFO_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_E' of component 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1216]
+INFO: [Synth 8-3491] module 'MUX_2x1_FIFO_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_E' of component 'MUX_2x1_FIFO_output' [/home/tsotne/git/EHA/RTL/Router.vhd:1043]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_FIFO_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_W' of component 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1247]
+INFO: [Synth 8-3491] module 'MUX_2x1_FIFO_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_W' of component 'MUX_2x1_FIFO_output' [/home/tsotne/git/EHA/RTL/Router.vhd:1058]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_FIFO_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_S' of component 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1278]
+INFO: [Synth 8-3491] module 'MUX_2x1_FIFO_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_S' of component 'MUX_2x1_FIFO_output' [/home/tsotne/git/EHA/RTL/Router.vhd:1073]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'MUX_6x1_FIFO_output' declared at '/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_6x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_L' of component 'MUX_6x1_FIFO_output' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:1309]
-INFO: [Synth 8-256] done synthesizing module 'router' (14#1) [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router.vhd:31]
-WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_NN
-WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_EE
-WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_WW
-WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_SS
-WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_LL
-WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_NN
-WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_EE
-WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_WW
-WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_SS
-WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_LL
+INFO: [Synth 8-3491] module 'MUX_2x1_FIFO_output' declared at '/home/tsotne/git/EHA/RTL/MUX/MUX_2x1_FIFO_output.vhd:5' bound to instance 'MUX_6x1_FIFO_output_L' of component 'MUX_2x1_FIFO_output' [/home/tsotne/git/EHA/RTL/Router.vhd:1088]
+INFO: [Synth 8-256] done synthesizing module 'router' (14#1) [/home/tsotne/git/EHA/RTL/Router.vhd:31]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1072.648 ; gain = 196.547 ; free physical = 12374 ; free virtual = 15792
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1001.500 ; gain = 192.809 ; free physical = 441 ; free virtual = 10076
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1072.648 ; gain = 196.547 ; free physical = 12373 ; free virtual = 15792
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1001.500 ; gain = 192.809 ; free physical = 441 ; free virtual = 10076
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1081.621 ; gain = 205.520 ; free physical = 12373 ; free virtual = 15792
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1009.500 ; gain = 200.809 ; free physical = 441 ; free virtual = 10076
 ---------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-5544] ROM "FIFO_Mem_reg[0]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "FIFO_Mem_reg[1]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "FIFO_Mem_reg[2]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "FIFO_Mem_reg[3]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-4471] merging register 'Req_W_FF_reg' into 'Req_N_FF_reg' [/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd:51]
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-4471] merging register 'Req_W_FF_reg' into 'Req_N_FF_reg' [/home/tsotne/git/EHA/RTL/LBDR.vhd:51]
 INFO: [Synth 8-5544] ROM "Xbar_sel" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5587] ROM size for "MUX_5x1_module_input_select_R_out" is below threshold of ROM address width. It will be mapped to LUTs
+ROM size is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5546] ROM "MUX_6x1_module_output_select_N_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "MUX_6x1_module_output_select_E_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "MUX_6x1_module_output_select_W_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "MUX_6x1_module_output_select_S_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "MUX_6x1_module_output_select_L_out" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1104.660 ; gain = 228.559 ; free physical = 12350 ; free virtual = 15768
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1025.516 ; gain = 216.824 ; free physical = 423 ; free virtual = 10061
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -245,7 +229,9 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   4 Input     32 Bit        Muxes := 6     
 	   2 Input     32 Bit        Muxes := 6     
+	   3 Input     32 Bit        Muxes := 10    
 	   6 Input      5 Bit        Muxes := 6     
+	   3 Input      5 Bit        Muxes := 5     
 	   6 Input      3 Bit        Muxes := 30    
 	   2 Input      3 Bit        Muxes := 84    
 	   5 Input      3 Bit        Muxes := 6     
@@ -253,6 +239,7 @@ Detailed RTL Component Info :
 	   2 Input      2 Bit        Muxes := 12    
 	   2 Input      1 Bit        Muxes := 36    
 	   6 Input      1 Bit        Muxes := 30    
+	   3 Input      1 Bit        Muxes := 65    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -300,6 +287,24 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input      3 Bit        Muxes := 6     
 	   6 Input      3 Bit        Muxes := 6     
+Module MUX_2x1_XBAR_output 
+Detailed RTL Component Info : 
++---Muxes : 
+	   3 Input     32 Bit        Muxes := 1     
+Module MUX_2x1_Arbiter_output 
+Detailed RTL Component Info : 
++---Muxes : 
+	   3 Input      5 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 6     
+Module MUX_2x1_LBDR_output 
+Detailed RTL Component Info : 
++---Muxes : 
+	   3 Input      1 Bit        Muxes := 5     
+Module MUX_2x1_FIFO_output 
+Detailed RTL Component Info : 
++---Muxes : 
+	   3 Input     32 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -312,24 +317,14 @@ BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1180.965 ; gain = 304.863 ; free physical = 12275 ; free virtual = 15693
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1124.832 ; gain = 316.141 ; free physical = 306 ; free virtual = 9967
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_NN
-WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_EE
-WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_WW
-WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_SS
-WARNING: [Synth 8-3331] design MUX_5x1_FIFO_input has unconnected port Grant_LL
-WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_NN
-WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_EE
-WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_WW
-WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_SS
-WARNING: [Synth 8-3331] design MUX_5x1_Arbiter_input has unconnected port Req_LL
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1187.973 ; gain = 311.871 ; free physical = 12269 ; free virtual = 15687
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1125.840 ; gain = 317.148 ; free physical = 302 ; free virtual = 9963
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1187.973 ; gain = 311.871 ; free physical = 12269 ; free virtual = 15687
+Finished Parallel Reinference  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1125.840 ; gain = 317.148 ; free physical = 302 ; free virtual = 9963
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -337,52 +332,130 @@ Report RTL Partitions:
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
 No constraint files found.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_R/Req_N_FF_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_N/Req_N_FF_reg )
+WARNING: [Synth 8-3332] Sequential element (\LBDR_N/Req_N_FF_reg ) is unused and will be removed from module router.
+WARNING: [Synth 8-3332] Sequential element (\LBDR_R/Req_N_FF_reg ) is unused and will be removed from module router.
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_R/Req_N_FF_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_L/Req_N_FF_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_S/Req_N_FF_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_W/Req_N_FF_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_E/Req_N_FF_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\LBDR_N/Req_N_FF_reg )
-WARNING: [Synth 8-3332] Sequential element (LBDR_N/Req_N_FF_reg) is unused and will be removed from module router.
-WARNING: [Synth 8-3332] Sequential element (LBDR_E/Req_N_FF_reg) is unused and will be removed from module router.
-WARNING: [Synth 8-3332] Sequential element (LBDR_W/Req_N_FF_reg) is unused and will be removed from module router.
-WARNING: [Synth 8-3332] Sequential element (LBDR_S/Req_N_FF_reg) is unused and will be removed from module router.
-WARNING: [Synth 8-3332] Sequential element (LBDR_L/Req_N_FF_reg) is unused and will be removed from module router.
-WARNING: [Synth 8-3332] Sequential element (LBDR_R/Req_N_FF_reg) is unused and will be removed from module router.
-INFO: [Synth 8-3886] merging instance 'Arbiter_W/state_reg[2]' (FDCE) to 'Arbiter_W/state_reg[1]'
-INFO: [Synth 8-3886] merging instance 'Arbiter_W/state_reg[0]' (FDCE) to 'Arbiter_W/state_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (Arbiter_W/\state_reg[1] )
-INFO: [Synth 8-3886] merging instance 'Arbiter_N/state_reg[2]' (FDCE) to 'Arbiter_N/state_reg[1]'
-INFO: [Synth 8-3886] merging instance 'Arbiter_N/state_reg[0]' (FDCE) to 'Arbiter_N/state_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (Arbiter_N/\state_reg[1] )
-WARNING: [Synth 8-3332] Sequential element (RTS_FF_reg) is unused and will be removed from module Arbiter__1.
-WARNING: [Synth 8-3332] Sequential element (state_reg[2]) is unused and will be removed from module Arbiter__1.
-WARNING: [Synth 8-3332] Sequential element (state_reg[1]) is unused and will be removed from module Arbiter__1.
-WARNING: [Synth 8-3332] Sequential element (state_reg[0]) is unused and will be removed from module Arbiter__1.
-WARNING: [Synth 8-3332] Sequential element (RTS_FF_reg) is unused and will be removed from module Arbiter__3.
-WARNING: [Synth 8-3332] Sequential element (state_reg[2]) is unused and will be removed from module Arbiter__3.
-WARNING: [Synth 8-3332] Sequential element (state_reg[1]) is unused and will be removed from module Arbiter__3.
-WARNING: [Synth 8-3332] Sequential element (state_reg[0]) is unused and will be removed from module Arbiter__3.
-WARNING: [Synth 8-3332] Sequential element (LBDR_S/Req_S_FF_reg) is unused and will be removed from module router.
+WARNING: [Synth 8-3332] Sequential element (\write_pointer_reg[1] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\write_pointer_reg[0] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\read_pointer_reg[1] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\read_pointer_reg[0] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (CTS_out_reg) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][31] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][30] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][29] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][28] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][27] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][26] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][25] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][24] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][23] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][22] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][21] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][20] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][19] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][18] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][17] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][16] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][15] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][14] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][13] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][12] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][11] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][10] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][9] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][8] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][7] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][6] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][5] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][4] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][3] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][2] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][1] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[3][0] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][31] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][30] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][29] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][28] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][27] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][26] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][25] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][24] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][23] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][22] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][21] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][20] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][19] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][18] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][17] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][16] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][15] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][14] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][13] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][12] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][11] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][10] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][9] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][8] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][7] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][6] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][5] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][4] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][3] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][2] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][1] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[2][0] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][31] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][30] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][29] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][28] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][27] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][26] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][25] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][24] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][23] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][22] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][21] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][20] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][19] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][18] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][17] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][16] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][15] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][14] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][13] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][12] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][11] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][10] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][9] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][8] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][7] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][6] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][5] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][4] ) is unused and will be removed from module FIFO__2.
+WARNING: [Synth 8-3332] Sequential element (\FIFO_Mem_reg[1][3] ) is unused and will be removed from module FIFO__2.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1300.012 ; gain = 423.910 ; free physical = 12157 ; free virtual = 15575
+Finished Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1300.012 ; gain = 423.910 ; free physical = 12157 ; free virtual = 15575
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1300.012 ; gain = 423.910 ; free physical = 12157 ; free virtual = 15575
+Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -393,26 +466,17 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3332] Sequential element (LBDR_L/Req_L_FF_reg) is unused and will be removed from module router.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1308.020 ; gain = 431.918 ; free physical = 12150 ; free virtual = 15568
+Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9917
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1308.020 ; gain = 431.918 ; free physical = 12150 ; free virtual = 15568
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1308.020 ; gain = 431.918 ; free physical = 12150 ; free virtual = 15568
 ---------------------------------------------------------------------------------
 Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
@@ -421,7 +485,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1308.020 ; gain = 431.918 ; free physical = 12150 ; free virtual = 15568
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -434,7 +498,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1308.020 ; gain = 431.918 ; free physical = 12150 ; free virtual = 15568
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -446,25 +510,13 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1308.020 ; gain = 431.918 ; free physical = 12150 ; free virtual = 15568
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Start Renaming Generated Ports
+Start Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1308.020 ; gain = 431.918 ; free physical = 12150 ; free virtual = 15568
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1308.020 ; gain = 431.918 ; free physical = 12150 ; free virtual = 15568
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1308.020 ; gain = 431.918 ; free physical = 12150 ; free virtual = 15568
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -477,57 +529,38 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |BUFG  |     1|
-|2     |LUT1  |     8|
-|3     |LUT2  |   129|
-|4     |LUT3  |   204|
-|5     |LUT4  |   136|
-|6     |LUT5  |   492|
-|7     |LUT6  |   582|
-|8     |MUXF7 |     6|
-|9     |FDCE  |   830|
-|10    |IBUF  |   196|
-|11    |OBUF  |   170|
-+------+------+------+
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |LUT1 |     1|
+|3     |LUT2 |     9|
+|4     |LUT3 |    74|
+|5     |LUT4 |    24|
+|6     |LUT5 |    96|
+|7     |LUT6 |   460|
+|8     |FDCE |   276|
+|9     |IBUF |   196|
+|10    |OBUF |   170|
++------+-----+------+
 
 Report Instance Areas: 
-+------+-----------------------+-------------------+------+
-|      |Instance               |Module             |Cells |
-+------+-----------------------+-------------------+------+
-|1     |top                    |                   |  2754|
-|2     |  Arbiter_E            |Arbiter            |   134|
-|3     |  Arbiter_L            |Arbiter_0          |   101|
-|4     |  Arbiter_R            |Arbiter_1          |   322|
-|5     |  Arbiter_S            |Arbiter_2          |    34|
-|6     |  FIFO_E               |FIFO               |   179|
-|7     |  FIFO_L               |FIFO_3             |   178|
-|8     |  FIFO_N               |FIFO_4             |   178|
-|9     |  FIFO_R               |FIFO_5             |   756|
-|10    |  FIFO_S               |FIFO_6             |   179|
-|11    |  FIFO_W               |FIFO_7             |   175|
-|12    |  LBDR_E               |LBDR               |     7|
-|13    |  LBDR_L               |LBDR_8             |     3|
-|14    |  LBDR_N               |LBDR_9             |     5|
-|15    |  LBDR_R               |LBDR_10            |    40|
-|16    |  LBDR_S               |LBDR_11            |     4|
-|17    |  LBDR_W               |LBDR_12            |     9|
-|18    |  MUX_5x1_XBAR_input_R |MUX_5x1_XBAR_input |    64|
-|19    |  XBAR_E               |XBAR               |     1|
-|20    |  XBAR_L               |XBAR_13            |     1|
-|21    |  XBAR_N               |XBAR_14            |     2|
-|22    |  XBAR_R               |XBAR_15            |     5|
-|23    |  XBAR_S               |XBAR_16            |     1|
-|24    |  XBAR_W               |XBAR_17            |     2|
-+------+-----------------------+-------------------+------+
++------+------------+--------+------+
+|      |Instance    |Module  |Cells |
++------+------------+--------+------+
+|1     |top         |        |  1307|
+|2     |  Arbiter_R |Arbiter |   363|
+|3     |  FIFO_N    |FIFO    |   175|
+|4     |  FIFO_R    |FIFO_0  |   349|
+|5     |  LBDR_N    |LBDR    |    31|
+|6     |  LBDR_R    |LBDR_1  |    12|
++------+------------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1308.020 ; gain = 431.918 ; free physical = 12150 ; free virtual = 15568
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 39 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1308.020 ; gain = 344.840 ; free physical = 12150 ; free virtual = 15568
-Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1308.027 ; gain = 431.926 ; free physical = 12152 ; free virtual = 15570
+Synthesis finished with 0 errors, 0 critical warnings and 554 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1170.879 ; gain = 245.668 ; free physical = 268 ; free virtual = 9916
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1170.879 ; gain = 362.188 ; free physical = 268 ; free virtual = 9916
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 196 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -537,8 +570,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-115 Infos, 39 Warnings, 0 Critical Warnings and 0 Errors encountered.
+107 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1378.355 ; gain = 426.758 ; free physical = 12133 ; free virtual = 15551
-report_utilization: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1410.387 ; gain = 0.000 ; free physical = 12131 ; free virtual = 15549
-INFO: [Common 17-206] Exiting Vivado at Tue May 24 02:14:39 2016...
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1255.883 ; gain = 338.672 ; free physical = 187 ; free virtual = 9856
+report_utilization: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.19 . Memory (MB): peak = 1287.902 ; gain = 0.000 ; free physical = 183 ; free virtual = 9856
+INFO: [Common 17-206] Exiting Vivado at Mon May 30 11:50:59 2016...
