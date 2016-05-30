@@ -1,4 +1,12 @@
 analyze -library WORK -format vhdl {
+/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_2x1_XBAR_output.vhd
+/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_2x1_LBDR_output.vhd
+/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_2x1_FIFO_output.vhd
+/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_2x1_Arbiter_output.vhd
+/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd
+/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd
+/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd
+/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd
 /home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd
 /home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd
 /home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd
