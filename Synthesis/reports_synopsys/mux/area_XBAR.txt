@@ -3,7 +3,7 @@
 Report : area
 Design : MUX_2x1_XBAR_output
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 17:44:22 2016
+Date   : Thu Jun  2 18:33:08 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -34,7 +34,7 @@ Total area:                 undefined
 Report : area
 Design : MUX_5x1_XBAR_input
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 17:44:23 2016
+Date   : Thu Jun  2 18:33:09 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -65,7 +65,7 @@ Total area:                 undefined
 Report : area
 Design : MUX_6x1_XBAR_output
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 17:44:24 2016
+Date   : Thu Jun  2 18:33:10 2016
 ****************************************
 
 Information: Updating design information... (UID-85)

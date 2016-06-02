@@ -1,5 +1,5 @@
 analyze -library WORK -format vhdl {
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd
+../../RTL/Arbiter.vhd
 }
 
 elaborate Arbiter -architecture BEHAVIOR -library DEFAULT

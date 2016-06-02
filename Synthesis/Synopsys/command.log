@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version J-2014.09-SP2 for suse64 -- Nov 25, 2014
-#@ # Date:   Thu Jun  2 18:00:10 2016
+#@ # Date:   Thu Jun  2 18:32:47 2016
 #@ # Run by: INTRA\ts@fx8.pld.ttu.ee
 #@ 
 
@@ -3771,219 +3771,417 @@ source /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/.s
 #@ set symbol_library {lsi_10k.sdb generic.sdb}
 #@ # -- End source /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/.synopsys_dc.setup
 
-gui_start
-#@ # -- Starting source /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/auxx/tcllib/lib/itk3.4/itk.tcl
+source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/../scripts_synopsys/do_all.tcl
+#@ # -- Starting source /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/../scripts_synopsys/do_all.tcl
 
-#@ #
-#@ # itk.tcl
-#@ # ----------------------------------------------------------------------
-#@ # Invoked automatically upon startup to customize the interpreter
-#@ # for [incr Tk].
-#@ # ----------------------------------------------------------------------
-#@ #   AUTHOR:  Michael J. McLennan
-#@ #            Bell Labs Innovations for Lucent Technologies
-#@ #            mmclennan@lucent.com
-#@ #            http://www.tcltk.com/itcl
-#@ #
-#@ #      RCS:  $Id: itk.tcl,v 1.3 2002/05/14 22:53:28 davygrvy Exp $
-#@ # ----------------------------------------------------------------------
-#@ #            Copyright (c) 1993-1998  Lucent Technologies, Inc.
-#@ # ======================================================================
-#@ # See the file "license.terms" for information on usage and
-#@ # redistribution of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+#@ # HOW TO RUN THIS (ALL scripts) script (takes 70 seconds), from directory EHA/Synthesis/Synopsis :
+#@ # design_vision -no_gui -f ../scripts_synopsys/do_all.tcl
+#@ # design_vision -no_gui -f ../scripts_synopsys/do_all.tcl > REPORT.txt
 #@ 
-#@ #
-#@ # Provide transparent access to all [incr Tk] commands
-#@ #
-#@ if {$tcl_platform(os) == "MacOS"} {
-#@     source -rsrc itk:tclIndex
-#@ } else {
-#@     lappend auto_path ${itk::library}
-#@ }
 #@ 
-#@ # ----------------------------------------------------------------------
-#@ #  USAGE:  itk::remove_destroy_hook <widget>
-#@ #
-#@ #  Used internally via "itk_component delete" when disconnecting a
-#@ #  component <widget> from the mega-widget that contains it.
-#@ #  Each component has a special binding for the <Destroy> event
-#@ #  that causes it to disconnect itself from its parent when destroyed.
-#@ #  This procedure removes the binding from the binding tag list and
-#@ #  deletes the binding.  It is much easier to implement this in
-#@ #  Tcl than C.
-#@ # ----------------------------------------------------------------------
-#@ proc ::itk::remove_destroy_hook {widget} {
-#@     if {![winfo exists $widget]} {return}
-#@     set tags [bindtags $widget]
-#@     set i [lsearch $tags "itk-destroy-$widget"]
-#@     if {$i >= 0} {
-#@         bindtags $widget [lreplace $tags $i $i]
-#@     }
-#@     bind itk-destroy-$widget <Destroy> {}
-#@ }
+#@ file mkdir ../reports_synopsys/fc/WARNINGS
+#@ file mkdir ../reports_synopsys/units/WARNINGS
+#@ file mkdir ../reports_synopsys/router/WARNINGS
+#@ file mkdir ../reports_synopsys/mux/WARNINGS
 #@ 
-#@ #
-#@ # Define "usual" option-handling code for the Tk widgets:
-#@ #
-#@ itk::usual Button {
-#@     keep -background -cursor -foreground -font
-#@     keep -activebackground -activeforeground -disabledforeground
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Canvas {
-#@     keep -background -cursor
-#@     keep -insertbackground -insertborderwidth -insertwidth
-#@     keep -insertontime -insertofftime
-#@     keep -selectbackground -selectborderwidth -selectforeground
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Checkbutton {
-#@     keep -background -cursor -foreground -font
-#@     keep -activebackground -activeforeground -disabledforeground
-#@     keep -selectcolor
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Entry {
-#@     keep -background -cursor -foreground -font
-#@     keep -insertbackground -insertborderwidth -insertwidth
-#@     keep -insertontime -insertofftime
-#@     keep -selectbackground -selectborderwidth -selectforeground
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Frame {
-#@     keep -background -cursor
-#@ }
-#@ 
-#@ itk::usual Label {
-#@     keep -background -cursor -foreground -font
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Listbox {
-#@     keep -background -cursor -foreground -font
-#@     keep -selectbackground -selectborderwidth -selectforeground
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Menu {
-#@     keep -background -cursor -foreground -font
-#@     keep -activebackground -activeforeground -disabledforeground
-#@     keep -selectcolor -tearoff
-#@ }
-#@ 
-#@ itk::usual Menubutton {
-#@     keep -background -cursor -foreground -font
-#@     keep -activebackground -activeforeground -disabledforeground
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Message {
-#@     keep -background -cursor -foreground -font
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Radiobutton {
-#@     keep -background -cursor -foreground -font
-#@     keep -activebackground -activeforeground -disabledforeground
-#@     keep -selectcolor
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Scale {
-#@     keep -background -cursor -foreground -font -troughcolor
-#@     keep -activebackground
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Scrollbar {
-#@     keep -background -cursor -troughcolor
-#@     keep -activebackground -activerelief
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Text {
-#@     keep -background -cursor -foreground -font
-#@     keep -insertbackground -insertborderwidth -insertwidth
-#@     keep -insertontime -insertofftime
-#@     keep -selectbackground -selectborderwidth -selectforeground
-#@     keep -highlightcolor -highlightthickness
-#@     rename -highlightbackground -background background Background
-#@ }
-#@ 
-#@ itk::usual Toplevel {
-#@     keep -background -cursor
-#@ }
-#@ # -- End source /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/auxx/tcllib/lib/itk3.4/itk.tcl
+#@ echo ">>>>>UNITS<<<<<"
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/units/ARBITER.tcl
+#@ # -- Starting source ../scripts_synopsys/units/ARBITER.tcl
 
-#@ # -- Starting source /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/auxx/tcllib/lib/iwidgets4.0.2/lib/iwidgets/iwidgets.tcl
-
-#@ #
-#@ # iwidgets.tcl
-#@ # ----------------------------------------------------------------------
-#@ # Invoked automatically by [incr Tk] upon startup to initialize
-#@ # the [incr Widgets] package.
-#@ # ----------------------------------------------------------------------
-#@ #  AUTHOR: Mark L. Ulferts               EMAIL: mulferts@spd.dsccc.com
-#@ #
-#@ #  @(#) $Id: iwidgets.tcl.in,v 1.5 2007/06/10 19:28:16 hobbs Exp $
-#@ # ----------------------------------------------------------------------
-#@ #                Copyright (c) 1995  Mark L. Ulferts
-#@ # ======================================================================
-#@ # See the file "license.terms" for information on usage and
-#@ # redistribution of this file, and for a DISCLAIMER OF ALL WARRANTIES.
-#@ 
-#@ package require Tcl 8.0
-#@ package require Tk 8.0
-#@ package require Itcl 3.2
-#@ package require Itk 3.2
-#@ 
-#@ namespace eval ::iwidgets {
-#@     namespace export *
-#@ 
-#@     variable library [file dirname [info script]]
-#@     variable version 4.0.2
-#@ 
-#@     lappend auto_path $iwidgets::library
-#@     variable subdir
-#@     foreach subdir {generic scripts} {
-#@ 	if {[file isdirectory [file join $iwidgets::library $subdir]]} {
-#@ 	    lappend auto_path [file join $iwidgets::library $subdir]
-#@ 	}
-#@     }
-#@     unset subdir
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/Arbiter.vhd
 #@ }
 #@ 
-#@ package provide Iwidgets $iwidgets::version
-#@ # -- End source /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/auxx/tcllib/lib/iwidgets4.0.2/lib/iwidgets/iwidgets.tcl
+#@ elaborate Arbiter -architecture BEHAVIOR -library DEFAULT
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_ARBITER.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_ARBITER.txt
+#@ 
+#@ check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_ARBITER.txt
+#@ # -- End source ../scripts_synopsys/units/ARBITER.tcl
 
-analyze -library WORK -format vhdl {
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_output.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_output.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_output.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_output.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_XBAR_input.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_LBDR_input.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_FIFO_input.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/MUX/MUX_5x1_Arbiter_input.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/xbar.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/LBDR.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Arbiter.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v2.vhd
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/Router/Router_v2_syn.vhd}
-exit
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/units/FIFO.tcl
+#@ # -- Starting source ../scripts_synopsys/units/FIFO.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/FIFO.vhd
+#@ }
+#@ 
+#@ elaborate FIFO -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_FIFO.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_FIFO.txt
+#@ 
+#@ check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_FIFO.txt
+#@ # -- End source ../scripts_synopsys/units/FIFO.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/units/LBDR.tcl
+#@ # -- Starting source ../scripts_synopsys/units/LBDR.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/LBDR.vhd
+#@ }
+#@ 
+#@ elaborate LBDR -architecture BEHAVIOR -library DEFAULT -parameters "cur_addr_rst = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_LBDR.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_LBDR.txt
+#@ 
+#@ check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_LBDR.txt
+#@ # -- End source ../scripts_synopsys/units/LBDR.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/units/XBAR.tcl
+#@ # -- Starting source ../scripts_synopsys/units/XBAR.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/XBAR.vhd
+#@ }
+#@ 
+#@ elaborate XBAR -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_XBAR.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_XBAR.txt
+#@ 
+#@ check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_XBAR.txt
+#@ # -- End source ../scripts_synopsys/units/XBAR.tcl
+
+#@ 
+#@ echo ">>>>>FAULT CONTROLS<<<<<"
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v1.tcl
+#@ # -- Starting source ../scripts_synopsys/fc/fc_v1.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/FaultControl/Fault_Control_v1.vhd
+#@ }
+#@ 
+#@ elaborate Fault_Control_v1 -architecture RTL -library DEFAULT
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FC1.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/fc/REPORTS_FC1.txt
+#@ 
+#@ check_design > ../reports_synopsys/fc/WARNINGS/WARNINGS_FC1.txt
+#@ # -- End source ../scripts_synopsys/fc/fc_v1.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v2.tcl
+#@ # -- Starting source ../scripts_synopsys/fc/fc_v2.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/FaultControl/Fault_Control_v2.vhd
+#@ }
+#@ 
+#@ elaborate Fault_Control_v2 -architecture RTL -library DEFAULT
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FCv2.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/fc/REPORTS_FCv2.txt
+#@ 
+#@ check_design > ../reports_synopsys/fc/WARNINGS/WARNINGS_FCv2.txt
+#@ # -- End source ../scripts_synopsys/fc/fc_v2.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v3.tcl
+#@ # -- Starting source ../scripts_synopsys/fc/fc_v3.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/FaultControl/Fault_Control_v3.vhd
+#@ }
+#@ 
+#@ elaborate Fault_Control_v3 -architecture RTL -library DEFAULT
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FCv3.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/fc/REPORTS_FCv3.txt
+#@ 
+#@ check_design > ../reports_synopsys/fc/WARNINGS/WARNINGS_FCv3.txt
+#@ # -- End source ../scripts_synopsys/fc/fc_v3.tcl
+
+#@ 
+#@ echo ">>>>>MUXES<<<<<"
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/arbiter_muxes.tcl
+#@ # -- Starting source ../scripts_synopsys/mux/arbiter_muxes.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_2x1_Arbiter_output.vhd
+#@ }
+#@ elaborate MUX_2x1_Arbiter_output -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
+#@ uplevel #0 { report_area } > ../reports_synopsys/mux/area_Arbiter.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_Arbiter.txt
+#@ 
+#@ 
+#@ 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+#@ }
+#@ elaborate MUX_5x1_Arbiter_input -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_Arbiter.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_Arbiter.txt
+#@ 
+#@ 
+#@ 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_6x1_Arbiter_output.vhd
+#@ }
+#@ elaborate MUX_6x1_Arbiter_output -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_Arbiter.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_Arbiter.txt
+#@ # -- End source ../scripts_synopsys/mux/arbiter_muxes.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/FIFO_muxes.tcl
+#@ # -- Starting source ../scripts_synopsys/mux/FIFO_muxes.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_2x1_FIFO_output.vhd
+#@ }
+#@ elaborate MUX_2x1_FIFO_output -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
+#@ uplevel #0 { report_area } > ../reports_synopsys/mux/area_FIFO.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_FIFO.txt
+#@ 
+#@ 
+#@ 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+#@ }
+#@ elaborate MUX_5x1_FIFO_input -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_FIFO.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_FIFO.txt
+#@ 
+#@ 
+#@ 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_6x1_FIFO_output.vhd
+#@ }
+#@ elaborate MUX_6x1_FIFO_output -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_FIFO.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_FIFO.txt
+#@ # -- End source ../scripts_synopsys/mux/FIFO_muxes.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/LBDR_muxes.tcl
+#@ # -- Starting source ../scripts_synopsys/mux/LBDR_muxes.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_2x1_LBDR_output.vhd
+#@ }
+#@ elaborate MUX_2x1_LBDR_output -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
+#@ uplevel #0 { report_area } > ../reports_synopsys/mux/area_LBDR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
+#@ 
+#@ 
+#@ 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+#@ }
+#@ elaborate MUX_5x1_LBDR_input -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_LBDR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
+#@ 
+#@ 
+#@ 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_6x1_LBDR_output.vhd
+#@ }
+#@ elaborate MUX_6x1_LBDR_output -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ 
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_LBDR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
+#@ # -- End source ../scripts_synopsys/mux/LBDR_muxes.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/XBAR_muxes.tcl
+#@ # -- Starting source ../scripts_synopsys/mux/XBAR_muxes.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_2x1_XBAR_output.vhd
+#@ }
+#@ elaborate MUX_2x1_XBAR_output -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
+#@ uplevel #0 { report_area } > ../reports_synopsys/mux/area_XBAR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_XBAR.txt
+#@ 
+#@ 
+#@ 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+#@ }
+#@ elaborate MUX_5x1_XBAR_input -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_XBAR.txt
+#@ 
+#@ 
+#@ 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_6x1_XBAR_output.vhd
+#@ }
+#@ elaborate MUX_6x1_XBAR_output -architecture RTL -library DEFAULT
+#@ compile -exact_map
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_XBAR.txt
+#@ # -- End source ../scripts_synopsys/mux/XBAR_muxes.tcl
+
+#@ 
+#@ echo ">>>>>ROUTERS<<<<<"
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v0.tcl
+#@ # -- Starting source ../scripts_synopsys/router/Router_v0.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/xbar.vhd
+#@ ../../RTL/LBDR.vhd
+#@ ../../RTL/FIFO.vhd
+#@ ../../RTL/Arbiter.vhd
+#@ ../../RTL/Router/Router_v0_syn.vhd}
+#@ 
+#@ elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v0.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v0.txt
+#@ 
+#@ check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v0.txt
+#@ # -- End source ../scripts_synopsys/router/Router_v0.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v1.tcl
+#@ # -- Starting source ../scripts_synopsys/router/Router_v1.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_2x1_XBAR_output.vhd
+#@ ../../RTL/MUX/MUX_2x1_LBDR_output.vhd
+#@ ../../RTL/MUX/MUX_2x1_FIFO_output.vhd
+#@ ../../RTL/MUX/MUX_2x1_Arbiter_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+#@ ../../RTL/xbar.vhd
+#@ ../../RTL/LBDR.vhd
+#@ ../../RTL/FIFO.vhd
+#@ ../../RTL/Arbiter.vhd
+#@ ../../RTL/FaultControl/Fault_Control_v1.vhd
+#@ ../../RTL/Router/Router_v1_syn.vhd}
+#@ 
+#@ elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v1.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v1.txt
+#@ 
+#@ check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v1.txt
+#@ # -- End source ../scripts_synopsys/router/Router_v1.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v2.tcl
+#@ # -- Starting source ../scripts_synopsys/router/Router_v2.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_XBAR_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_LBDR_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_FIFO_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_Arbiter_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+#@ ../../RTL/xbar.vhd
+#@ ../../RTL/LBDR.vhd
+#@ ../../RTL/FIFO.vhd
+#@ ../../RTL/Arbiter.vhd
+#@ ../../RTL/FaultControl/Fault_Control_v2.vhd
+#@ ../../RTL/Router/Router_v2_syn.vhd}
+#@ 
+#@ elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v2.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v2.txt
+#@ 
+#@ check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v2.txt
+#@ # -- End source ../scripts_synopsys/router/Router_v2.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v3.tcl
+#@ # -- Starting source ../scripts_synopsys/router/Router_v3.tcl
+
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_6x1_XBAR_output.vhd
+#@ ../../RTL/MUX/MUX_6x1_LBDR_output.vhd
+#@ ../../RTL/MUX/MUX_6x1_FIFO_output.vhd
+#@ ../../RTL/MUX/MUX_6x1_Arbiter_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+#@ ../../RTL/xbar.vhd
+#@ ../../RTL/LBDR.vhd
+#@ ../../RTL/FIFO.vhd
+#@ ../../RTL/Arbiter.vhd
+#@ ../../RTL/FaultControl/Fault_Control_v3.vhd
+#@ ../../RTL/Router/Router_v3_syn.vhd}
+#@ 
+#@ elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v3.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v3.txt
+#@ 
+#@ check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v3.txt
+#@ # -- End source ../scripts_synopsys/router/Router_v3.tcl
+
+#@ 
+#@ exit

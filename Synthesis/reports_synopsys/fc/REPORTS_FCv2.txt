@@ -3,7 +3,7 @@
 Report : area
 Design : Fault_Control_v2
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 17:44:10 2016
+Date   : Thu Jun  2 18:32:56 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -11,22 +11,22 @@ Library(s) Used:
 
     lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
 
-Number of ports:                          157
-Number of nets:                           377
-Number of cells:                          320
-Number of combinational cells:            220
-Number of sequential cells:               100
+Number of ports:                          141
+Number of nets:                           273
+Number of cells:                          216
+Number of combinational cells:            132
+Number of sequential cells:                84
 Number of macros/black boxes:               0
-Number of buf/inv:                         60
-Number of references:                      13
+Number of buf/inv:                         32
+Number of references:                      11
 
-Combinational area:                300.000000
-Buf/Inv area:                       60.000000
-Noncombinational area:             700.000000
+Combinational area:                180.000000
+Buf/Inv area:                       32.000000
+Noncombinational area:             588.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                  1000.000000
+Total cell area:                   768.000000
 Total area:                 undefined
 1
  
@@ -38,7 +38,7 @@ Report : timing
         -sort_by group
 Design : Fault_Control_v2
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 17:44:10 2016
+Date   : Thu Jun  2 18:32:56 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k

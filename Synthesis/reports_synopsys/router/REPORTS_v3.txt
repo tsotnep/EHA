@@ -3,7 +3,7 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 17:45:08 2016
+Date   : Thu Jun  2 18:33:54 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -38,13 +38,13 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 17:45:08 2016
+Date   : Thu Jun  2 18:33:54 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
 Wire Load Model Mode: top
 
-  Startpoint: Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][1][0]
+  Startpoint: Fault_Control_v3_inst/Input_MUX_UNIT_r_reg[0][1][0]
               (rising edge-triggered flip-flop clocked by clk)
   Endpoint: FIFO_E/FIFO_Mem_reg[1][0]
             (rising edge-triggered flip-flop clocked by clk)
@@ -55,11 +55,11 @@ Wire Load Model Mode: top
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][1][0]/CP (FD1)
+  Fault_Control_v3_inst/Input_MUX_UNIT_r_reg[0][1][0]/CP (FD1)
                                                           0.00       0.00 r
-  Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][1][0]/Q (FD1)
+  Fault_Control_v3_inst/Input_MUX_UNIT_r_reg[0][1][0]/Q (FD1)
                                                           1.82       1.82 r
-  Fault_Control_v2_inst/MUX_5x1_FIFO_input_select_E_out[0] (Fault_Control_v2)
+  Fault_Control_v3_inst/MUX_5x1_FIFO_input_select_E_out[0] (Fault_Control_v3)
                                                           0.00       1.82 r
   MUX_5x1_FIFO_input_E/MUX_FIFO_input_sel_in[0] (MUX_5x1_FIFO_input_DATA_WIDTH32_5)
                                                           0.00       1.82 r

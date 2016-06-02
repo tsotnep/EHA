@@ -1,0 +1,3326 @@
+
+                      Design Compiler Graphical
+                            DC Ultra (TM)
+                             DFTMAX (TM)
+                         Power Compiler (TM)
+                           DesignWare (R)
+                           DC Expert (TM)
+                         Design Vision (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                            DFT Compiler
+                        Library Compiler (TM)
+                         Design Compiler(R)
+
+          Version J-2014.09-SP2 for suse64 -- Nov 25, 2014
+               Copyright (c) 1988-2014 Synopsys, Inc.
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+Initializing...
+Initializing gui preferences from file  /home/INTRA/tsotne.putkaradze/.synopsys_dv_prefs.tcl
+# HOW TO RUN THIS (ALL scripts) script (takes 70 seconds), from directory EHA/Synthesis/Synopsis :
+# design_vision -no_gui -f ../scripts_synopsys/do_all.tcl
+# design_vision -no_gui -f ../scripts_synopsys/do_all.tcl > REPORT.txt
+file mkdir ../reports_synopsys/fc/WARNINGS
+file mkdir ../reports_synopsys/units/WARNINGS
+file mkdir ../reports_synopsys/router/WARNINGS
+file mkdir ../reports_synopsys/mux/WARNINGS
+echo ">>>>>UNITS<<<<<"
+>>>>>UNITS<<<<<
+source -continue_on_error -verbose -echo ../scripts_synopsys/units/ARBITER.tcl
+analyze -library WORK -format vhdl {
+../../RTL/Arbiter.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration ARBITER
+Compiling Architecture BEHAVIOR of ARBITER
+Warning:  ../../RTL/Arbiter.vhd:19: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+Presto compilation completed successfully.
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+1
+elaborate Arbiter -architecture BEHAVIOR -library DEFAULT
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/gtech.db'
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/standard.sldb'
+  Loading link library 'lsi_10k'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'state' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'state_in' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'next_state' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+
+Statistics for case statements in always block at line 95 in file
+	'../../RTL/Arbiter.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           102            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Arbiter line 54 in file
+		'../../RTL/Arbiter.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     RTS_FF_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      state_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'Arbiter'.
+1
+create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+1
+compile -exact_map
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | J-2014.09-DWBB_201409.2 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'Arbiter'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     120.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+    0:00:00     117.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_ARBITER.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_ARBITER.txt
+check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_ARBITER.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/units/FIFO.tcl
+analyze -library WORK -format vhdl {
+../../RTL/FIFO.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration FIFO
+Compiling Architecture BEHAVIOR of FIFO
+Warning:  ../../RTL/FIFO.vhd:27: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+Presto compilation completed successfully.
+1
+elaborate FIFO -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 117 in file
+	'../../RTL/FIFO.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           118            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine FIFO_DATA_WIDTH32 line 74 in file
+		'../../RTL/FIFO.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  HS_state_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  read_pointer_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  write_pointer_reg  | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     CTS_out_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    FIFO_Mem_reg     | Flip-flop |  128  |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+===============================================================
+|   block name/line    | Inputs | Outputs | # sel inputs | MB |
+===============================================================
+| FIFO_DATA_WIDTH32/96 |   4    |   32    |      2       | N  |
+===============================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'FIFO_DATA_WIDTH32'.
+1
+create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+1
+compile -exact_map
+
+Information: There are 2 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'FIFO_DATA_WIDTH32'
+Information: The register 'HS_state_out_reg' will be removed. (OPT-1207)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01    2349.0      0.00       0.0       0.0                          
+    0:00:01    2349.0      0.00       0.0       0.0                          
+    0:00:01    2349.0      0.00       0.0       0.0                          
+    0:00:01    2349.0      0.00       0.0       0.0                          
+    0:00:01    2349.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1790.0      0.00       0.0       0.0                          
+    0:00:01    1782.0      0.00       0.0       0.0                          
+    0:00:01    1776.0      0.00       0.0       0.0                          
+    0:00:01    1770.0      0.00       0.0       0.0                          
+    0:00:02    1766.0      0.00       0.0       0.0                          
+    0:00:02    1765.0      0.00       0.0       0.0                          
+    0:00:02    1765.0      0.00       0.0       0.0                          
+    0:00:02    1765.0      0.00       0.0       0.0                          
+    0:00:02    1765.0      0.00       0.0       0.0                          
+    0:00:02    1765.0      0.00       0.0       0.0                          
+    0:00:02    1765.0      0.00       0.0       0.0                          
+    0:00:02    1765.0      0.00       0.0       0.0                          
+    0:00:02    1765.0      0.00       0.0       0.0                          
+    0:00:02    1765.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_FIFO.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_FIFO.txt
+check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_FIFO.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/units/LBDR.tcl
+analyze -library WORK -format vhdl {
+../../RTL/LBDR.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration LBDR
+Compiling Architecture BEHAVIOR of LBDR
+Presto compilation completed successfully.
+1
+elaborate LBDR -architecture BEHAVIOR -library DEFAULT -parameters "cur_addr_rst = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+Running PRESTO HDLC
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'N1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'E1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'W1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'S1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+
+Inferred memory devices in process
+	in routine LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4 line 46 in file
+		'../../RTL/LBDR.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    Req_L_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_N_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_E_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_W_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_S_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4'.
+1
+create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4'
+Information: The register 'Req_N_FF_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'Req_W_FF_reg' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_LBDR.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_LBDR.txt
+check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_LBDR.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/units/XBAR.tcl
+analyze -library WORK -format vhdl {
+../../RTL/XBAR.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration XBAR
+Compiling Architecture BEHAVIOR of XBAR
+Presto compilation completed successfully.
+1
+elaborate XBAR -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 23 in file
+	'../../RTL/XBAR.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            24            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'XBAR_DATA_WIDTH32'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'XBAR_DATA_WIDTH32'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'XBAR_DATA_WIDTH32' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'XBAR_DATA_WIDTH32'
+  Mapping 'XBAR_DATA_WIDTH32'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+    0:00:01     248.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_XBAR.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_XBAR.txt
+check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_XBAR.txt
+echo ">>>>>FAULT CONTROLS<<<<<"
+>>>>>FAULT CONTROLS<<<<<
+source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v1.tcl
+analyze -library WORK -format vhdl {
+../../RTL/FaultControl/Fault_Control_v1.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration FAULT_CONTROL_V1
+Compiling Architecture RTL of FAULT_CONTROL_V1
+Warning:  ../../RTL/FaultControl/Fault_Control_v1.vhd:21: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+Presto compilation completed successfully.
+1
+elaborate Fault_Control_v1 -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 25 in file
+	'../../RTL/FaultControl/Fault_Control_v1.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            39            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'Fault_Control_v1'.
+1
+compile -exact_map
+
+Information: There are 38 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'Fault_Control_v1'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'Fault_Control_v1' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'Fault_Control_v1'
+  Mapping 'Fault_Control_v1'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+    0:00:01      42.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FC1.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/fc/REPORTS_FC1.txt
+check_design > ../reports_synopsys/fc/WARNINGS/WARNINGS_FC1.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v2.tcl
+analyze -library WORK -format vhdl {
+../../RTL/FaultControl/Fault_Control_v2.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration FAULT_CONTROL_V2
+Compiling Architecture RTL of FAULT_CONTROL_V2
+Presto compilation completed successfully.
+1
+elaborate Fault_Control_v2 -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine Fault_Control_v2 line 88 in file
+		'../../RTL/FaultControl/Fault_Control_v2.vhd'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+| Input_MUX_UNIT_r_reg  | Flip-flop |  60   |  Y  | N  | N  | N  | N  | N  | N  |
+| Output_MUX_UNIT_r_reg | Flip-flop |  60   |  Y  | N  | N  | N  | N  | N  | N  |
+=================================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'Fault_Control_v2'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'Fault_Control_v2'
+Information: The register 'Input_MUX_UNIT_r_reg[3][3][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][2][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][0][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][3][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][2][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][0][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][3][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][2][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][0][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][3][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][2][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][0][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[3][4][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[3][4][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[2][4][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[2][4][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[1][4][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[1][4][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[0][4][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[0][4][0]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'Fault_Control_v2' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'Fault_Control_v2'
+  Mapping 'Fault_Control_v2'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+    0:00:00     768.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FCv2.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/fc/REPORTS_FCv2.txt
+check_design > ../reports_synopsys/fc/WARNINGS/WARNINGS_FCv2.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v3.tcl
+analyze -library WORK -format vhdl {
+../../RTL/FaultControl/Fault_Control_v3.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration FAULT_CONTROL_V3
+Compiling Architecture RTL of FAULT_CONTROL_V3
+Presto compilation completed successfully.
+1
+elaborate Fault_Control_v3 -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine Fault_Control_v3 line 92 in file
+		'../../RTL/FaultControl/Fault_Control_v3.vhd'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+| Input_MUX_UNIT_r_reg  | Flip-flop |  72   |  Y  | N  | N  | N  | N  | N  | N  |
+| Output_MUX_UNIT_r_reg | Flip-flop |  60   |  Y  | N  | N  | N  | N  | N  | N  |
+=================================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'Fault_Control_v3'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'Fault_Control_v3'
+Information: The register 'Input_MUX_UNIT_r_reg[3][3][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][2][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[3][0][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][3][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][2][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[2][0][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][3][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][2][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[1][0][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][3][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][2][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Input_MUX_UNIT_r_reg[0][0][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[3][4][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[2][4][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[1][4][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Output_MUX_UNIT_r_reg[0][4][1]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'Fault_Control_v3' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'Fault_Control_v3'
+  Mapping 'Fault_Control_v3'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+    0:00:00    1000.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FCv3.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/fc/REPORTS_FCv3.txt
+check_design > ../reports_synopsys/fc/WARNINGS/WARNINGS_FCv3.txt
+echo ">>>>>MUXES<<<<<"
+>>>>>MUXES<<<<<
+source -continue_on_error -verbose -echo ../scripts_synopsys/mux/arbiter_muxes.tcl
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_2x1_Arbiter_output.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_2X1_ARBITER_OUTPUT
+Compiling Architecture RTL of MUX_2X1_ARBITER_OUTPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_2x1_Arbiter_output -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 23 in file
+	'../../RTL/MUX/MUX_2x1_Arbiter_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            25            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_2x1_Arbiter_output'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_2x1_Arbiter_output'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_2x1_Arbiter_output' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_2x1_Arbiter_output'
+  Mapping 'MUX_2x1_Arbiter_output'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+    0:00:01      41.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
+uplevel #0 { report_area } > ../reports_synopsys/mux/area_Arbiter.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_Arbiter.txt
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_5X1_ARBITER_INPUT
+Compiling Architecture RTL of MUX_5X1_ARBITER_INPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_5x1_Arbiter_input -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 21 in file
+	'../../RTL/MUX/MUX_5x1_Arbiter_input.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            23            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_5x1_Arbiter_input'.
+1
+compile -exact_map
+
+Information: There are 5 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_5x1_Arbiter_input'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_5x1_Arbiter_input' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_5x1_Arbiter_input'
+  Mapping 'MUX_5x1_Arbiter_input'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+    0:00:01      45.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
+uplevel #0 { report_area } >> ../reports_synopsys/mux/area_Arbiter.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_Arbiter.txt
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_6x1_Arbiter_output.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_6X1_ARBITER_OUTPUT
+Compiling Architecture RTL of MUX_6X1_ARBITER_OUTPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_6x1_Arbiter_output -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 27 in file
+	'../../RTL/MUX/MUX_6x1_Arbiter_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            29            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_6x1_Arbiter_output'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_6x1_Arbiter_output'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_6x1_Arbiter_output' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_6x1_Arbiter_output'
+  Mapping 'MUX_6x1_Arbiter_output'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+    0:00:01     102.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
+uplevel #0 { report_area } >> ../reports_synopsys/mux/area_Arbiter.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_Arbiter.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/mux/FIFO_muxes.tcl
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_2x1_FIFO_output.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_2X1_FIFO_OUTPUT
+Compiling Architecture RTL of MUX_2X1_FIFO_OUTPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_2x1_FIFO_output -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 24 in file
+	'../../RTL/MUX/MUX_2x1_FIFO_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            26            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_2x1_FIFO_output'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_2x1_FIFO_output'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_2x1_FIFO_output' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_2x1_FIFO_output'
+  Mapping 'MUX_2x1_FIFO_output'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
+uplevel #0 { report_area } > ../reports_synopsys/mux/area_FIFO.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_FIFO.txt
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_5X1_FIFO_INPUT
+Compiling Architecture RTL of MUX_5X1_FIFO_INPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_5x1_FIFO_input -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+Warning:  ../../RTL/MUX/MUX_5x1_FIFO_input.vhd:0: Generic DATA_WIDTH does not have a default value. (ELAB-943)
+Information: Saving the template MUX_5x1_FIFO_input
+Presto compilation completed successfully.
+0
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_2x1_FIFO_output'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_2x1_FIFO_output' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_2x1_FIFO_output'
+  Mapping 'MUX_2x1_FIFO_output'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+    0:00:01     107.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
+uplevel #0 { report_area } >> ../reports_synopsys/mux/area_FIFO.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_FIFO.txt
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_6x1_FIFO_output.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_6X1_FIFO_OUTPUT
+Compiling Architecture RTL of MUX_6X1_FIFO_OUTPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_6x1_FIFO_output -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 24 in file
+	'../../RTL/MUX/MUX_6x1_FIFO_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            26            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_6x1_FIFO_output'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_6x1_FIFO_output'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_6x1_FIFO_output' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_6x1_FIFO_output'
+  Mapping 'MUX_6x1_FIFO_output'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+    0:00:01     286.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
+uplevel #0 { report_area } >> ../reports_synopsys/mux/area_FIFO.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_FIFO.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/mux/LBDR_muxes.tcl
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_2x1_LBDR_output.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_2X1_LBDR_OUTPUT
+Compiling Architecture RTL of MUX_2X1_LBDR_OUTPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_2x1_LBDR_output -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 19 in file
+	'../../RTL/MUX/MUX_2x1_LBDR_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            21            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_2x1_LBDR_output'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_2x1_LBDR_output'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_2x1_LBDR_output' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_2x1_LBDR_output'
+  Mapping 'MUX_2x1_LBDR_output'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+    0:00:01      25.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
+uplevel #0 { report_area } > ../reports_synopsys/mux/area_LBDR.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_5X1_LBDR_INPUT
+Compiling Architecture RTL of MUX_5X1_LBDR_INPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_5x1_LBDR_input -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 24 in file
+	'../../RTL/MUX/MUX_5x1_LBDR_input.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            26            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_5x1_LBDR_input'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_5x1_LBDR_input'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_5x1_LBDR_input' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_5x1_LBDR_input'
+  Mapping 'MUX_5x1_LBDR_input'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+    0:00:01      68.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
+uplevel #0 { report_area } >> ../reports_synopsys/mux/area_LBDR.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_6x1_LBDR_output.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_6X1_LBDR_OUTPUT
+Compiling Architecture RTL of MUX_6X1_LBDR_OUTPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_6x1_LBDR_output -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 23 in file
+	'../../RTL/MUX/MUX_6x1_LBDR_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            25            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_6x1_LBDR_output'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_6x1_LBDR_output'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_6x1_LBDR_output' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_6x1_LBDR_output'
+  Mapping 'MUX_6x1_LBDR_output'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+    0:00:01      54.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
+uplevel #0 { report_area } >> ../reports_synopsys/mux/area_LBDR.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/mux/XBAR_muxes.tcl
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_2x1_XBAR_output.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_2X1_XBAR_OUTPUT
+Compiling Architecture RTL of MUX_2X1_XBAR_OUTPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_2x1_XBAR_output -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 19 in file
+	'../../RTL/MUX/MUX_2x1_XBAR_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            21            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_2x1_XBAR_output'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_2x1_XBAR_output'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_2x1_XBAR_output' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_2x1_XBAR_output'
+  Mapping 'MUX_2x1_XBAR_output'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+    0:00:01     101.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
+uplevel #0 { report_area } > ../reports_synopsys/mux/area_XBAR.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_XBAR.txt
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_5X1_XBAR_INPUT
+Compiling Architecture RTL of MUX_5X1_XBAR_INPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_5x1_XBAR_input -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 20 in file
+	'../../RTL/MUX/MUX_5x1_XBAR_input.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            22            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_5x1_XBAR_input'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_5x1_XBAR_input'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_5x1_XBAR_input' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_5x1_XBAR_input'
+  Mapping 'MUX_5x1_XBAR_input'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+    0:00:01      47.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
+uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_XBAR.txt
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_6x1_XBAR_output.vhd
+}
+Running PRESTO HDLC
+Compiling Entity Declaration MUX_6X1_XBAR_OUTPUT
+Compiling Architecture RTL of MUX_6X1_XBAR_OUTPUT
+Presto compilation completed successfully.
+1
+elaborate MUX_6x1_XBAR_output -architecture RTL -library DEFAULT
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 23 in file
+	'../../RTL/MUX/MUX_6x1_XBAR_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            25            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MUX_6x1_XBAR_output'.
+1
+compile -exact_map
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_6x1_XBAR_output'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'MUX_6x1_XBAR_output' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'MUX_6x1_XBAR_output'
+  Mapping 'MUX_6x1_XBAR_output'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+    0:00:01     270.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
+uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_XBAR.txt
+echo ">>>>>ROUTERS<<<<<"
+>>>>>ROUTERS<<<<<
+source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v0.tcl
+analyze -library WORK -format vhdl {
+../../RTL/xbar.vhd
+../../RTL/LBDR.vhd
+../../RTL/FIFO.vhd
+../../RTL/Arbiter.vhd
+../../RTL/Router/Router_v0_syn.vhd}
+Running PRESTO HDLC
+-- Compiling Source File ../../RTL/xbar.vhd
+Compiling Entity Declaration XBAR
+Compiling Architecture BEHAVIOR of XBAR
+Warning:  ../../RTL/xbar.vhd:21: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/LBDR.vhd
+Compiling Entity Declaration LBDR
+Compiling Architecture BEHAVIOR of LBDR
+Warning:  ../../RTL/LBDR.vhd:26: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/FIFO.vhd
+Compiling Entity Declaration FIFO
+Compiling Architecture BEHAVIOR of FIFO
+Warning:  ../../RTL/FIFO.vhd:27: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/Arbiter.vhd
+Compiling Entity Declaration ARBITER
+Compiling Architecture BEHAVIOR of ARBITER
+Warning:  ../../RTL/Arbiter.vhd:19: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/Router/Router_v0_syn.vhd
+Compiling Entity Declaration ROUTER
+Compiling Architecture BEHAVIOR of ROUTER
+Presto compilation completed successfully.
+1
+elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'.
+1
+create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+1
+compile -exact_map
+
+Information: There are 12 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'XBAR_DATA_WIDTH32_0'
+  Processing 'Arbiter_0'
+  Processing 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0'
+  Processing 'FIFO_DATA_WIDTH32_0'
+  Processing 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   17115.0      0.00       0.0       0.0                          
+    0:00:02   17115.0      0.00       0.0       0.0                          
+    0:00:02   17115.0      0.00       0.0       0.0                          
+    0:00:02   17115.0      0.00       0.0       0.0                          
+    0:00:02   17115.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11535.0      0.00       0.0       0.0                          
+    0:00:03   11320.0      0.00       0.0       0.0                          
+    0:00:04   11115.0      0.00       0.0       0.0                          
+    0:00:04   11045.0      0.00       0.0       0.0                          
+    0:00:04   11000.0      0.00       0.0       0.0                          
+    0:00:04   10975.0      0.00       0.0       0.0                          
+    0:00:04   10975.0      0.00       0.0       0.0                          
+    0:00:04   10975.0      0.00       0.0       0.0                          
+    0:00:04   10970.0      0.00       0.0       0.0                          
+    0:00:04   10970.0      0.00       0.0       0.0                          
+    0:00:04   10970.0      0.00       0.0       0.0                          
+    0:00:04   10970.0      0.00       0.0       0.0                          
+    0:00:04   10970.0      0.00       0.0       0.0                          
+    0:00:04   10970.0      0.00       0.0       0.0                          
+    0:00:04   10970.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v0.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v0.txt
+check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v0.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v1.tcl
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_2x1_XBAR_output.vhd
+../../RTL/MUX/MUX_2x1_LBDR_output.vhd
+../../RTL/MUX/MUX_2x1_FIFO_output.vhd
+../../RTL/MUX/MUX_2x1_Arbiter_output.vhd
+../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+../../RTL/xbar.vhd
+../../RTL/LBDR.vhd
+../../RTL/FIFO.vhd
+../../RTL/Arbiter.vhd
+../../RTL/FaultControl/Fault_Control_v1.vhd
+../../RTL/Router/Router_v1_syn.vhd}
+Running PRESTO HDLC
+-- Compiling Source File ../../RTL/MUX/MUX_2x1_XBAR_output.vhd
+Compiling Entity Declaration MUX_2X1_XBAR_OUTPUT
+Compiling Architecture RTL of MUX_2X1_XBAR_OUTPUT
+Warning:  ../../RTL/MUX/MUX_2x1_XBAR_output.vhd:17: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_2x1_LBDR_output.vhd
+Compiling Entity Declaration MUX_2X1_LBDR_OUTPUT
+Compiling Architecture RTL of MUX_2X1_LBDR_OUTPUT
+Warning:  ../../RTL/MUX/MUX_2x1_LBDR_output.vhd:17: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_2x1_FIFO_output.vhd
+Compiling Entity Declaration MUX_2X1_FIFO_OUTPUT
+Compiling Architecture RTL of MUX_2X1_FIFO_OUTPUT
+Warning:  ../../RTL/MUX/MUX_2x1_FIFO_output.vhd:22: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_2x1_Arbiter_output.vhd
+Compiling Entity Declaration MUX_2X1_ARBITER_OUTPUT
+Compiling Architecture RTL of MUX_2X1_ARBITER_OUTPUT
+Warning:  ../../RTL/MUX/MUX_2x1_Arbiter_output.vhd:21: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+Compiling Entity Declaration MUX_5X1_XBAR_INPUT
+Compiling Architecture RTL of MUX_5X1_XBAR_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_XBAR_input.vhd:18: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+Compiling Entity Declaration MUX_5X1_LBDR_INPUT
+Compiling Architecture RTL of MUX_5X1_LBDR_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_LBDR_input.vhd:22: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+Compiling Entity Declaration MUX_5X1_FIFO_INPUT
+Compiling Architecture RTL of MUX_5X1_FIFO_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_FIFO_input.vhd:24: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+Compiling Entity Declaration MUX_5X1_ARBITER_INPUT
+Compiling Architecture RTL of MUX_5X1_ARBITER_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd:19: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/xbar.vhd
+Compiling Entity Declaration XBAR
+Compiling Architecture BEHAVIOR of XBAR
+Warning:  ../../RTL/xbar.vhd:21: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/LBDR.vhd
+Compiling Entity Declaration LBDR
+Compiling Architecture BEHAVIOR of LBDR
+Warning:  ../../RTL/LBDR.vhd:26: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/FIFO.vhd
+Compiling Entity Declaration FIFO
+Compiling Architecture BEHAVIOR of FIFO
+Warning:  ../../RTL/FIFO.vhd:27: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/Arbiter.vhd
+Compiling Entity Declaration ARBITER
+Compiling Architecture BEHAVIOR of ARBITER
+Warning:  ../../RTL/Arbiter.vhd:19: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/FaultControl/Fault_Control_v1.vhd
+Compiling Entity Declaration FAULT_CONTROL_V1
+Compiling Architecture RTL of FAULT_CONTROL_V1
+Warning:  ../../RTL/FaultControl/Fault_Control_v1.vhd:21: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/Router/Router_v1_syn.vhd
+Compiling Entity Declaration ROUTER
+Compiling Architecture BEHAVIOR of ROUTER
+Warning:  ../../RTL/Router/Router_v1_syn.vhd:31: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+Presto compilation completed successfully.
+1
+elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Elaborated 1 design.
+Current design is now 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'.
+Information: Building the design 'FIFO' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 117 in file
+	'../../RTL/FIFO.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           118            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine FIFO_DATA_WIDTH32 line 74 in file
+		'../../RTL/FIFO.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  HS_state_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  read_pointer_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  write_pointer_reg  | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     CTS_out_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    FIFO_Mem_reg     | Flip-flop |  128  |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+===============================================================
+|   block name/line    | Inputs | Outputs | # sel inputs | MB |
+===============================================================
+| FIFO_DATA_WIDTH32/96 |   4    |   32    |      2       | N  |
+===============================================================
+Presto compilation completed successfully.
+Information: Building the design 'LBDR' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "cur_addr_rst=0,Rxy_rst=60,Cx_rst=10,NoC_size=4". (HDL-193)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'N1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'E1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'W1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'S1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+
+Inferred memory devices in process
+	in routine LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4 line 46 in file
+		'../../RTL/LBDR.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    Req_L_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_N_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_E_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_W_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_S_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'Arbiter'. (HDL-193)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'state' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'state_in' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'next_state' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+
+Statistics for case statements in always block at line 95 in file
+	'../../RTL/Arbiter.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           102            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Arbiter line 54 in file
+		'../../RTL/Arbiter.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     RTS_FF_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      state_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'XBAR' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 23 in file
+	'../../RTL/xbar.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            24            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_5x1_XBAR_input' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 20 in file
+	'../../RTL/MUX/MUX_5x1_XBAR_input.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            22            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_2x1_XBAR_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 19 in file
+	'../../RTL/MUX/MUX_2x1_XBAR_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            21            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_5x1_Arbiter_input' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 21 in file
+	'../../RTL/MUX/MUX_5x1_Arbiter_input.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            23            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_2x1_Arbiter_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 23 in file
+	'../../RTL/MUX/MUX_2x1_Arbiter_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            25            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_2x1_LBDR_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 19 in file
+	'../../RTL/MUX/MUX_2x1_LBDR_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            21            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_5x1_FIFO_input' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 26 in file
+	'../../RTL/MUX/MUX_5x1_FIFO_input.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            28            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_2x1_FIFO_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 24 in file
+	'../../RTL/MUX/MUX_2x1_FIFO_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            26            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+1
+create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+1
+compile -exact_map
+
+Information: There are 81 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_2x1_FIFO_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_FIFO_input_DATA_WIDTH32'
+  Processing 'MUX_2x1_LBDR_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_LBDR_input'
+  Processing 'MUX_2x1_Arbiter_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_Arbiter_input_DATA_WIDTH32'
+  Processing 'MUX_2x1_XBAR_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_XBAR_input_DATA_WIDTH32'
+  Processing 'Fault_Control_v1_0'
+  Processing 'XBAR_DATA_WIDTH32_0'
+  Processing 'Arbiter_0'
+  Processing 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0'
+Information: The register 'Req_N_FF_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'Req_W_FF_reg' is a constant and will be removed. (OPT-1206)
+  Processing 'FIFO_DATA_WIDTH32_0'
+Information: The register 'HS_state_out_reg' will be removed. (OPT-1207)
+  Processing 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:03   21383.0      7.56    2796.1       0.0                          
+    0:00:03   21383.0      7.56    2796.1       0.0                          
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:04   22300.0      0.00       0.0       0.0                          
+    0:00:04   22300.0      0.00       0.0       0.0                          
+    0:00:04   22300.0      0.00       0.0       0.0                          
+    0:00:04   22300.0      0.00       0.0       0.0                          
+    0:00:04   22300.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15950.0      0.00       0.0       0.0                          
+    0:00:06   15847.0      0.00       0.0       0.0                          
+    0:00:06   15770.0      0.00       0.0       0.0                          
+    0:00:07   15662.0      0.00       0.0       0.0                          
+    0:00:07   15605.0      0.00       0.0       0.0                          
+    0:00:07   15599.0      0.00       0.0       0.0                          
+    0:00:07   15599.0      0.00       0.0       0.0                          
+    0:00:07   15599.0      0.00       0.0       0.0                          
+    0:00:07   15589.0      0.00       0.0       0.0                          
+    0:00:07   15589.0      0.00       0.0       0.0                          
+    0:00:07   15589.0      0.00       0.0       0.0                          
+    0:00:07   15589.0      0.00       0.0       0.0                          
+    0:00:07   15589.0      0.00       0.0       0.0                          
+    0:00:07   15589.0      0.00       0.0       0.0                          
+    0:00:07   15589.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v1.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v1.txt
+check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v1.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v2.tcl
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_5x1_XBAR_output.vhd
+../../RTL/MUX/MUX_5x1_LBDR_output.vhd
+../../RTL/MUX/MUX_5x1_FIFO_output.vhd
+../../RTL/MUX/MUX_5x1_Arbiter_output.vhd
+../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+../../RTL/xbar.vhd
+../../RTL/LBDR.vhd
+../../RTL/FIFO.vhd
+../../RTL/Arbiter.vhd
+../../RTL/FaultControl/Fault_Control_v2.vhd
+../../RTL/Router/Router_v2_syn.vhd}
+Running PRESTO HDLC
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_XBAR_output.vhd
+Compiling Entity Declaration MUX_5X1_XBAR_OUTPUT
+Compiling Architecture RTL of MUX_5X1_XBAR_OUTPUT
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_LBDR_output.vhd
+Compiling Entity Declaration MUX_5X1_LBDR_OUTPUT
+Compiling Architecture RTL of MUX_5X1_LBDR_OUTPUT
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_FIFO_output.vhd
+Compiling Entity Declaration MUX_5X1_FIFO_OUTPUT
+Compiling Architecture RTL of MUX_5X1_FIFO_OUTPUT
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_Arbiter_output.vhd
+Compiling Entity Declaration MUX_5X1_ARBITER_OUTPUT
+Compiling Architecture RTL of MUX_5X1_ARBITER_OUTPUT
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+Compiling Entity Declaration MUX_5X1_XBAR_INPUT
+Compiling Architecture RTL of MUX_5X1_XBAR_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_XBAR_input.vhd:18: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+Compiling Entity Declaration MUX_5X1_LBDR_INPUT
+Compiling Architecture RTL of MUX_5X1_LBDR_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_LBDR_input.vhd:22: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+Compiling Entity Declaration MUX_5X1_FIFO_INPUT
+Compiling Architecture RTL of MUX_5X1_FIFO_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_FIFO_input.vhd:24: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+Compiling Entity Declaration MUX_5X1_ARBITER_INPUT
+Compiling Architecture RTL of MUX_5X1_ARBITER_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd:19: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/xbar.vhd
+Compiling Entity Declaration XBAR
+Compiling Architecture BEHAVIOR of XBAR
+Warning:  ../../RTL/xbar.vhd:21: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/LBDR.vhd
+Compiling Entity Declaration LBDR
+Compiling Architecture BEHAVIOR of LBDR
+Warning:  ../../RTL/LBDR.vhd:26: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/FIFO.vhd
+Compiling Entity Declaration FIFO
+Compiling Architecture BEHAVIOR of FIFO
+Warning:  ../../RTL/FIFO.vhd:27: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/Arbiter.vhd
+Compiling Entity Declaration ARBITER
+Compiling Architecture BEHAVIOR of ARBITER
+Warning:  ../../RTL/Arbiter.vhd:19: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/FaultControl/Fault_Control_v2.vhd
+Compiling Entity Declaration FAULT_CONTROL_V2
+Compiling Architecture RTL of FAULT_CONTROL_V2
+Warning:  ../../RTL/FaultControl/Fault_Control_v2.vhd:62: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/Router/Router_v2_syn.vhd
+Compiling Entity Declaration ROUTER
+Compiling Architecture BEHAVIOR of ROUTER
+Warning:  ../../RTL/Router/Router_v2_syn.vhd:31: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+Presto compilation completed successfully.
+1
+elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Elaborated 1 design.
+Current design is now 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'.
+Information: Building the design 'FIFO' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 117 in file
+	'../../RTL/FIFO.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           118            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine FIFO_DATA_WIDTH32 line 74 in file
+		'../../RTL/FIFO.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  HS_state_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  read_pointer_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  write_pointer_reg  | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     CTS_out_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    FIFO_Mem_reg     | Flip-flop |  128  |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+===============================================================
+|   block name/line    | Inputs | Outputs | # sel inputs | MB |
+===============================================================
+| FIFO_DATA_WIDTH32/96 |   4    |   32    |      2       | N  |
+===============================================================
+Presto compilation completed successfully.
+Information: Building the design 'LBDR' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "cur_addr_rst=0,Rxy_rst=60,Cx_rst=10,NoC_size=4". (HDL-193)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'N1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'E1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'W1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'S1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+
+Inferred memory devices in process
+	in routine LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4 line 46 in file
+		'../../RTL/LBDR.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    Req_L_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_N_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_E_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_W_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_S_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'Arbiter'. (HDL-193)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'state' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'state_in' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'next_state' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+
+Statistics for case statements in always block at line 95 in file
+	'../../RTL/Arbiter.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           102            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Arbiter line 54 in file
+		'../../RTL/Arbiter.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     RTS_FF_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      state_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'XBAR' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 23 in file
+	'../../RTL/xbar.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            24            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_5x1_XBAR_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 22 in file
+	'../../RTL/MUX/MUX_5x1_XBAR_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            24            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_5x1_Arbiter_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 26 in file
+	'../../RTL/MUX/MUX_5x1_Arbiter_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            28            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_5x1_LBDR_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 22 in file
+	'../../RTL/MUX/MUX_5x1_LBDR_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            24            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_5x1_FIFO_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 24 in file
+	'../../RTL/MUX/MUX_5x1_FIFO_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            26            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+1
+create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+1
+compile -exact_map
+
+Information: There are 48 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_5x1_FIFO_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_FIFO_input_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_LBDR_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_LBDR_input_0'
+  Processing 'MUX_5x1_Arbiter_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_Arbiter_input_0'
+  Processing 'MUX_5x1_XBAR_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_XBAR_input_0'
+  Processing 'Fault_Control_v2'
+  Processing 'XBAR_DATA_WIDTH32_0'
+  Processing 'Arbiter_0'
+  Processing 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0'
+Information: The register 'Req_N_FF_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'Req_W_FF_reg' is a constant and will be removed. (OPT-1206)
+  Processing 'FIFO_DATA_WIDTH32_0'
+Information: The register 'HS_state_out_reg' will be removed. (OPT-1207)
+  Processing 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:04   26978.0      0.00       0.0       0.0                          
+    0:00:04   26978.0      0.00       0.0       0.0                          
+    0:00:04   26978.0      0.00       0.0       0.0                          
+    0:00:04   26978.0      0.00       0.0       0.0                          
+    0:00:04   26978.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:07   17952.0      0.00       0.0       0.0                          
+    0:00:08   17812.0      0.00       0.0       0.0                          
+    0:00:08   17697.0      0.00       0.0       0.0                          
+    0:00:08   17572.0      0.00       0.0       0.0                          
+    0:00:08   17511.0      1.19     303.4       0.0                          
+    0:00:08   17506.0      1.19     303.4       0.0                          
+    0:00:08   17506.0      1.19     303.4       0.0                          
+    0:00:08   17518.0      0.00       0.0       0.0                          
+    0:00:08   17518.0      0.00       0.0       0.0                          
+    0:00:08   17518.0      0.00       0.0       0.0                          
+    0:00:08   17518.0      0.00       0.0       0.0                          
+    0:00:08   17518.0      0.00       0.0       0.0                          
+    0:00:08   17518.0      0.00       0.0       0.0                          
+    0:00:08   17518.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v2.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v2.txt
+check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v2.txt
+source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v3.tcl
+analyze -library WORK -format vhdl {
+../../RTL/MUX/MUX_6x1_XBAR_output.vhd
+../../RTL/MUX/MUX_6x1_LBDR_output.vhd
+../../RTL/MUX/MUX_6x1_FIFO_output.vhd
+../../RTL/MUX/MUX_6x1_Arbiter_output.vhd
+../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+../../RTL/xbar.vhd
+../../RTL/LBDR.vhd
+../../RTL/FIFO.vhd
+../../RTL/Arbiter.vhd
+../../RTL/FaultControl/Fault_Control_v3.vhd
+../../RTL/Router/Router_v3_syn.vhd}
+Running PRESTO HDLC
+-- Compiling Source File ../../RTL/MUX/MUX_6x1_XBAR_output.vhd
+Compiling Entity Declaration MUX_6X1_XBAR_OUTPUT
+Compiling Architecture RTL of MUX_6X1_XBAR_OUTPUT
+Warning:  ../../RTL/MUX/MUX_6x1_XBAR_output.vhd:21: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_6x1_LBDR_output.vhd
+Compiling Entity Declaration MUX_6X1_LBDR_OUTPUT
+Compiling Architecture RTL of MUX_6X1_LBDR_OUTPUT
+Warning:  ../../RTL/MUX/MUX_6x1_LBDR_output.vhd:21: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_6x1_FIFO_output.vhd
+Compiling Entity Declaration MUX_6X1_FIFO_OUTPUT
+Compiling Architecture RTL of MUX_6X1_FIFO_OUTPUT
+Warning:  ../../RTL/MUX/MUX_6x1_FIFO_output.vhd:22: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_6x1_Arbiter_output.vhd
+Compiling Entity Declaration MUX_6X1_ARBITER_OUTPUT
+Compiling Architecture RTL of MUX_6X1_ARBITER_OUTPUT
+Warning:  ../../RTL/MUX/MUX_6x1_Arbiter_output.vhd:25: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+Compiling Entity Declaration MUX_5X1_XBAR_INPUT
+Compiling Architecture RTL of MUX_5X1_XBAR_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_XBAR_input.vhd:18: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+Compiling Entity Declaration MUX_5X1_LBDR_INPUT
+Compiling Architecture RTL of MUX_5X1_LBDR_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_LBDR_input.vhd:22: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+Compiling Entity Declaration MUX_5X1_FIFO_INPUT
+Compiling Architecture RTL of MUX_5X1_FIFO_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_FIFO_input.vhd:24: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+Compiling Entity Declaration MUX_5X1_ARBITER_INPUT
+Compiling Architecture RTL of MUX_5X1_ARBITER_INPUT
+Warning:  ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd:19: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/xbar.vhd
+Compiling Entity Declaration XBAR
+Compiling Architecture BEHAVIOR of XBAR
+Warning:  ../../RTL/xbar.vhd:21: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/LBDR.vhd
+Compiling Entity Declaration LBDR
+Compiling Architecture BEHAVIOR of LBDR
+Warning:  ../../RTL/LBDR.vhd:26: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/FIFO.vhd
+Compiling Entity Declaration FIFO
+Compiling Architecture BEHAVIOR of FIFO
+Warning:  ../../RTL/FIFO.vhd:27: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/Arbiter.vhd
+Compiling Entity Declaration ARBITER
+Compiling Architecture BEHAVIOR of ARBITER
+Warning:  ../../RTL/Arbiter.vhd:19: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/FaultControl/Fault_Control_v3.vhd
+Compiling Entity Declaration FAULT_CONTROL_V3
+Compiling Architecture RTL of FAULT_CONTROL_V3
+Warning:  ../../RTL/FaultControl/Fault_Control_v3.vhd:66: The architecture RTL has already been analyzed. It is being replaced. (VHD-4)
+-- Compiling Source File ../../RTL/Router/Router_v3_syn.vhd
+Compiling Entity Declaration ROUTER
+Compiling Architecture BEHAVIOR of ROUTER
+Warning:  ../../RTL/Router/Router_v3_syn.vhd:31: The architecture behavior has already been analyzed. It is being replaced. (VHD-4)
+Presto compilation completed successfully.
+1
+elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Warning: Overwriting design file '/home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4.db'. (DDB-24)
+Elaborated 1 design.
+Current design is now 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'.
+Information: Building the design 'FIFO' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 117 in file
+	'../../RTL/FIFO.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           118            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine FIFO_DATA_WIDTH32 line 74 in file
+		'../../RTL/FIFO.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  HS_state_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  read_pointer_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  write_pointer_reg  | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     CTS_out_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    FIFO_Mem_reg     | Flip-flop |  128  |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+===============================================================
+|   block name/line    | Inputs | Outputs | # sel inputs | MB |
+===============================================================
+| FIFO_DATA_WIDTH32/96 |   4    |   32    |      2       | N  |
+===============================================================
+Presto compilation completed successfully.
+Information: Building the design 'LBDR' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "cur_addr_rst=0,Rxy_rst=60,Cx_rst=10,NoC_size=4". (HDL-193)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'N1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'E1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'W1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/LBDR.vhd:31: The initial value for signal 'S1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+
+Inferred memory devices in process
+	in routine LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4 line 46 in file
+		'../../RTL/LBDR.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    Req_L_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_N_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_E_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_W_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    Req_S_FF_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'Arbiter'. (HDL-193)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'state' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'state_in' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../../RTL/Arbiter.vhd:48: The initial value for signal 'next_state' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+
+Statistics for case statements in always block at line 95 in file
+	'../../RTL/Arbiter.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           102            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Arbiter line 54 in file
+		'../../RTL/Arbiter.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     RTS_FF_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      state_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'XBAR' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 23 in file
+	'../../RTL/xbar.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            24            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_6x1_XBAR_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 23 in file
+	'../../RTL/MUX/MUX_6x1_XBAR_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            25            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_6x1_Arbiter_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 27 in file
+	'../../RTL/MUX/MUX_6x1_Arbiter_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            29            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_5x1_LBDR_input'. (HDL-193)
+
+Statistics for case statements in always block at line 24 in file
+	'../../RTL/MUX/MUX_5x1_LBDR_input.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            26            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_6x1_LBDR_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 23 in file
+	'../../RTL/MUX/MUX_6x1_LBDR_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            25            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_5x1_FIFO_input' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 26 in file
+	'../../RTL/MUX/MUX_5x1_FIFO_input.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            28            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX_6x1_FIFO_output' instantiated from design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' with
+	the parameters "DATA_WIDTH=32". (HDL-193)
+
+Statistics for case statements in always block at line 24 in file
+	'../../RTL/MUX/MUX_6x1_FIFO_output.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            26            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+1
+create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+1
+compile -exact_map
+
+Information: There are 44 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX_6x1_FIFO_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_FIFO_input_DATA_WIDTH32_0'
+  Processing 'MUX_6x1_LBDR_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_LBDR_input_0'
+  Processing 'MUX_6x1_Arbiter_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_Arbiter_input_DATA_WIDTH32_0'
+  Processing 'MUX_6x1_XBAR_output_DATA_WIDTH32_0'
+  Processing 'MUX_5x1_XBAR_input_DATA_WIDTH32_0'
+  Processing 'Fault_Control_v3'
+  Processing 'XBAR_DATA_WIDTH32_0'
+  Processing 'Arbiter_0'
+  Processing 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0'
+Information: The register 'Req_N_FF_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'Req_W_FF_reg' is a constant and will be removed. (OPT-1206)
+  Processing 'FIFO_DATA_WIDTH32_0'
+Information: The register 'HS_state_out_reg' will be removed. (OPT-1207)
+  Processing 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:05   32764.0      0.00       0.0       0.0                          
+    0:00:05   32764.0      0.00       0.0       0.0                          
+    0:00:05   32764.0      0.00       0.0       0.0                          
+    0:00:05   32764.0      0.00       0.0       0.0                          
+    0:00:05   32764.0      0.00       0.0       0.0                          
+    0:00:08   21480.0      0.00       0.0       0.0                          
+    0:00:08   21480.0      0.00       0.0       0.0                          
+    0:00:08   21480.0      0.00       0.0       0.0                          
+    0:00:09   21480.0      0.00       0.0       0.0                          
+    0:00:09   21480.0      0.00       0.0       0.0                          
+    0:00:09   21480.0      0.00       0.0       0.0                          
+    0:00:09   21480.0      0.00       0.0       0.0                          
+    0:00:09   21480.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:09   21480.0      0.00       0.0       0.0                          
+    0:00:09   21480.0      0.00       0.0       0.0                          
+    0:00:09   21480.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:09   21480.0      0.00       0.0       0.0                          
+    0:00:09   21480.0      0.00       0.0       0.0                          
+    0:00:09   21312.0      0.00       0.0       0.0                          
+    0:00:09   21172.0      0.00       0.0       0.0                          
+    0:00:09   21001.0      0.00       0.0       0.0                          
+    0:00:10   20931.0      1.19     382.9       0.0                          
+    0:00:10   20926.0      1.19     382.9       0.0                          
+    0:00:10   20926.0      1.19     382.9       0.0                          
+    0:00:10   20942.0      0.00       0.0       0.0 FIFO_W/FIFO_Mem_reg[3][16]/D
+    0:00:10   20942.0      0.00       0.0       0.0                          
+    0:00:10   20942.0      0.00       0.0       0.0                          
+    0:00:10   20942.0      0.00       0.0       0.0                          
+    0:00:10   20942.0      0.00       0.0       0.0                          
+    0:00:10   20942.0      0.00       0.0       0.0                          
+    0:00:10   20942.0      0.00       0.0       0.0                          
+    0:00:10   20942.0      0.00       0.0       0.0                          
+Loading db file '/eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v3.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v3.txt
+check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v3.txt
+exit
+
+Thank you...

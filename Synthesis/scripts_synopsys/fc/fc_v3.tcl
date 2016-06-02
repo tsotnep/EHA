@@ -1,5 +1,5 @@
 analyze -library WORK -format vhdl {
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FaultControl/Fault_Control_v3.vhd
+../../RTL/FaultControl/Fault_Control_v3.vhd
 }
 
 elaborate Fault_Control_v3 -architecture RTL -library DEFAULT

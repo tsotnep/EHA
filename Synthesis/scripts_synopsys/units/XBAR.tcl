@@ -1,5 +1,5 @@
 analyze -library WORK -format vhdl {
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/XBAR.vhd
+../../RTL/XBAR.vhd
 }
 
 elaborate XBAR -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"

@@ -1,5 +1,5 @@
 analyze -library WORK -format vhdl {
-/home/INTRA/tsotne.putkaradze/P/workspace/EHA/RTL/FIFO.vhd
+../../RTL/FIFO.vhd
 }
 
 elaborate FIFO -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"

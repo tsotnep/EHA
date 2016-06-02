@@ -2,13 +2,13 @@
 ****************************************
 check_design summary:
 Version:     J-2014.09-SP2
-Date:        Thu Jun  2 17:44:10 2016
+Date:        Thu Jun  2 18:32:56 2016
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Inputs/Outputs                                                     32
-    Constant outputs (LINT-52)                                     32
+Inputs/Outputs                                                     36
+    Constant outputs (LINT-52)                                     36
 --------------------------------------------------------------------------------
 
 Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to 'logic 0'. (LINT-52)
@@ -39,8 +39,12 @@ Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_E_
 Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_E_out[1]' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_W_out[2]' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_S_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_6x1_FIFO_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_6x1_LBDR_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_6x1_ARBITER_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_6x1_XBAR_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_FIFO_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_FIFO_output_select_L_out[0]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_LBDR_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_LBDR_output_select_L_out[0]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_ARBITER_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_ARBITER_output_select_L_out[0]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_output_select_L_out[0]' is connected directly to 'logic 0'. (LINT-52)
 1
