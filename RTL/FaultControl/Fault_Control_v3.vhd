@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity Fault_Control_v2 is
+entity Fault_Control_v3 is
     port(
         clk                                 : in  std_logic;
         Fault_Info_FIFO_in                  : in  std_logic_vector(5 downto 0);
@@ -62,8 +62,8 @@ entity Fault_Control_v2 is
         MUX_6x1_XBAR_output_select_S_out    : out std_logic_vector(2 downto 0);
         MUX_6x1_XBAR_output_select_L_out    : out std_logic_vector(2 downto 0)
     );
-end entity Fault_Control_v2;
-architecture RTL of Fault_Control_v2 is
+end entity Fault_Control_v3;
+architecture RTL of Fault_Control_v3 is
     --PATH = packets coming from North, East, West, South, Local ports
     --TYPE = what kind of unit are we talking about? : FIFO | LBDR | ARBITER | XBAR
     --UNIT = pool of available number of UNIT for each TYPE, if ther is 1 redundant unit for each type, this number= 5+1;
