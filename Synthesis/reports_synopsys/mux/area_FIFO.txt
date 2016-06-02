@@ -1,9 +1,9 @@
  
 ****************************************
 Report : area
-Design : MUX_2x1_FIFO_output
+Design : MUX_2x1_FIFO_output_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 18:33:02 2016
+Date   : Thu Jun  2 19:51:35 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -32,9 +32,9 @@ Total area:                 undefined
  
 ****************************************
 Report : area
-Design : MUX_2x1_FIFO_output
+Design : MUX_5x1_FIFO_input_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 18:33:03 2016
+Date   : Thu Jun  2 19:51:37 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -42,30 +42,30 @@ Library(s) Used:
 
     lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
 
-Number of ports:                          105
-Number of nets:                           142
-Number of cells:                           71
-Number of combinational cells:             71
+Number of ports:                          231
+Number of nets:                           342
+Number of cells:                          154
+Number of combinational cells:            154
 Number of sequential cells:                 0
 Number of macros/black boxes:               0
-Number of buf/inv:                         35
-Number of references:                       4
+Number of buf/inv:                          2
+Number of references:                       6
 
-Combinational area:                107.000000
-Buf/Inv area:                       35.000000
+Combinational area:                268.000000
+Buf/Inv area:                        2.000000
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                   107.000000
+Total cell area:                   268.000000
 Total area:                 undefined
 1
  
 ****************************************
 Report : area
-Design : MUX_6x1_FIFO_output
+Design : MUX_6x1_FIFO_output_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 18:33:04 2016
+Date   : Thu Jun  2 19:51:38 2016
 ****************************************
 
 Information: Updating design information... (UID-85)

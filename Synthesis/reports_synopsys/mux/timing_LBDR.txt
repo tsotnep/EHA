@@ -1032,3 +1032,110 @@ Wire Load Model Mode: top
 
 
 1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_2x1_LBDR_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 19:51:39 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_LBDR_output_sel_in[2]
+              (input port)
+  Endpoint: Req_N_out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_LBDR_output_sel_in[2] (in)           0.00       0.00 f
+  U26/Z (EO)                               1.13       1.13 f
+  U25/Z (OR2)                              1.14       2.27 f
+  U19/Z (NR2)                              0.55       2.82 r
+  Req_N_out (out)                          0.00       2.82 r
+  data arrival time                                   2.82
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_5x1_LBDR_input
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 19:51:40 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_LBDR_input_sel_in[0]
+              (input port)
+  Endpoint: empty_out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  MUX_LBDR_input_sel_in[0] (in)            0.00       0.00 r
+  U78/Z (IV)                               0.33       0.33 f
+  U77/Z (NR3)                              3.90       4.23 r
+  U56/Z (AO2)                              0.55       4.78 f
+  U53/Z (ND3)                              0.65       5.43 r
+  empty_out (out)                          0.00       5.43 r
+  data arrival time                                   5.43
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_6x1_LBDR_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 19:51:41 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_LBDR_output_sel_in[1]
+              (input port)
+  Endpoint: Req_N_out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  MUX_LBDR_output_sel_in[1] (in)           0.00       0.00 r
+  U64/Z (IV)                               0.39       0.39 f
+  U61/Z (NR3)                              2.74       3.13 r
+  U48/Z (AO2)                              0.55       3.68 f
+  U46/Z (ND4)                              0.65       4.33 r
+  Req_N_out (out)                          0.00       4.33 r
+  data arrival time                                   4.33
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

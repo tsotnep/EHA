@@ -3,7 +3,7 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 18:33:39 2016
+Date   : Thu Jun  2 19:52:13 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -38,7 +38,7 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 18:33:39 2016
+Date   : Thu Jun  2 19:52:13 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
@@ -63,10 +63,10 @@ Wire Load Model Mode: top
                                                           0.00       1.82 r
   MUX_5x1_FIFO_input_E/MUX_FIFO_input_sel_in[0] (MUX_5x1_FIFO_input_DATA_WIDTH32_4)
                                                           0.00       1.82 r
-  MUX_5x1_FIFO_input_E/U23/Z (IVP)                        0.29       2.11 f
-  MUX_5x1_FIFO_input_E/U3/Z (NR3P)                        7.98      10.09 r
-  MUX_5x1_FIFO_input_E/U22/Z (AO2)                        0.55      10.64 f
-  MUX_5x1_FIFO_input_E/U24/Z (ND3)                        0.79      11.43 r
+  MUX_5x1_FIFO_input_E/U177/Z (IVP)                       0.29       2.11 f
+  MUX_5x1_FIFO_input_E/U157/Z (NR3P)                      7.98      10.09 r
+  MUX_5x1_FIFO_input_E/U176/Z (AO2)                       0.55      10.64 f
+  MUX_5x1_FIFO_input_E/U178/Z (ND3)                       0.79      11.43 r
   MUX_5x1_FIFO_input_E/DRTS_out (MUX_5x1_FIFO_input_DATA_WIDTH32_4)
                                                           0.00      11.43 r
   FIFO_E/DRTS (FIFO_DATA_WIDTH32_4)                       0.00      11.43 r
