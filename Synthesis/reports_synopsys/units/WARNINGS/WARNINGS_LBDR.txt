@@ -1,0 +1,16 @@
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Thu Jun  2 15:21:42 2016
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      2
+    Constant outputs (LINT-52)                                      2
+--------------------------------------------------------------------------------
+
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+1

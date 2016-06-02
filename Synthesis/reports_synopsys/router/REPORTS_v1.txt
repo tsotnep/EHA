@@ -1,0 +1,81 @@
+ 
+****************************************
+Report : area
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:22:00 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                          366
+Number of nets:                           900
+Number of cells:                           52
+Number of combinational cells:              0
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          0
+Number of references:                      52
+
+Combinational area:               8029.000000
+Buf/Inv area:                      879.000000
+Noncombinational area:            7560.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 15589.000000
+Total area:                 undefined
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:22:01 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: FIFO_E/write_pointer_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: FIFO_E/FIFO_Mem_reg[1][0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  FIFO_E/write_pointer_reg[1]/CP (FD2)                    0.00       0.00 r
+  FIFO_E/write_pointer_reg[1]/Q (FD2)                     1.92       1.92 r
+  FIFO_E/U51/Z (EO)                                       1.26       3.17 f
+  FIFO_E/U50/Z (EO)                                       0.94       4.11 r
+  FIFO_E/U49/Z (AO6)                                      0.35       4.46 f
+  FIFO_E/U48/Z (ND2)                                      1.46       5.93 r
+  FIFO_E/U3/Z (OR3)                                       9.86      15.79 r
+  FIFO_E/U85/Z (EON1)                                     1.08      16.87 r
+  FIFO_E/FIFO_Mem_reg[1][0]/D (FD2)                       0.00      16.87 r
+  data arrival time                                                 16.87
+
+  clock clk (rise edge)                                  20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  FIFO_E/FIFO_Mem_reg[1][0]/CP (FD2)                      0.00      20.00 r
+  library setup time                                     -0.85      19.15
+  data required time                                                19.15
+  --------------------------------------------------------------------------
+  data required time                                                19.15
+  data arrival time                                                -16.87
+  --------------------------------------------------------------------------
+  slack (MET)                                                        2.28
+
+
+1

@@ -3,7 +3,7 @@
 Report : area
 Design : MUX_2x1_Arbiter_output
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 14:07:06 2016
+Date   : Thu Jun  2 15:21:27 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -34,7 +34,7 @@ Total area:                 undefined
 Report : area
 Design : MUX_5x1_Arbiter_input
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 14:07:07 2016
+Date   : Thu Jun  2 15:21:28 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -65,7 +65,7 @@ Total area:                 undefined
 Report : area
 Design : MUX_6x1_Arbiter_output
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 14:07:08 2016
+Date   : Thu Jun  2 15:21:29 2016
 ****************************************
 
 Information: Updating design information... (UID-85)

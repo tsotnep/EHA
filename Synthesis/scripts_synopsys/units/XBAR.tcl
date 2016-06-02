@@ -6,8 +6,8 @@ elaborate XBAR -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH =
 
 compile -exact_map
 
-uplevel #0 { report_area } > ../reports_synopsys/REPORTS_XBAR.txt
+uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_XBAR.txt
 
-uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/REPORTS_XBAR.txt
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_XBAR.txt
 
-check_design > ../reports_synopsys/WARNINGS/WARNINGS_XBAR.txt
+check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_XBAR.txt
