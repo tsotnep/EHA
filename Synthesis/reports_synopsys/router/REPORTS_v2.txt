@@ -1,11 +1,12 @@
-Error: Can't find output port 'MUX_5x1_FIFO_output_select_N_out' on reference to 'Fault_Control_v3' in 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'. (LINK-1)
+Information: Building the design 'Fault_Control_v3'. (HDL-193)
+Warning: Cannot find the design 'Fault_Control_v3' in the library 'WORK'. (LBR-1)
 Warning: Unable to resolve reference 'Fault_Control_v3' in 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'. (LINK-5)
  
 ****************************************
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 15:44:24 2016
+Date   : Thu Jun  2 17:52:06 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -33,6 +34,7 @@ Total area:                 undefined
 
 Information: This design contains black box (unknown) components. (RPT-8)
 1
+Warning: Design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
 Report : timing
@@ -42,7 +44,7 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 15:44:25 2016
+Date   : Thu Jun  2 17:52:06 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k

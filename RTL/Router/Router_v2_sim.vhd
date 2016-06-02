@@ -93,7 +93,7 @@ signal Fault_Info_XBAR_in                  : std_logic_vector(5 downto 0) := (ot
 	end COMPONENT;
 
 
-    component Fault_Control_v3
+    component Fault_Control_v2
         port(
             clk                                 : in  std_logic;
             Fault_Info_FIFO_in                  : in  std_logic_vector(5 downto 0);
@@ -149,7 +149,7 @@ signal Fault_Info_XBAR_in                  : std_logic_vector(5 downto 0) := (ot
             MUX_5x1_XBAR_output_select_S_out    : out std_logic_vector(2 downto 0);
             MUX_5x1_XBAR_output_select_L_out    : out std_logic_vector(2 downto 0)
         );
-    end component Fault_Control_v3;
+    end component Fault_Control_v2;
 
     component MUX_5x1_XBAR_input
         generic(DATA_WIDTH : integer := 32);
@@ -545,7 +545,7 @@ XBAR_L: XBAR generic map (DATA_WIDTH  => DATA_WIDTH)
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 
-Fault_Control_v3_inst : component Fault_Control_v3
+Fault_Control_v2_inst : component Fault_Control_v2
         port map(
             clk                                 => clk,
             Fault_Info_FIFO_in                  => Fault_Info_FIFO_in,

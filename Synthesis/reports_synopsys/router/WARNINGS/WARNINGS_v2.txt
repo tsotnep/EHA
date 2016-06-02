@@ -1,8 +1,9 @@
+Warning: Design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
 check_design summary:
 Version:     J-2014.09-SP2
-Date:        Thu Jun  2 15:44:25 2016
+Date:        Thu Jun  2 17:52:06 2016
 ****************************************
 
                    Name                                            Total
@@ -15,36 +16,36 @@ Cells                                                              50
     Connected to power or ground (LINT-32)                         50
 --------------------------------------------------------------------------------
 
-Warning: In design 'MUX_5x1_Arbiter_input_0', port 'Req_NN' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_0', port 'Req_EE' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_0', port 'Req_WW' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_0', port 'Req_SS' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_0', port 'Req_LL' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_0', port 'Req_NN' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_0', port 'Req_EE' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_0', port 'Req_WW' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_0', port 'Req_SS' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_0', port 'Req_LL' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_0', port 'Grant_NN' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_0', port 'Grant_EE' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_0', port 'Grant_WW' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_0', port 'Grant_SS' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_0', port 'Grant_LL' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_1', port 'Req_NN' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_1', port 'Req_EE' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_1', port 'Req_WW' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_1', port 'Req_SS' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_1', port 'Req_LL' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_2', port 'Req_NN' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_2', port 'Req_EE' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_2', port 'Req_WW' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_2', port 'Req_SS' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_2', port 'Req_LL' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_3', port 'Req_NN' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_3', port 'Req_EE' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_3', port 'Req_WW' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_3', port 'Req_SS' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_3', port 'Req_LL' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_4', port 'Req_NN' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_4', port 'Req_EE' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_4', port 'Req_WW' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_4', port 'Req_SS' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_4', port 'Req_LL' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_1', port 'Req_NN' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_1', port 'Req_EE' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_1', port 'Req_WW' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_1', port 'Req_SS' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_1', port 'Req_LL' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_2', port 'Req_NN' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_2', port 'Req_EE' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_2', port 'Req_WW' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_2', port 'Req_SS' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_2', port 'Req_LL' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_3', port 'Req_NN' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_3', port 'Req_EE' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_3', port 'Req_WW' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_3', port 'Req_SS' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_3', port 'Req_LL' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_4', port 'Req_NN' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_4', port 'Req_EE' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_4', port 'Req_WW' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_4', port 'Req_SS' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_Arbiter_input_DATA_WIDTH32_4', port 'Req_LL' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_1', port 'Grant_NN' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_1', port 'Grant_EE' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_1', port 'Grant_WW' is not connected to any nets. (LINT-28)

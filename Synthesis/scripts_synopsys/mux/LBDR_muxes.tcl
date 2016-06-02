@@ -3,7 +3,7 @@ analyze -library WORK -format vhdl {
 }
 elaborate MUX_2x1_LBDR_output -architecture RTL -library DEFAULT
 compile -exact_map
-check_design > ../reports_synopsys/WARNINGS/WARNINGS_MUX_LBDR.txt
+check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
 uplevel #0 { report_area } > ../reports_synopsys/mux/area_LBDR.txt
 uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
 
@@ -14,7 +14,7 @@ analyze -library WORK -format vhdl {
 }
 elaborate MUX_5x1_LBDR_input -architecture RTL -library DEFAULT
 compile -exact_map
-check_design >> ../reports_synopsys/WARNINGS/WARNINGS_MUX_LBDR.txt
+check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
 uplevel #0 { report_area } >> ../reports_synopsys/mux/area_LBDR.txt
 uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
 
@@ -26,6 +26,6 @@ analyze -library WORK -format vhdl {
 elaborate MUX_6x1_LBDR_output -architecture RTL -library DEFAULT
 compile -exact_map
 
-check_design >> ../reports_synopsys/WARNINGS/WARNINGS_MUX_LBDR.txt
+check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
 uplevel #0 { report_area } >> ../reports_synopsys/mux/area_LBDR.txt
 uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
