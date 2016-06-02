@@ -1,0 +1,216 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_2x1_XBAR_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:21:36 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_XBAR_output_sel_in[2]
+              (input port)
+  Endpoint: TX_out[31] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_XBAR_output_sel_in[2] (in)           0.00       0.00 f
+  U135/Z (NR3)                            13.17      13.17 r
+  U84/Z (AO2)                              0.55      13.73 f
+  U83/Z (IV)                               0.38      14.11 r
+  TX_out[31] (out)                         0.00      14.11 r
+  data arrival time                                  14.11
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_5x1_XBAR_input
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:21:37 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_XBAR_input_sel_in[0]
+              (input port)
+  Endpoint: Xbar_sel_out[4]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  MUX_XBAR_input_sel_in[0] (in)            0.00       0.00 r
+  U54/Z (IV)                               0.33       0.33 f
+  U53/Z (NR3)                              2.74       3.07 r
+  U32/Z (AO2)                              0.55       3.62 f
+  U29/Z (ND3)                              0.65       4.27 r
+  Xbar_sel_out[4] (out)                    0.00       4.27 r
+  data arrival time                                   4.27
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_6x1_XBAR_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:21:38 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_XBAR_output_sel_in[1]
+              (input port)
+  Endpoint: TX_out[31] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  MUX_XBAR_output_sel_in[1] (in)           0.00       0.00 r
+  U334/Z (IV)                              0.39       0.39 f
+  U331/Z (NR3)                            13.17      13.56 r
+  U208/Z (AO2)                             0.55      14.11 f
+  U206/Z (ND4)                             0.65      14.76 r
+  TX_out[31] (out)                         0.00      14.76 r
+  data arrival time                                  14.76
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_2x1_XBAR_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:47 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_XBAR_output_sel_in[2]
+              (input port)
+  Endpoint: TX_out[31] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_XBAR_output_sel_in[2] (in)           0.00       0.00 f
+  U135/Z (NR3)                            13.17      13.17 r
+  U84/Z (AO2)                              0.55      13.73 f
+  U83/Z (IV)                               0.38      14.11 r
+  TX_out[31] (out)                         0.00      14.11 r
+  data arrival time                                  14.11
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_5x1_XBAR_input
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:48 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_XBAR_input_sel_in[0]
+              (input port)
+  Endpoint: Xbar_sel_out[4]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  MUX_XBAR_input_sel_in[0] (in)            0.00       0.00 r
+  U54/Z (IV)                               0.33       0.33 f
+  U53/Z (NR3)                              2.74       3.07 r
+  U32/Z (AO2)                              0.55       3.62 f
+  U29/Z (ND3)                              0.65       4.27 r
+  Xbar_sel_out[4] (out)                    0.00       4.27 r
+  data arrival time                                   4.27
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_6x1_XBAR_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:49 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_XBAR_output_sel_in[1]
+              (input port)
+  Endpoint: TX_out[31] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  MUX_XBAR_output_sel_in[1] (in)           0.00       0.00 r
+  U334/Z (IV)                              0.39       0.39 f
+  U331/Z (NR3)                            13.17      13.56 r
+  U208/Z (AO2)                             0.55      14.11 f
+  U206/Z (ND4)                             0.65      14.76 r
+  TX_out[31] (out)                         0.00      14.76 r
+  data arrival time                                  14.76
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

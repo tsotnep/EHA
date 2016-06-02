@@ -1,0 +1,68 @@
+ 
+****************************************
+Report : area
+Design : XBAR_DATA_WIDTH32
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:55 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                          197
+Number of nets:                           307
+Number of cells:                          142
+Number of combinational cells:            142
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          4
+Number of references:                      10
+
+Combinational area:                248.000000
+Buf/Inv area:                        4.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                   248.000000
+Total area:                 undefined
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : XBAR_DATA_WIDTH32
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:55 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: sel[2] (input port)
+  Endpoint: Data_out[31]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  sel[2] (in)                              0.00       0.00 f
+  U284/Z (IV)                              0.81       0.81 r
+  U283/Z (ND2)                             0.47       1.28 f
+  U270/Z (NR4)                            17.54      18.82 r
+  U173/Z (AO2)                             0.55      19.37 f
+  U172/Z (ND3)                             0.65      20.02 r
+  Data_out[31] (out)                       0.00      20.02 r
+  data arrival time                                  20.02
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

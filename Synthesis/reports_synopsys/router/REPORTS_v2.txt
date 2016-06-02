@@ -1,0 +1,85 @@
+Error: Can't find output port 'MUX_5x1_FIFO_output_select_N_out' on reference to 'Fault_Control_v3' in 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'. (LINK-1)
+Warning: Unable to resolve reference 'Fault_Control_v3' in 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4'. (LINK-5)
+ 
+****************************************
+Report : area
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:44:24 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                          366
+Number of nets:                          1491
+Number of cells:                          131
+Number of combinational cells:             70
+Number of sequential cells:                 1
+Number of macros/black boxes:               0
+Number of buf/inv:                         70
+Number of references:                      62
+
+Combinational area:              10415.000000
+Buf/Inv area:                      535.000000
+Noncombinational area:            6300.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 16715.000000
+Total area:                 undefined
+
+Information: This design contains black box (unknown) components. (RPT-8)
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:44:25 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: FIFO_E/read_pointer_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: FIFO_E/FIFO_Mem_reg[0][0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  FIFO_E/read_pointer_reg[0]/CP (FD2)      0.00       0.00 r
+  FIFO_E/read_pointer_reg[0]/Q (FD2)       7.75       7.75 r
+  FIFO_E/U28/Z (EO)                        1.13       8.88 f
+  FIFO_E/U27/Z (AO6)                       1.08       9.96 r
+  FIFO_E/U26/Z (ND2)                       0.73      10.69 f
+  FIFO_E/U25/Z (NR2)                       1.84      12.53 r
+  FIFO_E/U5/Z (ND2P)                       3.06      15.59 f
+  FIFO_E/U93/Z (EON1)                      1.08      16.67 r
+  FIFO_E/FIFO_Mem_reg[0][0]/D (FD2)        0.00      16.67 r
+  data arrival time                                  16.67
+
+  clock clk (rise edge)                   20.00      20.00
+  clock network delay (ideal)              0.00      20.00
+  FIFO_E/FIFO_Mem_reg[0][0]/CP (FD2)       0.00      20.00 r
+  library setup time                      -0.85      19.15
+  data required time                                 19.15
+  -----------------------------------------------------------
+  data required time                                 19.15
+  data arrival time                                 -16.67
+  -----------------------------------------------------------
+  slack (MET)                                         2.48
+
+
+1

@@ -1,0 +1,93 @@
+ 
+****************************************
+Report : area
+Design : MUX_2x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:37 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                           36
+Number of nets:                            52
+Number of cells:                           27
+Number of combinational cells:             27
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         12
+Number of references:                       5
+
+Combinational area:                 41.000000
+Buf/Inv area:                       12.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                    41.000000
+Total area:                 undefined
+1
+ 
+****************************************
+Report : area
+Design : MUX_5x1_Arbiter_input
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:38 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                           39
+Number of nets:                            55
+Number of cells:                           27
+Number of combinational cells:             27
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          3
+Number of references:                       5
+
+Combinational area:                 45.000000
+Buf/Inv area:                        3.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                    45.000000
+Total area:                 undefined
+1
+ 
+****************************************
+Report : area
+Design : MUX_6x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:39 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                           80
+Number of nets:                           132
+Number of cells:                           63
+Number of combinational cells:             63
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          2
+Number of references:                       6
+
+Combinational area:                102.000000
+Buf/Inv area:                        2.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                   102.000000
+Total area:                 undefined
+1
