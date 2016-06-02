@@ -1,0 +1,93 @@
+ 
+****************************************
+Report : area
+Design : MUX_2x1_FIFO_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 14:08:59 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                          105
+Number of nets:                           142
+Number of cells:                           71
+Number of combinational cells:             71
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         35
+Number of references:                       4
+
+Combinational area:                107.000000
+Buf/Inv area:                       35.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                   107.000000
+Total area:                 undefined
+1
+ 
+****************************************
+Report : area
+Design : MUX_2x1_FIFO_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 14:09:00 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                          105
+Number of nets:                           142
+Number of cells:                           71
+Number of combinational cells:             71
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         35
+Number of references:                       4
+
+Combinational area:                107.000000
+Buf/Inv area:                       35.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                   107.000000
+Total area:                 undefined
+1
+ 
+****************************************
+Report : area
+Design : MUX_6x1_FIFO_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 14:09:01 2016
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+
+Number of ports:                          241
+Number of nets:                           385
+Number of cells:                          178
+Number of combinational cells:            178
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          2
+Number of references:                       6
+
+Combinational area:                286.000000
+Buf/Inv area:                        2.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                   286.000000
+Total area:                 undefined
+1
