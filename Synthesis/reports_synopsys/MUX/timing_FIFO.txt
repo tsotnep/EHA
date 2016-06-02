@@ -104,3 +104,109 @@ Wire Load Model Mode: top
 
 
 1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_2x1_FIFO_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:40 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_FIFO_output_sel_in[2]
+              (input port)
+  Endpoint: CTS_out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_FIFO_output_sel_in[2] (in)           0.00       0.00 f
+  U143/Z (NR3)                            13.95      13.95 r
+  U140/Z (AO2)                             0.55      14.50 f
+  U139/Z (IV)                              0.38      14.88 r
+  CTS_out (out)                            0.00      14.88 r
+  data arrival time                                  14.88
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_2x1_FIFO_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:41 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_FIFO_output_sel_in[2]
+              (input port)
+  Endpoint: CTS_out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_FIFO_output_sel_in[2] (in)           0.00       0.00 f
+  U214/Z (NR3)                            13.95      13.95 r
+  U211/Z (AO2)                             0.55      14.50 f
+  U210/Z (IV)                              0.38      14.88 r
+  CTS_out (out)                            0.00      14.88 r
+  data arrival time                                  14.88
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_6x1_FIFO_output
+Version: J-2014.09-SP2
+Date   : Thu Jun  2 15:43:42 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_FIFO_output_sel_in[1]
+              (input port)
+  Endpoint: CTS_out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  MUX_FIFO_output_sel_in[1] (in)           0.00       0.00 r
+  U354/Z (IV)                              0.39       0.39 f
+  U351/Z (NR3)                            13.95      14.33 r
+  U349/Z (AO2)                             0.55      14.89 f
+  U346/Z (ND4)                             0.65      15.54 r
+  CTS_out (out)                            0.00      15.54 r
+  data arrival time                                  15.54
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

@@ -3,7 +3,7 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 15:21:49 2016
+Date   : Thu Jun  2 15:44:00 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -38,7 +38,7 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 15:21:49 2016
+Date   : Thu Jun  2 15:44:01 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k

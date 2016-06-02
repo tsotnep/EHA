@@ -1,4 +1,6 @@
-# HOW TO RUN : design_vision -no_gui -f ../scripts_synopsys/do_all.tcl
+# HOW TO RUN THIS (ALL scripts) script (takes 70 seconds), from directory EHA/Synthesis/Synopsis :
+    # design_vision -no_gui -f ../scripts_synopsys/do_all.tcl
+
 
 file mkdir ../reports_synopsys/fc/WARNINGS
 file mkdir ../reports_synopsys/units/WARNINGS

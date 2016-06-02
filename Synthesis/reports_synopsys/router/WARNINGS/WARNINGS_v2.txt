@@ -2,17 +2,17 @@
 ****************************************
 check_design summary:
 Version:     J-2014.09-SP2
-Date:        Thu Jun  2 15:22:16 2016
+Date:        Thu Jun  2 15:44:25 2016
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Inputs/Outputs                                                    104
-    Unconnected ports (LINT-28)                                    60
-    Constant outputs (LINT-52)                                     44
+Inputs/Outputs                                                     60
+    Unconnected ports (LINT-28)                                    50
+    Constant outputs (LINT-52)                                     10
 
-Cells                                                              92
-    Connected to power or ground (LINT-32)                         92
+Cells                                                              50
+    Connected to power or ground (LINT-32)                         50
 --------------------------------------------------------------------------------
 
 Warning: In design 'MUX_5x1_Arbiter_input_0', port 'Req_NN' is not connected to any nets. (LINT-28)
@@ -45,11 +45,6 @@ Warning: In design 'MUX_5x1_Arbiter_input_4', port 'Req_EE' is not connected to 
 Warning: In design 'MUX_5x1_Arbiter_input_4', port 'Req_WW' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_Arbiter_input_4', port 'Req_SS' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_Arbiter_input_4', port 'Req_LL' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_5', port 'Req_NN' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_5', port 'Req_EE' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_5', port 'Req_WW' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_5', port 'Req_SS' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_Arbiter_input_5', port 'Req_LL' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_1', port 'Grant_NN' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_1', port 'Grant_EE' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_1', port 'Grant_WW' is not connected to any nets. (LINT-28)
@@ -70,229 +65,108 @@ Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_4', port 'Grant_EE' is not c
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_4', port 'Grant_WW' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_4', port 'Grant_SS' is not connected to any nets. (LINT-28)
 Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_4', port 'Grant_LL' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_5', port 'Grant_NN' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_5', port 'Grant_EE' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_5', port 'Grant_WW' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_5', port 'Grant_SS' is not connected to any nets. (LINT-28)
-Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32_5', port 'Grant_LL' is not connected to any nets. (LINT-28)
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_XBAR_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_XBAR_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_XBAR_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_XBAR_input_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_XBAR_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_XBAR_input_sel_in[0]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_XBAR_input_E' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_XBAR_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_XBAR_input_E' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_XBAR_input_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_XBAR_input_W' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_XBAR_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_XBAR_input_S' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_XBAR_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_XBAR_output_L' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_XBAR_output_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_Arbiter_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_Arbiter_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_Arbiter_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_Arbiter_input_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_Arbiter_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_Arbiter_input_sel_in[0]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_Arbiter_input_E' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_Arbiter_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_Arbiter_input_E' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_Arbiter_input_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_Arbiter_input_W' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_Arbiter_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_Arbiter_input_S' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_Arbiter_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_Arbiter_output_L' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_Arbiter_output_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_LBDR_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_LBDR_input_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_LBDR_input_sel_in[0]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_input_E' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_LBDR_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_input_E' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_LBDR_input_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_input_W' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_LBDR_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_input_S' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_LBDR_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_NN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_NW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_EN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_EW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_WN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_WW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_SN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_SW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_LN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_LW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'Req_RN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'Req_RW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_NN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_NW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_EN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_EW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_WN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_WW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_SN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_SW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_LN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_LW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'Req_RN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_E' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'Req_RW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_NN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_NW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_EN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_EW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_WN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_WW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_SN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_SW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_LN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_LW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'Req_RN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_W' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'Req_RW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_NN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_NW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_EN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_EW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_WN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_WW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_SN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_SW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_LN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_LW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'Req_RN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_S' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'Req_RW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_LBDR_output_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_NN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_NW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_EN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_EW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_WN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_WW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_SN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_SW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_LN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'Req_LW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'Req_RN' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_LBDR_output_L' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'Req_RW' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_FIFO_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_FIFO_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_FIFO_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_FIFO_input_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_FIFO_input_N' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_FIFO_input_sel_in[0]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_FIFO_input_E' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_FIFO_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_FIFO_input_E' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_FIFO_input_sel_in[1]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_FIFO_input_W' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_FIFO_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_5x1_FIFO_input_S' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_FIFO_input_sel_in[2]' is connected to logic 0. 
-Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', a pin on submodule 'MUX_6x1_FIFO_output_L' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'MUX_FIFO_output_sel_in[1]' is connected to logic 0. 
 Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_FIFO_input_select_N_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_FIFO_input_select_N_out[0]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_FIFO_input_select_E_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_FIFO_input_select_E_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_FIFO_input_select_W_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_FIFO_input_select_S_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_LBDR_input_select_N_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_LBDR_input_select_N_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_LBDR_input_select_N_out[0]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_LBDR_input_select_E_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_LBDR_input_select_E_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_LBDR_input_select_W_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_LBDR_input_select_S_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_ARBITER_input_select_N_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_ARBITER_input_select_N_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_ARBITER_input_select_N_out[0]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_ARBITER_input_select_E_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_ARBITER_input_select_E_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_ARBITER_input_select_W_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_ARBITER_input_select_S_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_N_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_N_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_N_out[0]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_E_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_E_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_W_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_5x1_XBAR_input_select_S_out[2]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_6x1_FIFO_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_6x1_LBDR_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_6x1_ARBITER_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'Fault_Control_v2', output port 'MUX_6x1_XBAR_output_select_L_out[1]' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
@@ -301,6 +175,4 @@ Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3', output p
 Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_5', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
-Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_5', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
 1
