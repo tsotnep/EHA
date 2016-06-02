@@ -1,3 +1,2 @@
 .DS_Store
-scripts/*.vhd
-Synthesis/Synopsis/*
+./Synthesis/Synopsys/*
