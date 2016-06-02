@@ -10,4 +10,4 @@ uplevel #0 { report_area } > ../reports/REPORTS_FCv3.txt
 
 uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports/REPORTS_FCv3.txt
 
-check_design > ../reports/WARNINGS_FCv3.txt
+check_design > ../reports/WARNINGS/WARNINGS_FCv3.txt

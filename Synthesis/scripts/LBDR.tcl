@@ -12,4 +12,4 @@ uplevel #0 { report_area } > ../reports/REPORTS_LBDR.txt
 
 uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports/REPORTS_LBDR.txt
 
-check_design > ../reports/WARNINGS_LBDR.txt
+check_design > ../reports/WARNINGS/WARNINGS_LBDR.txt
