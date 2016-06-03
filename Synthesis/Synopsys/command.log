@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version J-2014.09-SP2 for suse64 -- Nov 25, 2014
-#@ # Date:   Fri Jun  3 14:34:27 2016
+#@ # Date:   Fri Jun  3 15:06:52 2016
 #@ # Run by: INTRA\ts@fx8.pld.ttu.ee
 #@ 
 
@@ -3932,7 +3932,7 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/arbiter_muxes.tcl
 #@ # -- Starting source ../scripts_synopsys/mux/arbiter_muxes.tcl
 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_2x1_Arbiter_output.vhd
 #@ }
@@ -3944,7 +3944,7 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ 
 #@ 
 #@ 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
 #@ }
@@ -3956,11 +3956,23 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ 
 #@ 
 #@ 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_6x1_Arbiter_output.vhd
 #@ }
 #@ elaborate MUX_6x1_Arbiter_output -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_Arbiter.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_Arbiter.txt
+#@ 
+#@ 
+#@ 
+#@ remove_design -designs
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_Arbiter_output.vhd
+#@ }
+#@ elaborate MUX_5x1_Arbiter_output -architecture RTL -library DEFAULT
 #@ compile -exact_map -ungroup_all
 #@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
 #@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_Arbiter.txt
@@ -3970,7 +3982,7 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/FIFO_muxes.tcl
 #@ # -- Starting source ../scripts_synopsys/mux/FIFO_muxes.tcl
 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_2x1_FIFO_output.vhd
 #@ }
@@ -3982,7 +3994,7 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ 
 #@ 
 #@ 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
 #@ }
@@ -3994,11 +4006,22 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ 
 #@ 
 #@ 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_6x1_FIFO_output.vhd
 #@ }
 #@ elaborate MUX_6x1_FIFO_output -architecture RTL -library DEFAULT -parameters "DATA_WIDTH = 32"
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_FIFO.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_FIFO.txt
+#@ 
+#@ 
+#@ remove_design -designs
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_FIFO_output.vhd
+#@ }
+#@ elaborate MUX_5x1_FIFO_output -architecture RTL -library DEFAULT -parameters "DATA_WIDTH = 32"
 #@ compile -exact_map -ungroup_all
 #@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
 #@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_FIFO.txt
@@ -4008,7 +4031,7 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/LBDR_muxes.tcl
 #@ # -- Starting source ../scripts_synopsys/mux/LBDR_muxes.tcl
 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_2x1_LBDR_output.vhd
 #@ }
@@ -4020,7 +4043,7 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ 
 #@ 
 #@ 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
 #@ }
@@ -4032,7 +4055,7 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ 
 #@ 
 #@ 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_6x1_LBDR_output.vhd
 #@ }
@@ -4042,12 +4065,23 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
 #@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_LBDR.txt
 #@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
+#@ 
+#@ 
+#@ remove_design -designs
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_LBDR_output.vhd
+#@ }
+#@ elaborate MUX_5x1_LBDR_output -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_LBDR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
 #@ # -- End source ../scripts_synopsys/mux/LBDR_muxes.tcl
 
 #@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/XBAR_muxes.tcl
 #@ # -- Starting source ../scripts_synopsys/mux/XBAR_muxes.tcl
 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_2x1_XBAR_output.vhd
 #@ }
@@ -4059,7 +4093,7 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ 
 #@ 
 #@ 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
 #@ }
@@ -4071,11 +4105,23 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ 
 #@ 
 #@ 
-#@ remove_design -designs 
+#@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
 #@ ../../RTL/MUX/MUX_6x1_XBAR_output.vhd
 #@ }
 #@ elaborate MUX_6x1_XBAR_output -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_XBAR.txt
+#@ 
+#@ 
+#@ 
+#@ remove_design -designs
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_XBAR_output.vhd
+#@ }
+#@ elaborate MUX_5x1_XBAR_output -architecture RTL -library DEFAULT
 #@ compile -exact_map -ungroup_all
 #@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
 #@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt

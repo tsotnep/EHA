@@ -3,7 +3,7 @@
 Report : area
 Design : FIFO_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 14:34:32 2016
+Date   : Fri Jun  3 15:06:57 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -38,7 +38,7 @@ Report : timing
         -sort_by group
 Design : FIFO_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 14:34:32 2016
+Date   : Fri Jun  3 15:06:57 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
