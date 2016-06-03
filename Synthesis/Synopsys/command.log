@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version J-2014.09-SP2 for suse64 -- Nov 25, 2014
-#@ # Date:   Fri Jun  3 12:43:10 2016
+#@ # Date:   Fri Jun  3 14:34:27 2016
 #@ # Run by: INTRA\ts@fx8.pld.ttu.ee
 #@ 
 
@@ -3771,8 +3771,346 @@ source /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/.s
 #@ set symbol_library {lsi_10k.sdb generic.sdb}
 #@ # -- End source /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/.synopsys_dc.setup
 
-source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/../scripts_synopsys/router/Router_v1.tcl
-#@ # -- Starting source /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/../scripts_synopsys/router/Router_v1.tcl
+source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/../scripts_synopsys/do_all.tcl
+#@ # -- Starting source /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/../scripts_synopsys/do_all.tcl
+
+#@ # HOW TO RUN THIS (ALL scripts) script (takes 70 seconds), from directory EHA/Synthesis/Synopsis :
+#@ # design_vision -no_gui -f ../scripts_synopsys/do_all.tcl
+#@ # design_vision -no_gui -f ../scripts_synopsys/do_all.tcl > REPORT.txt
+#@ 
+#@ 
+#@ file mkdir ../reports_synopsys/fc/WARNINGS
+#@ file mkdir ../reports_synopsys/units/WARNINGS
+#@ file mkdir ../reports_synopsys/router/WARNINGS
+#@ file mkdir ../reports_synopsys/mux/WARNINGS
+#@ 
+#@ 
+#@ echo ">>>>>UNITS<<<<<"
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/units/ARBITER.tcl
+#@ # -- Starting source ../scripts_synopsys/units/ARBITER.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/Arbiter.vhd
+#@ }
+#@ 
+#@ elaborate Arbiter -architecture BEHAVIOR -library DEFAULT
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_ARBITER.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_ARBITER.txt
+#@ 
+#@ check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_ARBITER.txt
+#@ # -- End source ../scripts_synopsys/units/ARBITER.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/units/FIFO.tcl
+#@ # -- Starting source ../scripts_synopsys/units/FIFO.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/FIFO.vhd
+#@ }
+#@ 
+#@ elaborate FIFO -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_FIFO.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_FIFO.txt
+#@ 
+#@ check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_FIFO.txt
+#@ # -- End source ../scripts_synopsys/units/FIFO.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/units/LBDR.tcl
+#@ # -- Starting source ../scripts_synopsys/units/LBDR.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/LBDR.vhd
+#@ }
+#@ 
+#@ elaborate LBDR -architecture BEHAVIOR -library DEFAULT -parameters "cur_addr_rst = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_LBDR.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_LBDR.txt
+#@ 
+#@ check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_LBDR.txt
+#@ # -- End source ../scripts_synopsys/units/LBDR.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/units/XBAR.tcl
+#@ # -- Starting source ../scripts_synopsys/units/XBAR.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/XBAR.vhd
+#@ }
+#@ 
+#@ elaborate XBAR -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"
+#@ 
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_XBAR.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/units/REPORTS_XBAR.txt
+#@ 
+#@ check_design > ../reports_synopsys/units/WARNINGS/WARNINGS_XBAR.txt
+#@ # -- End source ../scripts_synopsys/units/XBAR.tcl
+
+#@ 
+#@ echo ">>>>>FAULT CONTROLS<<<<<"
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v1.tcl
+#@ # -- Starting source ../scripts_synopsys/fc/fc_v1.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/FaultControl/Fault_Control_v1.vhd
+#@ }
+#@ 
+#@ elaborate Fault_Control_v1 -architecture RTL -library DEFAULT
+#@ 
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FC1.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/fc/REPORTS_FC1.txt
+#@ 
+#@ check_design > ../reports_synopsys/fc/WARNINGS/WARNINGS_FC1.txt
+#@ # -- End source ../scripts_synopsys/fc/fc_v1.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v2.tcl
+#@ # -- Starting source ../scripts_synopsys/fc/fc_v2.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/FaultControl/Fault_Control_v2.vhd
+#@ }
+#@ 
+#@ elaborate Fault_Control_v2 -architecture RTL -library DEFAULT
+#@ 
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FCv2.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/fc/REPORTS_FCv2.txt
+#@ 
+#@ check_design > ../reports_synopsys/fc/WARNINGS/WARNINGS_FCv2.txt
+#@ # -- End source ../scripts_synopsys/fc/fc_v2.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v3.tcl
+#@ # -- Starting source ../scripts_synopsys/fc/fc_v3.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/FaultControl/Fault_Control_v3.vhd
+#@ }
+#@ 
+#@ elaborate Fault_Control_v3 -architecture RTL -library DEFAULT
+#@ 
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FCv3.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/fc/REPORTS_FCv3.txt
+#@ 
+#@ check_design > ../reports_synopsys/fc/WARNINGS/WARNINGS_FCv3.txt
+#@ # -- End source ../scripts_synopsys/fc/fc_v3.tcl
+
+#@ 
+#@ echo ">>>>>MUXES<<<<<"
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/arbiter_muxes.tcl
+#@ # -- Starting source ../scripts_synopsys/mux/arbiter_muxes.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_2x1_Arbiter_output.vhd
+#@ }
+#@ elaborate MUX_2x1_Arbiter_output -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
+#@ uplevel #0 { report_area } > ../reports_synopsys/mux/area_Arbiter.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_Arbiter.txt
+#@ 
+#@ 
+#@ 
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+#@ }
+#@ elaborate MUX_5x1_Arbiter_input -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_Arbiter.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_Arbiter.txt
+#@ 
+#@ 
+#@ 
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_6x1_Arbiter_output.vhd
+#@ }
+#@ elaborate MUX_6x1_Arbiter_output -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_Arbiter.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_Arbiter.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_Arbiter.txt
+#@ # -- End source ../scripts_synopsys/mux/arbiter_muxes.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/FIFO_muxes.tcl
+#@ # -- Starting source ../scripts_synopsys/mux/FIFO_muxes.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_2x1_FIFO_output.vhd
+#@ }
+#@ elaborate MUX_2x1_FIFO_output -architecture RTL -library DEFAULT -parameters "DATA_WIDTH = 32"
+#@ compile -exact_map -ungroup_all
+#@ check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
+#@ uplevel #0 { report_area } > ../reports_synopsys/mux/area_FIFO.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_FIFO.txt
+#@ 
+#@ 
+#@ 
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+#@ }
+#@ elaborate MUX_5x1_FIFO_input -architecture RTL -library DEFAULT -parameters "DATA_WIDTH = 32"
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_FIFO.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_FIFO.txt
+#@ 
+#@ 
+#@ 
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_6x1_FIFO_output.vhd
+#@ }
+#@ elaborate MUX_6x1_FIFO_output -architecture RTL -library DEFAULT -parameters "DATA_WIDTH = 32"
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_FIFO.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_FIFO.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_FIFO.txt
+#@ # -- End source ../scripts_synopsys/mux/FIFO_muxes.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/LBDR_muxes.tcl
+#@ # -- Starting source ../scripts_synopsys/mux/LBDR_muxes.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_2x1_LBDR_output.vhd
+#@ }
+#@ elaborate MUX_2x1_LBDR_output -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
+#@ uplevel #0 { report_area } > ../reports_synopsys/mux/area_LBDR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
+#@ 
+#@ 
+#@ 
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+#@ }
+#@ elaborate MUX_5x1_LBDR_input -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_LBDR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
+#@ 
+#@ 
+#@ 
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_6x1_LBDR_output.vhd
+#@ }
+#@ elaborate MUX_6x1_LBDR_output -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_LBDR.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_LBDR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_LBDR.txt
+#@ # -- End source ../scripts_synopsys/mux/LBDR_muxes.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/mux/XBAR_muxes.tcl
+#@ # -- Starting source ../scripts_synopsys/mux/XBAR_muxes.tcl
+
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_2x1_XBAR_output.vhd
+#@ }
+#@ elaborate MUX_2x1_XBAR_output -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
+#@ uplevel #0 { report_area } > ../reports_synopsys/mux/area_XBAR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_XBAR.txt
+#@ 
+#@ 
+#@ 
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+#@ }
+#@ elaborate MUX_5x1_XBAR_input -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_XBAR.txt
+#@ 
+#@ 
+#@ 
+#@ remove_design -designs 
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_6x1_XBAR_output.vhd
+#@ }
+#@ elaborate MUX_6x1_XBAR_output -architecture RTL -library DEFAULT
+#@ compile -exact_map -ungroup_all
+#@ check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
+#@ uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/mux/timing_XBAR.txt
+#@ # -- End source ../scripts_synopsys/mux/XBAR_muxes.tcl
+
+#@ 
+#@ echo ">>>>>ROUTERS<<<<<"
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v0.tcl
+#@ # -- Starting source ../scripts_synopsys/router/Router_v0.tcl
+
+#@ remove_design -designs
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/xbar.vhd
+#@ ../../RTL/LBDR.vhd
+#@ ../../RTL/FIFO.vhd
+#@ ../../RTL/Arbiter.vhd
+#@ ../../RTL/Router/Router_v0_syn.vhd}
+#@ 
+#@ elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v0.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v0.txt
+#@ 
+#@ report_qor >> ../reports_synopsys/router/REPORTS_v0.txt
+#@ check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v0.txt
+#@ # -- End source ../scripts_synopsys/router/Router_v0.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v1.tcl
+#@ # -- Starting source ../scripts_synopsys/router/Router_v1.tcl
 
 #@ remove_design -designs
 #@ analyze -library WORK -format vhdl {
@@ -3802,6 +4140,73 @@ source -echo -verbose /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthe
 #@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v1.txt
 #@ report_qor >> ../reports_synopsys/router/REPORTS_v1.txt
 #@ check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v1.txt
-#@ # -- End source /home/INTRA/tsotne.putkaradze/P/workspace/EHA_N/EHA/Synthesis/Synopsys/../scripts_synopsys/router/Router_v1.tcl
+#@ # -- End source ../scripts_synopsys/router/Router_v1.tcl
 
-exit
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v2.tcl
+#@ # -- Starting source ../scripts_synopsys/router/Router_v2.tcl
+
+#@ remove_design -designs
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_5x1_XBAR_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_LBDR_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_FIFO_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_Arbiter_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+#@ ../../RTL/xbar.vhd
+#@ ../../RTL/LBDR.vhd
+#@ ../../RTL/FIFO.vhd
+#@ ../../RTL/Arbiter.vhd
+#@ ../../RTL/FaultControl/Fault_Control_v2.vhd
+#@ ../../RTL/Router/Router_v2_syn.vhd}
+#@ 
+#@ elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v2.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v2.txt
+#@ report_qor >> ../reports_synopsys/router/REPORTS_v2.txt
+#@ check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v2.txt
+#@ # -- End source ../scripts_synopsys/router/Router_v2.tcl
+
+#@ source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v3.tcl
+#@ # -- Starting source ../scripts_synopsys/router/Router_v3.tcl
+
+#@ remove_design -designs
+#@ analyze -library WORK -format vhdl {
+#@ ../../RTL/MUX/MUX_6x1_XBAR_output.vhd
+#@ ../../RTL/MUX/MUX_6x1_LBDR_output.vhd
+#@ ../../RTL/MUX/MUX_6x1_FIFO_output.vhd
+#@ ../../RTL/MUX/MUX_6x1_Arbiter_output.vhd
+#@ ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
+#@ ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+#@ ../../RTL/xbar.vhd
+#@ ../../RTL/LBDR.vhd
+#@ ../../RTL/FIFO.vhd
+#@ ../../RTL/Arbiter.vhd
+#@ ../../RTL/FaultControl/Fault_Control_v3.vhd
+#@ ../../RTL/Router/Router_v3_syn.vhd}
+#@ 
+#@ elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"
+#@ 
+#@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
+#@ 
+#@ compile -exact_map -ungroup_all
+#@ 
+#@ uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v3.txt
+#@ 
+#@ uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v3.txt
+#@ report_qor >> ../reports_synopsys/router/REPORTS_v3.txt
+#@ check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v3.txt
+#@ # -- End source ../scripts_synopsys/router/Router_v3.tcl
+
+#@ 
+#@ exit

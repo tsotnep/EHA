@@ -1,10 +1,11 @@
+remove_design -designs 
 analyze -library WORK -format vhdl {
 ../../RTL/XBAR.vhd
 }
 
 elaborate XBAR -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"
 
-compile -exact_map
+compile -exact_map -ungroup_all
 
 uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_XBAR.txt
 

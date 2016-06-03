@@ -1,10 +1,11 @@
+remove_design -designs 
 analyze -library WORK -format vhdl {
 ../../RTL/FaultControl/Fault_Control_v1.vhd
 }
 
 elaborate Fault_Control_v1 -architecture RTL -library DEFAULT
 
-compile -exact_map
+compile -exact_map -ungroup_all
 
 uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FC1.txt
 

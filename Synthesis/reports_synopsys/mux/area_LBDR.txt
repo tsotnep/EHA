@@ -3,7 +3,7 @@
 Report : area
 Design : MUX_2x1_LBDR_output
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 19:51:39 2016
+Date   : Fri Jun  3 14:34:47 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -34,7 +34,7 @@ Total area:                 undefined
 Report : area
 Design : MUX_5x1_LBDR_input
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 19:51:40 2016
+Date   : Fri Jun  3 14:34:48 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -65,7 +65,7 @@ Total area:                 undefined
 Report : area
 Design : MUX_6x1_LBDR_output
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 19:51:41 2016
+Date   : Fri Jun  3 14:34:49 2016
 ****************************************
 
 Information: Updating design information... (UID-85)

@@ -3,7 +3,7 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 11:57:08 2016
+Date   : Fri Jun  3 14:35:21 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -38,7 +38,7 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 11:57:09 2016
+Date   : Fri Jun  3 14:35:21 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
@@ -84,7 +84,7 @@ Wire Load Model Mode: top
 Report : qor
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 11:57:09 2016
+Date   : Fri Jun  3 14:35:21 2016
 ****************************************
 
 
@@ -144,12 +144,12 @@ Date   : Fri Jun  3 11:57:09 2016
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                    0.58
+  Resource Sharing:                    0.62
   Logic Optimization:                  1.55
-  Mapping Optimization:                3.38
+  Mapping Optimization:                3.48
   -----------------------------------------
-  Overall Compile Time:                8.16
-  Overall Compile Wall Clock Time:     8.41
+  Overall Compile Time:                8.43
+  Overall Compile Wall Clock Time:     8.69
 
   --------------------------------------------------------------------
 
