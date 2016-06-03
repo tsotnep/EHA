@@ -3,7 +3,7 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 19:51:49 2016
+Date   : Fri Jun  3 11:56:48 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -12,21 +12,21 @@ Library(s) Used:
     lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
 
 Number of ports:                          342
-Number of nets:                           566
-Number of cells:                           20
-Number of combinational cells:              0
-Number of sequential cells:                 0
+Number of nets:                          2936
+Number of cells:                         2706
+Number of combinational cells:           2011
+Number of sequential cells:               695
 Number of macros/black boxes:               0
-Number of buf/inv:                          0
-Number of references:                      20
+Number of buf/inv:                        245
+Number of references:                      26
 
-Combinational area:               4670.000000
-Buf/Inv area:                      765.000000
-Noncombinational area:            6300.000000
+Combinational area:               4780.000000
+Buf/Inv area:                      245.000000
+Noncombinational area:            6255.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                 10970.000000
+Total cell area:                 11035.000000
 Total area:                 undefined
 1
  
@@ -38,15 +38,15 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Thu Jun  2 19:51:49 2016
+Date   : Fri Jun  3 11:56:48 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
 Wire Load Model Mode: top
 
-  Startpoint: FIFO_E/read_pointer_reg[0]
+  Startpoint: FIFO_E/write_pointer_reg[1]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: LBDR_E/Req_E_FF_reg
+  Endpoint: FIFO_E/FIFO_Mem_reg[1][0]
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -55,32 +55,110 @@ Wire Load Model Mode: top
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  FIFO_E/read_pointer_reg[0]/CP (FD2)                     0.00       0.00 r
-  FIFO_E/read_pointer_reg[0]/QN (FD2)                     1.88       1.88 f
-  FIFO_E/U189/Z (NR2)                                     8.83      10.71 r
-  FIFO_E/U249/Z (AO2)                                     0.55      11.27 f
-  FIFO_E/U248/Z (ND2)                                     1.46      12.73 r
-  FIFO_E/Data_out[29] (FIFO_DATA_WIDTH32_4)               0.00      12.73 r
-  LBDR_E/flit_type[0] (LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4)
-                                                          0.00      12.73 r
-  LBDR_E/U23/Z (IVP)                                      0.23      12.96 f
-  LBDR_E/U19/Z (NR4)                                      2.61      15.57 r
-  LBDR_E/U18/Z (IVP)                                      0.23      15.80 f
-  LBDR_E/U20/Z (ND2)                                      0.91      16.71 r
-  LBDR_E/U27/Z (AO4)                                      0.45      17.16 f
-  LBDR_E/Req_E_FF_reg/D (FD2)                             0.00      17.16 f
-  data arrival time                                                 17.16
+  FIFO_E/write_pointer_reg[1]/CP (FD2)                    0.00       0.00 r
+  FIFO_E/write_pointer_reg[1]/Q (FD2)                     1.92       1.92 r
+  U639/Z (EO)                                             1.26       3.17 f
+  U646/Z (EO)                                             0.94       4.11 r
+  U645/Z (AO6)                                            0.35       4.46 f
+  U644/Z (ND2)                                            1.46       5.93 r
+  U88/Z (OR3)                                             9.86      15.79 r
+  U722/Z (EON1)                                           1.08      16.87 r
+  FIFO_E/FIFO_Mem_reg[1][0]/D (FD2)                       0.00      16.87 r
+  data arrival time                                                 16.87
 
   clock clk (rise edge)                                  20.00      20.00
   clock network delay (ideal)                             0.00      20.00
-  LBDR_E/Req_E_FF_reg/CP (FD2)                            0.00      20.00 r
+  FIFO_E/FIFO_Mem_reg[1][0]/CP (FD2)                      0.00      20.00 r
   library setup time                                     -0.85      19.15
   data required time                                                19.15
   --------------------------------------------------------------------------
   data required time                                                19.15
-  data arrival time                                                -17.16
+  data arrival time                                                -16.87
   --------------------------------------------------------------------------
-  slack (MET)                                                        1.99
+  slack (MET)                                                        2.28
+
+
+1
+ 
+****************************************
+Report : qor
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Fri Jun  3 11:56:48 2016
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:               6.00
+  Critical Path Length:         16.87
+  Critical Path Slack:           2.28
+  Critical Path Clk Period:     20.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:               2706
+  Buf/Inv Cell Count:             245
+  Buf Cell Count:                   0
+  Inv Cell Count:                 245
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      2011
+  Sequential Cell Count:          695
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:     4780.000000
+  Noncombinational Area:  6255.000000
+  Buf/Inv Area:            245.000000
+  Total Buffer Area:             0.00
+  Total Inverter Area:         245.00
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  -----------------------------------
+  Cell Area:             11035.000000
+  Design Area:           11035.000000
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          2936
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: fx8.pld.ttu.ee
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.12
+  Logic Optimization:                  0.78
+  Mapping Optimization:                1.96
+  -----------------------------------------
+  Overall Compile Time:                4.00
+  Overall Compile Wall Clock Time:     4.49
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
 
 
 1

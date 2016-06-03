@@ -1,3 +1,4 @@
+remove_design -designs
 analyze -library WORK -format vhdl {
 ../../RTL/MUX/MUX_6x1_XBAR_output.vhd
 ../../RTL/MUX/MUX_6x1_LBDR_output.vhd
@@ -18,10 +19,10 @@ elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH
 
 create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
 
-compile -exact_map
+compile -exact_map -ungroup_all
 
 uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v3.txt
 
 uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v3.txt
-
+report_qor >> ../reports_synopsys/router/REPORTS_v3.txt
 check_design > ../reports_synopsys/router/WARNINGS/WARNINGS_v3.txt
