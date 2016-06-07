@@ -7,3 +7,4 @@ mkdir WORK.syn
 
 ###sed -i -- 's/analyze -library WORK -format vhdl/remove_design -designs '\\n'analyze -library WORK -format vhdl/g' *
 ###sed -i -- 's/compile -exact_map/compile -exact_map -ungroup_all/g' *
+###sed -i -- 's/compile -exact_map -ungroup_all/compile -map_effort high -area_effort high -power_effort high -incremental_mapping -ungroup_all -gate_clock/g' *

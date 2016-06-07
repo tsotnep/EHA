@@ -10,7 +10,7 @@ elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH
 
 create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
 
-compile -exact_map -ungroup_all
+compile -map_effort high -area_effort high -power_effort high -incremental_mapping -ungroup_all -gate_clock
 
 uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v0.txt
 

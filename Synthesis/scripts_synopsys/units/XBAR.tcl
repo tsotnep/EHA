@@ -5,7 +5,7 @@ analyze -library WORK -format vhdl {
 
 elaborate XBAR -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"
 
-compile -exact_map -ungroup_all
+compile -map_effort high -area_effort high -power_effort high -incremental_mapping -ungroup_all -gate_clock
 
 uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_XBAR.txt
 
