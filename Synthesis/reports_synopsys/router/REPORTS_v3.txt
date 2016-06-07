@@ -3,7 +3,7 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:08:07 2016
+Date   : Wed Jun  8 01:07:16 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -12,21 +12,21 @@ Library(s) Used:
     lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
 
 Number of ports:                          366
-Number of nets:                          7052
-Number of cells:                         6700
-Number of combinational cells:           5761
-Number of sequential cells:               939
+Number of nets:                          6198
+Number of cells:                         5929
+Number of combinational cells:           4957
+Number of sequential cells:               937
 Number of macros/black boxes:               0
-Number of buf/inv:                        448
-Number of references:                      33
+Number of buf/inv:                        466
+Number of references:                      71
 
-Combinational area:              11080.000000
-Buf/Inv area:                      448.000000
-Noncombinational area:            8251.000000
+Combinational area:               9447.000000
+Buf/Inv area:                      659.000000
+Noncombinational area:            8425.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                 19331.000000
+Total cell area:                 17872.000000
 Total area:                 undefined
 1
  
@@ -38,16 +38,16 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:08:08 2016
+Date   : Wed Jun  8 01:07:17 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
 Wire Load Model Mode: top
 
-  Startpoint: Fault_Control_v3_inst/Input_MUX_UNIT_r_reg[0][3][1]
+  Startpoint: FIFO_E/read_pointer_reg[0]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: FIFO_S/FIFO_Mem_reg[0][0]
-            (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: LBDR_E/clk_gate_Req_L_FF_reg/latch
+            (negative level-sensitive latch clocked by clk)
   Path Group: clk
   Path Type: max
 
@@ -55,31 +55,39 @@ Wire Load Model Mode: top
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  Fault_Control_v3_inst/Input_MUX_UNIT_r_reg[0][3][1]/CP (FD1)
-                                                          0.00       0.00 r
-  Fault_Control_v3_inst/Input_MUX_UNIT_r_reg[0][3][1]/Q (FD1)
-                                                          1.53       1.53 f
-  U79/Z (NR2)                                            10.13      11.66 r
-  U3859/Z (AO2)                                           0.55      12.21 f
-  U3894/Z (ND3)                                           0.79      13.00 r
-  U3893/Z (ND2)                                           0.73      13.73 f
-  U3827/Z (NR2)                                           1.33      15.05 r
-  U3908/Z (AN2P)                                          0.68      15.74 r
-  U2605/Z (IVP)                                           2.28      18.02 f
-  U4198/Z (EON1)                                          1.08      19.10 r
-  FIFO_S/FIFO_Mem_reg[0][0]/D (FD2)                       0.00      19.10 r
-  data arrival time                                                 19.10
+  FIFO_E/read_pointer_reg[0]/CP (FD2P)                    0.00       0.00 r
+  FIFO_E/read_pointer_reg[0]/Q (FD2P)                     8.45       8.45 r
+  FIFO_E/U55/Z (MUX41P)                                   1.49       9.94 f
+  MUX_6x1_FIFO_output_N/U51/Z (AO2)                       1.08      11.02 r
+  MUX_6x1_FIFO_output_N/U47/Z (ND4)                       2.43      13.44 f
+  MUX_5x1_LBDR_input_E/U7/Z (AO2)                         1.60      15.05 r
+  U78/Z (IVAP)                                            0.24      15.29 f
+  LBDR_E/U17/Z (OR4)                                      1.51      16.80 f
+  LBDR_E/U14/Z (ND2)                                      0.64      17.44 r
+  LBDR_E/clk_gate_Req_L_FF_reg/EN (SNPS_CLOCK_GATE_HIGH_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_5)
+                                                          0.00      17.44 r
+  LBDR_E/clk_gate_Req_L_FF_reg/latch/D (LD2)              0.00      17.44 r
+  data arrival time                                                 17.44
 
-  clock clk (rise edge)                                  20.00      20.00
-  clock network delay (ideal)                             0.00      20.00
-  FIFO_S/FIFO_Mem_reg[0][0]/CP (FD2)                      0.00      20.00 r
-  library setup time                                     -0.85      19.15
-  data required time                                                19.15
+  clock clk (fall edge)                                  10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  LBDR_E/clk_gate_Req_L_FF_reg/latch/GN (LD2)             0.00      10.00 f
+  time borrowed from endpoint                             7.44      17.44
+  data required time                                                17.44
   --------------------------------------------------------------------------
-  data required time                                                19.15
-  data arrival time                                                -19.10
+  data required time                                                17.44
+  data arrival time                                                -17.44
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.05
+  slack (MET)                                                        0.00
+
+  Time Borrowing Information
+  --------------------------------------------------------------
+  clk nominal pulse width                                10.00   
+  library setup time                                     -0.40   
+  --------------------------------------------------------------
+  max time borrow                                         9.60   
+  actual time borrow                                      7.44   
+  --------------------------------------------------------------
 
 
 1
@@ -88,15 +96,15 @@ Wire Load Model Mode: top
 Report : qor
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:08:08 2016
+Date   : Wed Jun  8 01:07:17 2016
 ****************************************
 
 
   Timing Path Group 'clk'
   -----------------------------------
-  Levels of Logic:               8.00
-  Critical Path Length:         19.10
-  Critical Path Slack:           0.05
+  Levels of Logic:               7.00
+  Critical Path Length:         17.44
+  Critical Path Slack:           0.00
   Critical Path Clk Period:     20.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
@@ -108,36 +116,36 @@ Date   : Fri Jun  3 15:08:08 2016
 
   Cell Count
   -----------------------------------
-  Hierarchical Cell Count:          0
-  Hierarchical Port Count:          0
-  Leaf Cell Count:               6700
-  Buf/Inv Cell Count:             448
-  Buf Cell Count:                  79
-  Inv Cell Count:                 448
+  Hierarchical Cell Count:         35
+  Hierarchical Port Count:        105
+  Leaf Cell Count:               5964
+  Buf/Inv Cell Count:             466
+  Buf Cell Count:                   0
+  Inv Cell Count:                 466
   CT Buf/Inv Cell Count:            0
-  Combinational Cell Count:      5761
-  Sequential Cell Count:          939
+  Combinational Cell Count:      4992
+  Sequential Cell Count:          972
   Macro Count:                      0
   -----------------------------------
 
 
   Area
   -----------------------------------
-  Combinational Area:    11080.000000
-  Noncombinational Area:  8251.000000
-  Buf/Inv Area:            448.000000
-  Total Buffer Area:            79.00
-  Total Inverter Area:         448.00
+  Combinational Area:     9447.000000
+  Noncombinational Area:  8425.000000
+  Buf/Inv Area:            659.000000
+  Total Buffer Area:             0.00
+  Total Inverter Area:         659.00
   Macro/Black Box Area:      0.000000
   Net Area:                  0.000000
   -----------------------------------
-  Cell Area:             19331.000000
-  Design Area:           19331.000000
+  Cell Area:             17872.000000
+  Design Area:           17872.000000
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:          7052
+  Total Number of Nets:          6233
   Nets With Violations:             0
   Max Trans Violations:             0
   Max Cap Violations:               0
@@ -148,12 +156,12 @@ Date   : Fri Jun  3 15:08:08 2016
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                    0.78
-  Logic Optimization:                  1.80
-  Mapping Optimization:                4.37
+  Resource Sharing:                    0.75
+  Logic Optimization:                  2.96
+  Mapping Optimization:                1.63
   -----------------------------------------
-  Overall Compile Time:                9.96
-  Overall Compile Wall Clock Time:    10.23
+  Overall Compile Time:               11.05
+  Overall Compile Wall Clock Time:    11.30
 
   --------------------------------------------------------------------
 

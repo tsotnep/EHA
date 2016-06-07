@@ -3,7 +3,7 @@
 Report : area
 Design : LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:06:58 2016
+Date   : Wed Jun  8 01:06:11 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -12,21 +12,21 @@ Library(s) Used:
     lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
 
 Number of ports:                           15
-Number of nets:                            30
-Number of cells:                           15
-Number of combinational cells:             12
+Number of nets:                            39
+Number of cells:                           27
+Number of combinational cells:             23
 Number of sequential cells:                 3
 Number of macros/black boxes:               0
-Number of buf/inv:                          3
+Number of buf/inv:                          7
 Number of references:                       8
 
-Combinational area:                 20.000000
-Buf/Inv area:                        3.000000
-Noncombinational area:              27.000000
+Combinational area:                 46.000000
+Buf/Inv area:                       13.000000
+Noncombinational area:              32.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                    47.000000
+Total cell area:                    78.000000
 Total area:                 undefined
 1
  
@@ -38,39 +38,38 @@ Report : timing
         -sort_by group
 Design : LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:06:58 2016
+Date   : Wed Jun  8 01:06:11 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
 Wire Load Model Mode: top
 
-  Startpoint: Req_E_FF_reg
-              (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: Req_E_FF_reg
-            (rising edge-triggered flip-flop clocked by clk)
+  Startpoint: clk_gate_Req_L_FF_reg/latch
+              (negative level-sensitive latch clocked by clk)
+  Endpoint: clk_gate_Req_L_FF_reg/main_gate
+            (gating element for clock clk)
   Path Group: clk
   Path Type: max
 
-  Point                                    Incr       Path
-  -----------------------------------------------------------
-  clock clk (rise edge)                    0.00       0.00
-  clock network delay (ideal)              0.00       0.00
-  Req_E_FF_reg/CP (FD2)                    0.00       0.00 r
-  Req_E_FF_reg/QN (FD2)                    1.72       1.72 f
-  U8/Z (AO4)                               1.18       2.90 r
-  Req_E_FF_reg/D (FD2)                     0.00       2.90 r
-  data arrival time                                   2.90
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (fall edge)                                  10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  clk_gate_Req_L_FF_reg/latch/GN (LD2)                    0.00      10.00 f
+  clk_gate_Req_L_FF_reg/latch/Q (LD2)                     1.31      11.31 f
+  clk_gate_Req_L_FF_reg/main_gate/A (AN2P)                0.00      11.31 f
+  data arrival time                                                 11.31
 
-  clock clk (rise edge)                   20.00      20.00
-  clock network delay (ideal)              0.00      20.00
-  Req_E_FF_reg/CP (FD2)                    0.00      20.00 r
-  library setup time                      -0.85      19.15
-  data required time                                 19.15
-  -----------------------------------------------------------
-  data required time                                 19.15
-  data arrival time                                  -2.90
-  -----------------------------------------------------------
-  slack (MET)                                        16.25
+  clock clk (rise edge)                                  20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  clk_gate_Req_L_FF_reg/main_gate/B (AN2P)                0.00      20.00 r
+  clock gating setup time                                 0.00      20.00
+  data required time                                                20.00
+  --------------------------------------------------------------------------
+  data required time                                                20.00
+  data arrival time                                                -11.31
+  --------------------------------------------------------------------------
+  slack (MET)                                                        8.69
 
 
 1

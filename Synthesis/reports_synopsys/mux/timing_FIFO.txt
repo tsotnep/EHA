@@ -2125,3 +2125,151 @@ Wire Load Model Mode: top
 
 
 1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_2x1_FIFO_output_DATA_WIDTH32
+Version: J-2014.09-SP2
+Date   : Wed Jun  8 01:06:23 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_FIFO_output_sel_in[2]
+              (input port)
+  Endpoint: CTS_out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_FIFO_output_sel_in[2] (in)           0.00       0.00 f
+  I_0/Z (IVAP)                             0.33       0.33 r
+  C7/Z (AN2P)                              0.61       0.94 r
+  U71/Z (AN2)                              5.39       6.32 r
+  U70/Z (AO2)                              0.55       6.88 f
+  U69/Z (IV)                               0.38       7.26 r
+  CTS_out (out)                            0.00       7.26 r
+  data arrival time                                   7.26
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_5x1_FIFO_input_DATA_WIDTH32
+Version: J-2014.09-SP2
+Date   : Wed Jun  8 01:06:25 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_FIFO_input_sel_in[2]
+              (input port)
+  Endpoint: RX_out[31] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_FIFO_input_sel_in[2] (in)            0.00       0.00 f
+  I_0/Z (IVAP)                             0.33       0.33 r
+  C7/Z (AN2P)                              0.61       0.94 r
+  U155/Z (AN2)                             5.82       6.76 r
+  U33/Z (AO2)                              0.55       7.31 f
+  U30/Z (ND3)                              0.65       7.96 r
+  RX_out[31] (out)                         0.00       7.96 r
+  data arrival time                                   7.96
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_6x1_FIFO_output_DATA_WIDTH32
+Version: J-2014.09-SP2
+Date   : Wed Jun  8 01:06:26 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_FIFO_output_sel_in[2]
+              (input port)
+  Endpoint: CTS_out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_FIFO_output_sel_in[2] (in)           0.00       0.00 f
+  I_0/Z (IVAP)                             0.33       0.33 r
+  C7/Z (AN2P)                              0.61       0.94 r
+  U178/Z (AN2)                             5.39       6.32 r
+  U177/Z (AO2)                             0.55       6.88 f
+  U175/Z (ND4)                             0.65       7.53 r
+  CTS_out (out)                            0.00       7.53 r
+  data arrival time                                   7.53
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_5x1_FIFO_output_DATA_WIDTH32
+Version: J-2014.09-SP2
+Date   : Wed Jun  8 01:06:27 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_FIFO_output_sel_in[2]
+              (input port)
+  Endpoint: CTS_out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_FIFO_output_sel_in[2] (in)           0.00       0.00 f
+  I_0/Z (IVAP)                             0.33       0.33 r
+  C7/Z (AN2P)                              0.61       0.94 r
+  U144/Z (AN2)                             5.39       6.32 r
+  U143/Z (AO2)                             0.55       6.88 f
+  U140/Z (ND3)                             0.65       7.53 r
+  CTS_out (out)                            0.00       7.53 r
+  data arrival time                                   7.53
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

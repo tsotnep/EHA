@@ -3,7 +3,7 @@
 Report : area
 Design : Fault_Control_v3
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:04 2016
+Date   : Wed Jun  8 01:06:18 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -12,21 +12,21 @@ Library(s) Used:
     lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
 
 Number of ports:                          157
-Number of nets:                           377
-Number of cells:                          320
-Number of combinational cells:            220
+Number of nets:                           861
+Number of cells:                          804
+Number of combinational cells:            704
 Number of sequential cells:               100
 Number of macros/black boxes:               0
-Number of buf/inv:                         60
-Number of references:                      13
+Number of buf/inv:                        392
+Number of references:                      14
 
-Combinational area:                300.000000
-Buf/Inv area:                       60.000000
+Combinational area:               1204.000000
+Buf/Inv area:                      628.000000
 Noncombinational area:             700.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                  1000.000000
+Total cell area:                  1904.000000
 Total area:                 undefined
 1
  
@@ -38,24 +38,24 @@ Report : timing
         -sort_by group
 Design : Fault_Control_v3
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:04 2016
+Date   : Wed Jun  8 01:06:18 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
 Wire Load Model Mode: top
 
-  Startpoint: Input_MUX_UNIT_r_reg[0][1][0]
+  Startpoint: Input_MUX_UNIT_r_reg[0][2][0]
               (rising edge-triggered flip-flop)
-  Endpoint: MUX_5x1_FIFO_input_select_E_out[0]
+  Endpoint: MUX_5x1_FIFO_input_select_W_out[0]
             (output port)
   Path Group: (none)
   Path Type: max
 
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
-  Input_MUX_UNIT_r_reg[0][1][0]/CP (FD1)                  0.00       0.00 r
-  Input_MUX_UNIT_r_reg[0][1][0]/Q (FD1)                   1.37       1.37 f
-  MUX_5x1_FIFO_input_select_E_out[0] (out)                0.00       1.37 f
+  Input_MUX_UNIT_r_reg[0][2][0]/CP (FD1)                  0.00       0.00 r
+  Input_MUX_UNIT_r_reg[0][2][0]/Q (FD1)                   1.37       1.37 f
+  MUX_5x1_FIFO_input_select_W_out[0] (out)                0.00       1.37 f
   data arrival time                                                  1.37
   --------------------------------------------------------------------------
   (Path is unconstrained)

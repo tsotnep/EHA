@@ -1,1 +1,21 @@
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Wed Jun  8 01:06:40 2016
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      2
+    Unloaded inputs (LINT-8)                                        2
+
+Nets                                                                2
+    Unloaded nets (LINT-2)                                          2
+--------------------------------------------------------------------------------
+
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'DCTS_w' driven by pin 'DCTS_w' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', net 'DCTS_N' driven by pin 'DCTS_N' has no loads. (LINT-2)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', input port 'DCTS_N' is unloaded. (LINT-8)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', input port 'DCTS_w' is unloaded. (LINT-8)
 1

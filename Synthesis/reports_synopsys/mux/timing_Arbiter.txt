@@ -1639,3 +1639,158 @@ Wire Load Model Mode: top
 
 
 1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_2x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Wed Jun  8 01:06:19 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_Arbiter_output_sel_in[2]
+              (input port)
+  Endpoint: Xbar_sel_out[4]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  MUX_Arbiter_output_sel_in[2] (in)        0.00       0.00 r
+  I_1/Z (IVAP)                             0.21       0.21 f
+  U29/Z (IV)                               0.81       1.02 r
+  U28/Z (OR2)                              0.52       1.55 r
+  U26/Z (ND3)                              0.60       2.15 f
+  U25/Z (NR2)                              3.40       5.54 r
+  U3/Z (AO2)                               0.55       6.10 f
+  U2/Z (IV)                                0.38       6.48 r
+  Xbar_sel_out[4] (out)                    0.00       6.48 r
+  data arrival time                                   6.48
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_5x1_Arbiter_input
+Version: J-2014.09-SP2
+Date   : Wed Jun  8 01:06:20 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_Arbiter_input_sel_in[1]
+              (input port)
+  Endpoint: DCTS_out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_Arbiter_input_sel_in[1] (in)         0.00       0.00 f
+  I_1/Z (IVAP)                             0.33       0.33 r
+  C14/Z (OR2)                              0.67       0.99 r
+  U21/Z (IV)                               0.21       1.20 f
+  U20/Z (ND2)                              0.91       2.12 r
+  I_4/Z (IVAP)                             0.31       2.43 f
+  U24/Z (AO2)                              1.08       3.51 r
+  U23/Z (ND3)                              0.37       3.88 f
+  DCTS_out (out)                           0.00       3.88 f
+  data arrival time                                   3.88
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_6x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Wed Jun  8 01:06:21 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_Arbiter_output_sel_in[2]
+              (input port)
+  Endpoint: Xbar_sel_out[4]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_Arbiter_output_sel_in[2] (in)        0.00       0.00 f
+  I_0/Z (IVAP)                             0.33       0.33 r
+  C7/Z (AN2P)                              0.61       0.94 r
+  U63/Z (AN2)                              2.07       3.01 r
+  U4/Z (AO2)                               0.55       3.56 f
+  U2/Z (ND4)                               0.65       4.21 r
+  Xbar_sel_out[4] (out)                    0.00       4.21 r
+  data arrival time                                   4.21
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_5x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Wed Jun  8 01:06:22 2016
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: MUX_Arbiter_output_sel_in[2]
+              (input port)
+  Endpoint: Xbar_sel_out[4]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  MUX_Arbiter_output_sel_in[2] (in)        0.00       0.00 f
+  I_0/Z (IVAP)                             0.33       0.33 r
+  C7/Z (AN2P)                              0.61       0.94 r
+  U52/Z (AN2)                              2.07       3.01 r
+  U5/Z (AO2)                               0.55       3.56 f
+  U2/Z (ND3)                               0.65       4.21 r
+  Xbar_sel_out[4] (out)                    0.00       4.21 r
+  data arrival time                                   4.21
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

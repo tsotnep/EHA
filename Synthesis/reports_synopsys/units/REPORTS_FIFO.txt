@@ -3,7 +3,7 @@
 Report : area
 Design : FIFO_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:06:57 2016
+Date   : Wed Jun  8 01:06:09 2016
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -12,21 +12,21 @@ Library(s) Used:
     lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
 
 Number of ports:                           74
-Number of nets:                           577
-Number of cells:                          405
-Number of combinational cells:            272
-Number of sequential cells:               133
+Number of nets:                           251
+Number of cells:                          207
+Number of combinational cells:             69
+Number of sequential cells:               134
 Number of macros/black boxes:               0
-Number of buf/inv:                         94
-Number of references:                      16
+Number of buf/inv:                          5
+Number of references:                      19
 
-Combinational area:                581.000000
-Buf/Inv area:                       94.000000
-Noncombinational area:            1197.000000
+Combinational area:                313.000000
+Buf/Inv area:                        9.000000
+Noncombinational area:            1230.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                  1778.000000
+Total cell area:                  1543.000000
 Total area:                 undefined
 1
  
@@ -38,48 +38,57 @@ Report : timing
         -sort_by group
 Design : FIFO_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:06:57 2016
+Date   : Wed Jun  8 01:06:09 2016
 ****************************************
 
 Operating Conditions: nom_pvt   Library: lsi_10k
 Wire Load Model Mode: top
 
-  Startpoint: write_pointer_reg[1]
+  Startpoint: read_pointer_reg[1]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: FIFO_Mem_reg[3][2]
-            (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: clk_gate_FIFO_Mem_reg[0]/latch
+            (negative level-sensitive latch clocked by clk)
   Path Group: clk
   Path Type: max
 
-  Point                                    Incr       Path
-  -----------------------------------------------------------
-  clock clk (rise edge)                    0.00       0.00
-  clock network delay (ideal)              0.00       0.00
-  write_pointer_reg[1]/CP (FD2)            0.00       0.00 r
-  write_pointer_reg[1]/QN (FD2)            2.23       2.23 r
-  U186/Z (EN)                              1.26       3.49 f
-  U185/Z (EN)                              0.94       4.42 r
-  U183/Z (AO3)                             0.96       5.38 f
-  U116/Z (IV)                              0.67       6.05 r
-  U115/Z (AN2)                             0.91       6.96 r
-  U220/Z (AN2P)                            0.76       7.72 r
-  U261/Z (IVA)                             0.69       8.41 f
-  U225/Z (IVP)                             1.44       9.85 r
-  U266/Z (IVA)                             0.49      10.33 f
-  U22/Z (AO4)                              1.18      11.51 r
-  FIFO_Mem_reg[3][2]/D (FD2)               0.00      11.51 r
-  data arrival time                                  11.51
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  read_pointer_reg[1]/CP (FD2P)                           0.00       0.00 r
+  read_pointer_reg[1]/Q (FD2P)                            6.29       6.29 r
+  U9/Z (EO)                                               1.13       7.42 f
+  U11/Z (EO)                                              1.13       8.54 f
+  U12/Z (NR2)                                             1.33       9.87 r
+  I_3/Z (IVAP)                                            0.21      10.08 f
+  C933/Z (AN2P)                                           0.91      10.99 f
+  U55/Z (IVP)                                             0.56      11.55 r
+  U54/Z (EON1P)                                           1.19      12.74 f
+  U3/Z (AN2)                                              0.82      13.56 f
+  clk_gate_FIFO_Mem_reg[0]/EN (SNPS_CLOCK_GATE_HIGH_FIFO_DATA_WIDTH32_0)
+                                                          0.00      13.56 f
+  clk_gate_FIFO_Mem_reg[0]/latch/D (LD2)                  0.00      13.56 f
+  data arrival time                                                 13.56
 
-  clock clk (rise edge)                   20.00      20.00
-  clock network delay (ideal)              0.00      20.00
-  FIFO_Mem_reg[3][2]/CP (FD2)              0.00      20.00 r
-  library setup time                      -0.85      19.15
-  data required time                                 19.15
-  -----------------------------------------------------------
-  data required time                                 19.15
-  data arrival time                                 -11.51
-  -----------------------------------------------------------
-  slack (MET)                                         7.64
+  clock clk (fall edge)                                  10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  clk_gate_FIFO_Mem_reg[0]/latch/GN (LD2)                 0.00      10.00 f
+  time borrowed from endpoint                             3.56      13.56
+  data required time                                                13.56
+  --------------------------------------------------------------------------
+  data required time                                                13.56
+  data arrival time                                                -13.56
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+  Time Borrowing Information
+  --------------------------------------------------------------
+  clk nominal pulse width                                10.00   
+  library setup time                                     -0.40   
+  --------------------------------------------------------------
+  max time borrow                                         9.60   
+  actual time borrow                                      3.56   
+  --------------------------------------------------------------
 
 
 1
