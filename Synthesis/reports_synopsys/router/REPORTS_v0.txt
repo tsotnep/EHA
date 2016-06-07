@@ -1,4 +1,4 @@
- 
+
 ****************************************
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
@@ -29,7 +29,7 @@ Net Interconnect area:      undefined  (No wire load specified)
 Total cell area:                  9008.000000
 Total area:                 undefined
 1
- 
+
 ****************************************
 Report : timing
         -path full
@@ -82,16 +82,16 @@ Wire Load Model Mode: top
 
   Time Borrowing Information
   --------------------------------------------------------------
-  clk nominal pulse width                                10.00   
-  library setup time                                     -0.40   
+  clk nominal pulse width                                10.00
+  library setup time                                     -0.40
   --------------------------------------------------------------
-  max time borrow                                         9.60   
-  actual time borrow                                      6.81   
+  max time borrow                                         9.60
+  actual time borrow                                      6.81
   --------------------------------------------------------------
 
 
 1
- 
+
 ****************************************
 Report : qor
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
