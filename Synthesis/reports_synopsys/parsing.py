@@ -18,6 +18,8 @@ def parseNeededInfo( f, mux=0):
 
 out = open('out.txt', 'w')
 
+print >> out, "compile -map_effort high -area_effort high -power_effort high -incremental_mapping -ungroup_all -gate_clock"
+
 for v in range(4):
     with open("router/REPORTS_v"+`v`+".txt") as f:
         print >> out, "\n\nversion >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v"+`v`
