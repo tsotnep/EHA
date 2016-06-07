@@ -1,0 +1,170 @@
+compilation: compile -exact_map -ungroup_all
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v0
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Combinational area:               4780.000000
+Noncombinational area:            6255.000000
+Total cell area:                 11035.000000
+  Critical Path Length:         16.87
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v1
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Combinational area:               7709.000000
+Noncombinational area:            7515.000000
+Total cell area:                 15224.000000
+  Critical Path Length:         18.38
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v2
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Combinational area:               8993.000000
+Noncombinational area:            6879.000000
+Total cell area:                 15872.000000
+  Critical Path Length:         19.12
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v3
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Combinational area:              11080.000000
+Noncombinational area:            8251.000000
+Total cell area:                 19331.000000
+  Critical Path Length:         19.10
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> UNITS REPORTS_ARBITER
+Design : Arbiter
+Combinational area:                 81.000000
+Noncombinational area:              36.000000
+Total cell area:                   117.000000
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> UNITS REPORTS_FIFO
+Design : FIFO_DATA_WIDTH32
+Combinational area:                581.000000
+Noncombinational area:            1197.000000
+Total cell area:                  1778.000000
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> UNITS REPORTS_LBDR
+Design : LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4
+Combinational area:                 20.000000
+Noncombinational area:              27.000000
+Total cell area:                    47.000000
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> UNITS REPORTS_XBAR
+Design : XBAR_DATA_WIDTH32
+Combinational area:                248.000000
+Noncombinational area:               0.000000
+Total cell area:                   248.000000
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FC REPORTS_FC1
+Design : Fault_Control_v1
+Combinational area:                 42.000000
+Noncombinational area:               0.000000
+Total cell area:                    42.000000
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FC REPORTS_FCv2
+Design : Fault_Control_v2
+Combinational area:                180.000000
+Noncombinational area:             588.000000
+Total cell area:                   768.000000
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FC REPORTS_FCv3
+Design : Fault_Control_v3
+Combinational area:                300.000000
+Noncombinational area:             700.000000
+Total cell area:                  1000.000000
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> mux REPORTS, area_Arbiter
+Design : MUX_2x1_Arbiter_output
+Combinational area:                 41.000000
+Noncombinational area:               0.000000
+Total cell area:                    41.000000
+Design : MUX_5x1_Arbiter_input
+Combinational area:                 45.000000
+Noncombinational area:               0.000000
+Total cell area:                    45.000000
+Design : MUX_6x1_Arbiter_output
+Combinational area:                102.000000
+Noncombinational area:               0.000000
+Total cell area:                   102.000000
+Design : MUX_5x1_Arbiter_output
+Combinational area:                 89.000000
+Noncombinational area:               0.000000
+Total cell area:                    89.000000
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> mux REPORTS, area_FIFO
+Design : MUX_2x1_FIFO_output_DATA_WIDTH32
+Combinational area:                107.000000
+Noncombinational area:               0.000000
+Total cell area:                   107.000000
+Design : MUX_5x1_FIFO_input_DATA_WIDTH32
+Combinational area:                268.000000
+Noncombinational area:               0.000000
+Total cell area:                   268.000000
+Design : MUX_6x1_FIFO_output_DATA_WIDTH32
+Combinational area:                286.000000
+Noncombinational area:               0.000000
+Total cell area:                   286.000000
+Design : MUX_5x1_FIFO_output_DATA_WIDTH32
+Combinational area:                250.000000
+Noncombinational area:               0.000000
+Total cell area:                   250.000000
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> mux REPORTS, area_LBDR
+Design : MUX_2x1_LBDR_output
+Combinational area:                 25.000000
+Noncombinational area:               0.000000
+Total cell area:                    25.000000
+Design : MUX_5x1_LBDR_input
+Combinational area:                 68.000000
+Noncombinational area:               0.000000
+Total cell area:                    68.000000
+Design : MUX_6x1_LBDR_output
+Combinational area:                 54.000000
+Noncombinational area:               0.000000
+Total cell area:                    54.000000
+Design : MUX_5x1_LBDR_output
+Combinational area:                 47.000000
+Noncombinational area:               0.000000
+Total cell area:                    47.000000
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> mux REPORTS, area_XBAR
+Design : MUX_2x1_XBAR_output
+Combinational area:                101.000000
+Noncombinational area:               0.000000
+Total cell area:                   101.000000
+Design : MUX_5x1_XBAR_input
+Combinational area:                 47.000000
+Noncombinational area:               0.000000
+Total cell area:                    47.000000
+Design : MUX_6x1_XBAR_output
+Combinational area:                270.000000
+Noncombinational area:               0.000000
+Total cell area:                   270.000000
+Design : MUX_5x1_XBAR_output
+Combinational area:                236.000000
+Noncombinational area:               0.000000
+Total cell area:                   236.000000
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
