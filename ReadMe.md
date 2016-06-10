@@ -3,11 +3,12 @@ Authors:
 * Siavoosh Payandeh Azad
 * Karl Janson
 * Behrad Niazmand
+* Tsotne Putkaradze
 
 License:  	GNU GENERAL PUBLIC LICENSE Version 3
 
 -------------------------------------------------------------------------------------------------
-	Copyright (C) 2016 as collective work done by Siavoosh Payandeh Azad, Karl Janson  and Behrad Niazmand
+	Copyright (C) 2016 as collective work done by Siavoosh Payandeh Azad, Karl Janson, Behrad Niazmand and Tsotne Putkaradze
 -------------------------------------------------------------------------------------------------
 
 This project implements a simple NoC router which does not use any Virtual Channels (VCs). The router is intended for a 2D Network on-chip and has 5 input and 5 output ports (North-N, East-E, West-W, South-S and Local-L). It is composed of the following components: 
