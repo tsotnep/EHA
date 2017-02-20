@@ -7,6 +7,7 @@ file mkdir ../reports_synopsys/fc/WARNINGS
 file mkdir ../reports_synopsys/units/WARNINGS
 file mkdir ../reports_synopsys/router/WARNINGS
 file mkdir ../reports_synopsys/mux/WARNINGS
+file mkdir ../reports_synopsys/tmr/WARNINGS
 
 
 echo ">>>>>UNITS<<<<<"
@@ -31,5 +32,11 @@ source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v0.tc
 source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v1.tcl
 source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v2.tcl
 source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v3.tcl
+source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v4.tcl
 
+echo ">>>>>TMR<<<<<"
+source -continue_on_error -verbose -echo ../scripts_synopsys/tmr/tmr_ARBITER.tcl
+source -continue_on_error -verbose -echo ../scripts_synopsys/tmr/tmr_FIFO.tcl
+source -continue_on_error -verbose -echo ../scripts_synopsys/tmr/tmr_LBDR.tcl
+source -continue_on_error -verbose -echo ../scripts_synopsys/tmr/tmr_XBAR.tcl
 exit

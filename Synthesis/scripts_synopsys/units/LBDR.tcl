@@ -7,7 +7,7 @@ elaborate LBDR -architecture BEHAVIOR -library DEFAULT -parameters "cur_addr_rst
 
 create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
 
-compile -exact_map -ungroup_all
+compile
 
 uplevel #0 { report_area } > ../reports_synopsys/units/REPORTS_LBDR.txt
 

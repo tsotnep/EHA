@@ -5,7 +5,7 @@ analyze -library WORK -format vhdl {
 
 elaborate Fault_Control_v1 -architecture RTL -library DEFAULT
 
-compile -exact_map -ungroup_all
+compile
 
 uplevel #0 { report_area } > ../reports_synopsys/fc/REPORTS_FC1.txt
 
