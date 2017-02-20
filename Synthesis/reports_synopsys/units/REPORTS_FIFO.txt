@@ -3,31 +3,31 @@
 Report : area
 Design : FIFO_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:06:57 2016
+Date   : Mon Feb 20 16:51:43 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           74
-Number of nets:                           577
-Number of cells:                          405
-Number of combinational cells:            272
+Number of nets:                           398
+Number of cells:                          355
+Number of combinational cells:            222
 Number of sequential cells:               133
 Number of macros/black boxes:               0
-Number of buf/inv:                         94
+Number of buf/inv:                         43
 Number of references:                      16
 
-Combinational area:                581.000000
-Buf/Inv area:                       94.000000
-Noncombinational area:            1197.000000
+Combinational area:               5591.174523
+Buf/Inv area:                      429.004814
+Noncombinational area:            8633.721504
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:            5823.093753
 
-Total cell area:                  1778.000000
-Total area:                 undefined
+Total cell area:                 14224.896028
+Total area:                      20047.989781
 1
  
 ****************************************
@@ -38,48 +38,52 @@ Report : timing
         -sort_by group
 Design : FIFO_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:06:57 2016
+Date   : Mon Feb 20 16:51:43 2017
 ****************************************
 
-Operating Conditions: nom_pvt   Library: lsi_10k
-Wire Load Model Mode: top
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
 
-  Startpoint: write_pointer_reg[1]
+  Startpoint: read_pointer_reg[1]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: FIFO_Mem_reg[3][2]
+  Endpoint: FIFO_Mem_reg[2][0]
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FIFO_DATA_WIDTH32  c18_wl_30k            c18_CORELIB_TYP
 
   Point                                    Incr       Path
   -----------------------------------------------------------
   clock clk (rise edge)                    0.00       0.00
   clock network delay (ideal)              0.00       0.00
-  write_pointer_reg[1]/CP (FD2)            0.00       0.00 r
-  write_pointer_reg[1]/QN (FD2)            2.23       2.23 r
-  U186/Z (EN)                              1.26       3.49 f
-  U185/Z (EN)                              0.94       4.42 r
-  U183/Z (AO3)                             0.96       5.38 f
-  U116/Z (IV)                              0.67       6.05 r
-  U115/Z (AN2)                             0.91       6.96 r
-  U220/Z (AN2P)                            0.76       7.72 r
-  U261/Z (IVA)                             0.69       8.41 f
-  U225/Z (IVP)                             1.44       9.85 r
-  U266/Z (IVA)                             0.49      10.33 f
-  U22/Z (AO4)                              1.18      11.51 r
-  FIFO_Mem_reg[3][2]/D (FD2)               0.00      11.51 r
-  data arrival time                                  11.51
+  read_pointer_reg[1]/CP (DFCX1)           0.00       0.00 r
+  read_pointer_reg[1]/Q (DFCX1)            0.26       0.26 f
+  U329/Q (CLKBUFX2)                        0.17       0.42 f
+  U149/Q (XNOR2X2)                         0.14       0.56 f
+  U148/Q (XNOR2X2)                         0.13       0.69 f
+  U191/Q (AOI21X3)                         0.10       0.80 r
+  U162/Q (NAND2XL)                         0.30       1.10 f
+  U192/Q (NOR2XL)                          0.70       1.80 r
+  U193/Q (NAND2XL)                         0.22       2.01 f
+  U169/Q (CLKBUFX2)                        0.47       2.48 f
+  U166/Q (CLKINVX2)                        0.62       3.10 r
+  U204/Q (AO22X3)                          0.14       3.24 r
+  FIFO_Mem_reg[2][0]/D (DFCX1)             0.00       3.24 r
+  data arrival time                                   3.24
 
   clock clk (rise edge)                   20.00      20.00
   clock network delay (ideal)              0.00      20.00
-  FIFO_Mem_reg[3][2]/CP (FD2)              0.00      20.00 r
-  library setup time                      -0.85      19.15
-  data required time                                 19.15
+  FIFO_Mem_reg[2][0]/CP (DFCX1)            0.00      20.00 r
+  library setup time                      -0.15      19.85
+  data required time                                 19.85
   -----------------------------------------------------------
-  data required time                                 19.15
-  data arrival time                                 -11.51
+  data required time                                 19.85
+  data arrival time                                  -3.24
   -----------------------------------------------------------
-  slack (MET)                                         7.64
+  slack (MET)                                        16.61
 
 
 1

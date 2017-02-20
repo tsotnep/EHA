@@ -3,31 +3,31 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:52 2016
+Date   : Mon Feb 20 16:52:39 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                          362
-Number of nets:                          5702
-Number of cells:                         5409
-Number of combinational cells:           4626
-Number of sequential cells:               783
+Number of nets:                          1407
+Number of cells:                           97
+Number of combinational cells:             36
+Number of sequential cells:                 0
 Number of macros/black boxes:               0
-Number of buf/inv:                        395
-Number of references:                      33
+Number of buf/inv:                         35
+Number of references:                      63
 
-Combinational area:               8993.000000
-Buf/Inv area:                      395.000000
-Noncombinational area:            6879.000000
+Combinational area:              94429.037979
+Buf/Inv area:                    11425.075577
+Noncombinational area:           49945.189804
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:           93694.407903
 
-Total cell area:                 15872.000000
-Total area:                 undefined
+Total cell area:                144374.227783
+Total area:                     238068.635686
 1
  
 ****************************************
@@ -38,44 +38,65 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:52 2016
+Date   : Mon Feb 20 16:52:39 2017
 ****************************************
 
-Operating Conditions: nom_pvt   Library: lsi_10k
-Wire Load Model Mode: top
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
 
-  Startpoint: FIFO_E/read_pointer_reg[0]
+  Startpoint: Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][4][2]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: FIFO_E/FIFO_Mem_reg[1][0]
+  Endpoint: FIFO_L/FIFO_Mem_reg[0][0]
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
 
-  Point                                    Incr       Path
-  -----------------------------------------------------------
-  clock clk (rise edge)                    0.00       0.00
-  clock network delay (ideal)              0.00       0.00
-  FIFO_E/read_pointer_reg[0]/CP (FD2)      0.00       0.00 r
-  FIFO_E/read_pointer_reg[0]/QN (FD2)      1.93       1.93 f
-  U2070/Z (IVP)                            3.49       5.43 r
-  U2034/Z (EO)                             0.94       6.36 r
-  U3006/Z (AO6)                            0.35       6.71 f
-  U3004/Z (ND2)                            1.46       8.18 r
-  U29/Z (OR3)                              9.86      18.04 r
-  U3088/Z (EON1)                           1.08      19.12 r
-  FIFO_E/FIFO_Mem_reg[1][0]/D (FD2)        0.00      19.12 r
-  data arrival time                                  19.12
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+                     c18_wl_30k            c18_CORELIB_TYP
+  MUX_5x1_FIFO_input_DATA_WIDTH32_1
+                     c18_wl_30k            c18_CORELIB_TYP
+  FIFO_DATA_WIDTH32_1
+                     c18_wl_30k            c18_CORELIB_TYP
 
-  clock clk (rise edge)                   20.00      20.00
-  clock network delay (ideal)              0.00      20.00
-  FIFO_E/FIFO_Mem_reg[1][0]/CP (FD2)       0.00      20.00 r
-  library setup time                      -0.85      19.15
-  data required time                                 19.15
-  -----------------------------------------------------------
-  data required time                                 19.15
-  data arrival time                                 -19.12
-  -----------------------------------------------------------
-  slack (MET)                                         0.03
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][4][2]/CP (DFX2)
+                                                          0.00       0.00 r
+  Fault_Control_v2_inst/Input_MUX_UNIT_r_reg[0][4][2]/Q (DFX2)
+                                                          0.29       0.29 f
+  Fault_Control_v2_inst/MUX_5x1_FIFO_input_select_L_out[2] (Fault_Control_v2)
+                                                          0.00       0.29 f
+  MUX_5x1_FIFO_input_L/MUX_FIFO_input_sel_in[2] (MUX_5x1_FIFO_input_DATA_WIDTH32_1)
+                                                          0.00       0.29 f
+  MUX_5x1_FIFO_input_L/U160/Q (INVXL)                     0.45       0.74 r
+  MUX_5x1_FIFO_input_L/U162/Q (NAND3X3)                   0.76       1.50 f
+  MUX_5x1_FIFO_input_L/U28/Q (OAI211X3)                   0.30       1.80 r
+  MUX_5x1_FIFO_input_L/DRTS_out (MUX_5x1_FIFO_input_DATA_WIDTH32_1)
+                                                          0.00       1.80 r
+  FIFO_L/DRTS (FIFO_DATA_WIDTH32_1)                       0.00       1.80 r
+  FIFO_L/U12/Q (NAND2XL)                                  0.31       2.12 f
+  FIFO_L/U61/Q (NOR2XL)                                   0.70       2.82 r
+  FIFO_L/U63/Q (NAND2XL)                                  0.22       3.03 f
+  FIFO_L/U33/Q (CLKBUFX2)                                 0.47       3.50 f
+  FIFO_L/U19/Q (CLKINVX2)                                 0.62       4.12 r
+  FIFO_L/U74/Q (AO22X3)                                   0.14       4.26 r
+  FIFO_L/FIFO_Mem_reg[0][0]/D (DFCX1)                     0.00       4.26 r
+  data arrival time                                                  4.26
+
+  clock clk (rise edge)                                  20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  FIFO_L/FIFO_Mem_reg[0][0]/CP (DFCX1)                    0.00      20.00 r
+  library setup time                                     -0.15      19.85
+  data required time                                                19.85
+  --------------------------------------------------------------------------
+  data required time                                                19.85
+  data arrival time                                                 -4.26
+  --------------------------------------------------------------------------
+  slack (MET)                                                       15.59
 
 
 1
@@ -84,15 +105,15 @@ Wire Load Model Mode: top
 Report : qor
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:52 2016
+Date   : Mon Feb 20 16:52:39 2017
 ****************************************
 
 
   Timing Path Group 'clk'
   -----------------------------------
-  Levels of Logic:               6.00
-  Critical Path Length:         19.12
-  Critical Path Slack:           0.03
+  Levels of Logic:               9.00
+  Critical Path Length:          4.26
+  Critical Path Slack:          15.59
   Critical Path Clk Period:     20.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
@@ -104,52 +125,52 @@ Date   : Fri Jun  3 15:07:52 2016
 
   Cell Count
   -----------------------------------
-  Hierarchical Cell Count:          0
-  Hierarchical Port Count:          0
-  Leaf Cell Count:               5409
-  Buf/Inv Cell Count:             395
-  Buf Cell Count:                  27
-  Inv Cell Count:                 395
+  Hierarchical Cell Count:         61
+  Hierarchical Port Count:       5956
+  Leaf Cell Count:               6411
+  Buf/Inv Cell Count:            1471
+  Buf Cell Count:                 542
+  Inv Cell Count:                 929
   CT Buf/Inv Cell Count:            0
-  Combinational Cell Count:      4626
-  Sequential Cell Count:          783
+  Combinational Cell Count:      5627
+  Sequential Cell Count:          784
   Macro Count:                      0
   -----------------------------------
 
 
   Area
   -----------------------------------
-  Combinational Area:     8993.000000
-  Noncombinational Area:  6879.000000
-  Buf/Inv Area:            395.000000
-  Total Buffer Area:            27.00
-  Total Inverter Area:         395.00
+  Combinational Area:    94429.037979
+  Noncombinational Area: 49945.189804
+  Buf/Inv Area:          11425.075577
+  Total Buffer Area:          6118.96
+  Total Inverter Area:        5306.11
   Macro/Black Box Area:      0.000000
-  Net Area:                  0.000000
+  Net Area:              93694.407903
   -----------------------------------
-  Cell Area:             15872.000000
-  Design Area:           15872.000000
+  Cell Area:            144374.227783
+  Design Area:          238068.635686
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:          5702
+  Total Number of Nets:          6638
   Nets With Violations:             0
   Max Trans Violations:             0
   Max Cap Violations:               0
   -----------------------------------
 
 
-  Hostname: fx8.pld.ttu.ee
+  Hostname: viineripirukas
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                    0.60
-  Logic Optimization:                  1.54
-  Mapping Optimization:                3.48
+  Resource Sharing:                    1.22
+  Logic Optimization:                  1.49
+  Mapping Optimization:                5.04
   -----------------------------------------
-  Overall Compile Time:                8.47
-  Overall Compile Wall Clock Time:     8.72
+  Overall Compile Time:                9.87
+  Overall Compile Wall Clock Time:    10.09
 
   --------------------------------------------------------------------
 

@@ -2,15 +2,47 @@
 ****************************************
 check_design summary:
 Version:     J-2014.09-SP2
-Date:        Fri Jun  3 15:07:04 2016
+Date:        Mon Feb 20 16:51:50 2017
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Inputs/Outputs                                                     32
+Inputs/Outputs                                                     63
+    Shorted outputs (LINT-31)                                      31
     Constant outputs (LINT-52)                                     32
 --------------------------------------------------------------------------------
 
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_FIFO_input_select_N_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_FIFO_input_select_N_out[0]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_FIFO_input_select_E_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_FIFO_input_select_E_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_FIFO_input_select_W_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_FIFO_input_select_S_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_LBDR_input_select_N_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_LBDR_input_select_N_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_LBDR_input_select_N_out[0]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_LBDR_input_select_E_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_LBDR_input_select_E_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_LBDR_input_select_W_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_LBDR_input_select_S_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_ARBITER_input_select_N_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_ARBITER_input_select_N_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_ARBITER_input_select_N_out[0]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_ARBITER_input_select_E_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_ARBITER_input_select_E_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_ARBITER_input_select_W_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_ARBITER_input_select_S_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_XBAR_input_select_N_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_XBAR_input_select_N_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_XBAR_input_select_N_out[0]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_XBAR_input_select_E_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_XBAR_input_select_E_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_XBAR_input_select_W_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_5x1_XBAR_input_select_S_out[2]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_6x1_FIFO_output_select_L_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_6x1_LBDR_output_select_L_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_6x1_ARBITER_output_select_L_out[1]'. (LINT-31)
+Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to output port 'MUX_6x1_XBAR_output_select_L_out[1]'. (LINT-31)
 Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[2]' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[1]' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'Fault_Control_v3', output port 'MUX_5x1_FIFO_input_select_N_out[0]' is connected directly to 'logic 0'. (LINT-52)

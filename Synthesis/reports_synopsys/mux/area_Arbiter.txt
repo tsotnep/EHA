@@ -3,75 +3,75 @@
 Report : area
 Design : MUX_2x1_Arbiter_output
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:05 2016
+Date   : Mon Feb 20 16:51:51 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           36
-Number of nets:                            52
-Number of cells:                           27
-Number of combinational cells:             27
+Number of nets:                            41
+Number of cells:                           16
+Number of combinational cells:             16
 Number of sequential cells:                 0
 Number of macros/black boxes:               0
-Number of buf/inv:                         12
-Number of references:                       5
+Number of buf/inv:                          1
+Number of references:                       6
 
-Combinational area:                 41.000000
-Buf/Inv area:                       12.000000
+Combinational area:                310.464010
+Buf/Inv area:                        5.644800
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:             333.517414
 
-Total cell area:                    41.000000
-Total area:                 undefined
+Total cell area:                   310.464010
+Total area:                        643.981424
 1
  
 ****************************************
 Report : area
 Design : MUX_5x1_Arbiter_input
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:06 2016
+Date   : Mon Feb 20 16:51:53 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           39
-Number of nets:                            55
-Number of cells:                           27
-Number of combinational cells:             27
+Number of nets:                            49
+Number of cells:                           21
+Number of combinational cells:             21
 Number of sequential cells:                 0
 Number of macros/black boxes:               0
-Number of buf/inv:                          3
-Number of references:                       5
+Number of buf/inv:                          2
+Number of references:                       8
 
-Combinational area:                 45.000000
-Buf/Inv area:                        3.000000
+Combinational area:                386.668806
+Buf/Inv area:                       11.289600
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:             417.885904
 
-Total cell area:                    45.000000
-Total area:                 undefined
+Total cell area:                   386.668806
+Total area:                        804.554710
 1
  
 ****************************************
 Report : area
 Design : MUX_6x1_Arbiter_output
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:07 2016
+Date   : Mon Feb 20 16:51:54 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           80
 Number of nets:                           132
@@ -82,27 +82,27 @@ Number of macros/black boxes:               0
 Number of buf/inv:                          2
 Number of references:                       6
 
-Combinational area:                102.000000
-Buf/Inv area:                        2.000000
+Combinational area:                939.859200
+Buf/Inv area:                       11.289600
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:            1077.830325
 
-Total cell area:                   102.000000
-Total area:                 undefined
+Total cell area:                   939.859200
+Total area:                       2017.689524
 1
  
 ****************************************
 Report : area
 Design : MUX_5x1_Arbiter_output
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:09 2016
+Date   : Mon Feb 20 16:51:55 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           69
 Number of nets:                           109
@@ -113,12 +113,12 @@ Number of macros/black boxes:               0
 Number of buf/inv:                          2
 Number of references:                       6
 
-Combinational area:                 89.000000
-Buf/Inv area:                        2.000000
+Combinational area:                767.692804
+Buf/Inv area:                       11.289600
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:             890.318069
 
-Total cell area:                    89.000000
-Total area:                 undefined
+Total cell area:                   767.692804
+Total area:                       1658.010873
 1

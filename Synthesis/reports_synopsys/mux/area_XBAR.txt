@@ -3,44 +3,44 @@
 Report : area
 Design : MUX_2x1_XBAR_output
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:19 2016
+Date   : Mon Feb 20 16:52:08 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           99
-Number of nets:                           134
-Number of cells:                           67
-Number of combinational cells:             67
+Number of nets:                           102
+Number of cells:                           35
+Number of combinational cells:             35
 Number of sequential cells:                 0
 Number of macros/black boxes:               0
-Number of buf/inv:                         33
+Number of buf/inv:                          1
 Number of references:                       4
 
-Combinational area:                101.000000
-Buf/Inv area:                       33.000000
+Combinational area:                759.225625
+Buf/Inv area:                        5.644800
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:             862.991794
 
-Total cell area:                   101.000000
-Total area:                 undefined
+Total cell area:                   759.225625
+Total area:                       1622.217419
 1
  
 ****************************************
 Report : area
 Design : MUX_5x1_XBAR_input
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:20 2016
+Date   : Mon Feb 20 16:52:09 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           33
 Number of nets:                            55
@@ -51,27 +51,27 @@ Number of macros/black boxes:               0
 Number of buf/inv:                          2
 Number of references:                       6
 
-Combinational area:                 47.000000
-Buf/Inv area:                        2.000000
+Combinational area:                395.136003
+Buf/Inv area:                       11.289600
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:             452.302605
 
-Total cell area:                    47.000000
-Total area:                 undefined
+Total cell area:                   395.136003
+Total area:                        847.438609
 1
  
 ****************************************
 Report : area
 Design : MUX_6x1_XBAR_output
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:21 2016
+Date   : Mon Feb 20 16:52:11 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                          227
 Number of nets:                           363
@@ -82,27 +82,27 @@ Number of macros/black boxes:               0
 Number of buf/inv:                          2
 Number of references:                       6
 
-Combinational area:                270.000000
-Buf/Inv area:                        2.000000
+Combinational area:               2540.159992
+Buf/Inv area:                       11.289600
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:            2941.587078
 
-Total cell area:                   270.000000
-Total area:                 undefined
+Total cell area:                  2540.159992
+Total area:                       5481.747070
 1
  
 ****************************************
 Report : area
 Design : MUX_5x1_XBAR_output
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:22 2016
+Date   : Mon Feb 20 16:52:12 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                          195
 Number of nets:                           298
@@ -110,15 +110,15 @@ Number of cells:                          135
 Number of combinational cells:            135
 Number of sequential cells:                 0
 Number of macros/black boxes:               0
-Number of buf/inv:                          2
+Number of buf/inv:                         34
 Number of references:                       6
 
-Combinational area:                236.000000
-Buf/Inv area:                        2.000000
+Combinational area:               2071.641607
+Buf/Inv area:                      191.923206
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:            2423.372287
 
-Total cell area:                   236.000000
-Total area:                 undefined
+Total cell area:                  2071.641607
+Total area:                       4495.013894
 1

@@ -3,31 +3,31 @@
 Report : area
 Design : Arbiter
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:06:55 2016
+Date   : Mon Feb 20 16:51:41 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           19
-Number of nets:                            71
-Number of cells:                           59
-Number of combinational cells:             55
+Number of nets:                            66
+Number of cells:                           54
+Number of combinational cells:             50
 Number of sequential cells:                 4
 Number of macros/black boxes:               0
-Number of buf/inv:                         13
-Number of references:                      16
+Number of buf/inv:                         12
+Number of references:                      17
 
-Combinational area:                 81.000000
-Buf/Inv area:                       13.000000
-Noncombinational area:              36.000000
+Combinational area:                601.171215
+Buf/Inv area:                       67.737602
+Noncombinational area:             259.660797
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:             742.001685
 
-Total cell area:                   117.000000
-Total area:                 undefined
+Total cell area:                   860.832012
+Total area:                       1602.833697
 1
  
 ****************************************
@@ -38,46 +38,50 @@ Report : timing
         -sort_by group
 Design : Arbiter
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:06:55 2016
+Date   : Mon Feb 20 16:51:41 2017
 ****************************************
 
-Operating Conditions: nom_pvt   Library: lsi_10k
-Wire Load Model Mode: top
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
 
-  Startpoint: state_reg[0]
+  Startpoint: state_reg[1]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: state_reg[1]
+  Endpoint: state_reg[0]
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Arbiter            c18_wl_30k            c18_CORELIB_TYP
 
   Point                                    Incr       Path
   -----------------------------------------------------------
   clock clk (rise edge)                    0.00       0.00
   clock network delay (ideal)              0.00       0.00
-  state_reg[0]/CP (FD2)                    0.00       0.00 r
-  state_reg[0]/Q (FD2)                     1.58       1.58 f
-  U52/Z (NR2)                              1.59       3.16 r
-  U51/Z (NR2)                              0.37       3.53 f
-  U34/Z (AO6)                              1.34       4.88 r
-  U33/Z (AO7)                              0.62       5.49 f
-  U17/Z (ND3)                              0.93       6.42 r
-  U16/Z (ND4)                              0.59       7.02 f
-  U15/Z (ND2)                              0.64       7.65 r
-  U10/Z (AO3)                              0.50       8.16 f
-  state_reg[1]/D (FD2)                     0.00       8.16 f
-  data arrival time                                   8.16
+  state_reg[1]/CP (DFCX1)                  0.00       0.00 r
+  state_reg[1]/Q (DFCX1)                   0.38       0.38 f
+  U49/Q (NOR2XL)                           0.93       1.31 r
+  U48/Q (NOR2XL)                           0.32       1.63 f
+  U25/Q (AOI221X1)                         0.58       2.21 r
+  U23/Q (AOI21X1)                          0.13       2.34 f
+  U21/Q (OAI21X1)                          0.28       2.62 r
+  U19/Q (AOI21X1)                          0.11       2.73 f
+  U17/Q (AOI311X1)                         0.42       3.14 r
+  U16/Q (OAI221X1)                         0.18       3.32 f
+  state_reg[0]/D (DFCX1)                   0.00       3.32 f
+  data arrival time                                   3.32
 
   clock clk (rise edge)                   20.00      20.00
   clock network delay (ideal)              0.00      20.00
-  state_reg[1]/CP (FD2)                    0.00      20.00 r
-  library setup time                      -0.85      19.15
-  data required time                                 19.15
+  state_reg[0]/CP (DFCX1)                  0.00      20.00 r
+  library setup time                      -0.16      19.84
+  data required time                                 19.84
   -----------------------------------------------------------
-  data required time                                 19.15
-  data arrival time                                  -8.16
+  data required time                                 19.84
+  data arrival time                                  -3.32
   -----------------------------------------------------------
-  slack (MET)                                        10.99
+  slack (MET)                                        16.52
 
 
 1

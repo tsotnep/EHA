@@ -3,13 +3,13 @@
 Report : area
 Design : MUX_2x1_LBDR_output
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:14 2016
+Date   : Mon Feb 20 16:52:02 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           18
 Number of nets:                            25
@@ -20,27 +20,27 @@ Number of macros/black boxes:               0
 Number of buf/inv:                          0
 Number of references:                       4
 
-Combinational area:                 25.000000
+Combinational area:                191.923206
 Buf/Inv area:                        0.000000
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:             181.882471
 
-Total cell area:                    25.000000
-Total area:                 undefined
+Total cell area:                   191.923206
+Total area:                        373.805677
 1
  
 ****************************************
 Report : area
 Design : MUX_5x1_LBDR_input
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:16 2016
+Date   : Mon Feb 20 16:52:04 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           51
 Number of nets:                            82
@@ -51,27 +51,27 @@ Number of macros/black boxes:               0
 Number of buf/inv:                          2
 Number of references:                       6
 
-Combinational area:                 68.000000
-Buf/Inv area:                        2.000000
+Combinational area:                581.414404
+Buf/Inv area:                       11.289600
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:             671.310337
 
-Total cell area:                    68.000000
-Total area:                 undefined
+Total cell area:                   581.414404
+Total area:                       1252.724741
 1
  
 ****************************************
 Report : area
 Design : MUX_6x1_LBDR_output
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:17 2016
+Date   : Mon Feb 20 16:52:05 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           38
 Number of nets:                            66
@@ -82,27 +82,27 @@ Number of macros/black boxes:               0
 Number of buf/inv:                          2
 Number of references:                       6
 
-Combinational area:                 54.000000
-Buf/Inv area:                        2.000000
+Combinational area:                482.630402
+Buf/Inv area:                       11.289600
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:             545.328428
 
-Total cell area:                    54.000000
-Total area:                 undefined
+Total cell area:                   482.630402
+Total area:                       1027.958829
 1
  
 ****************************************
 Report : area
 Design : MUX_5x1_LBDR_output
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:18 2016
+Date   : Mon Feb 20 16:52:06 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                           33
 Number of nets:                            55
@@ -113,12 +113,12 @@ Number of macros/black boxes:               0
 Number of buf/inv:                          2
 Number of references:                       6
 
-Combinational area:                 47.000000
-Buf/Inv area:                        2.000000
+Combinational area:                395.136003
+Buf/Inv area:                       11.289600
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:             452.302605
 
-Total cell area:                    47.000000
-Total area:                 undefined
+Total cell area:                   395.136003
+Total area:                        847.438609
 1

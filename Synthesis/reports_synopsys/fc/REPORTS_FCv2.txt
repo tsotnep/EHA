@@ -3,31 +3,31 @@
 Report : area
 Design : Fault_Control_v2
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:02 2016
+Date   : Mon Feb 20 16:51:48 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
 Library(s) Used:
 
-    lsi_10k (File: /eda/synopsys/2014-15/SLESx86/SYN_2014.09-SP2/libraries/syn/lsi_10k.db)
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
 
 Number of ports:                          141
-Number of nets:                           273
-Number of cells:                          216
-Number of combinational cells:            132
+Number of nets:                           242
+Number of cells:                          221
+Number of combinational cells:            137
 Number of sequential cells:                84
 Number of macros/black boxes:               0
-Number of buf/inv:                         32
-Number of references:                      11
+Number of buf/inv:                         36
+Number of references:                      13
 
-Combinational area:                180.000000
-Buf/Inv area:                       32.000000
-Noncombinational area:             588.000000
+Combinational area:               1402.732839
+Buf/Inv area:                      203.212807
+Noncombinational area:            4504.550308
 Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (No wire load specified)
+Net Interconnect area:            2799.057556
 
-Total cell area:                   768.000000
-Total area:                 undefined
+Total cell area:                  5907.283147
+Total area:                       8706.340703
 1
  
 ****************************************
@@ -38,11 +38,11 @@ Report : timing
         -sort_by group
 Design : Fault_Control_v2
 Version: J-2014.09-SP2
-Date   : Fri Jun  3 15:07:02 2016
+Date   : Mon Feb 20 16:51:48 2017
 ****************************************
 
-Operating Conditions: nom_pvt   Library: lsi_10k
-Wire Load Model Mode: top
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
 
   Startpoint: Input_MUX_UNIT_r_reg[0][1][0]
               (rising edge-triggered flip-flop)
@@ -51,12 +51,16 @@ Wire Load Model Mode: top
   Path Group: (none)
   Path Type: max
 
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Fault_Control_v2   c18_wl_30k            c18_CORELIB_TYP
+
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
-  Input_MUX_UNIT_r_reg[0][1][0]/CP (FD1)                  0.00       0.00 r
-  Input_MUX_UNIT_r_reg[0][1][0]/Q (FD1)                   1.37       1.37 f
-  MUX_5x1_FIFO_input_select_E_out[0] (out)                0.00       1.37 f
-  data arrival time                                                  1.37
+  Input_MUX_UNIT_r_reg[0][1][0]/CP (DFX2)                 0.00       0.00 r
+  Input_MUX_UNIT_r_reg[0][1][0]/Q (DFX2)                  0.24       0.24 f
+  MUX_5x1_FIFO_input_select_E_out[0] (out)                0.00       0.24 f
+  data arrival time                                                  0.24
   --------------------------------------------------------------------------
   (Path is unconstrained)
 

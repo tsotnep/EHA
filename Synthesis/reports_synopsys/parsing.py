@@ -6,7 +6,7 @@ def parseNeededInfo( f, mux=0):
             print >> out, line
         if "Noncombinational area:" in line:
             print >> out, line
-        if "Total cell area:" in line:
+        if "Total area:" in line:
             print >> out, line
         if "Critical Path Length" in line:
             print >> out, line
@@ -51,6 +51,15 @@ for v in ["Arbiter", "FIFO", "LBDR", "XBAR"]:
     with open("mux/area_"+v+".txt") as f:
         print >> out, "\n\nversion >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> mux REPORTS, area_"+v
         parseNeededInfo(f,1)
+print >> out, "XXXXXXXXXXXXXXXXXXX"
+print >> out, "XXXXXXXXXXXXXXXXXXX"
+print >> out, "XXXXXXXXXXXXXXXXXXX"
+
+
+for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
+    with open("tmr/REPORTS_tmr_"+v+".txt") as f:
+        print >> out, "\n\nversion >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tmr REPORTS_"+v
+        parseNeededInfo(f)
 print >> out, "XXXXXXXXXXXXXXXXXXX"
 print >> out, "XXXXXXXXXXXXXXXXXXX"
 print >> out, "XXXXXXXXXXXXXXXXXXX"
