@@ -9,7 +9,7 @@ elaborate tmr_ARBITER -architecture BEHAVIOR -library DEFAULT
 
 create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
 
-compile -exact_map -area_effort none -power_effort none
+compile
 
 uplevel #0 { report_area } > ../reports_synopsys/tmr/REPORTS_tmr_ARBITER.txt
 
