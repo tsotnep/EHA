@@ -1,6 +1,6 @@
 remove_design -designs
 analyze -library WORK -format vhdl {
-../../RTL/xbar.vhd
+../../RTL/XBAR.vhd
 ../../RTL/tmr/tmr_XBAR.vhd
 ../../RTL/tmr/voter.vhd
 }

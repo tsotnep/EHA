@@ -1,9 +1,9 @@
 remove_design -designs
 analyze -library WORK -format vhdl {
-../../RTL/xbar.vhd
+../../RTL/XBAR.vhd
 ../../RTL/LBDR.vhd
 ../../RTL/FIFO.vhd
-../../RTL/Arbiter.vhd
+../../RTL/ARBITER.vhd
 ../../RTL/Router/Router_v0_syn.vhd}
 
 elaborate ROUTER -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32, current_address = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"

@@ -1,6 +1,6 @@
-remove_design -designs 
+remove_design -designs
 analyze -library WORK -format vhdl {
-../../RTL/Arbiter.vhd
+../../RTL/ARBITER.vhd
 }
 
 elaborate Arbiter -architecture BEHAVIOR -library DEFAULT

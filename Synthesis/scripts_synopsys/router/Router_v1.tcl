@@ -8,10 +8,10 @@ analyze -library WORK -format vhdl {
 ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
 ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
 ../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
-../../RTL/xbar.vhd
+../../RTL/XBAR.vhd
 ../../RTL/LBDR.vhd
 ../../RTL/FIFO.vhd
-../../RTL/Arbiter.vhd
+../../RTL/ARBITER.vhd
 ../../RTL/FaultControl/Fault_Control_v1.vhd
 ../../RTL/Router/Router_v1_syn.vhd}
 

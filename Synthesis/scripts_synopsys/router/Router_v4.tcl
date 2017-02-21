@@ -1,14 +1,14 @@
 #TMR
 remove_design -designs
 analyze -library WORK -format vhdl {
-../../RTL/xbar.vhd
+../../RTL/XBAR.vhd
 ../../RTL/LBDR.vhd
 ../../RTL/FIFO.vhd
-../../RTL/Arbiter.vhd
-../../RTL/tmr/tmr_xbar.vhd
+../../RTL/ARBITER.vhd
+../../RTL/tmr/tmr_XBAR.vhd
 ../../RTL/tmr/tmr_LBDR.vhd
 ../../RTL/tmr/tmr_FIFO.vhd
-../../RTL/tmr/tmr_Arbiter.vhd
+../../RTL/tmr/tmr_ARBITER.vhd
 ../../RTL/tmr/voter.vhd
 ../../RTL/Router/Router_v4_syn.vhd}
 
