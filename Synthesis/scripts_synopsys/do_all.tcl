@@ -22,7 +22,7 @@ source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v2.tcl
 source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v3.tcl
 
 echo ">>>>>MUXES<<<<<"
-source -continue_on_error -verbose -echo ../scripts_synopsys/mux/arbiter_muxes.tcl
+source -continue_on_error -verbose -echo ../scripts_synopsys/mux/ARBITER_muxes.tcl
 source -continue_on_error -verbose -echo ../scripts_synopsys/mux/FIFO_muxes.tcl
 source -continue_on_error -verbose -echo ../scripts_synopsys/mux/LBDR_muxes.tcl
 source -continue_on_error -verbose -echo ../scripts_synopsys/mux/XBAR_muxes.tcl

@@ -3,11 +3,11 @@ analyze -library WORK -format vhdl {
 ../../RTL/MUX/MUX_2x1_XBAR_output.vhd
 ../../RTL/MUX/MUX_2x1_LBDR_output.vhd
 ../../RTL/MUX/MUX_2x1_FIFO_output.vhd
-../../RTL/MUX/MUX_2x1_Arbiter_output.vhd
+../../RTL/MUX/MUX_2x1_ARBITER_output.vhd
 ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
 ../../RTL/MUX/MUX_5x1_LBDR_input.vhd
 ../../RTL/MUX/MUX_5x1_FIFO_input.vhd
-../../RTL/MUX/MUX_5x1_Arbiter_input.vhd
+../../RTL/MUX/MUX_5x1_ARBITER_input.vhd
 ../../RTL/XBAR.vhd
 ../../RTL/LBDR.vhd
 ../../RTL/FIFO.vhd
