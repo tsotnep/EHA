@@ -1,2 +1,6 @@
 .DS_Store
 Synthesis/Synopsys/
+.synopsys*
+*.svf
+*.log
+*.setup*
