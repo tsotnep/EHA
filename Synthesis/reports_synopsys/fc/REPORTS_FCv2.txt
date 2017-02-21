@@ -3,7 +3,7 @@
 Report : area
 Design : Fault_Control_v2
 Version: J-2014.09-SP2
-Date   : Mon Feb 20 16:51:48 2017
+Date   : Tue Feb 21 13:41:57 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -38,7 +38,7 @@ Report : timing
         -sort_by group
 Design : Fault_Control_v2
 Version: J-2014.09-SP2
-Date   : Mon Feb 20 16:51:48 2017
+Date   : Tue Feb 21 13:41:57 2017
 ****************************************
 
 Operating Conditions: typical   Library: c18_CORELIB_TYP

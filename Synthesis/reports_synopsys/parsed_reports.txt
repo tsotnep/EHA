@@ -1,4 +1,3 @@
-compilation: compile -exact_map -ungroup_all
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v0
@@ -31,6 +30,14 @@ Combinational area:             114493.479605
 Noncombinational area:           59891.327286
 Total area:                     288160.996547
   Critical Path Length:          4.26
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v4
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Combinational area:             146101.538858
+Noncombinational area:          136321.918488
+Total area:                     426220.211488
+  Critical Path Length:          3.24
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
@@ -58,6 +65,10 @@ Total area:                        607.213461
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> UNITS REPORTS_XBAR
+Design : XBAR_DATA_WIDTH32
+Combinational area:               2173.248010
+Noncombinational area:               0.000000
+Total area:                       4699.657745
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
@@ -87,7 +98,7 @@ XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
 
 
-version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> mux REPORTS, area_Arbiter
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> mux REPORTS, area_ARBITER
 Design : MUX_2x1_Arbiter_output
 Combinational area:                310.464010
 Noncombinational area:               0.000000

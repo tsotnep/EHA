@@ -5,34 +5,36 @@ Report : timing
         -delay max
         -max_paths 1
         -sort_by group
-Design : MUX_2x1_LBDR_output
+Design : MUX_2x1_Arbiter_output
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:42:11 2017
+Date   : Tue Feb 21 13:42:00 2017
 ****************************************
 
 Operating Conditions: typical   Library: c18_CORELIB_TYP
 Wire Load Model Mode: enclosed
 
-  Startpoint: MUX_LBDR_output_sel_in[2]
+  Startpoint: MUX_Arbiter_output_sel_in[2]
               (input port)
-  Endpoint: Req_N_out (output port)
+  Endpoint: Xbar_sel_out[4]
+            (output port)
   Path Group: (none)
   Path Type: max
 
   Des/Clust/Port     Wire Load Model       Library
   ------------------------------------------------
-  MUX_2x1_LBDR_output
+  MUX_2x1_Arbiter_output
                      c18_wl_30k            c18_CORELIB_TYP
 
   Point                                    Incr       Path
   -----------------------------------------------------------
   input external delay                     0.00       0.00 f
-  MUX_LBDR_output_sel_in[2] (in)           0.00       0.00 f
-  U26/Q (XOR2X1)                           0.17       0.17 f
-  U25/Q (OR2X1)                            0.27       0.44 f
-  U19/Q (NOR2XL)                           0.27       0.71 r
-  Req_N_out (out)                          0.00       0.71 r
-  data arrival time                                   0.71
+  MUX_Arbiter_output_sel_in[2] (in)        0.00       0.00 f
+  U33/Q (XOR2X1)                           0.17       0.17 f
+  U32/Q (NOR2XL)                           0.44       0.60 r
+  U31/Q (AND2X1)                           0.75       1.36 r
+  U19/Q (AO22X1)                           0.17       1.53 r
+  Xbar_sel_out[4] (out)                    0.00       1.53 r
+  data arrival time                                   1.53
   -----------------------------------------------------------
   (Path is unconstrained)
 
@@ -45,55 +47,15 @@ Report : timing
         -delay max
         -max_paths 1
         -sort_by group
-Design : MUX_5x1_LBDR_input
+Design : MUX_5x1_Arbiter_input
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:42:13 2017
+Date   : Tue Feb 21 13:42:02 2017
 ****************************************
 
 Operating Conditions: typical   Library: c18_CORELIB_TYP
 Wire Load Model Mode: enclosed
 
-  Startpoint: MUX_LBDR_input_sel_in[0]
-              (input port)
-  Endpoint: empty_out (output port)
-  Path Group: (none)
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  MUX_5x1_LBDR_input c18_wl_30k            c18_CORELIB_TYP
-
-  Point                                    Incr       Path
-  -----------------------------------------------------------
-  input external delay                     0.00       0.00 r
-  MUX_LBDR_input_sel_in[0] (in)            0.00       0.00 r
-  U78/Q (INVXL)                            0.12       0.12 f
-  U77/Q (NOR3X1)                           1.35       1.48 r
-  U56/Q (AOI22X1)                          0.12       1.60 f
-  U53/Q (NAND3X1)                          0.19       1.79 r
-  empty_out (out)                          0.00       1.79 r
-  data arrival time                                   1.79
-  -----------------------------------------------------------
-  (Path is unconstrained)
-
-
-1
- 
-****************************************
-Report : timing
-        -path full
-        -delay max
-        -max_paths 1
-        -sort_by group
-Design : MUX_6x1_LBDR_output
-Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:42:14 2017
-****************************************
-
-Operating Conditions: typical   Library: c18_CORELIB_TYP
-Wire Load Model Mode: enclosed
-
-  Startpoint: MUX_LBDR_output_sel_in[1]
+  Startpoint: MUX_Arbiter_input_sel_in[0]
               (input port)
   Endpoint: Req_N_out (output port)
   Path Group: (none)
@@ -101,19 +63,19 @@ Wire Load Model Mode: enclosed
 
   Des/Clust/Port     Wire Load Model       Library
   ------------------------------------------------
-  MUX_6x1_LBDR_output
+  MUX_5x1_Arbiter_input
                      c18_wl_30k            c18_CORELIB_TYP
 
   Point                                    Incr       Path
   -----------------------------------------------------------
   input external delay                     0.00       0.00 r
-  MUX_LBDR_output_sel_in[1] (in)           0.00       0.00 r
-  U64/Q (INVXL)                            0.16       0.16 f
-  U61/Q (NOR3X1)                           0.90       1.07 r
-  U48/Q (AOI22X1)                          0.11       1.17 f
-  U46/Q (NAND4X1)                          0.19       1.37 r
-  Req_N_out (out)                          0.00       1.37 r
-  data arrival time                                   1.37
+  MUX_Arbiter_input_sel_in[0] (in)         0.00       0.00 r
+  U42/Q (INVXL)                            0.12       0.12 f
+  U41/Q (NOR3X1)                           0.90       1.03 r
+  U28/Q (AO22X1)                           0.21       1.23 r
+  U27/Q (AO221X1)                          0.16       1.40 r
+  Req_N_out (out)                          0.00       1.40 r
+  data arrival time                                   1.40
   -----------------------------------------------------------
   (Path is unconstrained)
 
@@ -126,35 +88,78 @@ Report : timing
         -delay max
         -max_paths 1
         -sort_by group
-Design : MUX_5x1_LBDR_output
+Design : MUX_6x1_Arbiter_output
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:42:15 2017
+Date   : Tue Feb 21 13:42:03 2017
 ****************************************
 
 Operating Conditions: typical   Library: c18_CORELIB_TYP
 Wire Load Model Mode: enclosed
 
-  Startpoint: MUX_LBDR_output_sel_in[0]
+  Startpoint: MUX_Arbiter_output_sel_in[0]
               (input port)
-  Endpoint: Req_N_out (output port)
+  Endpoint: Xbar_sel_out[4]
+            (output port)
   Path Group: (none)
   Path Type: max
 
   Des/Clust/Port     Wire Load Model       Library
   ------------------------------------------------
-  MUX_5x1_LBDR_output
+  MUX_6x1_Arbiter_output
                      c18_wl_30k            c18_CORELIB_TYP
 
   Point                                    Incr       Path
   -----------------------------------------------------------
   input external delay                     0.00       0.00 r
-  MUX_LBDR_output_sel_in[0] (in)           0.00       0.00 r
-  U54/Q (INVXL)                            0.12       0.12 f
-  U53/Q (NOR3X1)                           0.91       1.04 r
-  U40/Q (AOI22X1)                          0.14       1.18 f
-  U37/Q (NAND3X1)                          0.17       1.35 r
-  Req_N_out (out)                          0.00       1.35 r
-  data arrival time                                   1.35
+  MUX_Arbiter_output_sel_in[0] (in)        0.00       0.00 r
+  U127/Q (INVXL)                           0.12       0.12 f
+  U126/Q (NOR3X1)                          1.79       1.92 r
+  U70/Q (AOI22X1)                          0.10       2.01 f
+  U66/Q (NAND4X1)                          0.22       2.23 r
+  Xbar_sel_out[4] (out)                    0.00       2.23 r
+  data arrival time                                   2.23
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : MUX_5x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Tue Feb 21 13:42:04 2017
+****************************************
+
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
+
+  Startpoint: MUX_Arbiter_output_sel_in[0]
+              (input port)
+  Endpoint: Xbar_sel_out[4]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  MUX_5x1_Arbiter_output
+                     c18_wl_30k            c18_CORELIB_TYP
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  MUX_Arbiter_output_sel_in[0] (in)        0.00       0.00 r
+  U102/Q (INVXL)                           0.12       0.12 f
+  U101/Q (NOR3X1)                          1.79       1.92 r
+  U56/Q (AOI22X1)                          0.09       2.01 f
+  U53/Q (NAND3X1)                          0.21       2.22 r
+  Xbar_sel_out[4] (out)                    0.00       2.22 r
+  data arrival time                                   2.22
   -----------------------------------------------------------
   (Path is unconstrained)
 
