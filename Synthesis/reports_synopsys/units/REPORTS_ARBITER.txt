@@ -3,7 +3,7 @@
 Report : area
 Design : Arbiter
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:41:49 2017
+Date   : Mon Feb 27 14:40:47 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -38,7 +38,7 @@ Report : timing
         -sort_by group
 Design : Arbiter
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:41:49 2017
+Date   : Mon Feb 27 14:40:47 2017
 ****************************************
 
 Operating Conditions: typical   Library: c18_CORELIB_TYP

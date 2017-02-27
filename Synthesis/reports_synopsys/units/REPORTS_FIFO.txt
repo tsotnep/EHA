@@ -3,7 +3,7 @@
 Report : area
 Design : FIFO_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:41:51 2017
+Date   : Mon Feb 27 14:40:49 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -38,7 +38,7 @@ Report : timing
         -sort_by group
 Design : FIFO_DATA_WIDTH32
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:41:51 2017
+Date   : Mon Feb 27 14:40:49 2017
 ****************************************
 
 Operating Conditions: typical   Library: c18_CORELIB_TYP

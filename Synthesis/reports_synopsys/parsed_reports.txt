@@ -123,7 +123,7 @@ XXXXXXXXXXXXXXXXXXX
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tmr REPORTS_ARBITER
 Design : tmr_ARBITER
-Total area:                       5693.292480
+Total area:                       5377.943797
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tmr REPORTS_FIFO
@@ -139,6 +139,29 @@ Total area:                       2073.079155
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tmr REPORTS_XBAR
 Design : tmr_XBAR_DATA_WIDTH32
 Total area:                      15341.517020
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tmr REPORTS_voter_ARBITER
+Design : voter_DATA_WIDTH11
+Total area:                        782.104363
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tmr REPORTS_voter_FIFO
+Design : voter_DATA_WIDTH34
+Total area:                       2417.413486
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tmr REPORTS_voter_LBDR
+Design : voter_DATA_WIDTH5
+Total area:                        355.501983
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tmr REPORTS_voter_XBAR
+Design : voter_DATA_WIDTH32
+Total area:                       2275.212692
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX

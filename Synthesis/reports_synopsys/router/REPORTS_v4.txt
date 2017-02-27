@@ -3,7 +3,7 @@
 Report : area
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:43:17 2017
+Date   : Mon Feb 27 14:42:17 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -39,7 +39,7 @@ Report : timing
         -sort_by group
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:43:18 2017
+Date   : Mon Feb 27 14:42:17 2017
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -114,7 +114,7 @@ Wire Load Model Mode: enclosed
 Report : qor
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:43:18 2017
+Date   : Mon Feb 27 14:42:17 2017
 ****************************************
 
 
@@ -175,12 +175,12 @@ Date   : Tue Feb 21 13:43:18 2017
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                    1.58
-  Logic Optimization:                  1.78
-  Mapping Optimization:                8.02
+  Resource Sharing:                    1.56
+  Logic Optimization:                  1.76
+  Mapping Optimization:                7.96
   -----------------------------------------
-  Overall Compile Time:               14.48
-  Overall Compile Wall Clock Time:    14.69
+  Overall Compile Time:               14.38
+  Overall Compile Wall Clock Time:    14.60
 
   --------------------------------------------------------------------
 

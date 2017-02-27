@@ -3,7 +3,7 @@
 Report : area
 Design : MUX_2x1_LBDR_output
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:42:11 2017
+Date   : Mon Feb 27 14:41:10 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -34,7 +34,7 @@ Total area:                        373.805677
 Report : area
 Design : MUX_5x1_LBDR_input
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:42:13 2017
+Date   : Mon Feb 27 14:41:12 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -65,7 +65,7 @@ Total area:                       1252.724741
 Report : area
 Design : MUX_6x1_LBDR_output
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:42:14 2017
+Date   : Mon Feb 27 14:41:13 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
@@ -96,7 +96,7 @@ Total area:                       1027.958829
 Report : area
 Design : MUX_5x1_LBDR_output
 Version: J-2014.09-SP2
-Date   : Tue Feb 21 13:42:15 2017
+Date   : Mon Feb 27 14:41:15 2017
 ****************************************
 
 Information: Updating design information... (UID-85)
