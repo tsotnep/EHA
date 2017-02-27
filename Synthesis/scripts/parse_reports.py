@@ -2,10 +2,10 @@ def parseNeededInfo( f, mux=0):
     firstonly=1
     for line in f:
         line = line.rstrip('\n')
-        if "Combinational area:" in line:
-            print >> out, line
-        if "Noncombinational area:" in line:
-            print >> out, line
+        # if "Combinational area:" in line:
+            # print >> out, line
+        # if "Noncombinational area:" in line:
+            # print >> out, line
         if "Total area:" in line:
             print >> out, line
         if "Critical Path Length" in line:
