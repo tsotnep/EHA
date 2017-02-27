@@ -1,6 +1,7 @@
 # HOW TO RUN THIS (ALL scripts) script (takes 70 seconds), from directory EHA/Synthesis/Synopsis :
-    # design_vision -no_gui -f ../scripts_synopsys/do_all.tcl
-    # design_vision -no_gui -f ../scripts_synopsys/do_all.tcl > REPORT.txt
+    # cad, cad
+    # design_vision -no_gui -f ../scripts/do_all_tcl_scripts.tcl
+    # design_vision -no_gui -f ../scripts/do_all_tcl_scripts.tcl > REPORT.txt
 
 
 file mkdir ../reports_synopsys/fc/WARNINGS
@@ -11,32 +12,36 @@ file mkdir ../reports_synopsys/tmr/WARNINGS
 
 
 echo ">>>>>UNITS<<<<<"
-source -continue_on_error -verbose -echo ../scripts_synopsys/units/ARBITER.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/units/FIFO.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/units/LBDR.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/units/XBAR.tcl
+source -continue_on_error -verbose -echo ../scripts/units/ARBITER.tcl
+source -continue_on_error -verbose -echo ../scripts/units/FIFO.tcl
+source -continue_on_error -verbose -echo ../scripts/units/LBDR.tcl
+source -continue_on_error -verbose -echo ../scripts/units/XBAR.tcl
 
 echo ">>>>>FAULT CONTROLS<<<<<"
-source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v1.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v2.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/fc/fc_v3.tcl
+source -continue_on_error -verbose -echo ../scripts/fc/fc_v1.tcl
+source -continue_on_error -verbose -echo ../scripts/fc/fc_v2.tcl
+source -continue_on_error -verbose -echo ../scripts/fc/fc_v3.tcl
 
 echo ">>>>>MUXES<<<<<"
-source -continue_on_error -verbose -echo ../scripts_synopsys/mux/ARBITER_muxes.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/mux/FIFO_muxes.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/mux/LBDR_muxes.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/mux/XBAR_muxes.tcl
+source -continue_on_error -verbose -echo ../scripts/mux/ARBITER_muxes.tcl
+source -continue_on_error -verbose -echo ../scripts/mux/FIFO_muxes.tcl
+source -continue_on_error -verbose -echo ../scripts/mux/LBDR_muxes.tcl
+source -continue_on_error -verbose -echo ../scripts/mux/XBAR_muxes.tcl
 
 echo ">>>>>ROUTERS<<<<<"
-source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v0.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v1.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v2.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v3.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/router/Router_v4.tcl
+source -continue_on_error -verbose -echo ../scripts/router/Router_v0.tcl
+source -continue_on_error -verbose -echo ../scripts/router/Router_v1.tcl
+source -continue_on_error -verbose -echo ../scripts/router/Router_v2.tcl
+source -continue_on_error -verbose -echo ../scripts/router/Router_v3.tcl
+source -continue_on_error -verbose -echo ../scripts/router/Router_v4.tcl
 
 echo ">>>>>TMR<<<<<"
-source -continue_on_error -verbose -echo ../scripts_synopsys/tmr/tmr_ARBITER.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/tmr/tmr_FIFO.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/tmr/tmr_LBDR.tcl
-source -continue_on_error -verbose -echo ../scripts_synopsys/tmr/tmr_XBAR.tcl
+source -continue_on_error -verbose -echo ../scripts/tmr/tmr_ARBITER.tcl
+source -continue_on_error -verbose -echo ../scripts/tmr/tmr_FIFO.tcl
+source -continue_on_error -verbose -echo ../scripts/tmr/tmr_LBDR.tcl
+source -continue_on_error -verbose -echo ../scripts/tmr/tmr_XBAR.tcl
+source -continue_on_error -verbose -echo ../scripts/tmr/tmr_voter_ARBITER.tcl
+source -continue_on_error -verbose -echo ../scripts/tmr/tmr_voter_FIFO.tcl
+source -continue_on_error -verbose -echo ../scripts/tmr/tmr_voter_LBDR.tcl
+source -continue_on_error -verbose -echo ../scripts/tmr/tmr_voter_XBAR.tcl
 exit

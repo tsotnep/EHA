@@ -25,3 +25,6 @@ for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
 
 for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
     REPLACE_WITH_NEW_COMMAND("tmr/tmr_"+v+".tcl")
+
+for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
+    REPLACE_WITH_NEW_COMMAND("tmr/tmr_voter_"+v+".tcl")
