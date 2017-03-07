@@ -5,3 +5,4 @@ Synthesis/Synopsys/
 *.log
 *.setup*
 WORK.syn
+tmp
