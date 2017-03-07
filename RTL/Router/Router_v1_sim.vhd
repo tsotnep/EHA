@@ -15,7 +15,7 @@ entity router is
     );
     port (
     reset, clk: in std_logic;
-    DCTS_N, DCTS_E, DCTS_w, DCTS_S, DCTS_L: in std_logic;
+    DCTS_N, DCTS_E, DCTS_W, DCTS_S, DCTS_L: in std_logic;
     DRTS_N, DRTS_E, DRTS_W, DRTS_S, DRTS_L: in std_logic;
     RX_N, RX_E, RX_W, RX_S, RX_L : in std_logic_vector (DATA_WIDTH-1 downto 0);
     RTS_N, RTS_E, RTS_W, RTS_S, RTS_L: out std_logic;
@@ -151,6 +151,12 @@ signal Fault_Info_XBAR_in                  : std_logic_vector(5 downto 0) := (ot
     end component MUX_2x1_Arbiter_output;
 
     component MUX_5x1_LBDR_input
+        generic(
+            cur_addr_rst : integer := 0;
+            Rxy_rst      : integer := 60;
+            Cx_rst       : integer := 8;
+            NoC_size     : integer := 4
+        );
         port(MUX_LBDR_input_sel_in                                           : in  std_logic_vector(2 downto 0);
              empty_out                                                       : out std_logic;
              flit_type_out                                                   : out std_logic_vector(2 downto 0);
@@ -212,12 +218,12 @@ signal Fault_Info_XBAR_in                  : std_logic_vector(5 downto 0) := (ot
     --output signals from MODULE, going into MUX_2x1_MODULE_output
     signal FIFO_D_out_N_temp, FIFO_D_out_E_temp, FIFO_D_out_W_temp, FIFO_D_out_S_temp, FIFO_D_out_L_temp, FIFO_D_out_R_temp : std_logic_vector(DATA_WIDTH - 1 downto 0);
     signal empty_N_temp, empty_E_temp, empty_W_temp, empty_S_temp, empty_L_temp, empty_R_temp                               : std_logic;
-    signal CTS_N_temp, CTS_E_temp, CTS_w_temp, CTS_S_temp, CTS_L_temp, CTS_R_temp                                           : std_logic;
+    signal CTS_N_temp, CTS_E_temp, CTS_W_temp, CTS_S_temp, CTS_L_temp, CTS_R_temp                                           : std_logic;
 
     --outputs of MUX_2x1_MODULE_output going into somewhere.
     signal FIFO_D_out_N, FIFO_D_out_E, FIFO_D_out_W, FIFO_D_out_S, FIFO_D_out_L : std_logic_vector(DATA_WIDTH - 1 downto 0);
     signal empty_N, empty_E, empty_W, empty_S, empty_L                          : std_logic;
-    --CTS_N, CTS_E, CTS_w, CTS_S, CTS_L --toplevel outputs
+
 
     -- MODULE Fault control
     -- signal Fault_Info_FIFO_in               : std_logic_vector(5 downto 0) := "000000";
@@ -433,7 +439,8 @@ begin
     Arbiter_N : Arbiter
         port map(reset    => reset, clk => clk,
                  Req_N    => Req_NN_valid, Req_E => Req_EN_valid, Req_W => Req_WN_valid, Req_S => Req_SN_valid, Req_L => Req_LN_valid,
-                 DCTS     => DCTS_N_valid, Grant_N => Grant_NN_temp, Grant_E => Grant_NE_temp, Grant_W => Grant_NW_temp, Grant_S => Grant_NS_temp, Grant_L => Grant_NL_temp,
+                 DCTS     => DCTS_N_valid,
+								 Grant_N => Grant_NN_temp, Grant_E => Grant_NE_temp, Grant_W => Grant_NW_temp, Grant_S => Grant_NS_temp, Grant_L => Grant_NL_temp,
                  Xbar_sel => Xbar_sel_N_temp,
                  RTS      => RTS_N_temp
         );
@@ -502,7 +509,7 @@ begin
     ------------------------------------------------------------------------------------------------------------------------------
     Fault_Control_inst_Xbar : component Fault_Control_v1
         port map(
-            Fault_Info_in                      => Fault_Info_Xbar_in,
+            Fault_Info_in                      => Fault_Info_XBAR_in,
             MUX_5x1_module_input_select_N_out  => MUX_5x1_Xbar_input_select_N_out,
             MUX_5x1_module_input_select_E_out  => MUX_5x1_Xbar_input_select_E_out,
             MUX_5x1_module_input_select_W_out  => MUX_5x1_Xbar_input_select_W_out,
@@ -654,7 +661,7 @@ begin
         port map(
             MUX_XBAR_output_sel_in => MUX_2x1_Xbar_output_select_E_out,
             TX_out                 => TX_E,
-            TX_N                   => TX_N_temp,
+            TX_N                   => TX_E_temp,
             TX_R                   => TX_R_temp
         );
     MUX_2x1_XBAR_output_W : component MUX_2x1_XBAR_output
@@ -664,7 +671,7 @@ begin
         port map(
             MUX_XBAR_output_sel_in => MUX_2x1_Xbar_output_select_W_out,
             TX_out                 => TX_W,
-            TX_N                   => TX_N_temp,
+            TX_N                   => TX_W_temp,
             TX_R                   => TX_R_temp
         );
     MUX_2x1_XBAR_output_S : component MUX_2x1_XBAR_output
@@ -674,7 +681,7 @@ begin
         port map(
             MUX_XBAR_output_sel_in => MUX_2x1_Xbar_output_select_S_out,
             TX_out                 => TX_S,
-            TX_N                   => TX_N_temp,
+            TX_N                   => TX_S_temp,
             TX_R                   => TX_R_temp
         );
     MUX_2x1_XBAR_output_L : component MUX_2x1_XBAR_output
@@ -684,7 +691,7 @@ begin
         port map(
             MUX_XBAR_output_sel_in => MUX_2x1_Xbar_output_select_L_out,
             TX_out                 => TX_L,
-            TX_N                   => TX_N_temp,
+            TX_N                   => TX_L_temp,
             TX_R                   => TX_R_temp
         );
 
@@ -772,9 +779,9 @@ begin
             Grant_W_out               => Grant_EW,
             Grant_S_out               => Grant_ES,
             Grant_L_out               => Grant_EL,
-            Xbar_sel_N                => Xbar_sel_N_temp,  Xbar_sel_R => Xbar_sel_R_temp,
-            RTS_N                     => RTS_N_temp,  RTS_R => RTS_R_temp,
-            Grant_NN                  => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
+            Xbar_sel_N                => Xbar_sel_E_temp,  Xbar_sel_R => Xbar_sel_R_temp,
+            RTS_N                     => RTS_E_temp,  RTS_R => RTS_R_temp,
+            Grant_NN                  => Grant_EN_temp, Grant_NE => Grant_EE_temp, Grant_NW => Grant_EW_temp, Grant_NS => Grant_ES_temp, Grant_NL => Grant_EL_temp,
             Grant_RN                  => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp);
     MUX_2x1_Arbiter_output_W : component MUX_2x1_Arbiter_output
         generic map(
@@ -789,9 +796,9 @@ begin
             Grant_W_out               => Grant_WW,
             Grant_S_out               => Grant_WS,
             Grant_L_out               => Grant_WL,
-            Xbar_sel_N                => Xbar_sel_N_temp,  Xbar_sel_R => Xbar_sel_R_temp,
-            RTS_N                     => RTS_N_temp,  RTS_R => RTS_R_temp,
-            Grant_NN                  => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
+            Xbar_sel_N                => Xbar_sel_W_temp,  Xbar_sel_R => Xbar_sel_R_temp,
+            RTS_N                     => RTS_W_temp,  RTS_R => RTS_R_temp,
+            Grant_NN                  => Grant_WN_temp, Grant_NE => Grant_WE_temp, Grant_NW => Grant_WW_temp, Grant_NS => Grant_WS_temp, Grant_NL => Grant_WL_temp,
             Grant_RN                  => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp);
     MUX_2x1_Arbiter_output_S : component MUX_2x1_Arbiter_output
         generic map(
@@ -806,9 +813,9 @@ begin
             Grant_W_out               => Grant_SW,
             Grant_S_out               => Grant_SS,
             Grant_L_out               => Grant_SL,
-            Xbar_sel_N                => Xbar_sel_N_temp,  Xbar_sel_R => Xbar_sel_R_temp,
-            RTS_N                     => RTS_N_temp,  RTS_R => RTS_R_temp,
-            Grant_NN                  => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
+            Xbar_sel_N                => Xbar_sel_S_temp,  Xbar_sel_R => Xbar_sel_R_temp,
+            RTS_N                     => RTS_S_temp,  RTS_R => RTS_R_temp,
+            Grant_NN                  => Grant_SN_temp, Grant_NE => Grant_SE_temp, Grant_NW => Grant_SW_temp, Grant_NS => Grant_SS_temp, Grant_NL => Grant_SL_temp,
             Grant_RN                  => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp);
     MUX_2x1_Arbiter_output_L : component MUX_2x1_Arbiter_output
         generic map(
@@ -823,9 +830,9 @@ begin
             Grant_W_out               => Grant_LW,
             Grant_S_out               => Grant_LS,
             Grant_L_out               => Grant_LL,
-            Xbar_sel_N                => Xbar_sel_N_temp,  Xbar_sel_R => Xbar_sel_R_temp,
-            RTS_N                     => RTS_N_temp,  RTS_R => RTS_R_temp,
-            Grant_NN                  => Grant_NN_temp, Grant_NE => Grant_NE_temp, Grant_NW => Grant_NW_temp, Grant_NS => Grant_NS_temp, Grant_NL => Grant_NL_temp,
+            Xbar_sel_N                => Xbar_sel_L_temp,  Xbar_sel_R => Xbar_sel_R_temp,
+            RTS_N                     => RTS_L_temp,  RTS_R => RTS_R_temp,
+            Grant_NN                  => Grant_LN_temp, Grant_NE => Grant_LE_temp, Grant_NW => Grant_LW_temp, Grant_NS => Grant_LS_temp, Grant_NL => Grant_LL_temp,
             Grant_RN                  => Grant_RN_temp, Grant_RE => Grant_RE_temp, Grant_RW => Grant_RW_temp, Grant_RS => Grant_RS_temp, Grant_RL => Grant_RL_temp);
 
     empty_N_valid                                                             <= empty_N;
@@ -849,6 +856,7 @@ begin
     FIFO_D_out_L_valid(DATA_WIDTH - 19 + NoC_size - 1 downto DATA_WIDTH - 19) <= FIFO_D_out_L(DATA_WIDTH - 19 + NoC_size - 1 downto DATA_WIDTH - 19);
 
     MUX_5x1_LBDR_input_R : component MUX_5x1_LBDR_input
+			generic map(cur_addr_rst => current_address, Rxy_rst => Rxy_rst, Cx_rst => Cx_rst, NoC_size => NoC_size)
         port map(
             MUX_LBDR_input_sel_in => MUX_5x1_LBDR_input_select_R_out,
             empty_out             => empty_R_valid,
@@ -894,7 +902,7 @@ begin
             Req_W_out              => Req_EW,
             Req_S_out              => Req_ES,
             Req_L_out              => Req_EL,
-            Req_NN                 => Req_NN_temp, Req_NE => Req_NE_temp, Req_NW => Req_NW_temp, Req_NS => Req_NS_temp, Req_NL => Req_NL_temp,
+            Req_NN                 => Req_EN_temp, Req_NE => Req_EE_temp, Req_NW => Req_EW_temp, Req_NS => Req_ES_temp, Req_NL => Req_EL_temp,
             Req_RN                 => Req_RN_temp, Req_RE => Req_RE_temp, Req_RW => Req_RW_temp, Req_RS => Req_RS_temp, Req_RL => Req_RL_temp);
     MUX_2x1_LBDR_output_W : component MUX_2x1_LBDR_output
         generic map(
@@ -907,7 +915,7 @@ begin
             Req_W_out              => Req_WW,
             Req_S_out              => Req_WS,
             Req_L_out              => Req_WL,
-            Req_NN                 => Req_NN_temp, Req_NE => Req_NE_temp, Req_NW => Req_NW_temp, Req_NS => Req_NS_temp, Req_NL => Req_NL_temp,
+            Req_NN                 => Req_WN_temp, Req_NE => Req_WE_temp, Req_NW => Req_WW_temp, Req_NS => Req_WS_temp, Req_NL => Req_WL_temp,
             Req_RN                 => Req_RN_temp, Req_RE => Req_RE_temp, Req_RW => Req_RW_temp, Req_RS => Req_RS_temp, Req_RL => Req_RL_temp);
     MUX_2x1_LBDR_output_S : component MUX_2x1_LBDR_output
         generic map(
@@ -920,7 +928,7 @@ begin
             Req_W_out              => Req_SW,
             Req_S_out              => Req_SS,
             Req_L_out              => Req_SL,
-            Req_NN                 => Req_NN_temp, Req_NE => Req_NE_temp, Req_NW => Req_NW_temp, Req_NS => Req_NS_temp, Req_NL => Req_NL_temp,
+            Req_NN                 => Req_SN_temp, Req_NE => Req_SE_temp, Req_NW => Req_SW_temp, Req_NS => Req_SS_temp, Req_NL => Req_SL_temp,
             Req_RN                 => Req_RN_temp, Req_RE => Req_RE_temp, Req_RW => Req_RW_temp, Req_RS => Req_RS_temp, Req_RL => Req_RL_temp);
     MUX_2x1_LBDR_output_L : component MUX_2x1_LBDR_output
         generic map(
@@ -933,7 +941,7 @@ begin
             Req_W_out              => Req_LW,
             Req_S_out              => Req_LS,
             Req_L_out              => Req_LL,
-            Req_NN                 => Req_NN_temp, Req_NE => Req_NE_temp, Req_NW => Req_NW_temp, Req_NS => Req_NS_temp, Req_NL => Req_NL_temp,
+            Req_NN                 => Req_LN_temp, Req_NE => Req_LE_temp, Req_NW => Req_LW_temp, Req_NS => Req_LS_temp, Req_NL => Req_LL_temp,
             Req_RN                 => Req_RN_temp, Req_RE => Req_RE_temp, Req_RW => Req_RW_temp, Req_RS => Req_RS_temp, Req_RL => Req_RL_temp);
 
     ----------------------------
@@ -1042,6 +1050,7 @@ begin
             empty_R                => empty_R_temp,
             FIFO_D_out_N           => FIFO_D_out_N_temp,
             FIFO_D_out_R           => FIFO_D_out_R_temp);
+
     MUX_2x1_FIFO_output_E : component MUX_2x1_FIFO_output
         generic map(
             DATA_WIDTH => DATA_WIDTH
@@ -1051,12 +1060,13 @@ begin
             CTS_out                => CTS_E,
             empty_out              => empty_E,
             FIFO_D_out_out         => FIFO_D_out_E,
-            CTS_N                  => CTS_N_temp,
+            CTS_N                  => CTS_E_temp,
             CTS_R                  => CTS_R_temp,
-            empty_N                => empty_N_temp,
+            empty_N                => empty_E_temp,
             empty_R                => empty_R_temp,
-            FIFO_D_out_N           => FIFO_D_out_N_temp,
+            FIFO_D_out_N           => FIFO_D_out_E_temp,
             FIFO_D_out_R           => FIFO_D_out_R_temp);
+
     MUX_2x1_FIFO_output_W : component MUX_2x1_FIFO_output
         generic map(
             DATA_WIDTH => DATA_WIDTH
@@ -1066,12 +1076,13 @@ begin
             CTS_out                => CTS_W,
             empty_out              => empty_W,
             FIFO_D_out_out         => FIFO_D_out_W,
-            CTS_N                  => CTS_N_temp,
+            CTS_N                  => CTS_W_temp,
             CTS_R                  => CTS_R_temp,
-            empty_N                => empty_N_temp,
+            empty_N                => empty_W_temp,
             empty_R                => empty_R_temp,
-            FIFO_D_out_N           => FIFO_D_out_N_temp,
+            FIFO_D_out_N           => FIFO_D_out_W_temp,
             FIFO_D_out_R           => FIFO_D_out_R_temp);
+
     MUX_2x1_FIFO_output_S : component MUX_2x1_FIFO_output
         generic map(
             DATA_WIDTH => DATA_WIDTH
@@ -1081,12 +1092,13 @@ begin
             CTS_out                => CTS_S,
             empty_out              => empty_S,
             FIFO_D_out_out         => FIFO_D_out_S,
-            CTS_N                  => CTS_N_temp,
+            CTS_N                  => CTS_S_temp,
             CTS_R                  => CTS_R_temp,
-            empty_N                => empty_N_temp,
+            empty_N                => empty_S_temp,
             empty_R                => empty_R_temp,
-            FIFO_D_out_N           => FIFO_D_out_N_temp,
+            FIFO_D_out_N           => FIFO_D_out_S_temp,
             FIFO_D_out_R           => FIFO_D_out_R_temp);
+
     MUX_2x1_FIFO_output_L : component MUX_2x1_FIFO_output
         generic map(
             DATA_WIDTH => DATA_WIDTH
@@ -1096,11 +1108,11 @@ begin
             CTS_out                => CTS_L,
             empty_out              => empty_L,
             FIFO_D_out_out         => FIFO_D_out_L,
-            CTS_N                  => CTS_N_temp,
+            CTS_N                  => CTS_L_temp,
             CTS_R                  => CTS_R_temp,
-            empty_N                => empty_N_temp,
+            empty_N                => empty_L_temp,
             empty_R                => empty_R_temp,
-            FIFO_D_out_N           => FIFO_D_out_N_temp,
+            FIFO_D_out_N           => FIFO_D_out_L_temp,
             FIFO_D_out_R           => FIFO_D_out_R_temp);
 
 end;
