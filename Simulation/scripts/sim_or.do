@@ -28,8 +28,5 @@ vcom "/home/tsotne/ownCloud/git/EHA_ft/RTL/gen/tb_network_2x2.vhd"
 
 # Start the simulation
 vsim work.tb_network_2x2
-
-# Draw waves
-do wave_or.do
-# Run the simulation
 run 11000 ns
+quit

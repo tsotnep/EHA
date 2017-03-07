@@ -31,7 +31,5 @@ vcom "/home/tsotne/ownCloud/git/EHA_ft/RTL/gen/tb_network_2x2.vhd"
 
 # Start the simulation
 vsim work.tb_network_2x2
-
-run 15000 ns
-
-quit -sim
+run 11000 ns
+quit
