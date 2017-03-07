@@ -1,0 +1,4 @@
+number of processed packets: 39
+maximum packet latency: 190.0 ns
+minimmum packet latency: 28.0 ns
+average packet latency: 93.67 ns!

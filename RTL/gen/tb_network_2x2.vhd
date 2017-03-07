@@ -100,10 +100,10 @@ PORT MAP (reset, clk,
 	RX_L_3, RTS_L_3, CTS_L_3, DRTS_L_3, DCTS_L_3, TX_L_3);
 
 -- connecting the packet generators
-gen_packet(4, 0, 2, 1, 49, 53 ns, clk, CTS_L_0, DRTS_L_0, RX_L_0);
-gen_packet(5, 1, 3, 1, 7, 117 ns, clk, CTS_L_1, DRTS_L_1, RX_L_1);
-gen_packet(5, 2, 1, 1, 29, 193 ns, clk, CTS_L_2, DRTS_L_2, RX_L_2);
-gen_packet(6, 3, 2, 1, 25, 82 ns, clk, CTS_L_3, DRTS_L_3, RX_L_3);
+gen_random_packet(200, 0, 10, 1, 49, 2000 ns, clk, CTS_L_0, DRTS_L_0, RX_L_0);
+gen_random_packet(200, 1, 10, 1, 7,  2000 ns, clk, CTS_L_1, DRTS_L_1, RX_L_1);
+gen_random_packet(200, 2, 10, 1, 29, 2000 ns, clk, CTS_L_2, DRTS_L_2, RX_L_2);
+gen_random_packet(200, 3, 10, 1, 25, 2000 ns, clk, CTS_L_3, DRTS_L_3, RX_L_3);
 
 -- connecting the packet receivers
 -- Arguments are:
