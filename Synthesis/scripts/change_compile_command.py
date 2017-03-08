@@ -11,7 +11,7 @@ def REPLACE_WITH_NEW_COMMAND (filename):
 CHANGE_LINE_STARTING_WITH='compile'
 WITH_THIS_NEW_COMMAND='compile'
 
-for v in range(5):
+for v in range(6):
     REPLACE_WITH_NEW_COMMAND("router/Router_v"+`v`+".tcl")
 
 for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
@@ -28,3 +28,6 @@ for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
 
 for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
     REPLACE_WITH_NEW_COMMAND("tmr/tmr_voter_"+v+".tcl")
+
+for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
+    REPLACE_WITH_NEW_COMMAND("dmr/dmr_"+v+".tcl")

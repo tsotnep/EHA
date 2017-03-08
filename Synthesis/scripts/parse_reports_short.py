@@ -20,7 +20,7 @@ out = open('../reports_synopsys/parsed_reports_short.txt', 'w')
 
 # print >> out, "compilation: compile -exact_map -ungroup_all"
 
-for v in range(5):
+for v in range(6):
     with open("../reports_synopsys/router/REPORTS_v"+`v`+".txt") as f:
         parseNeededInfo(f)
 print >> out, ""
@@ -60,6 +60,14 @@ print >> out, ""
 
 for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
     with open("../reports_synopsys/tmr/REPORTS_tmr_voter_"+v+".txt") as f:
+        parseNeededInfo(f)
+print >> out, ""
+print >> out, ""
+
+
+
+for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
+    with open("../reports_synopsys/dmr/REPORTS_dmr_"+v+".txt") as f:
         parseNeededInfo(f)
 print >> out, ""
 print >> out, ""
