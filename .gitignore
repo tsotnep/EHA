@@ -1,5 +1,6 @@
 .DS_Store
 Synthesis/Synopsys/
+Synthesis/reports_synopsys/
 .synopsys*
 *.svf
 *.log
