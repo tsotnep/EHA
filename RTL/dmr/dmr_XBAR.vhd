@@ -26,11 +26,6 @@ architecture BEHAVIOR of dmr_XBAR is
 begin
 
 
-	output <= input0 when fault_info = "00" else
-	          input0 when fault_info = "01" else
-	          input1 when fault_info = "10" else
-	          input1 when fault_info = "11";
-
 	input0 <= aData_out;
 	input1 <= bData_out;
 
@@ -39,6 +34,16 @@ begin
 
 
 
+voter_inst : entity work.voter
+  generic map(
+    DATA_WIDTH => output'length
+  )
+  port map(
+  fault_info => fault_info,
+    input0       => input0,
+    input1       => input1,
+    voted_output => output
+  );
 
 
 XBAR_insta : entity work.XBAR
@@ -70,6 +75,7 @@ XBAR_instb : entity work.XBAR
 		sel      => sel,
 		Data_out => bData_out
 	);
+
 
 
 end architecture BEHAVIOR;

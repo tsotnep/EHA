@@ -40,11 +40,6 @@ architecture BEHAVIOR of dmr_ARBITER is
 	signal aXbar_sel, bXbar_sel : std_logic_vector(4 downto 0);
 begin
 
-output <= input0 when fault_info = "00" else
-          input0 when fault_info = "01" else
-          input1 when fault_info = "10" else
-          input1 when fault_info = "11";
-
   input0 <=
   			aXbar_sel&
   			aGrant_N &
@@ -76,6 +71,17 @@ Xbar_sel   <= output(output'length-1 downto 6);
 
 
 
+
+voter_inst : entity work.voter
+  generic map(
+    DATA_WIDTH => output'length
+  )
+  port map(
+  fault_info => fault_info,
+    input0       => input0,
+    input1       => input1,
+    voted_output => output
+  );
 
 
 	Arbiter_inst_a : entity work.Arbiter

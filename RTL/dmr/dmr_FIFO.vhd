@@ -32,11 +32,6 @@ architecture BEHAVIOR of dmr_FIFO is
 
 begin
 
-output <= input0 when fault_info = "00" else
-          input0 when fault_info = "01" else
-          input1 when fault_info = "10" else
-          input1 when fault_info = "11";
-
   input0 <= aData_out & aCTS & aempty_out ;
   input1 <= aData_out & bCTS & bempty_out ;
 
@@ -48,6 +43,17 @@ output <= input0 when fault_info = "00" else
 
 
 
+
+voter_inst : entity work.voter
+  generic map(
+    DATA_WIDTH => output'length
+  )
+  port map(
+  fault_info => fault_info,
+    input0       => input0,
+    input1       => input1,
+    voted_output => output
+  );
 
 
 

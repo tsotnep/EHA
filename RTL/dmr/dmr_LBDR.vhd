@@ -39,11 +39,6 @@ architecture BEHAVIOR of dmr_LBDR is
 begin
 
 
-	output <= input0 when fault_info = "00" else
-	          input0 when fault_info = "01" else
-	          input1 when fault_info = "10" else
-	          input1 when fault_info = "11";
-
 	input0 <=
 		aReq_N &
 		aReq_E &
@@ -72,6 +67,17 @@ begin
 		Req_L<= output (0);
 
 
+
+voter_inst : entity work.voter
+  generic map(
+    DATA_WIDTH => output'length
+  )
+  port map(
+  fault_info => fault_info,
+    input0       => input0,
+    input1       => input1,
+    voted_output => output
+  );
 
 
 	LBDR_inst_a : entity work.LBDR
