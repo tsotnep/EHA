@@ -80,6 +80,14 @@ print >> out, "XXXXXXXXXXXXXXXXXXX"
 print >> out, "XXXXXXXXXXXXXXXXXXX"
 print >> out, "XXXXXXXXXXXXXXXXXXX"
 
+for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
+    with open("../reports_synopsys/dmr/REPORTS_dmr_voter_"+v+".txt") as f:
+        print >> out, "\n\nversion >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_voter_"+v
+        parseNeededInfo(f)
+print >> out, "XXXXXXXXXXXXXXXXXXX"
+print >> out, "XXXXXXXXXXXXXXXXXXX"
+print >> out, "XXXXXXXXXXXXXXXXXXX"
+
 print "Parsing is Done, results are in : ../reports_synopsys/parsed_reports.txt"
 
 

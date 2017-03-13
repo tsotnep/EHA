@@ -73,7 +73,14 @@ print >> out, ""
 print >> out, ""
 
 
-print "Parsing is Done, results are in : ../reports_synopsys/parsed_reports.txt"
+for v in ["ARBITER", "FIFO", "LBDR", "XBAR"]:
+    with open("../reports_synopsys/dmr/REPORTS_dmr_voter_"+v+".txt") as f:
+        parseNeededInfo(f)
+print >> out, ""
+print >> out, ""
+
+
+print "Parsing is Done, results are in : ../reports_synopsys/parsed_reports_short.txt"
 
 
 f.close()
