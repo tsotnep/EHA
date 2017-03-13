@@ -6,7 +6,7 @@ elaborate voter -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH 
 
 compile
 
-uplevel #0 { report_area } > ../reports_synopsys/tmr/REPORTS_tmr_vvoter_LBDR.txt
+uplevel #0 { report_area } > ../reports_synopsys/tmr/REPORTS_tmr_voter_LBDR.txt
 
 uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/tmr/REPORTS_tmr_voter_LBDR.txt
 
