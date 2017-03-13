@@ -72,7 +72,7 @@ Xbar_sel   <= output(output'length-1 downto 6);
 
 
 
-voter_inst : entity work.voter
+voter_inst : entity work.dmr_voter
   generic map(
     DATA_WIDTH => output'length
   )
