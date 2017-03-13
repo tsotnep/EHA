@@ -26,14 +26,14 @@ Total area:                     288160.996547
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v4
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
-Total area:                       6345.066824
-  Critical Path Length:          0.00
+Total area:                     426220.211488
+  Critical Path Length:          3.24
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v5
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
-Total area:                       6574.511499
-  Critical Path Length:          0.00
+Total area:                     287176.410863
+  Critical Path Length:          3.29
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
@@ -174,15 +174,46 @@ XXXXXXXXXXXXXXXXXXX
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_ARBITER
+Design : dmr_ARBITER
+Total area:                       3677.451461
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_FIFO
+Design : dmr_FIFO_DATA_WIDTH32
+Total area:                      41710.979280
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_LBDR
+Design : dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4
+Total area:                       1471.920799
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_XBAR
+Design : dmr_XBAR_DATA_WIDTH32
+Total area:                      10355.273774
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_voter_ARBITER
+Design : voter_DATA_WIDTH11
+Total area:                        782.104363
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_voter_FIFO
+Design : voter_DATA_WIDTH34
+Total area:                       2417.413486
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_voter_LBDR
+Design : voter_DATA_WIDTH5
+Total area:                        355.501983
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_voter_XBAR
+Design : voter_DATA_WIDTH32
+Total area:                       2275.212692
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX

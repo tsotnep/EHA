@@ -7,9 +7,9 @@ Total area:                     238068.635686
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Total area:                     288160.996547
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
-Total area:                       6345.066824
+Total area:                     426220.211488
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
-Total area:                       6574.511499
+Total area:                     287176.410863
 
 
 Design : Arbiter
@@ -84,5 +84,23 @@ Design : voter_DATA_WIDTH32
 Total area:                       2275.212692
 
 
+Design : dmr_ARBITER
+Total area:                       3677.451461
+Design : dmr_FIFO_DATA_WIDTH32
+Total area:                      41710.979280
+Design : dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4
+Total area:                       1471.920799
+Design : dmr_XBAR_DATA_WIDTH32
+Total area:                      10355.273774
+
+
+Design : voter_DATA_WIDTH11
+Total area:                        782.104363
+Design : voter_DATA_WIDTH34
+Total area:                       2417.413486
+Design : voter_DATA_WIDTH5
+Total area:                        355.501983
+Design : voter_DATA_WIDTH32
+Total area:                       2275.212692
 
 
