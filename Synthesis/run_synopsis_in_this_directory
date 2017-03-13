@@ -1,0 +1,5 @@
+cad
+cad
+3.1a) Synopsys 2015 EDA version w/ AMS HITKIT 4.11 0.18um designkit
+ams_syn
+design_vision -no_gui -f ../scripts/do_all_tcl_scripts.tcl > ../reports_synopsys/FULL_REPORT.txt

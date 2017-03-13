@@ -53,5 +53,9 @@ source -continue_on_error -verbose -echo ../scripts/dmr/dmr_ARBITER.tcl
 source -continue_on_error -verbose -echo ../scripts/dmr/dmr_FIFO.tcl
 source -continue_on_error -verbose -echo ../scripts/dmr/dmr_LBDR.tcl
 source -continue_on_error -verbose -echo ../scripts/dmr/dmr_XBAR.tcl
+source -continue_on_error -verbose -echo ../scripts/dmr/dmr_voter_ARBITER.tcl
+source -continue_on_error -verbose -echo ../scripts/dmr/dmr_voter_FIFO.tcl
+source -continue_on_error -verbose -echo ../scripts/dmr/dmr_voter_LBDR.tcl
+source -continue_on_error -verbose -echo ../scripts/dmr/dmr_voter_XBAR.tcl
 
 exit
