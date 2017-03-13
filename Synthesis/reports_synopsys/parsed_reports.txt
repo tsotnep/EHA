@@ -26,14 +26,14 @@ Total area:                     288160.996547
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v4
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
-Total area:                     426220.211488
-  Critical Path Length:          3.24
+Total area:                       6345.066824
+  Critical Path Length:          0.00
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v5
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
-Total area:                     279270.640516
-  Critical Path Length:          3.24
+Total area:                       6574.511499
+  Critical Path Length:          0.00
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
@@ -174,23 +174,15 @@ XXXXXXXXXXXXXXXXXXX
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_ARBITER
-Design : dmr_ARBITER
-Total area:                       3677.451461
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_FIFO
-Design : dmr_FIFO_DATA_WIDTH32
-Total area:                      40275.260575
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_LBDR
-Design : dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4
-Total area:                       1327.361698
 
 
 version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> dmr REPORTS_XBAR
-Design : dmr_XBAR_DATA_WIDTH32
-Total area:                      10355.273774
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
