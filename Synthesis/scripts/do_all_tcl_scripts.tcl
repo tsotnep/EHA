@@ -2,7 +2,7 @@
     # cd EHA/Synthesis/Synopsis
     # cad, cad, 3.1a
     # design_vision -no_gui -f ../scripts/do_all_tcl_scripts.tcl
-    # design_vision -no_gui -f ../scripts/do_all_tcl_scripts.tcl > ../reports_synopsys/FULL_REPORT.txt
+    # rm -f ../reports_synopsys/FULL_REPORT.txt && design_vision -no_gui -f ../scripts/do_all_tcl_scripts.tcl > ../reports_synopsys/FULL_REPORT.txt
 
 
 file mkdir ../reports_synopsys/fc/WARNINGS
