@@ -2,6 +2,7 @@ remove_design -designs
 analyze -library WORK -format vhdl {
 ../../RTL/XBAR.vhd
 ../../RTL/dmr/dmr_XBAR.vhd
+../../RTL/dmr/dmr_voter.vhd
 }
 
 elaborate dmr_XBAR -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"

@@ -1,7 +1,8 @@
 remove_design -designs
 analyze -library WORK -format vhdl {
 ../../RTL/FIFO.vhd
-../../RTL/dmr/dmr_FIFO.vhd}
+../../RTL/dmr/dmr_FIFO.vhd
+../../RTL/dmr/dmr_voter.vhd}
 
 elaborate dmr_FIFO -architecture BEHAVIOR -library DEFAULT -parameters "DATA_WIDTH = 32"
 

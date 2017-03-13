@@ -2,6 +2,7 @@ remove_design -designs
 analyze -library WORK -format vhdl {
 ../../RTL/LBDR.vhd
 ../../RTL/dmr/dmr_LBDR.vhd
+../../RTL/dmr/dmr_voter.vhd
 }
 
 elaborate dmr_LBDR -architecture BEHAVIOR -library DEFAULT -parameters "cur_addr_rst = 0, Rxy_rst = 60, Cx_rst = 10, NoC_size = 4"

@@ -2,6 +2,7 @@ remove_design -designs
 analyze -library WORK -format vhdl {
 ../../RTL/ARBITER.vhd
 ../../RTL/dmr/dmr_ARBITER.vhd
+../../RTL/dmr/dmr_voter.vhd
 }
 
 elaborate dmr_ARBITER -architecture BEHAVIOR -library DEFAULT
