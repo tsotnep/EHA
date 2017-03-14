@@ -2,7 +2,7 @@ remove_design -designs
 analyze -library WORK -format vhdl {
 ../../RTL/MUX/MUX_2x1_XBAR_output.vhd
 }
-elaborate MUX_2x1_XBAR_output -architecture RTL -library DEFAULT
+elaborate MUX_2x1_XBAR_output -architecture RTL -library DEFAULT -parameters "DATA_WIDTH = 32"
 compile
 check_design > ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
 uplevel #0 { report_area } > ../reports_synopsys/mux/area_XBAR.txt
@@ -14,7 +14,7 @@ remove_design -designs
 analyze -library WORK -format vhdl {
 ../../RTL/MUX/MUX_5x1_XBAR_input.vhd
 }
-elaborate MUX_5x1_XBAR_input -architecture RTL -library DEFAULT
+elaborate MUX_5x1_XBAR_input -architecture RTL -library DEFAULT -parameters "DATA_WIDTH = 32"
 compile
 check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
 uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt
@@ -26,7 +26,7 @@ remove_design -designs
 analyze -library WORK -format vhdl {
 ../../RTL/MUX/MUX_6x1_XBAR_output.vhd
 }
-elaborate MUX_6x1_XBAR_output -architecture RTL -library DEFAULT
+elaborate MUX_6x1_XBAR_output -architecture RTL -library DEFAULT -parameters "DATA_WIDTH = 32"
 compile
 check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
 uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt
@@ -38,7 +38,7 @@ remove_design -designs
 analyze -library WORK -format vhdl {
 ../../RTL/MUX/MUX_5x1_XBAR_output.vhd
 }
-elaborate MUX_5x1_XBAR_output -architecture RTL -library DEFAULT
+elaborate MUX_5x1_XBAR_output -architecture RTL -library DEFAULT -parameters "DATA_WIDTH = 32"
 compile
 check_design >> ../reports_synopsys/mux/WARNINGS/WARNINGS_MUX_XBAR.txt
 uplevel #0 { report_area } >> ../reports_synopsys/mux/area_XBAR.txt

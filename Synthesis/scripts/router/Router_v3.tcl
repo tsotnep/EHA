@@ -22,6 +22,7 @@ create_clock -name "clk" -period 20 -waveform { 0 10  }  { clk  }
 compile
 
 uplevel #0 { report_area } > ../reports_synopsys/router/REPORTS_v3.txt
+uplevel #0 { report_area -hierarchy } > ../reports_synopsys/router/REPORTS_v3_detailed.txt
 
 uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group } >> ../reports_synopsys/router/REPORTS_v3.txt
 report_qor >> ../reports_synopsys/router/REPORTS_v3.txt
