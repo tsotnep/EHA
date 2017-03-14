@@ -1,0 +1,83 @@
+ 
+****************************************
+Report : area
+Design : dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:34:02 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                           17
+Number of nets:                            24
+Number of cells:                            4
+Number of combinational cells:              1
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          0
+Number of references:                       4
+
+Combinational area:                508.032017
+Buf/Inv area:                       50.803202
+Noncombinational area:             426.182396
+Macro/Black Box area:                0.000000
+Net Interconnect area:             537.706386
+
+Total cell area:                   934.214413
+Total area:                       1471.920799
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:34:02 2017
+****************************************
+
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
+
+  Startpoint: LBDR_inst_a/Req_L_FF_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: LBDR_inst_a/Req_L_FF_reg
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4
+                     c18_wl_30k            c18_CORELIB_TYP
+  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0
+                     c18_wl_30k            c18_CORELIB_TYP
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  LBDR_inst_a/Req_L_FF_reg/CP (DFCX1)      0.00       0.00 r
+  LBDR_inst_a/Req_L_FF_reg/Q (DFCX1)       0.28       0.28 f
+  LBDR_inst_a/U7/Q (AO22X3)                0.18       0.46 f
+  LBDR_inst_a/Req_L_FF_reg/D (DFCX1)       0.00       0.46 f
+  data arrival time                                   0.46
+
+  clock clk (rise edge)                   20.00      20.00
+  clock network delay (ideal)              0.00      20.00
+  LBDR_inst_a/Req_L_FF_reg/CP (DFCX1)      0.00      20.00 r
+  library setup time                      -0.12      19.88
+  data required time                                 19.88
+  -----------------------------------------------------------
+  data required time                                 19.88
+  data arrival time                                  -0.46
+  -----------------------------------------------------------
+  slack (MET)                                        19.42
+
+
+1

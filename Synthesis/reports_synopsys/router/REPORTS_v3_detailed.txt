@@ -1,0 +1,113 @@
+ 
+****************************************
+Report : area
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:33:13 2017
+****************************************
+
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                          366
+Number of nets:                          1564
+Number of cells:                          105
+Number of combinational cells:             36
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         35
+Number of references:                      71
+
+Combinational area:             114493.479605
+Buf/Inv area:                    11566.195581
+Noncombinational area:           59891.327286
+Macro/Black Box area:                0.000000
+Net Interconnect area:          113776.189657
+
+Total cell area:                174384.806890
+Total area:                     288160.996547
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  --------------------  ------------------------------- 
+Hierarchical cell                 Absolute     Percent  Combi-       Noncombi-   Black-
+                                  Total        Total    national     national    boxes   Design
+--------------------------------  -----------  -------  -----------  ----------  ------  -------------------------------------------------
+router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+                                  174384.8069    100.0     409.2480      0.0000  0.0000  router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Arbiter_E                            863.6544      0.5     603.9936    259.6608  0.0000  Arbiter_5
+Arbiter_L                            863.6544      0.5     603.9936    259.6608  0.0000  Arbiter_2
+Arbiter_N                            860.8320      0.5     601.1712    259.6608  0.0000  Arbiter_0
+Arbiter_R                            863.6544      0.5     603.9936    259.6608  0.0000  Arbiter_1
+Arbiter_S                            860.8320      0.5     601.1712    259.6608  0.0000  Arbiter_3
+Arbiter_W                            863.6544      0.5     603.9936    259.6608  0.0000  Arbiter_4
+FIFO_E                             14315.2128      8.2    5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_5
+FIFO_L                             14315.2128      8.2    5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_2
+FIFO_N                             14315.2128      8.2    5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_0
+FIFO_R                             14315.2128      8.2    5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_1
+FIFO_S                             14315.2128      8.2    5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_3
+FIFO_W                             14315.2128      8.2    5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_4
+Fault_Control_v3_inst               7702.3295      4.4    2339.7697   5362.5599  0.0000  Fault_Control_v3
+LBDR_E                               375.3792      0.2     180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_5
+LBDR_L                               375.3792      0.2     180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2
+LBDR_N                               375.3792      0.2     180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0
+LBDR_R                               375.3792      0.2     180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1
+LBDR_S                               375.3792      0.2     180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3
+LBDR_W                               375.3792      0.2     180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4
+MUX_5x1_Arbiter_input_E              386.6688      0.2     386.6688      0.0000  0.0000  MUX_5x1_Arbiter_input_DATA_WIDTH32_5
+MUX_5x1_Arbiter_input_L              386.6688      0.2     386.6688      0.0000  0.0000  MUX_5x1_Arbiter_input_DATA_WIDTH32_2
+MUX_5x1_Arbiter_input_N              386.6688      0.2     386.6688      0.0000  0.0000  MUX_5x1_Arbiter_input_DATA_WIDTH32_0
+MUX_5x1_Arbiter_input_R              386.6688      0.2     386.6688      0.0000  0.0000  MUX_5x1_Arbiter_input_DATA_WIDTH32_1
+MUX_5x1_Arbiter_input_S              386.6688      0.2     386.6688      0.0000  0.0000  MUX_5x1_Arbiter_input_DATA_WIDTH32_3
+MUX_5x1_Arbiter_input_W              386.6688      0.2     386.6688      0.0000  0.0000  MUX_5x1_Arbiter_input_DATA_WIDTH32_4
+MUX_5x1_FIFO_input_E                2531.6928      1.5    2531.6928      0.0000  0.0000  MUX_5x1_FIFO_input_DATA_WIDTH32_5
+MUX_5x1_FIFO_input_L                2514.7584      1.4    2514.7584      0.0000  0.0000  MUX_5x1_FIFO_input_DATA_WIDTH32_2
+MUX_5x1_FIFO_input_N                2531.6928      1.5    2531.6928      0.0000  0.0000  MUX_5x1_FIFO_input_DATA_WIDTH32_0
+MUX_5x1_FIFO_input_R                2514.7584      1.4    2514.7584      0.0000  0.0000  MUX_5x1_FIFO_input_DATA_WIDTH32_1
+MUX_5x1_FIFO_input_S                2514.7584      1.4    2514.7584      0.0000  0.0000  MUX_5x1_FIFO_input_DATA_WIDTH32_3
+MUX_5x1_FIFO_input_W                2514.7584      1.4    2514.7584      0.0000  0.0000  MUX_5x1_FIFO_input_DATA_WIDTH32_4
+MUX_5x1_LBDR_input_E                 581.4144      0.3     581.4144      0.0000  0.0000  MUX_5x1_LBDR_input_5
+MUX_5x1_LBDR_input_L                 581.4144      0.3     581.4144      0.0000  0.0000  MUX_5x1_LBDR_input_2
+MUX_5x1_LBDR_input_N                 581.4144      0.3     581.4144      0.0000  0.0000  MUX_5x1_LBDR_input_0
+MUX_5x1_LBDR_input_R                 581.4144      0.3     581.4144      0.0000  0.0000  MUX_5x1_LBDR_input_1
+MUX_5x1_LBDR_input_S                 581.4144      0.3     581.4144      0.0000  0.0000  MUX_5x1_LBDR_input_3
+MUX_5x1_LBDR_input_W                 581.4144      0.3     581.4144      0.0000  0.0000  MUX_5x1_LBDR_input_4
+MUX_5x1_XBAR_input_E                 395.1360      0.2     395.1360      0.0000  0.0000  MUX_5x1_XBAR_input_DATA_WIDTH32_5
+MUX_5x1_XBAR_input_L                 395.1360      0.2     395.1360      0.0000  0.0000  MUX_5x1_XBAR_input_DATA_WIDTH32_2
+MUX_5x1_XBAR_input_N                 395.1360      0.2     395.1360      0.0000  0.0000  MUX_5x1_XBAR_input_DATA_WIDTH32_0
+MUX_5x1_XBAR_input_R                 395.1360      0.2     395.1360      0.0000  0.0000  MUX_5x1_XBAR_input_DATA_WIDTH32_1
+MUX_5x1_XBAR_input_S                 395.1360      0.2     395.1360      0.0000  0.0000  MUX_5x1_XBAR_input_DATA_WIDTH32_3
+MUX_5x1_XBAR_input_W                 395.1360      0.2     395.1360      0.0000  0.0000  MUX_5x1_XBAR_input_DATA_WIDTH32_4
+MUX_6x1_Arbiter_output_E            1007.5968      0.6    1007.5968      0.0000  0.0000  MUX_6x1_Arbiter_output_DATA_WIDTH32_4
+MUX_6x1_Arbiter_output_L            1007.5968      0.6    1007.5968      0.0000  0.0000  MUX_6x1_Arbiter_output_DATA_WIDTH32_1
+MUX_6x1_Arbiter_output_N            1007.5968      0.6    1007.5968      0.0000  0.0000  MUX_6x1_Arbiter_output_DATA_WIDTH32_0
+MUX_6x1_Arbiter_output_S            1007.5968      0.6    1007.5968      0.0000  0.0000  MUX_6x1_Arbiter_output_DATA_WIDTH32_2
+MUX_6x1_Arbiter_output_W            1007.5968      0.6    1007.5968      0.0000  0.0000  MUX_6x1_Arbiter_output_DATA_WIDTH32_3
+MUX_6x1_FIFO_output_E               2895.7824      1.7    2895.7824      0.0000  0.0000  MUX_6x1_FIFO_output_DATA_WIDTH32_4
+MUX_6x1_FIFO_output_L               2895.7824      1.7    2895.7824      0.0000  0.0000  MUX_6x1_FIFO_output_DATA_WIDTH32_1
+MUX_6x1_FIFO_output_N               2895.7824      1.7    2895.7824      0.0000  0.0000  MUX_6x1_FIFO_output_DATA_WIDTH32_0
+MUX_6x1_FIFO_output_S               2895.7824      1.7    2895.7824      0.0000  0.0000  MUX_6x1_FIFO_output_DATA_WIDTH32_2
+MUX_6x1_FIFO_output_W               2895.7824      1.7    2895.7824      0.0000  0.0000  MUX_6x1_FIFO_output_DATA_WIDTH32_3
+MUX_6x1_LBDR_output_E                482.6304      0.3     482.6304      0.0000  0.0000  MUX_6x1_LBDR_output_DATA_WIDTH32_4
+MUX_6x1_LBDR_output_L                482.6304      0.3     482.6304      0.0000  0.0000  MUX_6x1_LBDR_output_DATA_WIDTH32_1
+MUX_6x1_LBDR_output_N                482.6304      0.3     482.6304      0.0000  0.0000  MUX_6x1_LBDR_output_DATA_WIDTH32_0
+MUX_6x1_LBDR_output_S                482.6304      0.3     482.6304      0.0000  0.0000  MUX_6x1_LBDR_output_DATA_WIDTH32_2
+MUX_6x1_LBDR_output_W                482.6304      0.3     482.6304      0.0000  0.0000  MUX_6x1_LBDR_output_DATA_WIDTH32_3
+MUX_6x1_XBAR_output_E               2743.3728      1.6    2743.3728      0.0000  0.0000  MUX_6x1_XBAR_output_DATA_WIDTH32_4
+MUX_6x1_XBAR_output_L               2743.3728      1.6    2743.3728      0.0000  0.0000  MUX_6x1_XBAR_output_DATA_WIDTH32_1
+MUX_6x1_XBAR_output_N               2743.3728      1.6    2743.3728      0.0000  0.0000  MUX_6x1_XBAR_output_DATA_WIDTH32_0
+MUX_6x1_XBAR_output_S               2743.3728      1.6    2743.3728      0.0000  0.0000  MUX_6x1_XBAR_output_DATA_WIDTH32_2
+MUX_6x1_XBAR_output_W               2743.3728      1.6    2743.3728      0.0000  0.0000  MUX_6x1_XBAR_output_DATA_WIDTH32_3
+XBAR_E                              2334.1248      1.3    2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_5
+XBAR_L                              2334.1248      1.3    2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_2
+XBAR_N                              2334.1248      1.3    2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_0
+XBAR_R                              2334.1248      1.3    2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_1
+XBAR_S                              2334.1248      1.3    2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_3
+XBAR_W                              2334.1248      1.3    2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_4
+--------------------------------  -----------  -------  -----------  ----------  ------  -------------------------------------------------
+Total                                                   114493.4796  59891.3273  0.0000
+
+1

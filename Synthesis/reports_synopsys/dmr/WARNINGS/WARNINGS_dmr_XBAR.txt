@@ -1,0 +1,19 @@
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Tue Mar 14 12:34:04 2017
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      1
+    Unloaded inputs (LINT-8)                                        1
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'dmr_XBAR_DATA_WIDTH32', net 'voter_inst/fault_info[0]' driven by pin 'voter_inst/fault_info[0]' has no loads. (LINT-2)
+Warning: In design 'dmr_voter_DATA_WIDTH32', input port 'fault_info[0]' is unloaded. (LINT-8)
+1

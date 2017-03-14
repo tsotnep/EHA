@@ -1,0 +1,124 @@
+ 
+****************************************
+Report : area
+Design : MUX_2x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:32:11 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                           36
+Number of nets:                            41
+Number of cells:                           16
+Number of combinational cells:             16
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          1
+Number of references:                       6
+
+Combinational area:                310.464010
+Buf/Inv area:                        5.644800
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:             333.517414
+
+Total cell area:                   310.464010
+Total area:                        643.981424
+1
+ 
+****************************************
+Report : area
+Design : MUX_5x1_Arbiter_input
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:32:12 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                           39
+Number of nets:                            49
+Number of cells:                           21
+Number of combinational cells:             21
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          2
+Number of references:                       8
+
+Combinational area:                386.668806
+Buf/Inv area:                       11.289600
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:             417.885904
+
+Total cell area:                   386.668806
+Total area:                        804.554710
+1
+ 
+****************************************
+Report : area
+Design : MUX_6x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:32:14 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                           80
+Number of nets:                           132
+Number of cells:                           63
+Number of combinational cells:             63
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          2
+Number of references:                       6
+
+Combinational area:                939.859200
+Buf/Inv area:                       11.289600
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:            1077.830325
+
+Total cell area:                   939.859200
+Total area:                       2017.689524
+1
+ 
+****************************************
+Report : area
+Design : MUX_5x1_Arbiter_output
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:32:15 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                           69
+Number of nets:                           109
+Number of cells:                           51
+Number of combinational cells:             51
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          2
+Number of references:                       6
+
+Combinational area:                767.692804
+Buf/Inv area:                       11.289600
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:             890.318069
+
+Total cell area:                   767.692804
+Total area:                       1658.010873
+1

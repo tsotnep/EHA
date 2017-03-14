@@ -1,0 +1,85 @@
+ 
+****************************************
+Report : area
+Design : tmr_XBAR_DATA_WIDTH32
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:33:51 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                          197
+Number of nets:                           293
+Number of cells:                            4
+Number of combinational cells:              0
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          0
+Number of references:                       4
+
+Combinational area:               7603.545665
+Buf/Inv area:                      643.507221
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:            7737.971355
+
+Total cell area:                  7603.545665
+Total area:                      15341.517020
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : tmr_XBAR_DATA_WIDTH32
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:33:51 2017
+****************************************
+
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
+
+  Startpoint: sel[1] (input port)
+  Endpoint: Data_out[31]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  tmr_XBAR_DATA_WIDTH32
+                     c18_wl_30k            c18_CORELIB_TYP
+  XBAR_DATA_WIDTH32_0
+                     c18_wl_30k            c18_CORELIB_TYP
+  voter_DATA_WIDTH32 c18_wl_30k            c18_CORELIB_TYP
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  input external delay                                    0.00       0.00 f
+  sel[1] (in)                                             0.00       0.00 f
+  XBAR_insta/sel[1] (XBAR_DATA_WIDTH32_0)                 0.00       0.00 f
+  XBAR_insta/U145/Q (NOR2XL)                              0.47       0.47 r
+  XBAR_insta/U144/Q (INVXL)                               0.21       0.68 f
+  XBAR_insta/U142/Q (NOR3X1)                              0.51       1.19 r
+  XBAR_insta/U136/Q (INVXL)                               0.14       1.33 f
+  XBAR_insta/U135/Q (OAI311X1)                            0.23       1.56 r
+  XBAR_insta/U2/Q (NAND2X3)                               0.49       2.04 f
+  XBAR_insta/U35/Q (AOI22X1)                              0.39       2.43 r
+  XBAR_insta/U33/Q (OAI211X1)                             0.21       2.64 f
+  XBAR_insta/Data_out[31] (XBAR_DATA_WIDTH32_0)           0.00       2.64 f
+  voter_inst/input0[31] (voter_DATA_WIDTH32)              0.00       2.64 f
+  voter_inst/U16/Q (OA21X1)                               0.25       2.89 f
+  voter_inst/U15/Q (AO21X1)                               0.21       3.09 f
+  voter_inst/voted_output[31] (voter_DATA_WIDTH32)        0.00       3.09 f
+  Data_out[31] (out)                                      0.00       3.09 f
+  data arrival time                                                  3.09
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

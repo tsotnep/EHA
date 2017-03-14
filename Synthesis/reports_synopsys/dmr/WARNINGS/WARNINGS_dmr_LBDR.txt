@@ -1,0 +1,36 @@
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Tue Mar 14 12:34:02 2017
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      7
+    Unloaded inputs (LINT-8)                                        1
+    Shorted outputs (LINT-31)                                       2
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                               1
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                                5
+    Unloaded nets (LINT-2)                                          5
+--------------------------------------------------------------------------------
+
+Warning: In design 'dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4', net 'input1[4]' driven by pin 'LBDR_inst_b/Req_N' has no loads. (LINT-2)
+Warning: In design 'dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4', net 'input1[2]' driven by pin 'LBDR_inst_b/Req_W' has no loads. (LINT-2)
+Warning: In design 'dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4', net 'input0[4]' driven by pin 'LBDR_inst_a/Req_N' has no loads. (LINT-2)
+Warning: In design 'dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4', net 'input0[2]' driven by pin 'LBDR_inst_a/Req_W' has no loads. (LINT-2)
+Warning: In design 'dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4', net 'voter_inst/fault_info[0]' driven by pin 'voter_inst/fault_info[0]' has no loads. (LINT-2)
+Warning: In design 'dmr_voter_DATA_WIDTH5', input port 'fault_info[0]' is unloaded. (LINT-8)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_N' is connected directly to output port 'Req_W'. (LINT-31)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_N' is connected directly to output port 'Req_W'. (LINT-31)
+Warning: In design 'dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4', the same net is connected to more than one pin on submodule 'voter_inst'. (LINT-33)
+   Net 'n1' is connected to pins 'input0[4]', 'input0[2]'', 'input1[4]', 'input1[2]'.
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+1

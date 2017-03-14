@@ -1,0 +1,31 @@
+ 
+****************************************
+Report : area
+Design : voter_DATA_WIDTH5
+Version: J-2014.09-SP2
+Date   : Mon Mar 13 11:49:56 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                           20
+Number of nets:                            25
+Number of cells:                           10
+Number of combinational cells:             10
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          0
+Number of references:                       2
+
+Combinational area:                169.344006
+Buf/Inv area:                        0.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:             186.157978
+
+Total cell area:                   169.344006
+Total area:                        355.501983
+1

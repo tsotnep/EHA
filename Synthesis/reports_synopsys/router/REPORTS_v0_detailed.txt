@@ -1,0 +1,64 @@
+ 
+****************************************
+Report : area
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:32:38 2017
+****************************************
+
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                          342
+Number of nets:                           565
+Number of cells:                           21
+Number of combinational cells:              1
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          0
+Number of references:                      21
+
+Combinational area:              44001.216798
+Buf/Inv area:                     4939.200163
+Noncombinational area:           45440.639496
+Macro/Black Box area:                0.000000
+Net Interconnect area:           44802.366903
+
+Total cell area:                 89441.856294
+Total area:                     134244.223197
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area            Local cell area
+                                  -------------------  ------------------------------ 
+Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
+                                  Total       Total    national    national    boxes   Design
+--------------------------------  ----------  -------  ----------  ----------  ------  -------------------------------------------------
+router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+                                  89441.8563    100.0     14.1120      0.0000  0.0000  router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Arbiter_E                           860.8320      1.0    601.1712    259.6608  0.0000  Arbiter_4
+Arbiter_L                           860.8320      1.0    601.1712    259.6608  0.0000  Arbiter_1
+Arbiter_N                           860.8320      1.0    601.1712    259.6608  0.0000  Arbiter_0
+Arbiter_S                           860.8320      1.0    601.1712    259.6608  0.0000  Arbiter_2
+Arbiter_W                           860.8320      1.0    601.1712    259.6608  0.0000  Arbiter_3
+FIFO_E                            14315.2128     16.0   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_4
+FIFO_L                            14315.2128     16.0   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_1
+FIFO_N                            14315.2128     16.0   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_0
+FIFO_S                            14315.2128     16.0   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_2
+FIFO_W                            14315.2128     16.0   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_3
+LBDR_E                              375.3792      0.4    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4
+LBDR_L                              375.3792      0.4    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1
+LBDR_N                              375.3792      0.4    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0
+LBDR_S                              375.3792      0.4    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2
+LBDR_W                              375.3792      0.4    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3
+XBAR_E                             2334.1248      2.6   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_4
+XBAR_L                             2334.1248      2.6   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_1
+XBAR_N                             2334.1248      2.6   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_0
+XBAR_S                             2334.1248      2.6   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_2
+XBAR_W                             2334.1248      2.6   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_3
+--------------------------------  ----------  -------  ----------  ----------  ------  -------------------------------------------------
+Total                                                  44001.2168  45440.6395  0.0000
+
+1

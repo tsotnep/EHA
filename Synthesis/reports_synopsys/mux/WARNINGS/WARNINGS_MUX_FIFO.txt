@@ -1,0 +1,22 @@
+1
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Tue Mar 14 12:32:18 2017
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      5
+    Unconnected ports (LINT-28)                                     5
+--------------------------------------------------------------------------------
+
+Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32', port 'Grant_NN' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32', port 'Grant_EE' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32', port 'Grant_WW' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32', port 'Grant_SS' is not connected to any nets. (LINT-28)
+Warning: In design 'MUX_5x1_FIFO_input_DATA_WIDTH32', port 'Grant_LL' is not connected to any nets. (LINT-28)
+1
+1
+1

@@ -1,0 +1,69 @@
+ 
+****************************************
+Report : area
+Design : voter_DATA_WIDTH11
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:34:05 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                           44
+Number of nets:                            55
+Number of cells:                           22
+Number of combinational cells:             22
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          0
+Number of references:                       2
+
+Combinational area:                372.556812
+Buf/Inv area:                        0.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:             409.547551
+
+Total cell area:                   372.556812
+Total area:                        782.104363
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : voter_DATA_WIDTH11
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:34:05 2017
+****************************************
+
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
+
+  Startpoint: input1[10] (input port)
+  Endpoint: voted_output[10]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  voter_DATA_WIDTH11 c18_wl_30k            c18_CORELIB_TYP
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  input1[10] (in)                          0.00       0.00 f
+  U42/Q (OA21X1)                           0.17       0.17 f
+  U41/Q (AO21X1)                           0.20       0.37 f
+  voted_output[10] (out)                   0.00       0.37 f
+  data arrival time                                   0.37
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

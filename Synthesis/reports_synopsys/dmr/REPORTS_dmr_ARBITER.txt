@@ -1,0 +1,88 @@
+ 
+****************************************
+Report : area
+Design : dmr_ARBITER
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:33:58 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                           21
+Number of nets:                            43
+Number of cells:                            3
+Number of combinational cells:              0
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          0
+Number of references:                       3
+
+Combinational area:               1473.292839
+Buf/Inv area:                      143.942405
+Noncombinational area:             556.012794
+Macro/Black Box area:                0.000000
+Net Interconnect area:            1648.145828
+
+Total cell area:                  2029.305634
+Total area:                       3677.451461
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : dmr_ARBITER
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:33:58 2017
+****************************************
+
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
+
+  Startpoint: Arbiter_inst_a/state_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: Arbiter_inst_a/state_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dmr_ARBITER        c18_wl_30k            c18_CORELIB_TYP
+  Arbiter_0          c18_wl_30k            c18_CORELIB_TYP
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  Arbiter_inst_a/state_reg[1]/CP (DFCX1)                  0.00       0.00 r
+  Arbiter_inst_a/state_reg[1]/Q (DFCX1)                   0.38       0.38 f
+  Arbiter_inst_a/U49/Q (NOR2XL)                           0.93       1.31 r
+  Arbiter_inst_a/U48/Q (NOR2XL)                           0.35       1.66 f
+  Arbiter_inst_a/U25/Q (AOI221X1)                         0.58       2.24 r
+  Arbiter_inst_a/U23/Q (AOI21X1)                          0.13       2.37 f
+  Arbiter_inst_a/U21/Q (OAI21X1)                          0.28       2.66 r
+  Arbiter_inst_a/U19/Q (AOI21X1)                          0.11       2.76 f
+  Arbiter_inst_a/U17/Q (AOI311X1)                         0.42       3.18 r
+  Arbiter_inst_a/U16/Q (OAI221X1)                         0.18       3.35 f
+  Arbiter_inst_a/state_reg[0]/D (DFCX1)                   0.00       3.35 f
+  data arrival time                                                  3.35
+
+  clock clk (rise edge)                                  20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  Arbiter_inst_a/state_reg[0]/CP (DFCX1)                  0.00      20.00 r
+  library setup time                                     -0.16      19.84
+  data required time                                                19.84
+  --------------------------------------------------------------------------
+  data required time                                                19.84
+  data arrival time                                                 -3.35
+  --------------------------------------------------------------------------
+  slack (MET)                                                       16.49
+
+
+1

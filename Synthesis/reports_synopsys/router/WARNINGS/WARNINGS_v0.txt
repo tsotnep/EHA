@@ -1,0 +1,37 @@
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Tue Mar 14 12:32:38 2017
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     15
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                     10
+
+Cells                                                               2
+    Nets connected to multiple pins on same cell (LINT-33)          2
+--------------------------------------------------------------------------------
+
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_N' is connected directly to output port 'Req_W'. (LINT-31)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_N' is connected directly to output port 'Req_W'. (LINT-31)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2', output port 'Req_N' is connected directly to output port 'Req_W'. (LINT-31)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3', output port 'Req_N' is connected directly to output port 'Req_W'. (LINT-31)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4', output port 'Req_N' is connected directly to output port 'Req_W'. (LINT-31)
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', the same net is connected to more than one pin on submodule 'Arbiter_N'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'Req_N', 'Req_E'', 'Req_W', 'Req_S', 'Req_L'.
+Warning: In design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4', the same net is connected to more than one pin on submodule 'Arbiter_W'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'Req_N', 'Req_E'', 'Req_W', 'Req_S', 'Req_L'.
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4', output port 'Req_N' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4', output port 'Req_W' is connected directly to 'logic 0'. (LINT-52)
+1

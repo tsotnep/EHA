@@ -1,0 +1,124 @@
+ 
+****************************************
+Report : area
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:33:42 2017
+****************************************
+
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                          382
+Number of nets:                           613
+Number of cells:                           21
+Number of combinational cells:              1
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          0
+Number of references:                      21
+
+Combinational area:              98685.217948
+Buf/Inv area:                    10965.024362
+Noncombinational area:           91620.747795
+Macro/Black Box area:                0.000000
+Net Interconnect area:           96870.445120
+
+Total cell area:                190305.965743
+Total area:                     287176.410863
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area             Local cell area
+                                  --------------------  ------------------------------ 
+Hierarchical cell                 Absolute     Percent  Combi-      Noncombi-   Black-
+                                  Total        Total    national    national    boxes   Design
+--------------------------------  -----------  -------  ----------  ----------  ------  -----------------------------------------------------
+router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+                                  190305.9657    100.0     14.1120      0.0000  0.0000  router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Arbiter_E                           2040.5952      1.1     11.2896      0.0000  0.0000  dmr_ARBITER_4
+Arbiter_E/Arbiter_inst_a             860.8320      0.5    601.1712    259.6608  0.0000  Arbiter_8
+Arbiter_E/Arbiter_inst_b             860.8320      0.5    601.1712    259.6608  0.0000  Arbiter_7
+Arbiter_E/voter_inst                 307.6416      0.2    270.9504     36.6912  0.0000  dmr_voter_DATA_WIDTH11_4
+Arbiter_L                           2040.5952      1.1     11.2896      0.0000  0.0000  dmr_ARBITER_1
+Arbiter_L/Arbiter_inst_a             860.8320      0.5    601.1712    259.6608  0.0000  Arbiter_2
+Arbiter_L/Arbiter_inst_b             860.8320      0.5    601.1712    259.6608  0.0000  Arbiter_1
+Arbiter_L/voter_inst                 307.6416      0.2    270.9504     36.6912  0.0000  dmr_voter_DATA_WIDTH11_1
+Arbiter_N                           2040.5952      1.1     11.2896      0.0000  0.0000  dmr_ARBITER_0
+Arbiter_N/Arbiter_inst_a             860.8320      0.5    601.1712    259.6608  0.0000  Arbiter_0
+Arbiter_N/Arbiter_inst_b             860.8320      0.5    601.1712    259.6608  0.0000  Arbiter_9
+Arbiter_N/voter_inst                 307.6416      0.2    270.9504     36.6912  0.0000  dmr_voter_DATA_WIDTH11_0
+Arbiter_S                           2040.5952      1.1     11.2896      0.0000  0.0000  dmr_ARBITER_2
+Arbiter_S/Arbiter_inst_a             860.8320      0.5    601.1712    259.6608  0.0000  Arbiter_4
+Arbiter_S/Arbiter_inst_b             860.8320      0.5    601.1712    259.6608  0.0000  Arbiter_3
+Arbiter_S/voter_inst                 307.6416      0.2    270.9504     36.6912  0.0000  dmr_voter_DATA_WIDTH11_2
+Arbiter_W                           2040.5952      1.1     11.2896      0.0000  0.0000  dmr_ARBITER_3
+Arbiter_W/Arbiter_inst_a             860.8320      0.5    601.1712    259.6608  0.0000  Arbiter_6
+Arbiter_W/Arbiter_inst_b             860.8320      0.5    601.1712    259.6608  0.0000  Arbiter_5
+Arbiter_W/voter_inst                 307.6416      0.2    270.9504     36.6912  0.0000  dmr_voter_DATA_WIDTH11_3
+FIFO_E                             29544.8833     15.5     11.2896      0.0000  0.0000  dmr_FIFO_DATA_WIDTH32_4
+FIFO_E/FIFO_inst_a                 14315.2128      7.5   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_8
+FIFO_E/FIFO_inst_b                 14315.2128      7.5   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_7
+FIFO_E/voter_inst                    903.1680      0.5    866.4768     36.6912  0.0000  dmr_voter_DATA_WIDTH34_4
+FIFO_L                             29547.7057     15.5     11.2896      0.0000  0.0000  dmr_FIFO_DATA_WIDTH32_1
+FIFO_L/FIFO_inst_a                 14315.2128      7.5   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_2
+FIFO_L/FIFO_inst_b                 14315.2128      7.5   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_1
+FIFO_L/voter_inst                    905.9904      0.5    866.4768     39.5136  0.0000  dmr_voter_DATA_WIDTH34_1
+FIFO_N                             29544.8833     15.5     11.2896      0.0000  0.0000  dmr_FIFO_DATA_WIDTH32_0
+FIFO_N/FIFO_inst_a                 14315.2128      7.5   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_0
+FIFO_N/FIFO_inst_b                 14315.2128      7.5   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_9
+FIFO_N/voter_inst                    903.1680      0.5    866.4768     36.6912  0.0000  dmr_voter_DATA_WIDTH34_0
+FIFO_S                             29544.8833     15.5     11.2896      0.0000  0.0000  dmr_FIFO_DATA_WIDTH32_2
+FIFO_S/FIFO_inst_a                 14315.2128      7.5   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_4
+FIFO_S/FIFO_inst_b                 14315.2128      7.5   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_3
+FIFO_S/voter_inst                    903.1680      0.5    866.4768     36.6912  0.0000  dmr_voter_DATA_WIDTH34_2
+FIFO_W                             29547.7057     15.5     11.2896      0.0000  0.0000  dmr_FIFO_DATA_WIDTH32_3
+FIFO_W/FIFO_inst_a                 14315.2128      7.5   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_6
+FIFO_W/FIFO_inst_b                 14315.2128      7.5   5681.4913   8633.7215  0.0000  FIFO_DATA_WIDTH32_5
+FIFO_W/voter_inst                    905.9904      0.5    866.4768     39.5136  0.0000  dmr_voter_DATA_WIDTH34_3
+LBDR_E                               945.5040      0.5     25.4016      0.0000  0.0000  dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4
+LBDR_E/LBDR_inst_a                   375.3792      0.2    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_8
+LBDR_E/LBDR_inst_b                   375.3792      0.2    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_7
+LBDR_E/voter_inst                    169.3440      0.1    132.6528     36.6912  0.0000  dmr_voter_DATA_WIDTH5_4
+LBDR_L                               945.5040      0.5     25.4016      0.0000  0.0000  dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1
+LBDR_L/LBDR_inst_a                   375.3792      0.2    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2
+LBDR_L/LBDR_inst_b                   375.3792      0.2    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_1
+LBDR_L/voter_inst                    169.3440      0.1    132.6528     36.6912  0.0000  dmr_voter_DATA_WIDTH5_1
+LBDR_N                               945.5040      0.5     25.4016      0.0000  0.0000  dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0
+LBDR_N/LBDR_inst_a                   375.3792      0.2    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0
+LBDR_N/LBDR_inst_b                   375.3792      0.2    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_9
+LBDR_N/voter_inst                    169.3440      0.1    132.6528     36.6912  0.0000  dmr_voter_DATA_WIDTH5_0
+LBDR_S                               945.5040      0.5     25.4016      0.0000  0.0000  dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_2
+LBDR_S/LBDR_inst_a                   375.3792      0.2    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_4
+LBDR_S/LBDR_inst_b                   375.3792      0.2    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3
+LBDR_S/voter_inst                    169.3440      0.1    132.6528     36.6912  0.0000  dmr_voter_DATA_WIDTH5_2
+LBDR_W                               945.5040      0.5     25.4016      0.0000  0.0000  dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_3
+LBDR_W/LBDR_inst_a                   375.3792      0.2    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_6
+LBDR_W/LBDR_inst_b                   375.3792      0.2    180.6336    194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_5
+LBDR_W/voter_inst                    169.3440      0.1    132.6528     36.6912  0.0000  dmr_voter_DATA_WIDTH5_3
+XBAR_E                              5526.2593      2.9      0.0000      0.0000  0.0000  dmr_XBAR_DATA_WIDTH32_4
+XBAR_E/XBAR_insta                   2334.1248      1.2   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_8
+XBAR_E/XBAR_instb                   2334.1248      1.2   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_7
+XBAR_E/voter_inst                    858.0096      0.5    821.3184     36.6912  0.0000  dmr_voter_DATA_WIDTH32_4
+XBAR_L                              5526.2593      2.9      0.0000      0.0000  0.0000  dmr_XBAR_DATA_WIDTH32_1
+XBAR_L/XBAR_insta                   2334.1248      1.2   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_2
+XBAR_L/XBAR_instb                   2334.1248      1.2   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_1
+XBAR_L/voter_inst                    858.0096      0.5    821.3184     36.6912  0.0000  dmr_voter_DATA_WIDTH32_1
+XBAR_N                              5526.2593      2.9      0.0000      0.0000  0.0000  dmr_XBAR_DATA_WIDTH32_0
+XBAR_N/XBAR_insta                   2334.1248      1.2   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_0
+XBAR_N/XBAR_instb                   2334.1248      1.2   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_9
+XBAR_N/voter_inst                    858.0096      0.5    821.3184     36.6912  0.0000  dmr_voter_DATA_WIDTH32_0
+XBAR_S                              5526.2593      2.9      0.0000      0.0000  0.0000  dmr_XBAR_DATA_WIDTH32_2
+XBAR_S/XBAR_insta                   2334.1248      1.2   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_4
+XBAR_S/XBAR_instb                   2334.1248      1.2   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_3
+XBAR_S/voter_inst                    858.0096      0.5    821.3184     36.6912  0.0000  dmr_voter_DATA_WIDTH32_2
+XBAR_W                              5526.2593      2.9      0.0000      0.0000  0.0000  dmr_XBAR_DATA_WIDTH32_3
+XBAR_W/XBAR_insta                   2334.1248      1.2   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_6
+XBAR_W/XBAR_instb                   2334.1248      1.2   2334.1248      0.0000  0.0000  XBAR_DATA_WIDTH32_5
+XBAR_W/voter_inst                    858.0096      0.5    821.3184     36.6912  0.0000  dmr_voter_DATA_WIDTH32_3
+--------------------------------  -----------  -------  ----------  ----------  ------  -----------------------------------------------------
+Total                                                   98685.2179  91620.7478  0.0000
+
+1

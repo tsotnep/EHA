@@ -1,0 +1,194 @@
+ 
+****************************************
+Report : area
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:33:42 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                          382
+Number of nets:                           613
+Number of cells:                           21
+Number of combinational cells:              1
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          0
+Number of references:                      21
+
+Combinational area:              98685.217948
+Buf/Inv area:                    10965.024362
+Noncombinational area:           91620.747795
+Macro/Black Box area:                0.000000
+Net Interconnect area:           96870.445120
+
+Total cell area:                190305.965743
+Total area:                     287176.410863
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:33:42 2017
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
+
+  Startpoint: FIFO_N/FIFO_inst_a/read_pointer_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: LBDR_N/LBDR_inst_a/Req_L_FF_reg
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+                     c18_wl_30k            c18_CORELIB_TYP
+  FIFO_DATA_WIDTH32_0
+                     c18_wl_30k            c18_CORELIB_TYP
+  dmr_FIFO_DATA_WIDTH32_0
+                     c18_wl_30k            c18_CORELIB_TYP
+  dmr_voter_DATA_WIDTH34_0
+                     c18_wl_30k            c18_CORELIB_TYP
+  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0
+                     c18_wl_30k            c18_CORELIB_TYP
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  FIFO_N/FIFO_inst_a/read_pointer_reg[1]/CP (DFCX1)       0.00 #     0.00 r
+  FIFO_N/FIFO_inst_a/read_pointer_reg[1]/Q (DFCX1)        0.26       0.26 f
+  FIFO_N/FIFO_inst_a/U57/Q (CLKBUFX2)                     0.17       0.42 f
+  FIFO_N/FIFO_inst_a/U31/Q (CLKBUFX2)                     0.40       0.83 f
+  FIFO_N/FIFO_inst_a/U232/Q (MUX4X2)                      0.41       1.23 r
+  FIFO_N/FIFO_inst_a/Data_out[31] (FIFO_DATA_WIDTH32_0)
+                                                          0.00       1.23 r
+  FIFO_N/voter_inst/input1[33] (dmr_voter_DATA_WIDTH34_0)
+                                                          0.00       1.23 r
+  FIFO_N/voter_inst/U11/Q (AO22X3)                        0.13       1.36 r
+  FIFO_N/voter_inst/voted_output_reg[33]/Q (LHX1)         1.12       2.49 r
+  FIFO_N/voter_inst/voted_output[33] (dmr_voter_DATA_WIDTH34_0)
+                                                          0.00       2.49 r
+  FIFO_N/Data_out[31] (dmr_FIFO_DATA_WIDTH32_0)           0.00       2.49 r
+  LBDR_N/flit_type[2] (dmr_LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0)
+                                                          0.00       2.49 r
+  LBDR_N/LBDR_inst_a/flit_type[2] (LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size4_0)
+                                                          0.00       2.49 r
+  LBDR_N/LBDR_inst_a/U7/Q (NOR3X3)                        0.00       2.49 f
+  LBDR_N/LBDR_inst_a/U4/Q (INVXL)                         0.36       2.85 r
+  LBDR_N/LBDR_inst_a/U3/Q (NOR2XL)                        0.21       3.06 f
+  LBDR_N/LBDR_inst_a/U14/Q (AO22X3)                       0.24       3.29 f
+  LBDR_N/LBDR_inst_a/Req_L_FF_reg/D (DFCX1)               0.00       3.29 f
+  data arrival time                                                  3.29
+
+  clock clk (rise edge)                                  20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  LBDR_N/LBDR_inst_a/Req_L_FF_reg/CP (DFCX1)              0.00      20.00 r
+  library setup time                                     -0.12      19.88
+  data required time                                                19.88
+  --------------------------------------------------------------------------
+  data required time                                                19.88
+  data arrival time                                                 -3.29
+  --------------------------------------------------------------------------
+  slack (MET)                                                       16.59
+
+
+1
+ 
+****************************************
+Report : qor
+Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Tue Mar 14 12:33:42 2017
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:               8.00
+  Critical Path Length:          3.29
+  Critical Path Slack:          16.59
+  Critical Path Clk Period:     20.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         80
+  Hierarchical Port Count:       5885
+  Leaf Cell Count:               6481
+  Buf/Inv Cell Count:            1295
+  Buf Cell Count:                 625
+  Inv Cell Count:                 670
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      5061
+  Sequential Cell Count:         1420
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    98685.217948
+  Noncombinational Area: 91620.747795
+  Buf/Inv Area:          10965.024362
+  Total Buffer Area:          7056.00
+  Total Inverter Area:        3909.02
+  Macro/Black Box Area:      0.000000
+  Net Area:              96870.445120
+  -----------------------------------
+  Cell Area:            190305.965743
+  Design Area:          287176.410863
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          6763
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: viineripirukas
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    1.13
+  Logic Optimization:                  1.38
+  Mapping Optimization:                5.84
+  -----------------------------------------
+  Overall Compile Time:               10.78
+  Overall Compile Wall Clock Time:    11.00
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1
