@@ -1,11 +1,5 @@
 .DS_Store
 Synthesis/Synopsys/
-Synthesis/reports_synopsys/dmr
-Synthesis/reports_synopsys/fc
-Synthesis/reports_synopsys/mux
-Synthesis/reports_synopsys/router
-Synthesis/reports_synopsys/tmr
-Synthesis/reports_synopsys/units
 .synopsys*
 *.svf
 *.log
