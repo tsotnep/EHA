@@ -5,7 +5,6 @@ use ieee.std_logic_1164.all;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
-use IEEE.MATH_REAL.ALL;
 
 entity voter is
     generic (
