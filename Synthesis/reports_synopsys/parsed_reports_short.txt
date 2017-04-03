@@ -10,6 +10,8 @@ Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Total area:                     426220.211488
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Total area:                     287176.410863
+Design : stmr_router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Total area:                     411897.345575
 
 
 Design : Arbiter

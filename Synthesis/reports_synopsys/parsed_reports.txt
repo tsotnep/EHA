@@ -34,6 +34,12 @@ version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v5
 Design : router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
 Total area:                     287176.410863
   Critical Path Length:          3.29
+
+
+version >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ROUTER REPORTS_v6
+Design : stmr_router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Total area:                     411897.345575
+  Critical Path Length:          3.24
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXX

@@ -1,0 +1,179 @@
+ 
+****************************************
+Report : area
+Design : stmr_router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Mon Apr  3 17:02:08 2017
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'stmr_router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                          342
+Number of nets:                           513
+Number of cells:                           73
+Number of combinational cells:             69
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         34
+Number of references:                       7
+
+Combinational area:             138300.424969
+Buf/Inv area:                    15009.523695
+Noncombinational area:          136321.918488
+Macro/Black Box area:                0.000000
+Net Interconnect area:          137275.002119
+
+Total cell area:                274622.343456
+Total area:                     411897.345575
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : stmr_router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Mon Apr  3 17:02:09 2017
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: c18_CORELIB_TYP
+Wire Load Model Mode: enclosed
+
+  Startpoint: R_a/FIFO_E/read_pointer_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: R_a/FIFO_E/FIFO_Mem_reg[0][0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  stmr_router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+                     c18_wl_30k            c18_CORELIB_TYP
+  FIFO_DATA_WIDTH32_14
+                     c18_wl_30k            c18_CORELIB_TYP
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  R_a/FIFO_E/read_pointer_reg[1]/CP (DFCX1)               0.00 #     0.00 r
+  R_a/FIFO_E/read_pointer_reg[1]/Q (DFCX1)                0.26       0.26 f
+  R_a/FIFO_E/U199/Q (CLKBUFX2)                            0.17       0.42 f
+  R_a/FIFO_E/U149/Q (XNOR2X2)                             0.14       0.56 f
+  R_a/FIFO_E/U148/Q (XNOR2X2)                             0.13       0.69 f
+  R_a/FIFO_E/U58/Q (AOI21X3)                              0.10       0.80 r
+  R_a/FIFO_E/U11/Q (NAND2XL)                              0.30       1.10 f
+  R_a/FIFO_E/U59/Q (NOR2XL)                               0.70       1.80 r
+  R_a/FIFO_E/U61/Q (NAND2XL)                              0.22       2.01 f
+  R_a/FIFO_E/U34/Q (CLKBUFX2)                             0.47       2.48 f
+  R_a/FIFO_E/U25/Q (CLKINVX2)                             0.62       3.10 r
+  R_a/FIFO_E/U75/Q (AO22X3)                               0.14       3.24 r
+  R_a/FIFO_E/FIFO_Mem_reg[0][0]/D (DFCX1)                 0.00       3.24 r
+  data arrival time                                                  3.24
+
+  clock clk (rise edge)                                  20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  R_a/FIFO_E/FIFO_Mem_reg[0][0]/CP (DFCX1)                0.00      20.00 r
+  library setup time                                     -0.15      19.85
+  data required time                                                19.85
+  --------------------------------------------------------------------------
+  data required time                                                19.85
+  data arrival time                                                 -3.24
+  --------------------------------------------------------------------------
+  slack (MET)                                                       16.61
+
+
+1
+ 
+****************************************
+Report : qor
+Design : stmr_router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Mon Apr  3 17:02:09 2017
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:              10.00
+  Critical Path Length:          3.24
+  Critical Path Slack:          16.61
+  Critical Path Clk Period:     20.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         64
+  Hierarchical Port Count:       6251
+  Leaf Cell Count:               9262
+  Buf/Inv Cell Count:            1819
+  Buf Cell Count:                 810
+  Inv Cell Count:                1009
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      7162
+  Sequential Cell Count:         2100
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:   138300.424969
+  Noncombinational Area:
+                        136321.918488
+  Buf/Inv Area:          15009.523695
+  Total Buffer Area:          9144.58
+  Total Inverter Area:        5864.95
+  Macro/Black Box Area:      0.000000
+  Net Area:             137275.002119
+  -----------------------------------
+  Cell Area:            274622.343456
+  Design Area:          411897.345575
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          9539
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: viineripirukas
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    1.17
+  Logic Optimization:                  1.70
+  Mapping Optimization:                8.06
+  -----------------------------------------
+  Overall Compile Time:               13.83
+  Overall Compile Wall Clock Time:    14.69
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1

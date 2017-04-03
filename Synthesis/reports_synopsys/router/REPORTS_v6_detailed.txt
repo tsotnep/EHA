@@ -1,0 +1,108 @@
+ 
+****************************************
+Report : area
+Design : stmr_router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+Version: J-2014.09-SP2
+Date   : Mon Apr  3 17:02:09 2017
+****************************************
+
+Library(s) Used:
+
+    c18_CORELIB_TYP (File: /cad/dk/c/v4.11/synopsys/c18_1.8V/c18_CORELIB_TYP.db)
+
+Number of ports:                          342
+Number of nets:                           513
+Number of cells:                           73
+Number of combinational cells:             69
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         34
+Number of references:                       7
+
+Combinational area:             138300.424969
+Buf/Inv area:                    15009.523695
+Noncombinational area:          136321.918488
+Macro/Black Box area:                0.000000
+Net Interconnect area:          137275.002119
+
+Total cell area:                274622.343456
+Total area:                     411897.345575
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  --------------------  -------------------------------- 
+Hierarchical cell                 Absolute     Percent  Combi-       Noncombi-    Black-
+                                  Total        Total    national     national     boxes   Design
+--------------------------------  -----------  -------  -----------  -----------  ------  -------------------------------------------------------------------
+stmr_router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+                                  274622.3435    100.0     877.7664       0.0000  0.0000  stmr_router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size4
+R_a                                89328.9603     32.5      14.1120       0.0000  0.0000  router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size2_0
+R_a/Arbiter_E                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_14
+R_a/Arbiter_L                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_11
+R_a/Arbiter_N                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_0
+R_a/Arbiter_S                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_12
+R_a/Arbiter_W                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_13
+R_a/FIFO_E                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_14
+R_a/FIFO_L                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_11
+R_a/FIFO_N                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_0
+R_a/FIFO_S                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_12
+R_a/FIFO_W                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_13
+R_a/LBDR_E                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_14
+R_a/LBDR_L                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_11
+R_a/LBDR_N                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_0
+R_a/LBDR_S                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_12
+R_a/LBDR_W                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_13
+R_a/XBAR_E                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_14
+R_a/XBAR_L                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_11
+R_a/XBAR_N                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_0
+R_a/XBAR_S                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_12
+R_a/XBAR_W                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_13
+R_b                                89328.9603     32.5      14.1120       0.0000  0.0000  router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size2_2
+R_b/Arbiter_E                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_9
+R_b/Arbiter_L                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_6
+R_b/Arbiter_N                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_10
+R_b/Arbiter_S                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_7
+R_b/Arbiter_W                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_8
+R_b/FIFO_E                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_9
+R_b/FIFO_L                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_6
+R_b/FIFO_N                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_10
+R_b/FIFO_S                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_7
+R_b/FIFO_W                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_8
+R_b/LBDR_E                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_9
+R_b/LBDR_L                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_6
+R_b/LBDR_N                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_10
+R_b/LBDR_S                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_7
+R_b/LBDR_W                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_8
+R_b/XBAR_E                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_9
+R_b/XBAR_L                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_6
+R_b/XBAR_N                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_10
+R_b/XBAR_S                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_7
+R_b/XBAR_W                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_8
+R_c                                89328.9603     32.5      14.1120       0.0000  0.0000  router_DATA_WIDTH32_current_address0_Rxy_rst60_Cx_rst10_NoC_size2_1
+R_c/Arbiter_E                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_4
+R_c/Arbiter_L                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_1
+R_c/Arbiter_N                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_5
+R_c/Arbiter_S                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_2
+R_c/Arbiter_W                        860.8320      0.3     601.1712     259.6608  0.0000  Arbiter_3
+R_c/FIFO_E                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_4
+R_c/FIFO_L                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_1
+R_c/FIFO_N                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_5
+R_c/FIFO_S                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_2
+R_c/FIFO_W                         14315.2128      5.2    5681.4913    8633.7215  0.0000  FIFO_DATA_WIDTH32_3
+R_c/LBDR_E                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_4
+R_c/LBDR_L                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_1
+R_c/LBDR_N                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_5
+R_c/LBDR_S                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_2
+R_c/LBDR_W                           352.8000      0.1     158.0544     194.7456  0.0000  LBDR_cur_addr_rst0_Rxy_rst60_Cx_rst10_NoC_size2_3
+R_c/XBAR_E                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_4
+R_c/XBAR_L                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_1
+R_c/XBAR_N                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_5
+R_c/XBAR_S                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_2
+R_c/XBAR_W                          2334.1248      0.8    2334.1248       0.0000  0.0000  XBAR_DATA_WIDTH32_3
+voter_inst                          5757.6962      2.1    5757.6962       0.0000  0.0000  voter_DATA_WIDTH170
+--------------------------------  -----------  -------  -----------  -----------  ------  -------------------------------------------------------------------
+Total                                                   138300.4250  136321.9185  0.0000
+
+1
