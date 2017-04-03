@@ -37,6 +37,7 @@ source -continue_on_error -verbose -echo ../scripts/router/Router_v2.tcl
 source -continue_on_error -verbose -echo ../scripts/router/Router_v3.tcl
 source -continue_on_error -verbose -echo ../scripts/router/Router_v4.tcl
 source -continue_on_error -verbose -echo ../scripts/router/Router_v5.tcl
+source -continue_on_error -verbose -echo ../scripts/router/Router_v6.tcl
 
 echo ">>>>>TMR<<<<<"
 source -continue_on_error -verbose -echo ../scripts/tmr/tmr_ARBITER.tcl
